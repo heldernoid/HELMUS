@@ -87,7 +87,7 @@ class Net:
         self.book = {e["id"]: e for e in phrasebook}
         # an entry keyed to intents fits only when one of them fired: its intent sources (U: units other than topics
         # and message shapes) with a positive weight; a sum of incidental words never stands in for the question
-        generic = ("U:topic_", "U:question", "U:q_form", "U:understood", "U:strange")
+        generic = ("U:topic_", "U:theme_", "U:question", "U:q_form", "U:understood", "U:strange")
         self.gates = {eid: [src for src, w in k["links"] if w > 0 and src.startswith("U:") and not src.startswith(generic)]
                       for eid, k in self.keys.items()}
         self.persona = persona
@@ -283,16 +283,28 @@ class Net:
         for eid, k in self.keys.items():
             raw[eid] = k["bias"] + sum(w * A.get(src, 0.0) for src, w in k["links"])
             scores[eid] = raw[eid] - self.rates.get("repeat_penalty", 0.6) * used.get(eid, 0)
+        turn_no = state.get("turn", 0) + 1
+        ctx = {"calc": calc, "regs": regs, "now": now, "words": words, "history": state.get("history", [])}
+        said = set(state.get("said", []))
+        seed = state.get("seed", 0)
+
+        def pick(cands, key):
+            """the best candidate whose lines are not all said already; if every one is spent, the best"""
+            ranked = sorted(cands, key=key, reverse=True)
+            for e in ranked:
+                if any(self._fill(t, ctx) not in said for t in self.book[e]["texts"]):
+                    return e
+            return ranked[0]
+
         chosen = {}
         for head in HEADS:
             fit = [e for e in scores if self.book[e]["head"] == head and raw[e] > 0
                    and (not self.gates[e] or any(A.get(g, 0.0) > 0.5 for g in self.gates[e]))]
             if fit:
-                chosen[head] = max(fit, key=lambda e: (scores[e], -h(state.get("seed", 0), e)))
+                chosen[head] = pick(fit, lambda e: (scores[e], -h(seed, e)))
         if "answer" not in chosen and "react" not in chosen:   # nothing fits: the fallback entries
-            chosen["answer"] = max((e for e in scores if self.book[e]["head"] == "fallback"), key=lambda e: (scores[e], -h(state.get("seed", 0), e, used.get(e, 0))))
-        turn_no = state.get("turn", 0) + 1
-        ctx = {"calc": calc, "regs": regs, "now": now, "words": words, "history": state.get("history", [])}
+            chosen["answer"] = pick([e for e in scores if self.book[e]["head"] == "fallback"],
+                                    lambda e: (scores[e], -h(seed, e, used.get(e, 0))))
         parts = [self.render(chosen[hd], state, turn_no, ctx) for hd in ("react", "answer", "ask") if hd in chosen]
         reply = self.style(" ".join(p for p in parts if p), state.get("seed", 0), turn_no)
         new_used = dict(used)

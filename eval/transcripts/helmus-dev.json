@@ -1046,7 +1046,7 @@
   "turns": [
    {
     "user": "did u dream last night",
-    "bot": "i dont remember, i slept like a rock",
+    "bot": "yeah a dumb work one lol",
     "fallback": false,
     "chosen": {
      "answer": "bt.dream_last_night"
@@ -1054,7 +1054,7 @@
    },
    {
     "user": "whats the weirdest dream uve had",
-    "bot": "dreamed the store was a minecraft map and i couldnt find the exit u?",
+    "bot": "dreamed i was stocking shelves and the aisle never ended u?",
     "fallback": false,
     "chosen": {
      "answer": "fo.sleep_dream",
@@ -1918,10 +1918,10 @@
    },
    {
     "user": "What makes it your favourite?",
-    "bot": "idk theres too mnay",
+    "bot": "no idea honsetly",
     "fallback": false,
     "chosen": {
-     "answer": "an.fav"
+     "answer": "th.tech.question"
     }
    },
    {
@@ -1957,10 +1957,10 @@
    },
    {
     "user": "do u do these a lot",
-    "bot": "depedns i guess",
-    "fallback": true,
+    "bot": "i mean sometimes",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
@@ -2330,7 +2330,7 @@
    },
    {
     "user": "u suck at this game lol",
-    "bot": "ok rude this is like my third one",
+    "bot": "ok rude second time doing this lol",
     "fallback": false,
     "chosen": {
      "react": "re.insult",

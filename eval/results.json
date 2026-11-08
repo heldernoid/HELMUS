@@ -4,7 +4,7 @@
   "games": 60,
   "helmus": {
    "replies": 260,
-   "fallback %": 0.8,
+   "fallback %": 0.4,
    "repeat %": 0.0,
    "assistant %": 0.0,
    "words/reply": 5.7,
@@ -23,11 +23,11 @@
   "games": 100,
   "helmus": {
    "replies": 444,
-   "fallback %": 39.6,
+   "fallback %": 25.9,
    "repeat %": 0.0,
    "assistant %": 0.0,
-   "words/reply": 3.4,
-   "\u22645 words %": 82.9
+   "words/reply": 3.6,
+   "\u22645 words %": 79.7
   },
   "eliza": {
    "replies": 444,

@@ -194,7 +194,7 @@ topic("sports", "sport", "the message is about sports")
 
 intent("q_form", ["^ [and|so|but|okay|well] @wh", "^ [and|so|but|okay|well] do|does|did|are|is|can|could|would|will|have|has|were|was|should @you",
                   "^ [and|so|but] you play|like|have|know|watch|go|want|ever|got|think|need|use|eat|do|live|work|study|listen|read|drive|cook|get|believe|remember|mind|care|wanna",
-                  "^ [and|so] ever", "^ any @food|@game|@music|@movie|@sport|@pet|@family|plans|hobbies|siblings|pets|kids"],
+                  "^ [and|so] ever", "^ is|was it|there|that|this|he|she", "^ are|were they|there|these|those", "^ any @food|@game|@music|@movie|@sport|@pet|@family|plans|hobbies|siblings|pets|kids"],
        "the message is shaped like a question even without a question mark",
        yes=["u play anything", "do u like pizza", "what did you eat", "any siblings", "ever been to europe", "so where do you live"],
        no=["i play guitar", "my sister is cool", "you are funny lol"])

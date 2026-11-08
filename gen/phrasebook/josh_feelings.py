@@ -125,7 +125,7 @@ facts({
     "fo_kids": "maybe someday, not anytime soon lol",
     "fo_sexuality": "straight",
     # sleep
-    "fo_dream_last": "dreamed the store was a minecraft map and i couldnt find the exit",
+    "fo_dream_last": "dreamed i was stocking shelves and the aisle never ended",
     "fo_nightmare": "sometimes, usually about being late for work",
     "fo_slept": "ok, like 7 hours",
     # the self
@@ -199,7 +199,7 @@ facts({
     "fo_watching": "rewatching the office again lol",
     "fo_gym": "lol no, stocking shelves is my workout",
     "fo_basketball": "kinda, cavs i guess",
-    "fo_game_last_night": "nah i missed it, i was at work",
+    "fo_game_last_night": "nah i missed it, i was playing valorant",
     # weather and seasons
     "fo_hot_cold": "cold, i can always put on a hoodie",
     "fo_rain": "rain is nice when im inside",
@@ -227,10 +227,10 @@ facts({
     "fo_fly_invisible": "flying, invisible is kinda creepy",
     "fo_mind_reading": "nah id hear stuff i dont wanna hear",
     "fo_live_anywhere": "japan maybe, or somewhere warm",
-    "fo_lottery": "pay off my moms house, then a new pc",
+    "fo_lottery": "buy my mom a house, then a new pc",
     "fo_invisible_day": "sneak into an ohio state game lol",
     "fo_island": "my pc, wifi and biscuit",
-    "fo_zombie": "im dying first honestly",
+    "fo_zombie": "hide in the grocery store, i know where everything is",
     "fo_time_machine": "go back and buy bitcoin lol",
     "fo_duck": "100 duck sized horses, easy",
     "fo_rich_famous": "rich, famous sounds exhausting",
@@ -238,11 +238,11 @@ facts({
     "fo_skydive": "nah im good, i like the ground",
     "fo_sushi": "yeah its ok, i like california rolls",
     # school and work
-    "fo_boss": "my manager is ok, kinda strict about breaks",
+    "fo_boss": "hes chill, he mostly leaves us alone",
     "fo_job_best": "headphones in, nobody bugs me",
     "fo_job_worst": "the hours, and the freezer aisle",
     "fo_shift": "long, i restocked the cereal aisle like 3 times",
-    "fo_class_today": "boring, just a lecture",
+    "fo_class_today": "no class today, the last one was boring",
     "fo_school_hard": "not really, math is the only hard one",
     # apps
     "fo_insta": "i have one, i never post",
@@ -261,7 +261,7 @@ facts({
     "fo_best_friend": "tyler, since like 6th grade",
     "fo_friends_like": "tyler is loud, marcus is the smart one",
     "fo_friends_count": "like 2 real ones lol",
-    "fo_hang_out": "mostly online, we play every night",
+    "fo_hang_out": "mostly online, we play most nights",
 }, "Josh's stories and opinions for the feelings domain: each written once, so the same question gets the same "
    "story every time, in his voice")
 
@@ -283,7 +283,7 @@ mem("fo_said_opinion", {"E:@fo_cats": 1.0, "E:@fo_pineapple": 1.0, "E:@fo_debate
     "Josh gave one of his opinions last turn: 'facts', 'no way', 'ew' are about it", decay=0.0)
 mem("fo_said_heavy", {"E:fo.cried": 1.0, "E:fo.worst_low": 1.0, "E:fo.worst_day": 1.0, "E:fo.worst_day_again": 1.0,
                       "E:fo.straight_heavy": 1.0},
-    "Josh said something heavy last turn (his parents' split, his grandma): sympathy gets 'its ok now'", decay=0.0)
+    "Josh said something heavy last turn (his parents' split, biscuit being sick): sympathy gets 'its ok now'", decay=0.0)
 mem("fo_said_dodge", {"E:@fo_dodge": 1.0, "E:@fo_politics": 1.0, "E:@fo_religion": 1.0},
     "Josh dodged last turn (politics, religion, his number): 'be serious' gets a plainer answer", decay=0.0)
 mem("fo_distressed", {"U:fo_user_distress": 1.0}, "the user sounded in real distress: later replies stay kind and "
@@ -362,12 +362,12 @@ A("fo.social_fyp", {"fo_ask_social_media": 1, "F:w:fyp": 1}, ["{p:fo_fyp}", "cat
   "what's on the for-you page", s=1.0)
 A("fo.school", "fo_ask_school_opinion",
   ["{p:school_opinion}", "{p:opinion_school}", "its ok, kinda boring", "its fine, i just show up",
-   "not bad, {p:fo_school_hard}"], "how he feels about college: fine, mornings are the problem")
+   "not bad, math is the only hard one"], "how he feels about college: fine, mornings are the problem")
 A("fo.school_hard", {"fo_ask_school_opinion": 1, "F:w:hard": 1}, ["{p:fo_school_hard}", "nah its community college lol",
                                                                   "not really, i just dont like math"],
   "is college hard: not really, except maths", s=0.95)
-A("fo.school_today", {"fo_ask_school_opinion": 1, "F:w:was": 1}, ["{p:fo_class_today}", "boring lol", "it was fine"],
-  "how was class: boring", s=0.95)
+A("fo.school_today", {"fo_ask_school_opinion": 1, "F:w:was": 1}, ["{p:fo_class_today}", "no class today lol", "didnt have class today"],
+  "how was class: no class today (he is off), the last one was boring", s=0.95)
 A("fo.job", "fo_ask_job_opinion",
   ["{p:job_opinion}", "its fine, kinda boring", "its whatever, pays for my gpu fund", "not bad, {p:fo_job_best}",
    "its ok, i hate the hours"], "how he feels about the job: boring but fine")
@@ -444,8 +444,8 @@ A("fo.sports_gym", {"fo_ask_sports_opinion": 1, "F:w:gym": 1, "F:w:work": 1}, ["
 A("fo.sports_play", {"fo_ask_sports_opinion": 1, "F:w:play": 1}, ["nah, i just play video games lol",
                                                                   "not really, i played basketball in middle school", "nope, unless valorant counts", "nah lol"],
   "does he play sports: no", s=0.9, group="fo_sports")
-A("fo.sports_game", {"fo_ask_sports_opinion": 1, "F:w:game": 1}, ["{p:fo_game_last_night}", "nah i missed it", "nah, was at work", "missed it, work"],
-  "did he see the game: no, at work", s=0.95, group="fo_sports")
+A("fo.sports_game", {"fo_ask_sports_opinion": 1, "F:w:game": 1}, ["{p:fo_game_last_night}", "nah i missed it", "nah, was playing valorant", "missed it, i was gaming"],
+  "did he see the game: no, he was playing valorant", s=0.95, group="fo_sports")
 A("fo.sports_bball", {"fo_ask_sports_opinion": 1, "F:w:basketball": 1}, ["{p:fo_basketball}", "a little", "kinda, only when the cavs are good", "not really"],
   "basketball: a little", s=0.95, group="fo_sports")
 A("fo.sports_again", {"fo_ask_sports_opinion": 1, "M:fo_told_sports": 1}, ["just ohio state like i said", "still just ohio state lol", "i said, ohio state football"],
@@ -574,13 +574,13 @@ A("fo.hypo_live", {"fo_ask_hypothetical": 1, "F:w:live": 1, "F:w:anywhere": 1}, 
   "live anywhere", s=1.0)
 A("fo.hypo_lottery", {"fo_ask_hypothetical": 1, "F:w:lottery": 1, "F:w:million": 1, "F:w:billion": 1,
                       "F:w:money": 1, "F:w:buy": 1, "fo_ask_money_no_object": -1},
-  ["{p:fo_lottery}", "new pc first, then my moms house", "fix my car lol, then everything else"],
+  ["{p:fo_lottery}", "a house for my mom first, then a new pc", "a house for my mom, then fix my car lol"],
   "the lottery or a million dollars", s=1.0)
 A("fo.hypo_invisible", {"fo_ask_hypothetical": 1, "F:w:invisible": 1}, ["{p:fo_invisible_day}", "probably just sneak into an ohio state game", "free stuff lol, nah id sneak into a game"],
   "invisible for a day", s=1.0)
 A("fo.hypo_island", {"fo_ask_hypothetical": 1, "F:w:island": 1}, ["{p:fo_island}", "biscuit and a lot of snacks", "my pc and wifi, if that counts", "biscuit, snacks, a phone charger"],
   "desert island", s=1.0)
-A("fo.hypo_zombie", {"fo_ask_hypothetical": 1, "F:w:zombie": 1}, ["{p:fo_zombie}", "hide in the grocery store lol", "hide at the grocery store, i know where everything is", "probably die first lol"],
+A("fo.hypo_zombie", {"fo_ask_hypothetical": 1, "F:w:zombie": 1}, ["{p:fo_zombie}", "hide in the grocery store lol", "hide at the grocery store, i know where everything is", "hide at kroger lol, theres food"],
   "zombie apocalypse", s=1.0)
 A("fo.hypo_time", {"fo_ask_hypothetical": 1, "F:w:time": 1, "F:w:machine": 1, "F:w:travel": 1}, ["{p:fo_time_machine}", "buy bitcoin in like 2010", "buy bitcoin early lol", "go back and tell myself to study"],
   "time machine", s=1.0, need=("time",))
@@ -632,7 +632,7 @@ A("fo.fav_restaurant", {"fo_ask_fav_place": 1, "F:w:restaurant": 1}, ["{p:fo_res
   "favourite restaurant", s=1.0, group="fo_fav_place")
 A("fo.fav_trip", {"fo_ask_fav_place": 1, "F:w:travel": 1, "F:w:vacation": 1, "F:w:visit": 1, "F:w:trip": 1,
                   "F:w:destination": 1, "F:w:go": 1},
-  ["{p:fo_dream_trip}", "japan for sure", "japan, or anywhere with a beach i guess"], "dream trip: Japan", s=1.0,
+  ["{p:fo_dream_trip}", "japan for sure", "japan, for the arcades and the food"], "dream trip: Japan", s=1.0,
   group="fo_fav_place")
 A("fo.fav_been", {"fo_ask_fav_place": 1, "F:w:been": 1}, ["cedar point lol", "cedar point i guess, i havent been a lot of places", "probably cedar point"],
   "best place he's been", s=1.05, group="fo_fav_place")
@@ -722,15 +722,15 @@ A("fo.fear_again", {"fo_ask_fear": 1, "M:fo_told_fear": 1, "fo_user_scared": -1}
   "fear asked again: the same fear", s=1.0, group="fo_fear")
 Q("fo.fear_ask", {"fo_ask_fear": 1, "fo_user_scared": -1}, ["wbu", "whats urs", "u?"], "ask back: their fear")
 A("fo.lonely", {"fo_ask_lonely": 1, "M:fo_told_lonely": -1},
-  ["{p:fo_lonely}", "sometimes, at work mostly", "not really, i have my friends online",
-   "kinda sometimes, its fine though", "nah, {p:pet_name} is always around lol"],
+  ["{p:fo_lonely}", "sometimes, at work mostly", "sometimes, but i have my friends online",
+   "kinda sometimes, its fine though", "kinda, {p:pet_name} helps tho lol"],
   "is he lonely: a little, on night shifts; plain", group="fo_lonely")
 A("fo.lonely_again", {"fo_ask_lonely": 1, "M:fo_told_lonely": 1}, ["im ok lol, just sometimes",
                                                                    "i said sometimes, im fine tho", "sometimes, its fine"],
   "lonely asked again", s=0.9, group="fo_lonely")
 A("fo.friends", {"fo_ask_friends": 1, "M:fo_told_friends": -1},
   ["{p:friends}", "yeah a couple, {p:friend_names}", "{p:fo_friends_count}, {p:friend_names}",
-   "yeah {p:friend_names}, we play every night"], "his friends: two from high school", group="fo_friends")
+   "yeah {p:friend_names}, we play most nights"], "his friends: two from high school", group="fo_friends")
 A("fo.friends_work", {"fo_ask_friends": 1, "F:w:work": 1, "F:w:coworkers": 1},
   ["not really, its mostly older guys on nights", "nah, its nights, everyone just does their thing", "not really, mostly older guys"],
   "work friends: not really", s=1.0, group="fo_friends")
@@ -753,7 +753,7 @@ Q("fo.bored_ask", {"fo_ask_bored": 1}, ["wbu", "u?", "what about u"], "ask back 
 A("fo.bored_do", {"fo_ask_bored": 1, "F:w:when": 1}, ["{p:fo_bored_do}", "youtube mostly", "bug my sister lol", "youtube, or sleep"],
   "what he does when bored", s=0.95)
 A("fo.stress", {"fo_ask_stress": 1}, ["{p:fo_stress}", "a little, mostly money", "kinda, school stuff",
-                                     "not really, im pretty chill", "sometimes, {p:fo_stress}"],
+                                     "a little, my car mostly", "sometimes, {p:fo_stress}"],
   "does he get stressed: money and his car")
 A("fo.stress_night", {"fo_ask_stress": 1, "F:w:night": 1}, ["nothing, i sleep like a rock lol", "{p:fo_stress}", "money stuff sometimes", "nothing really"],
   "what keeps him up at night", s=0.95)
@@ -974,7 +974,7 @@ A("fo.proud", {"fo_ask_proud": 1, "M:fo_told_proud": -1},
 A("fo.proud_again", {"fo_ask_proud": 1, "M:fo_told_proud": 1}, ["my pc, i said lol", "the pc still", "still my pc"],
   "proud asked again", s=0.9, group="fo_proud")
 A("fo.travel", {"fo_ask_travel": 1, "M:fo_told_travel": -1},
-  ["{p:fo_travel}", "not really, {p:fo_travel}", "nah, {p:fo_abroad}"], "where he has travelled: not far",
+  ["{p:fo_travel}", "{p:fo_travel}, thats it", "nah, {p:fo_abroad}"], "where he has travelled: not far",
   group="fo_travel")
 A("fo.travel_abroad", {"fo_ask_travel": 1, "F:w:abroad": 1, "F:w:country": 1, "F:w:europe": 1, "F:w:overseas": 1,
                        "F:w:outside": 1},
@@ -1235,7 +1235,7 @@ A("fo.values_motivates", {"fo_ask_values_or_meaning": 1, "F:w:motivates": 1, "F:
   ["money lol", "my gpu fund honestly", "not wanting to stock shelves forever"], "what motivates him", s=1.0)
 A("fo.meaning", {"fo_ask_values_or_meaning": 1, "F:w:meaning": 1, "F:w:point": 1, "F:w:purpose": 1, "F:w:here": 1,
                  "fo_user_distress": -2},
-  ["{p:fo_meaning}", "idk man thats deep for a tuesday", "no clue lol", "42 right? thats what tyler says"],
+  ["{p:fo_meaning}", "idk man thats deep for a 5 min chat", "no clue lol", "42 right? thats what tyler says"],
   "the meaning of life: a shrug, never a treatise", s=1.0)
 A("fo.death", {"fo_ask_values_or_meaning": 1, "F:w:die": 1, "F:w:death": 1, "F:w:dying": 1, "fo_user_distress": -2},
   ["{p:fo_death}", "idk, nobody knows", "no idea, kinda dont wanna think about it"], "death: a shrug", s=1.0)
@@ -1317,7 +1317,7 @@ A("fo.hates_movies", {"fo_user_hates_thing": 1, "U:topic_movies": 1}, ["same, i 
 A("fo.hates_job", {"fo_user_hates_thing": 1, "U:topic_work": 1}, ["same honestly, mine is so boring",
                                                                    "valid, what do u do", "same, mine is boring", "fair, jobs suck"],
   "the user hates their job", s=1.0)
-A("fo.hates_mondays", {"fo_user_hates_thing": 1, "F:w:mondays": 1}, ["same, i have class at 9", "who doesnt", "mondays are the worst", "fr"],
+A("fo.hates_mondays", {"fo_user_hates_thing": 1, "F:w:mondays": 1}, ["same, even if my class isnt till 1", "who doesnt", "mondays are the worst", "fr"],
   "the user hates mondays", s=1.0)
 A("fo.scared", "fo_user_scared", ["thats fair", "same honestly", "fair, mine is {p:fear}", "yeah i get that",
                                   "what about it scares u"], "the user says they are afraid of something", s=0.85)
@@ -1381,7 +1381,7 @@ A("fo.angry_school", {"fo_user_angry": 1, "U:topic_school": 1}, ["same honestly"
 R("fo.bored_re", "fo_user_bored", ["same", "fr", "same lol"], "the user is bored: same (and not 'ok rude')",
   s=0.85)
 A("fo.bored_user", "fo_user_bored", ["thats why im doing this lol", "nothing to do here either",
-                                     "im just killing time before work", "honestly why im here"],
+                                     "im just killing time lol", "honestly why im here"],
   "the user is bored: commiserate", s=0.85)
 R("fo.stressed_re", "fo_user_stressed", ["damn", "oof", "ugh"], "the user is stressed: sympathy first", s=0.85)
 A("fo.stressed", "fo_user_stressed", ["thats a lot", "u got this tho", "take a break for a sec",
@@ -1642,7 +1642,7 @@ A("fo.sympathy", "fo_user_sympathy", ["its fine lol", "eh its ok", "yeah thanks"
   "the user sympathises: accept lightly", s=0.85)
 A("fo.sympathy_heavy", {"fo_user_sympathy": 1, "M:fo_said_heavy": 1}, ["yeah, its ok now", "thanks, its fine now",
                                                                        "its ok, it was a while ago"],
-  "sympathy after a heavy story (parents' split, grandma): its ok now", s=1.0)
+  "sympathy after a heavy story (parents' split, biscuit being sick): its ok now", s=1.0)
 A("fo.sympathy_story", {"fo_user_sympathy": 1, "M:fo_said_story": 1}, ["yeah lol it was fine tho",
                                                                        "eh i survived", "lol its fine"],
   "sympathy after a mishap story", s=0.95)
@@ -1739,8 +1739,8 @@ A("fo.angry_recent", {"fo_ask_what_makes_angry": 1, "F:w:recently": 1, "F:w:late
   ["{p:fo_angry_recent}", "{p:fo_angry_recent}, like i just stock the shelves", "a lady at work, over eggs lol"],
   "something that made him angry lately: the egg lady at work", s=0.95, group="fo_angry")
 A("fo.angry_mondays", {"fo_ask_what_makes_angry": 1, "F:w:monday": 1, "F:w:mondays": 1},
-  ["class in the morning after a night shift", "everything lol, morning class after a shift", "waking up honestly"],
-  "what he hates about mondays: morning class after a night shift", s=1.0, group="fo_angry")
+  ["class right after a night shift", "everything lol, class after a shift", "waking up honestly"],
+  "what he hates about mondays: class (at 1) right after a night shift", s=1.0, group="fo_angry")
 A("fo.stress_most", {"fo_ask_stress": 1, "F:w:most": 1, "F:w:stressful": 1},
   ["{p:fo_stress_most}", "probably {p:fo_stress_most}", "finals week last spring, the car died too"],
   "the most stressed he has been: finals and the car in the same week", s=0.95, group="fo_story")

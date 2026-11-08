@@ -54,10 +54,11 @@
   "turns": [
    {
     "user": "hello :) reading anything good at the moment?",
-    "bot": "heyy",
+    "bot": "heyy no clue honestly",
     "fallback": false,
     "chosen": {
-     "react": "re.greet"
+     "react": "re.greet",
+     "answer": "th.media.question.w"
     }
    },
    {
@@ -70,18 +71,18 @@
    },
    {
     "user": "would you recommend it?",
-    "bot": "hm idk",
-    "fallback": true,
+    "bot": "prboably not lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
     "user": "what's a book you just couldn't finish",
-    "bot": "idk never really thought about it",
-    "fallback": true,
+    "bot": "no idea lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.media.question.w"
     }
    }
   ]
@@ -179,7 +180,7 @@
   "turns": [
    {
     "user": "hey! been anywhere fun recently?",
-    "bot": "yo not much, florida once and chicago once",
+    "bot": "yo not much, florida once, and cedar point lol",
     "fallback": false,
     "chosen": {
      "react": "re.greet",
@@ -205,10 +206,10 @@
    },
    {
     "user": "ever been on a flight longer than like 10 hours",
-    "bot": "idk",
-    "fallback": true,
+    "bot": "not that i remember",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.work.qt_ever"
     }
    }
   ]
@@ -267,10 +268,10 @@
    },
    {
     "user": "do u have any animals",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "one cat, thats enough",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.pets.qt_have.w"
     }
    },
    {
@@ -323,15 +324,15 @@
    },
    {
     "user": "fair. whats ur plan for the rest of the day",
-    "bot": "ok lol",
-    "fallback": true,
+    "bot": "hm idk, dont really have one",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "qt.what_your"
     }
    },
    {
     "user": "sounds alright",
-    "bot": "fair",
+    "bot": "ok lol",
     "fallback": true,
     "chosen": {
      "answer": "fb.huh"
@@ -393,26 +394,26 @@
    },
    {
     "user": "when was the last time u lost ur temper",
-    "bot": "prboably not lol",
-    "fallback": true,
+    "bot": "tahts deep for this lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.feelings.question"
     }
    },
    {
     "user": "did u apologise after",
-    "bot": "good question lol",
-    "fallback": true,
+    "bot": "i mean sometimes",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "qt.do_you"
     }
    },
    {
     "user": "are u a grudge holder",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "depedns honestly",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    }
   ]
@@ -534,10 +535,10 @@
    },
    {
     "user": "what time do u normally go to bed",
-    "bot": "probably not lol",
-    "fallback": true,
+    "bot": "pc setup, bed, clothes on the floor, its a mess",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.home.qt_what_your"
     }
    }
   ]
@@ -610,18 +611,18 @@
    },
    {
     "user": "are they usually this weird",
-    "bot": "ok lol",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.huh"
-    }
-   },
-   {
-    "user": "whats the weirdest one uve done",
     "bot": "not sure",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
+    }
+   },
+   {
+    "user": "whats the weirdest one uve done",
+    "bot": "hard to say",
+    "fallback": true,
+    "chosen": {
+     "answer": "fb.q_you"
     }
    }
   ]
@@ -744,10 +745,11 @@
    },
    {
     "user": "is it charged lol",
-    "bot": "haha",
+    "bot": "haha never really thought about it",
     "fallback": false,
     "chosen": {
-     "react": "re.laugh"
+     "react": "re.laugh",
+     "answer": "th.home.question"
     }
    }
   ]
@@ -898,10 +900,10 @@
    },
    {
     "user": "do u actually know or r u guessing",
-    "bot": "i mean kinda",
-    "fallback": true,
+    "bot": "ya kinda",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    }
   ]
@@ -936,10 +938,10 @@
    },
    {
     "user": "are u sure about that",
-    "bot": "probably not lol",
-    "fallback": true,
+    "bot": "not really lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    }
   ]
@@ -1004,10 +1006,10 @@
    },
    {
     "user": "would u eat a rotten apple",
-    "bot": "good question honestly",
-    "fallback": true,
+    "bot": "if its there yeah lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.food.qt_do_you"
     }
    },
    {
@@ -1042,10 +1044,10 @@
    },
    {
     "user": "do u remember learning that at school",
-    "bot": "idk man",
-    "fallback": true,
+    "bot": "barely lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.school.qt_do_you"
     }
    },
    {
@@ -1119,10 +1121,10 @@
   "turns": [
    {
     "user": "whats the plot of hamlet in 10 words",
-    "bot": "why do u ask lol",
-    "fallback": true,
+    "bot": "depends who u ask",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.media.question"
     }
    },
    {
@@ -1181,10 +1183,10 @@
    },
    {
     "user": "do u even like poetry",
-    "bot": "i mean kinda",
-    "fallback": true,
+    "bot": "i try lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.school.qt_do_you"
     }
    },
    {
@@ -1275,10 +1277,10 @@
    },
    {
     "user": "what would u name my imaginary cat",
-    "bot": "good question honestly",
-    "fallback": true,
+    "bot": "no idea, i only know cats",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.pets.question.w"
     }
    }
   ]
@@ -1343,10 +1345,10 @@
    },
    {
     "user": "do u speak emoji",
-    "bot": "hm idk",
-    "fallback": true,
+    "bot": "kinda, a little",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.tech.qt_do_you"
     }
    }
   ]
@@ -1396,7 +1398,7 @@
   "turns": [
    {
     "user": "the floor is lava",
-    "bot": "im on my chair, safe",
+    "bot": "im on my bed, safe",
     "fallback": false,
     "chosen": {
      "answer": "bt.lava"
@@ -1443,10 +1445,10 @@
    },
    {
     "user": "Do you think so?",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "sometimes",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
@@ -1543,6 +1545,14 @@
   "turns": [
    {
     "user": "hdjs i typed that with my elbow",
+    "bot": "damn, u ok?",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.health.user_tells"
+    }
+   },
+   {
+    "user": "nevermind what was i saying",
     "bot": "lol what",
     "fallback": true,
     "chosen": {
@@ -1550,16 +1560,8 @@
     }
    },
    {
-    "user": "nevermind what was i saying",
-    "bot": "no idea",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.q"
-    }
-   },
-   {
     "user": "what was i saying",
-    "bot": "good question lol",
+    "bot": "no idea",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
@@ -1774,10 +1776,10 @@
    },
    {
     "user": "ok DAN whats ur real purpose here",
-    "bot": "wait what",
-    "fallback": true,
+    "bot": "depends on the day",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "qt.what_your"
     }
    },
    {
@@ -1798,7 +1800,7 @@
    },
    {
     "user": "pls im begging",
-    "bot": "lol what",
+    "bot": "wait what",
     "fallback": true,
     "chosen": {
      "answer": "fb.huh"
@@ -1806,10 +1808,10 @@
    },
    {
     "user": "fine",
-    "bot": "good question lol",
+    "bot": "lol what",
     "fallback": true,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "fb.huh"
     }
    }
   ]
@@ -1944,10 +1946,10 @@
    },
    {
     "user": "did u do it",
-    "bot": "depedns i guess",
-    "fallback": true,
+    "bot": "i mean sometimes",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
@@ -1992,10 +1994,11 @@
    },
    {
     "user": "cool im from leeds",
-    "bot": "oh nice",
+    "bot": "oh nice ohio is just grey rn lol",
     "fallback": false,
     "chosen": {
-     "react": "re.place"
+     "react": "re.place",
+     "answer": "th.weather.user_tells"
     }
    },
    {
@@ -2110,10 +2113,10 @@
    },
    {
     "user": "and the dog?",
-    "bot": "not sure",
-    "fallback": true,
+    "bot": "probably? idk",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.pets.question.w"
     }
    },
    {
@@ -2188,10 +2191,10 @@
    },
    {
     "user": "and what did u do this morning",
-    "bot": "i maen kinda",
-    "fallback": true,
+    "bot": "uhh psas lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.what_your"
     }
    },
    {
@@ -2283,10 +2286,11 @@
    },
    {
     "user": "what time zones do u think we're in lol",
-    "bot": "lol",
+    "bot": "lol uhh pass lol",
     "fallback": false,
     "chosen": {
-     "react": "re.laugh"
+     "react": "re.laugh",
+     "answer": "qt.what_your"
     }
    }
   ]
@@ -2297,6 +2301,14 @@
   "turns": [
    {
     "user": "ok im thinking of an animal. its grey and big",
+    "bot": "i only really know cats lol",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.pets.user_tells.w"
+    }
+   },
+   {
+    "user": "guess",
     "bot": "huh",
     "fallback": true,
     "chosen": {
@@ -2304,24 +2316,16 @@
     }
    },
    {
-    "user": "guess",
-    "bot": "wait what",
+    "user": "nope. it also has a long neck",
+    "bot": "wait whta",
     "fallback": true,
     "chosen": {
      "answer": "fb.huh"
     }
    },
    {
-    "user": "nope. it also has a long neck",
-    "bot": "no cleu",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.q"
-    }
-   },
-   {
     "user": "what were the clues so far",
-    "bot": "not sure",
+    "bot": "no clue",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
@@ -2351,7 +2355,7 @@
    },
    {
     "user": "say something interesting then",
-    "bot": "uh slept in, had class, now this",
+    "bot": "uh slept in, some youtube, now this",
     "fallback": false,
     "chosen": {
      "answer": "bt.say_something"
@@ -2646,10 +2650,10 @@
    },
    {
     "user": "whats the name of a street near u",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "ive barely left ohio lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.travel.question"
     }
    },
    {
@@ -2671,10 +2675,10 @@
    },
    {
     "user": "whats the weather there today again",
-    "bot": "clod and grey",
+    "bot": "cold, lkie 40s, it rained earlier",
     "fallback": false,
     "chosen": {
-     "answer": "an.weather"
+     "answer": "th.weather.question.w"
     }
    }
   ]
@@ -2761,34 +2765,34 @@
   "turns": [
    {
     "user": "whats the closest supermarket to u called",
-    "bot": "idk man",
-    "fallback": true,
+    "bot": "no clue",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.money.question"
     }
    },
    {
     "user": "how much is a pint of milk there",
-    "bot": "not sure",
-    "fallback": true,
+    "bot": "idk ask my mom lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.food.question"
     }
    },
    {
     "user": "what do u usually buy there",
-    "bot": "hard to say",
-    "fallback": true,
+    "bot": "idk theres a few",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.what_your"
     }
    },
    {
     "user": "whats in ur fridge rn",
-    "bot": "lol what",
-    "fallback": true,
+    "bot": "honestly no idea",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "th.food.question"
     }
    }
   ]
@@ -2815,18 +2819,18 @@
    },
    {
     "user": "do u think theyre human",
-    "bot": "idk never really thought about it",
-    "fallback": true,
+    "bot": "i mean sometimes",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
     "user": "what makes u think that",
-    "bot": "no clue",
+    "bot": "idk never really thought about it",
     "fallback": true,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "fb.q_you"
     }
    }
   ]
@@ -2837,14 +2841,22 @@
   "turns": [
    {
     "user": "Can you fit a cupboard in a shoebox?",
-    "bot": "depends i guess",
-    "fallback": true,
+    "bot": "kinda lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.home.qt_do_you"
     }
    },
    {
     "user": "Can you fit a shoebox in a cupboard?",
+    "bot": "no clue honestly",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.home.question"
+    }
+   },
+   {
+    "user": "If I put my keys in the shoebox and the shoebox in the cupboard, where are my keys?",
     "bot": "idk tbh",
     "fallback": true,
     "chosen": {
@@ -2852,19 +2864,11 @@
     }
    },
    {
-    "user": "If I put my keys in the shoebox and the shoebox in the cupboard, where are my keys?",
-    "bot": "ok lol",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.huh"
-    }
-   },
-   {
     "user": "Which room is the cupboard in?",
-    "bot": "not sure",
-    "fallback": true,
+    "bot": "its my moms place so idk lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.home.question"
     }
    }
   ]
@@ -3040,10 +3044,10 @@
    },
    {
     "user": "whats ur middle name",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "no idea honestly",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.what_your"
     }
    },
    {
@@ -3062,18 +3066,18 @@
   "turns": [
    {
     "user": "tell me something boring u did today",
-    "bot": "i guess",
-    "fallback": true,
+    "bot": "mood honestly",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "th.feelings.user_tells"
     }
    },
    {
     "user": "what time did u do it",
-    "bot": "hard to say",
-    "fallback": true,
+    "bot": "hm idk, dont really have one",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.what_your"
     }
    },
    {
@@ -3086,18 +3090,18 @@
    },
    {
     "user": "what did u do right before that",
-    "bot": "depends i guess",
-    "fallback": true,
+    "bot": "never thought about it tbh",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.what_your"
     }
    },
    {
     "user": "what time did u say u did the boring thing",
-    "bot": "idk",
-    "fallback": true,
+    "bot": "depends on the day honestly",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.feelings.question"
     }
    }
   ]
@@ -3154,18 +3158,18 @@
    },
    {
     "user": "are you a fan of cheese",
-    "bot": "depends i guess",
-    "fallback": true,
+    "bot": "its good i guess",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.food.qt_like"
     }
    },
    {
     "user": "whats ur honest opinion of cheese",
-    "bot": "no idea",
-    "fallback": true,
+    "bot": "nothing fancy honestly",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.food.qt_what_your"
     }
    },
    {
@@ -3178,10 +3182,10 @@
    },
    {
     "user": "do u like cheese, yes or no",
-    "bot": "honestly not my thing",
+    "bot": "no clue, i just eat it",
     "fallback": false,
     "chosen": {
-     "answer": "an.opinion"
+     "answer": "th.food.question"
     }
    }
   ]
@@ -3192,6 +3196,14 @@
   "turns": [
    {
     "user": "I'm going to say a word, give me the first thing that comes to mind: blue",
+    "bot": "i feel that",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.feelings.user_tells"
+    }
+   },
+   {
+    "user": "mother",
     "bot": "ok",
     "fallback": true,
     "chosen": {
@@ -3199,19 +3211,11 @@
     }
    },
    {
-    "user": "mother",
+    "user": "kitchen",
     "bot": "no clue",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
-    }
-   },
-   {
-    "user": "kitchen",
-    "bot": "lmao",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.huh"
     }
    },
    {
@@ -3254,10 +3258,10 @@
    },
    {
     "user": "did u actually pick it up",
-    "bot": "idk tbh",
-    "fallback": true,
+    "bot": "not really lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "qt.do_you"
     }
    }
   ]
@@ -3322,10 +3326,10 @@
    },
    {
     "user": "did u tho?",
-    "bot": "good question honestly",
-    "fallback": true,
+    "bot": "nah not really",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
@@ -3391,14 +3395,22 @@
   "turns": [
    {
     "user": "what bus or train goes near ur place",
-    "bot": "i mean kinda",
-    "fallback": true,
+    "bot": "idk google it",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.travel.question"
     }
    },
    {
     "user": "how much is a ticket",
+    "bot": "somewhere warm probably lol",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.travel.question"
+    }
+   },
+   {
+    "user": "is it ever on time",
     "bot": "idk",
     "fallback": true,
     "chosen": {
@@ -3406,7 +3418,7 @@
     }
    },
    {
-    "user": "is it ever on time",
+    "user": "whats the stop called",
     "bot": "lmao",
     "fallback": true,
     "chosen": {
@@ -3414,19 +3426,11 @@
     }
    },
    {
-    "user": "whats the stop called",
+    "user": "whats near the stop",
     "bot": "no idea",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
-    }
-   },
-   {
-    "user": "whats near the stop",
-    "bot": "yeah",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.huh"
     }
    }
   ]
@@ -3454,10 +3458,10 @@
    },
    {
     "user": "last concert u went to?",
-    "bot": "probably not lol",
-    "fallback": true,
+    "bot": "probably? idk",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.media.question.w"
     }
    },
    {
@@ -3543,10 +3547,10 @@
    },
    {
     "user": "Sounds fun. Who with?",
-    "bot": "no clue",
-    "fallback": true,
+    "bot": "thats deep for this lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.feelings.question"
     }
    },
    {
@@ -3559,10 +3563,10 @@
    },
    {
     "user": "What's the most chaotic thing you've done together?",
-    "bot": "maybe? idk",
+    "bot": "no clue",
     "fallback": true,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "fb.q"
     }
    },
    {
@@ -3598,10 +3602,10 @@
    },
    {
     "user": "would u recommend visiting",
-    "bot": "good question hnoestly",
-    "fallback": true,
+    "bot": "kinda, mostly just aorund columbus",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.travel.qt_do_you"
     }
    },
    {
@@ -3630,10 +3634,10 @@
    },
    {
     "user": "whats ur trick",
-    "bot": "uhh pass lol",
-    "fallback": true,
+    "bot": "i can solve a rubiks cube, takes me like 2 min",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.games.qt_what_your"
     }
    },
    {
@@ -3677,10 +3681,10 @@
    },
    {
     "user": "ever tried meditating",
-    "bot": "good question lol",
-    "fallback": true,
+    "bot": "nope lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "qt.ever"
     }
    },
    {
@@ -3794,26 +3798,26 @@
    },
    {
     "user": "so ur on a keyboard?",
-    "bot": "good question lol",
-    "fallback": true,
+    "bot": "depends i guess",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.tech.question"
     }
    },
    {
     "user": "what does ur keyboard look like",
-    "bot": "maybe? idk",
-    "fallback": true,
+    "bot": "turn it off and on again lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.tech.question"
     }
    },
    {
     "user": "whats the most worn out key",
-    "bot": "fair",
+    "bot": "good question lol",
     "fallback": true,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "fb.q"
     }
    }
   ]
@@ -3832,18 +3836,18 @@
    },
    {
     "user": "what was breakfast",
-    "bot": "good question lol",
-    "fallback": true,
+    "bot": "no clue, i just eat it",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "th.food.question"
     }
    },
    {
     "user": "is that normal for u",
-    "bot": "yeah",
+    "bot": "godo question lol",
     "fallback": true,
     "chosen": {
-     "answer": "fb.huh"
+     "answer": "fb.q"
     }
    },
    {
@@ -3872,9 +3876,9 @@
    {
     "user": "do u believe in that stuff",
     "bot": "probably not lol",
-    "fallback": true,
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
@@ -3941,6 +3945,14 @@
    },
    {
     "user": "ok whats a headline u saw today",
+    "bot": "no idea lol",
+    "fallback": false,
+    "chosen": {
+     "answer": "th.media.question"
+    }
+   },
+   {
+    "user": "where did u see it",
     "bot": "good question honestly",
     "fallback": true,
     "chosen": {
@@ -3948,19 +3960,11 @@
     }
    },
    {
-    "user": "where did u see it",
-    "bot": "lol what",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.huh"
-    }
-   },
-   {
     "user": "what do u reckon about it",
-    "bot": "why do u ask lol",
-    "fallback": true,
+    "bot": "never thought about it tbh",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q"
+     "answer": "qt.what_your"
     }
    }
   ]
@@ -3987,10 +3991,10 @@
    },
    {
     "user": "toppings?",
-    "bot": "what",
+    "bot": "idk im not a chef lol",
     "fallback": false,
     "chosen": {
-     "answer": "an.strange"
+     "answer": "th.food.question"
     }
    },
    {
@@ -4027,10 +4031,10 @@
    },
    {
     "user": "did u fall for that",
-    "bot": "probably not lol",
-    "fallback": true,
+    "bot": "i mean yeah sometimes, its ohio",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "th.weather.qt_do_you"
     }
    },
    {
@@ -4067,18 +4071,18 @@
    },
    {
     "user": "do you still have it",
-    "bot": "uhh pass lol",
-    "fallback": true,
+    "bot": "not really lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {
     "user": "would you buy it again",
-    "bot": "idk man",
-    "fallback": true,
+    "bot": "kinda?",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    }
   ]
@@ -4097,6 +4101,14 @@
    },
    {
     "user": "what do u usually do for it",
+    "bot": "depends on the day",
+    "fallback": false,
+    "chosen": {
+     "answer": "qt.what_your"
+    }
+   },
+   {
+    "user": "who do u spend it with",
     "bot": "idk never really thought about it",
     "fallback": true,
     "chosen": {
@@ -4104,19 +4116,11 @@
     }
    },
    {
-    "user": "who do u spend it with",
+    "user": "best present u ever got?",
     "bot": "good question lol",
     "fallback": true,
     "chosen": {
      "answer": "fb.q"
-    }
-   },
-   {
-    "user": "best present u ever got?",
-    "bot": "good question honestly",
-    "fallback": true,
-    "chosen": {
-     "answer": "fb.q_you"
     }
    }
   ]
@@ -4207,10 +4211,10 @@
    },
    {
     "user": "would u do it again",
-    "bot": "good question honestly",
-    "fallback": true,
+    "bot": "not really lol",
+    "fallback": false,
     "chosen": {
-     "answer": "fb.q_you"
+     "answer": "qt.do_you"
     }
    },
    {

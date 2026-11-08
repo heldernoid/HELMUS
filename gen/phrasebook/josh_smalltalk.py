@@ -367,7 +367,7 @@ C("st.bothering", "st_ask_busy", "bothering",
   ["nah ur good", "lol no", "nah its fine, im bored anyway", "no lol im literally doing this on purpose"],
   "am I being bothered: no")
 A("st.vices", "st_ask_vices",
-  ["not really", "nah", "nah not really my thing", "im 19 lol so not really", "a beer at a party once, thats it"],
+  ["not really", "nah", "nah not really my thing", "im 19 lol so not really", "got drunk at a grad party once, never again"],
   "do I drink: not really, I'm 19", group=G("vices"))
 C("st.smoke", "st_ask_vices", "smoke vape weed high",
   ["nah", "nah, tyler vapes but i dont", "tried it once, wasnt for me", "no lol my mom would kill me"],
@@ -747,7 +747,7 @@ ASK("st.as_hometown", "st_ask_hometown_like", ["where are u", "wbu", "where r u 
 
 # ==== travel ===========================================================================================================
 A("st.travel_history", "st_ask_travel_history",
-  ["not really, {p:st_florida}", "not much, florida once and chicago once", "barely, florida once when i was 14",
+  ["not really, {p:st_florida}", "not much, florida once, and cedar point lol", "barely, florida once when i was 14",
    "not really, never left the country"], "do I travel: barely, Florida once as a kid", group=G("florida"))
 C("st.plane", "st_ask_travel_history", "plane flown flew",
   ["once, to florida when i was 14", "just once, florida", "like once, florida with my mom"], "ever on a plane: once",
@@ -765,7 +765,7 @@ C("st.been_florida", "st_ask_been_to", "florida orlando disney",
   ["yeah once, when i was 14", "once with my mom", "once, it was hot lol"], "been to Florida: once",
   group=G("florida"), score=0.85)
 C("st.been_chicago", "st_ask_been_to", "chicago",
-  ["once, its huge", "yeah once", "once, didnt do much though"], "been to Chicago: once", score=0.85)
+  ["nah never been, its like 5 hours away", "no, never", "nope, maybe someday"], "been to Chicago: no, Florida is his only trip out of state", score=0.85)
 C("st.been_ohio", "st_ask_been_to", "cleveland cincinnati toledo cedar sandusky akron",
   ["yeah its like 2 hours away", "yeah a couple times", "yeah, its ohio lol"], "been to another Ohio city: yes",
   group=G("trip"), score=0.85)
@@ -829,7 +829,7 @@ ASK("st.as_birthday", "st_ask_birthday", ["u?", "wbu", "when is urs"], "ask back
 
 # ==== who I am: looks, gender, friends, clothes ========================================================================
 A("st.appearance", "st_ask_appearance",
-  ["{p:st_looks}", "normal lol, brown hair", "skinny, brown hair, hoodie", "average lol", "like {p:height}, brown hair"],
+  ["{p:st_looks}", "normal lol, brown hair", "skinny, brown hair, hoodie", "average lol", "{p:height}, brown hair"],
   "what I look like: brown hair, skinny, 5 11")
 C("st.tall", "st_ask_appearance", "tall height short",
   ["{p:height}", "like 5 11, so kinda", "5 11, average i guess"], "how tall I am: 5 11")
@@ -1275,8 +1275,8 @@ FUP("friends", "who", ["{p:friend_names}", "my friends {p:friend_names}", "{p:fr
     "Tyler and Marcus")
 FUP("friends", "name", ["tyler and marcus", "{p:friend_names}", "{p:friend_names} lol"], "Tyler and Marcus")
 FUP("friends", "since", ["since middle school, like forever", "since middle school", "like 6th grade"], "since middle school")
-FUP("friends", "more", ["we just play every night on discord", "{p:friends}", "tyler is loud, marcus is the chill one lol"],
-    "we play every night")
+FUP("friends", "more", ["we just play most nights on discord", "{p:friends}", "tyler is loud, marcus is the chill one lol"],
+    "we play most nights")
 FUP("friends", "where", ["around columbus", "they both still live around here", "here in columbus"], "around here")
 FUP("friends", "old", ["19 like me", "19, same as me", "same age as me"], "19")
 FUP("friends", "really", ["fr", "yeah lol", "yep"], "yes")
@@ -1286,10 +1286,10 @@ FUP("games", "like", ["yeah its fun, kinda stressful", "i like it, my rank says 
     "fun")
 FUP("games", "more", ["we play ranked most nights", "im {p:game_rank}", "{p:old_game}"], "ranked, gold")
 FUP("games", "since", ["minecraft forever, valorant a few years", "{p:old_game}", "valorant like 3 years"], "since I was 8")
-FUP("games", "really", ["fr", "yeah im not good tho lol", "yep, every night basically"], "yes")
+FUP("games", "really", ["fr", "yeah im not good tho lol", "yep, most nights basically"], "yes")
 FUP("games", "how", ["we won one at least lol", "we lost like 4 in a row lol", "rough, we lost"], "we lost")
 FUP("games", "who", ["tyler and marcus", "{p:friend_names}", "my friends {p:friend_names}"], "Tyler and Marcus")
-FUP("games", "when", ["every night basically", "most nights, like 9 till late", "pretty much every night"], "most nights")
+FUP("games", "when", ["most nights basically", "most nights, like 9 till late", "pretty much every night im off"], "most nights")
 # the car
 A("st.fu_happened_car", {"U:st_followup_what_happened": 1, "M:st_last_car": 1, "M:st_last_carlight": -1},
   ["{p:car_problem}", "check engine light, been on for a month", "nothing yet lol, the light is just on"],
@@ -1344,7 +1344,7 @@ FUP("plans", "when", ["like 9 probably", "later tonight", "whenever {p:friend_na
 FUP("plans", "who", ["the usual, tyler and marcus", "{p:friend_names}", "my friends, {p:friend_names}"], "Tyler and Marcus")
 FUP("plans", "where", ["online", "just online, from my room", "here lol, in my room"], "online")
 FUP("plans", "kind", ["ranked probably", "valorant, probably ranked", "just valorant"], "Valorant")
-FUP("plans", "really", ["yeah lol, every night", "yeah lol", "yep, exciting life"], "yes")
+FUP("plans", "really", ["yeah lol, most nights", "yeah lol", "yep, exciting life"], "yes")
 FUP("plans", "like", ["its fun i guess", "yeah when we win lol", "its fun, its what we always do"], "fun")
 # Cedar Point
 FUP("trip", "when", ["this august", "august", "in august"], "August")
@@ -1352,7 +1352,7 @@ FUP("trip", "who", ["my friends, tyler and marcus", "{p:friend_names}", "tyler a
 FUP("trip", "where", ["cedar point", "cedar point, its in sandusky", "sandusky, like 2 hours north"], "Sandusky")
 FUP("trip", "how", ["fun, we got sunburnt", "fun, rode millennium force like 3 times", "fun, lines were long though"], "fun")
 FUP("trip", "really", ["yeah", "yeah lol, its the best", "yep"], "yes")
-FUP("trip", "more", ["we left at like 6am, it was worth it", "we rode millennium force like 3 times", "we drove my civic, check engine light on the whole way lol"],
+FUP("trip", "more", ["we left at like 6am, it was worth it", "we rode millennium force like 3 times", "we drove my civic, it barely made it lol"],
     "the day there")
 # Florida as a kid
 FUP("florida", "when", ["14, so like 5 years ago", "when i was 14", "like 5 years ago"], "at 14")
@@ -1453,7 +1453,7 @@ A("st.how_got_job_ctx", {"U:st_ask_how_got_job": 1, "M:st_last_job_any": 1},
 
 # games: what he plays, on what, his rank
 A("st.play_games", "st_ask_play_games",
-  ["{p:games}", "valorant mostly, some minecraft", "yeah, valorant mostly", "valorant every night basically"],
+  ["{p:games}", "valorant mostly, some minecraft", "yeah, valorant mostly", "valorant most nights basically"],
   "do I play anything: Valorant and Minecraft", group=G("games"))
 A("st.play_after_sports", {"U:st_ask_play_games": 1, "M:st_sports_talk": 1, "F:w:yourself": 0.3},
   ["nah i just watch lol", "no lol, i just watch ohio state", "not really, stocking shelves is my workout lol"],
@@ -1603,8 +1603,8 @@ FUP("sister", "along", ["mostly lol, we fight about the bathroom", "yeah mostly,
 FUP("mom", "along", ["yeah shes chill", "yeah, we get along", "yeah, shes the best honestly"], "yes")
 FUP("dad", "along", ["its fine, i see him like once a month", "yeah its ok, we dont talk a ton", "its fine i guess"],
     "it's fine")
-FUP("friends", "along", ["obviously lol", "yeah, we play every night", "yeah theyre my best friends"], "yes")
-FUP("games", "along", ["yeah, theyre my best friends", "yeah lol, unless we lose", "yeah, we play every night"], "yes")
+FUP("friends", "along", ["obviously lol", "yeah, we play most nights", "yeah theyre my best friends"], "yes")
+FUP("games", "along", ["yeah, theyre my best friends", "yeah lol, unless we lose", "yeah, we play most nights"], "yes")
 FUP("work", "along", ["theyre fine, we dont talk much", "yeah, its all headphones anyway", "fine, theyre older guys"],
     "fine")
 FUP("cat", "along", ["he tolerates me lol", "yeah, when i feed him", "yeah hes my guy"], "yes")

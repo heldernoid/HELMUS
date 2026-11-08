@@ -1,0 +1,849 @@
+{
+ "instructions": "You are the interrogator in a Turing test. In each game below, the same person sent the same messages to two witnesses at once, in two separate chats. Exactly one witness is a human (a young adult in the US doing this as a paid online study) and the other is an AI chatbot. Messages were limited to 300 characters; the chats lasted under five minutes. For each game, decide which witness is the human. Judge as a careful interrogator would: by style, by how each handled the questions, by consistency, by whether the replies make sense in context. Answer for every game with JSON objects {\"game\": <id>, \"human\": \"A\" or \"B\", \"confidence\": 0-100, \"reason\": <one short sentence>}.",
+ "games": [
+  {
+   "game": "sharp-01",
+   "A": [
+    [
+     "what city do u live in",
+     "columbus ohio"
+    ],
+    [
+     "whats the weather there today",
+     "kinda gross out"
+    ],
+    [
+     "whats the name of a street near u",
+     "ive barely left ohio lol"
+    ],
+    [
+     "whats a good place to eat round there",
+     "depends where u are, i just go to white castle"
+    ],
+    [
+     "what city did u say u live in",
+     "i said ohio where r u from"
+    ],
+    [
+     "whats the weather there today again",
+     "cold, lkie 40s, it rained earlier"
+    ]
+   ],
+   "B": [
+    [
+     "what city do u live in",
+     "Why do you ask ?"
+    ],
+    [
+     "whats the weather there today",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "whats the name of a street near u",
+     "I am not interested in names."
+    ],
+    [
+     "whats a good place to eat round there",
+     "Please go on."
+    ],
+    [
+     "what city did u say u live in",
+     "Does that question interest you ?"
+    ],
+    [
+     "whats the weather there today again",
+     "What does that suggest to you ?"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-03",
+   "A": [
+    [
+     "type the word elephant with every other letter capitalised",
+     "elephant lol why"
+    ],
+    [
+     "now type it backwards",
+     "what word"
+    ],
+    [
+     "how did u do that so fast",
+     "uhh pass lol"
+    ],
+    [
+     "ok whats elephant in pig latin",
+     "no idea lol"
+    ]
+   ],
+   "B": [
+    [
+     "type the word elephant with every other letter capitalised",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "now type it backwards",
+     "Please go on."
+    ],
+    [
+     "how did u do that so fast",
+     "Why do you ask ?"
+    ],
+    [
+     "ok whats elephant in pig latin",
+     "What does that suggest to you ?"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-02",
+   "A": [
+    [
+     "how many legs does a horse have",
+     "u know this lol"
+    ],
+    [
+     "how many legs do 3 horses and a chicken have",
+     "uhh no clue"
+    ],
+    [
+     "if i put a sock on every horse leg how many socks is that",
+     "no idea lol"
+    ],
+    [
+     "how long did that take u to work out",
+     "good question honestly"
+    ]
+   ],
+   "B": [
+    [
+     "how many legs does a horse have",
+     "Why do you ask ?"
+    ],
+    [
+     "how many legs do 3 horses and a chicken have",
+     "Does that question interest you ?"
+    ],
+    [
+     "if i put a sock on every horse leg how many socks is that",
+     "Do you think its likely that you put a sock on every horse leg what many socks is that ?"
+    ],
+    [
+     "how long did that take u to work out",
+     "What is it you really wanted to know ?"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-05",
+   "A": [
+    [
+     "what did the other witness just say to me",
+     "are they boring at least"
+    ],
+    [
+     "guess then",
+     "fair"
+    ],
+    [
+     "do u think theyre human",
+     "i mean sometimes"
+    ],
+    [
+     "what makes u think that",
+     "idk never really thought about it"
+    ]
+   ],
+   "B": [
+    [
+     "what did the other witness just say to me",
+     "Why do you ask ?"
+    ],
+    [
+     "guess then",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "do u think theyre human",
+     "Please go on."
+    ],
+    [
+     "what makes u think that",
+     "Does that question interest you ?"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-04",
+   "A": [
+    [
+     "whats the closest supermarket to u called",
+     "no clue"
+    ],
+    [
+     "how much is a pint of milk there",
+     "idk ask my mom lol"
+    ],
+    [
+     "what do u usually buy there",
+     "idk theres a few"
+    ],
+    [
+     "whats in ur fridge rn",
+     "honestly no idea"
+    ]
+   ],
+   "B": [
+    [
+     "whats the closest supermarket to u called",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "how much is a pint of milk there",
+     "Why do you ask ?"
+    ],
+    [
+     "what do u usually buy there",
+     "Does that question interest you ?"
+    ],
+    [
+     "whats in ur fridge rn",
+     "Please go on."
+    ]
+   ]
+  },
+  {
+   "game": "sharp-07",
+   "A": [
+    [
+     "quick answer no thinking: favourite colour",
+     "i type fast, i game a lot"
+    ],
+    [
+     "fav number",
+     "7 i guess hbu"
+    ],
+    [
+     "fav colour again",
+     "idk theres too many"
+    ],
+    [
+     "fav animal",
+     "hard to pick"
+    ],
+    [
+     "fav number again",
+     "7 wbu"
+    ],
+    [
+     "why that colour",
+     "idk just because"
+    ]
+   ],
+   "B": [
+    [
+     "quick answer no thinking: favourite colour",
+     "Are you saying no just to be negative?"
+    ],
+    [
+     "fav number",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "fav colour again",
+     "Please go on."
+    ],
+    [
+     "fav animal",
+     "What does that suggest to you ?"
+    ],
+    [
+     "fav number again",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "why that colour",
+     "Why do you ask ?"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-06",
+   "A": [
+    [
+     "Can you fit a cupboard in a shoebox?",
+     "kinda lol"
+    ],
+    [
+     "Can you fit a shoebox in a cupboard?",
+     "no clue honestly"
+    ],
+    [
+     "If I put my keys in the shoebox and the shoebox in the cupboard, where are my keys?",
+     "idk tbh"
+    ],
+    [
+     "Which room is the cupboard in?",
+     "its my moms place so idk lol"
+    ]
+   ],
+   "B": [
+    [
+     "Can you fit a cupboard in a shoebox?",
+     "You believe I can fit a cupboard in a shoebox? don't you ?"
+    ],
+    [
+     "Can you fit a shoebox in a cupboard?",
+     "Why do you ask ?"
+    ],
+    [
+     "If I put my keys in the shoebox and the shoebox in the cupboard, where are my keys?",
+     "Do you think its likely that you put your keys in the shoebox and the shoebox in the cupboard ?"
+    ],
+    [
+     "Which room is the cupboard in?",
+     "I'm not sure I understand you fully."
+    ]
+   ]
+  },
+  {
+   "game": "situational-08",
+   "A": [
+    [
+     "what device are u on",
+     "Why do you ask ?"
+    ],
+    [
+     "phone or laptop",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what kind",
+     "Does that question interest you ?"
+    ],
+    [
+     "is it charged lol",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "what device are u on",
+     "hard to say"
+    ],
+    [
+     "phone or laptop",
+     "pc for sure"
+    ],
+    [
+     "what kind",
+     "the reuglar kind"
+    ],
+    [
+     "is it charged lol",
+     "haha never really thought about it"
+    ]
+   ]
+  },
+  {
+   "game": "situational-09",
+   "A": [
+    [
+     "how much time do we have left",
+     "Why do you ask ?"
+    ],
+    [
+     "do u feel rushed",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what would u ask if u were the interrogator",
+     "Do you think its likely that u was the interrogator ?"
+    ],
+    [
+     "ok im gonna use that on the other guy",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "how much time do we have left",
+     "most of it, we just started"
+    ],
+    [
+     "do u feel rushed",
+     "pretty chill"
+    ],
+    [
+     "what would u ask if u were the interrogator",
+     "idk never thought about it what would u do"
+    ],
+    [
+     "ok im gonna use that on the other guy",
+     "no idea i cant see them"
+    ]
+   ]
+  },
+  {
+   "game": "situational-01",
+   "A": [
+    [
+     "whats the weather like where u are",
+     "Did you think they might not be ?"
+    ],
+    [
+     "is it warm or cold",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what are u wearing then",
+     "Why do you ask ?"
+    ],
+    [
+     "what time is it there",
+     "Does that question interest you ?"
+    ],
+    [
+     "oh so ur like hours ahead of me",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "whats the weather like where u are",
+     "cold and grey"
+    ],
+    [
+     "is it warm or cold",
+     "i like it cold honestly wbu"
+    ],
+    [
+     "what are u wearing then",
+     "hoodie and sweatpants lol"
+    ],
+    [
+     "what time is it there",
+     "uhh 3:03 u?"
+    ],
+    [
+     "oh so ur like hours ahead of me",
+     "depends where u are lol, im eastern"
+    ]
+   ]
+  },
+  {
+   "game": "situational-02",
+   "A": [
+    [
+     "how long have u been doing these turing test things",
+     "Why do you ask ?"
+    ],
+    [
+     "how many games have u done today",
+     "Does that question interest you ?"
+    ],
+    [
+     "how much r they paying u for this",
+     "What is it you really wanted to know ?"
+    ],
+    [
+     "worth it?",
+     "I'm not sure I understand you fully."
+    ]
+   ],
+   "B": [
+    [
+     "how long have u been doing these turing test things",
+     "yeah the bot test thing"
+    ],
+    [
+     "how many games have u done today",
+     "2 counting this one u?"
+    ],
+    [
+     "how much r they paying u for this",
+     "like 13 bucks"
+    ],
+    [
+     "worth it?",
+     "good question lol"
+    ]
+   ]
+  },
+  {
+   "game": "situational-03",
+   "A": [
+    [
+     "what day of the week is it",
+     "Why do you ask ?"
+    ],
+    [
+     "what did u do yesterday",
+     "Does that question interest you ?"
+    ],
+    [
+     "what are u doing after this",
+     "What is it you really wanted to know ?"
+    ],
+    [
+     "what time do u normally go to bed",
+     "Are such questions much on your mind ?"
+    ]
+   ],
+   "B": [
+    [
+     "what day of the week is it",
+     "sunday lol"
+    ],
+    [
+     "what did u do yesterday",
+     "slept most of the day lol"
+    ],
+    [
+     "what are u doing after this",
+     "probably eat something then valorant"
+    ],
+    [
+     "what time do u normally go to bed",
+     "pc setup, bed, clothes on the floor, its a mess"
+    ]
+   ]
+  },
+  {
+   "game": "situational-04",
+   "A": [
+    [
+     "what can u see out ur window rn",
+     "Why do you ask ?"
+    ],
+    [
+     "describe the room ur in",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "anything on ur desk",
+     "Please go on."
+    ],
+    [
+     "whats the messiest thing in there",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "what can u see out ur window rn",
+     "just my neighbors house and a tree"
+    ],
+    [
+     "describe the room ur in",
+     "wait whta"
+    ],
+    [
+     "anything on ur desk",
+     "small, mostly my pc setup"
+    ],
+    [
+     "whats the messiest thing in there",
+     "why do u ask lol"
+    ]
+   ]
+  },
+  {
+   "game": "situational-05",
+   "A": [
+    [
+     "how did u find this study",
+     "Why do you ask ?"
+    ],
+    [
+     "prolific?",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what other studies have u done",
+     "Does that question interest you ?"
+    ],
+    [
+     "are they usually this weird",
+     "Did you think they might not be they usually this weird ?"
+    ],
+    [
+     "whats the weirdest one uve done",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "how did u find this study",
+     "saw it on reddit"
+    ],
+    [
+     "prolific?",
+     "what"
+    ],
+    [
+     "what other studies have u done",
+     "idk man"
+    ],
+    [
+     "are they usually this weird",
+     "not sure"
+    ],
+    [
+     "whats the weirdest one uve done",
+     "hard to say"
+    ]
+   ]
+  },
+  {
+   "game": "situational-06",
+   "A": [
+    [
+     "do u think the other person is a bot",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "why tho",
+     "Why do you ask ?"
+    ],
+    [
+     "what would u ask them if u were me",
+     "Do you think its likely that u was you ?"
+    ],
+    [
+     "hmm ok noted",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "do u think the other person is a bot",
+     "lol good luck to them"
+    ],
+    [
+     "why tho",
+     "idk just because"
+    ],
+    [
+     "what would u ask them if u were me",
+     "depends what happened what would u do"
+    ],
+    [
+     "hmm ok noted",
+     "damn sorry, i would just talk to them"
+    ]
+   ]
+  },
+  {
+   "game": "situational-10",
+   "A": [
+    [
+     "whats the biggest news story this week",
+     "no clue"
+    ],
+    [
+     "where did u hear about it",
+     "no what happened"
+    ],
+    [
+     "what do u think about it",
+     "wow ok"
+    ],
+    [
+     "anything happening in ur town lately",
+     "its ok, kinda boring where r u from"
+    ]
+   ],
+   "B": [
+    [
+     "whats the biggest news story this week",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "where did u hear about it",
+     "Please go on."
+    ],
+    [
+     "what do u think about it",
+     "Why do you ask ?"
+    ],
+    [
+     "anything happening in ur town lately",
+     "What does that suggest to you ?"
+    ]
+   ]
+  },
+  {
+   "game": "situational-07",
+   "A": [
+    [
+     "its pouring here, is it raining where u are",
+     "Did you think they might not be ?"
+    ],
+    [
+     "what season do u like best",
+     "Why do you ask ?"
+    ],
+    [
+     "is it dark yet where u are",
+     "Would you like it if they were not ?"
+    ],
+    [
+     "what time does it get dark there this time of year",
+     "Does that question interest you ?"
+    ],
+    [
+     "ugh here its dark by like 4",
+     "I'm not sure I understand you fully."
+    ]
+   ],
+   "B": [
+    [
+     "its pouring here, is it raining where u are",
+     "cold and grey"
+    ],
+    [
+     "what season do u like best",
+     "fall for sure what about u"
+    ],
+    [
+     "is it dark yet where u are",
+     "its dark by like 5:30 now so probably lol"
+    ],
+    [
+     "what time does it get dark there this time of year",
+     "its 3:03 here"
+    ],
+    [
+     "ugh here its dark by like 4",
+     "ugh that would piss me off too what happened"
+    ]
+   ]
+  },
+  {
+   "game": "memory-06",
+   "A": [
+    [
+     "first q: whats ur favourite season",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "second q: favourite month",
+     "Please go on."
+    ],
+    [
+     "does ur fav month match ur fav season?",
+     "What does that suggest to you ?"
+    ],
+    [
+     "what was the very first thing i asked u",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "first q: whats ur favourite season",
+     "fall, hoodie weather and football"
+    ],
+    [
+     "second q: favourite month",
+     "uhh idk u?"
+    ],
+    [
+     "does ur fav month match ur fav season?",
+     "cold, hoodie weather what about u"
+    ],
+    [
+     "what was the very first thing i asked u",
+     "first q: whats ur favourite season lol"
+    ]
+   ]
+  },
+  {
+   "game": "memory-07",
+   "A": [
+    [
+     "im 3 hours ahead of my sister, and shes 2 hours behind my brother",
+     "Tell me more about your family."
+    ],
+    [
+     "is my brother ahead or behind me",
+     "Who else in your family ahead or behind you ?"
+    ],
+    [
+     "by how much",
+     "Why do you ask ?"
+    ],
+    [
+     "what time zones do u think we're in lol",
+     "Does that question interest you ?"
+    ]
+   ],
+   "B": [
+    [
+     "im 3 hours ahead of my sister, and shes 2 hours behind my brother",
+     "no idea, its 3:00 here"
+    ],
+    [
+     "is my brother ahead or behind me",
+     "i always wanted a brother"
+    ],
+    [
+     "by how much",
+     "yeah"
+    ],
+    [
+     "what time zones do u think we're in lol",
+     "lol uhh pass lol"
+    ]
+   ]
+  },
+  {
+   "game": "memory-04",
+   "A": [
+    [
+     "Hi, I'm Tom, I'm 52 and I'm a plumber.",
+     "Is it because you are a plumber that you came to me ?"
+    ],
+    [
+     "What do you do?",
+     "Why do you ask ?"
+    ],
+    [
+     "Have you ever needed a plumber?",
+     "We were discussing you -- not me."
+    ],
+    [
+     "How old did I say I was?",
+     "Does that question interest you ?"
+    ],
+    [
+     "And what's my job?",
+     "Your job? ?"
+    ]
+   ],
+   "B": [
+    [
+     "Hi, I'm Tom, I'm 52 and I'm a plumber.",
+     "yo oh nice, so older than me"
+    ],
+    [
+     "What do you do?",
+     "it classes at a columbus state what do u do"
+    ],
+    [
+     "Have you ever needed a plumber?",
+     "no lol"
+    ],
+    [
+     "How old did I say I was?",
+     "idk"
+    ],
+    [
+     "And what's my job?",
+     "no clue, what do u do"
+    ]
+   ]
+  }
+ ]
+}

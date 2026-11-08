@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from engine.helmus import Net  # noqa: E402
 
-GENERIC = ("U:topic_", "U:question", "U:q_form", "U:understood", "U:strange")
+GENERIC = ("U:topic_", "U:theme_", "U:question", "U:q_form", "U:understood", "U:strange")
 
 net = Net.load(sys.argv[1] if len(sys.argv) > 1 else os.environ.get("HELMUS_OUT", ROOT))
 bad = []

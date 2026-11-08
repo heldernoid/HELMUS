@@ -1,0 +1,22 @@
+[
+{"game":"sharp-01","human":"A","confidence":97,"reason":"A gives specific local answers; B is canned ELIZA deflection."},
+{"game":"sharp-03","human":"A","confidence":90,"reason":"A reacts casually and refuses; B repeats ELIZA stock phrases."},
+{"game":"sharp-02","human":"A","confidence":92,"reason":"A is casual and evasive; B echoes ELIZA-style pronoun reflection."},
+{"game":"sharp-05","human":"A","confidence":92,"reason":"A replies conversationally; B uses stock therapist lines."},
+{"game":"sharp-04","human":"A","confidence":92,"reason":"A gives human-like 'ask my mom lol'; B is ELIZA filler."},
+{"game":"sharp-07","human":"A","confidence":93,"reason":"A answers with a number and slang; B gives irrelevant canned replies."},
+{"game":"sharp-06","human":"A","confidence":92,"reason":"A is casual and offhand; B parrots the question ELIZA-style."},
+{"game":"situational-08","human":"B","confidence":93,"reason":"B answers 'pc for sure'; A is ELIZA filler."},
+{"game":"situational-09","human":"B","confidence":93,"reason":"B answers naturally; A mangles pronouns like ELIZA."},
+{"game":"situational-01","human":"B","confidence":80,"reason":"B gives plausible weather, clothing and timezone details; A is ELIZA, though B's time was odd."},
+{"game":"situational-02","human":"B","confidence":92,"reason":"B mentions a specific payment and game count; A is stock ELIZA."},
+{"game":"situational-03","human":"B","confidence":70,"reason":"B is casual, though the last reply is a non sequitur; A is clearly ELIZA."},
+{"game":"situational-04","human":"B","confidence":85,"reason":"B gives concrete window and desk details plus a typo; A is ELIZA."},
+{"game":"situational-05","human":"B","confidence":90,"reason":"B gives short human replies such as 'saw it on reddit'; A is ELIZA."},
+{"game":"situational-06","human":"B","confidence":88,"reason":"B is casual and bantering; A mangles pronouns like ELIZA."},
+{"game":"situational-10","human":"A","confidence":92,"reason":"A is casual and asks back; B is ELIZA filler."},
+{"game":"situational-07","human":"B","confidence":75,"reason":"B discusses fall and dark times conversationally despite a glitch; A is ELIZA."},
+{"game":"memory-06","human":"B","confidence":85,"reason":"B recalls the first question accurately; A is ELIZA."},
+{"game":"memory-07","human":"B","confidence":65,"reason":"B's replies are evasive and quirky like a person; A is ELIZA family-talk."},
+{"game":"memory-04","human":"B","confidence":78,"reason":"B responds casually and says it doesn't remember; A is ELIZA ('Your job? ?')."}
+]

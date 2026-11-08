@@ -52,10 +52,12 @@ def main():
         intents = [f"gen.intents.{n}" for n in only.split(",")]
     for m in CONTENT + intents + ["gen.memory", f"gen.persona.{persona}"] + [m for m in modules("phrasebook") if m.split(".")[-1].startswith(persona)]:
         importlib.import_module(m)
-    dsl.meta_units()
-    from gen import vocab
+    from gen import topics                                # topic units from the vocabulary's themes
     for m in modules("vocabulary"):
         importlib.import_module(m)
+    topics.build()
+    dsl.meta_units()
+    from gen import vocab
     D = dsl.DECL
     check(D)
     out = os.environ.get("HELMUS_OUT", ROOT)          # a private build folder (weights/ and tests/) for parallel work

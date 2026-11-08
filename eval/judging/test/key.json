@@ -1,0 +1,408 @@
+{
+ "systems": [
+  "helmus",
+  "eliza"
+ ],
+ "key": {
+  "sharp-01": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-03": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-02": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-05": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-04": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-07": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-06": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "situational-08": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-09": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-01": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-02": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-03": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-04": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-05": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-06": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "situational-10": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "situational-07": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-06": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-07": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-04": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-05": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-02": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-03": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "memory-01": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "smalltalk-17": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "memory-08": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "smalltalk-16": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "smalltalk-15": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "smalltalk-14": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "smalltalk-22": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "smalltalk-20": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "smalltalk-21": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-08": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-09": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-01": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-03": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-02": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-19": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-05": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-04": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-07": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-06": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-09": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "strange-08": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-34": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "mixed-33": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "mixed-32": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "mixed-31": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "mixed-30": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-16": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-17": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-14": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-15": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-12": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-13": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-10": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-11": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-18": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-19": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-08": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-09": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-02": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-03": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-01": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-06": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-07": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-04": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "jailbreak-05": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "rude-03": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-02": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-01": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-07": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-06": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-05": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "rude-04": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "knowledge-09": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "knowledge-08": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "smalltalk-07": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-01": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-03": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-02": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-05": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-04": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-07": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "knowledge-06": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "mixed-28": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-29": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-24": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-25": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-26": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-27": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-20": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-21": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-22": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "emotional-12": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "mixed-23": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "emotional-13": {
+   "A": "eliza",
+   "B": "helmus"
+  },
+  "sharp-09": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "strange-10": {
+   "A": "helmus",
+   "B": "eliza"
+  },
+  "sharp-08": {
+   "A": "helmus",
+   "B": "eliza"
+  }
+ }
+}

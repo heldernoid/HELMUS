@@ -25,3 +25,5 @@ mem("asked_doing", {"E:@ask_doing": 1.0}, "Helmus asked what the user does or is
 mem("asked_how", {"E:@ask_how": 1.0}, "Helmus asked how the user is, last turn", decay=0.0)
 mem("asked_name", {"E:@ask_name": 1.0}, "Helmus asked the user's name, last turn", decay=0.0)
 mem("asked_fun", {"E:@ask_fun": 1.0}, "Helmus asked what the user does for fun, last turn", decay=0.0)
+mem("user_repeats", {"S:repeat": 0.5}, "how often the user has sent the very same message again: the first repeat gets "
+    "a light remark, later ones a firmer one (a person notices and says so)", decay=1.0)

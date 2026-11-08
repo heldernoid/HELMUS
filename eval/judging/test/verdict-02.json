@@ -1,0 +1,122 @@
+[
+ {
+  "game": "memory-05",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "memory-02",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "memory-03",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "memory-01",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-17",
+  "human": "A",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "memory-08",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-16",
+  "human": "A",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-15",
+  "human": "A",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-14",
+  "human": "A",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-22",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-20",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "smalltalk-21",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "mixed-08",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "mixed-09",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "strange-01",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "strange-03",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "strange-02",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "mixed-19",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "strange-05",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ },
+ {
+  "game": "strange-04",
+  "human": "B",
+  "confidence": 80,
+  "reason": "The other witness gave canned ELIZA-style deflections that ignored the question."
+ }
+]

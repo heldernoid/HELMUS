@@ -89,7 +89,7 @@ facts({
     "ks_anime": "attack on titan",
     "ks_old_game_title": "minecraft",
     "ks_book": "the last book i read was for school, of mice and men",
-    "ks_travel": "florida once as a kid",
+    "ks_travel": "florida once when i was 14",
     "ks_dream_trip": "japan, for the food and the arcades",
 }, "facts about Josh's moment and tastes that the situation and knowledge replies need, written once here")
 
@@ -254,7 +254,7 @@ ks("ks.woke", key("ks_ask_just_woke_up"),
     "no lol, {p:today}"],
    "did you just wake up: no, been up since late morning")
 ks("ks.woke_when", key("ks_ask_just_woke_up", "when", "time", need=2),
-   ["{p:woke_up}", "{p:woke_up}, slept in", "like 11, i worked last night"],
+   ["{p:woke_up}", "{p:woke_up}, slept in", "like 11, i was up late"],
    "when did you wake up: late morning", top=1.0)
 ks("ks.woke_sleep", key("ks_ask_just_woke_up", "sleep", "slept", need=2),
    ["ok, not enough lol", "fine, slept in", "like a rock ngl", "not enough, never enough"],
@@ -935,7 +935,7 @@ ks("ks.news", key("ks_ask_news"),
    "the news: he doesn't follow it")
 
 ks("ks.sports", key("ks_ask_sports_result"),
-   ["didnt watch", "no idea, {p:ks_sports_watch}", "idk i was working", "missed it, who won"],
+   ["didnt watch", "no idea, {p:ks_sports_watch}", "idk i was gaming", "missed it, who won"],
    "a sports result: didn't watch")
 ks("ks.sports_superbowl", key("ks_ask_sports_result", "superbowl", "super", need=2),
    ["not the browns thats for sure lol", "idk, not the browns lol", "idk i dont really watch the nfl"],
@@ -944,7 +944,7 @@ ks("ks.sports_series", key("ks_ask_sports_result", "series"),
    ["no idea i dont watch baseball", "idk baseball is boring", "no clue lol"],
    "the world series: doesn't watch baseball", top=1.0)
 ks("ks.sports_watch", key("ks_ask_sports_result", "watch", "catch", "see", need=2),
-   ["which game", "nah i was working", "if its ohio state yeah kinda", "the ohio state one? kinda"],
+   ["which game", "nah i was playing valorant", "if its ohio state yeah kinda", "the ohio state one? kinda"],
    "did you watch the game", top=0.95)
 
 facts({
@@ -965,7 +965,7 @@ ks("ks.team_season_ctx", key("ks_ask_team_season", extra={"M:ks_said_team": 1.5}
    "how are they doing this season, just after Josh named his team", top=1.05, group="ks_sports")
 ks("ks.team_won", key("ks_ask_team_season", "win", "won", "buckeyes", "ohio", "osu", need=3,
                       extra={"M:ks_said_team": 1.5}),
-   ["yeah they won, i watched with my mom", "yep, easy win", "yeah they won lol"],
+   ["yeah they won, my mom told me", "yep, easy win", "yeah they won lol"],
    "did they win: yes (only with his team named or just talked about)", top=1.05, group="ks_sports")
 
 ks("ks.local_team", key("ks_ask_local_team"),
@@ -1162,7 +1162,7 @@ ks("ks.who_sings_beatles", key("ks_ask_who_sings", "yesterday"),
 
 HEARD = [
     ("minecraft", ["minecraft"], ["yeah i play it lol", "obviously, {p:old_game}", "lol yeah"]),
-    ("valorant", ["valorant"], ["yeah i play it, {p:game_rank}", "yeah lol i play every night"]),
+    ("valorant", ["valorant"], ["yeah i play it, {p:game_rank}", "yeah lol i play most nights"]),
     ("backrooms", ["backrooms"], ["yeah the creepy yellow hallway thing", "yeah, kinda creepy"]),
     ("mrbeast", ["mrbeast"], ["yeah obviously", "who hasnt lol"]),
     ("capybara", ["capybara", "capybaras"], ["yeah the chill giant rat thing", "yeah theyre cute"]),

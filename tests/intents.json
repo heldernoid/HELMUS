@@ -9645,6 +9645,191 @@ false
 false
 ],
 [
+"U:qt_like",
+"do you like soup",
+true
+],
+[
+"U:qt_like",
+"are you into hiking",
+true
+],
+[
+"U:qt_like",
+"you a fan of jazz",
+true
+],
+[
+"U:qt_like",
+"how do you feel about tea",
+true
+],
+[
+"U:qt_like",
+"thoughts on sushi",
+true
+],
+[
+"U:qt_like",
+"i like soup",
+false
+],
+[
+"U:qt_like",
+"you like me lol",
+false
+],
+[
+"U:qt_like",
+"what do you like to do",
+false
+],
+[
+"U:qt_have",
+"do you have a bike",
+true
+],
+[
+"U:qt_have",
+"have you got a dog",
+true
+],
+[
+"U:qt_have",
+"you got siblings",
+true
+],
+[
+"U:qt_have",
+"got any plans",
+true
+],
+[
+"U:qt_have",
+"i have a bike",
+false
+],
+[
+"U:qt_have",
+"you have to try it",
+false
+],
+[
+"U:qt_have",
+"do you have to go",
+false
+],
+[
+"U:qt_ever",
+"have you ever broken a bone",
+true
+],
+[
+"U:qt_ever",
+"you ever tried sushi",
+true
+],
+[
+"U:qt_ever",
+"ever been to europe",
+true
+],
+[
+"U:qt_ever",
+"did you ever play soccer",
+true
+],
+[
+"U:qt_ever",
+"i have never",
+false
+],
+[
+"U:qt_ever",
+"best day ever",
+false
+],
+[
+"U:qt_ever",
+"whatever",
+false
+],
+[
+"U:qt_what_your",
+"what kind of soup do you make",
+true
+],
+[
+"U:qt_what_your",
+"whats your go to sneakers",
+true
+],
+[
+"U:qt_what_your",
+"which music do you like",
+true
+],
+[
+"U:qt_what_your",
+"tell me about your car",
+true
+],
+[
+"U:qt_what_your",
+"what is that",
+false
+],
+[
+"U:qt_what_your",
+"what kind of question is that",
+false
+],
+[
+"U:qt_what_your",
+"whats up",
+false
+],
+[
+"U:qt_do_you",
+"do you cook",
+true
+],
+[
+"U:qt_do_you",
+"can you swim",
+true
+],
+[
+"U:qt_do_you",
+"you play any instruments",
+true
+],
+[
+"U:qt_do_you",
+"would you go skydiving",
+true
+],
+[
+"U:qt_do_you",
+"did you go out last night",
+true
+],
+[
+"U:qt_do_you",
+"you are funny",
+false
+],
+[
+"U:qt_do_you",
+"do it",
+false
+],
+[
+"U:qt_do_you",
+"i can swim",
+false
+],
+[
 "U:ks_ask_time_there",
 "what time is it there?",
 true

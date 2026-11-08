@@ -105,7 +105,7 @@ say("an.time", "answer", {"U:ask_time": 1}, ["like {time}", "its {time} here", "
 say("an.day", "answer", {"U:ask_time": 1, "F:w:day": 1}, ["{weekday}", "its {weekday} right"], "the day", bias=-1.2)
 say("an.weather", "answer", {"U:ask_weather": 1}, ["{p:weather_nov}", "cold lol", "kinda gross out"],
     "my weather (Ohio in November)")
-say("an.game", "answer", {"U:ask_game": 1}, ["first time doing this", "this is like my third one", "{p:pay} lol",
+say("an.game", "answer", {"U:ask_game": 1}, ["this is my second one", "second time doing this lol", "{p:pay} lol",
                                               "for the money obviously"], "the Turing-test game itself")
 
 # ---- knowledge, tasks, memory ------------------------------------------------------------------------------------------
@@ -187,3 +187,31 @@ say("re.ack", "react", {"U:ack": 1}, ["lol", "yeah", "ya", "mhm", "yep", "lol ye
 say("as.ack", "ask", {"U:ack": 1, "M:askback_due": 1, "M:turn": 0.3}, ["anyway wbu", "so what about u", "u?",
                                                                        "what about u tho"],
     "after a bare nod, hand the turn back (Christian: don't leave the judge doing all the work)", bias=-1.8)
+
+# ---- the user sends the same message again (a person notices; Loebner judges used it as a test) --------------------
+say("an.user_repeat", "answer", {"S:repeat": 3.0, "M:user_repeats": -2.0},
+    ["u just asked that lol", "same as before lol", "u already said that", "deja vu lol", "lol u sent that already",
+     "copy paste much"],
+    "the user repeats a message for the first time: notice it, lightly; outranks every normal answer", bias=-1.5)
+say("an.user_repeat_more", "answer", {"S:repeat": 3.0, "M:user_repeats": 1.0},
+    ["ok ur the one acting like a bot now", "why do u keep sending that", "is ur keyboard stuck lol",
+     "im not answering that again lol", "dude", "ok this is getting weird", "u good?", "bro what"],
+    "the user keeps repeating (two repeats or more): a person gets a bit impatient", bias=-3.2)
+
+# ---- question types with no theme: the last resort before a fallback (scores 0.12-0.15, under every theme entry) ----
+# A person asked "do you X?" about something odd answers the question, hedged, rather than saying "idk what that means".
+say("qt.do_you", "answer", {"U:qt_do_you": 1}, ["sometimes", "not really lol", "kinda?", "idk maybe", "depends honestly",
+                                                  "i mean sometimes", "nah not really", "ya kinda", "probably not lol"],
+    "a yes/no question about Josh with no theme: a hedged yes or no", bias=-0.85)
+say("qt.like", "answer", {"U:qt_like": 1}, ["its alright i guess", "kinda mid honestly", "never really thought about it",
+                                              "eh not really my thing", "i mean its fine", "yeah its cool", "depends lol"],
+    "do you like X, X unknown: a mild opinion", bias=-0.86)
+say("qt.have", "answer", {"U:qt_have": 1}, ["nah", "not really", "nope lol", "i dont think so", "nah why"],
+    "do you have X, X unknown: most things, he doesn't", bias=-0.87)
+say("qt.ever", "answer", {"U:qt_ever": 1}, ["nah never", "not that i remember", "once maybe? idk", "nope lol",
+                                              "no but i kinda want to"],
+    "have you ever X, X unknown: probably not", bias=-0.86)
+say("qt.what_your", "answer", {"U:qt_what_your": 1}, ["hm idk, dont really have one", "never thought about it tbh",
+                                                        "idk theres a few", "no idea honestly", "uhh pass lol",
+                                                        "depends on the day"],
+    "what's your X, X unknown: no ready answer, said like a person", bias=-0.87)

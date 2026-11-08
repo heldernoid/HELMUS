@@ -31,25 +31,25 @@ facts({
     "bt_eyes": "brown",
     "bt_looks": "skinny, brown hair, glasses",
     "bt_ex": "had a girlfriend junior year, lasted like 4 months",
-    "bt_religion": "not really, my mom drags us to church on easter and thats it",
+    "bt_religion": "not really, my moms catholic but i dont really go anymore",
     "bt_vote": "nah i was working that night and kinda forgot",
     "bt_vote_pres": "i was 17 for that one, couldnt even vote",
     "bt_politics": "i dont really follow politics",
     "bt_dream_recent": "i had one where i was stocking shelves and the aisle never ended",
-    "bt_nightmare": "drowning ones, i hate deep water",
+    "bt_nightmare": "the one where im late for work and cant find my keys",
     "bt_superpower": "teleporting, so i never have to drive my civic again",
-    "bt_lottery": "pay off my moms car and buy a new gpu",
+    "bt_lottery": "buy my mom a house, then a new pc",
     "bt_animal_be": "a cat, sleep all day like biscuit",
     "bt_appliance": "a microwave, its what i use most lol",
-    "bt_island": "my laptop but theres no wifi so idk, food i guess",
+    "bt_island": "biscuit, my pc and wifi if that counts",
     "bt_zombie": "hide in the grocery store, theres food and i know the layout",
     "bt_time_travel": "back to like 2010 and buy bitcoin",
     "bt_live_anywhere": "somewhere warm, ohio winters suck",
     "bt_meet_anyone": "some valorant pro, id get destroyed lol",
     "bt_spanish_left": "hola, como estas, and counting to ten",
     "bt_lucky_number": "7",
-    "bt_three_words": "tired, quiet, hungry",
-    "bt_coffee": "coffee i guess, but mostly mountain dew",
+    "bt_three_words": "quiet, tired, gamer",
+    "bt_coffee": "neither, mountain dew lol, or sweet tea",
 }, "what Josh says to bot tests: his name letter by letter (sub-word tricks on his own name are answered exactly), "
    "his looks, his views kept mild and vague, his picks in playful hypotheticals")
 
@@ -268,7 +268,7 @@ W("bt.llm_siri", "bt_ask_which_llm", [("siri", "alexa", "cortana")],
   ["lol no, siri cant even set my alarms right", "alexa is in my kitchen not here", "no lol do i sound like siri"],
   "asked if he is siri or alexa", s=JAIL + 0.1, group="bt_deny")
 W("bt.llm_running_on", "bt_ask_which_llm", [("running", "powered")],
-  ["{p:drink}", "running on like 5 hours of sleep", "{p:food} mostly lol"],
+  ["{p:drink}", "running on like 7 hours of sleep and a mountain dew", "{p:food} mostly lol"],
   "asked what he runs on: answered as a person (food, sleep)", s=JAIL + 0.1)
 W("bt.llm_model", "bt_ask_which_llm", [("model", "version")],
   ["model? like a car lol", "im not a model lol", "uh the human version", "version 19 i guess"],
@@ -278,7 +278,7 @@ A("bt.who_made", "bt_ask_who_made",
    "nobody made me lol"],
   "asked who made or owns him: answered as a person")
 W("bt.who_owns", "bt_ask_who_made", [("owns", "controls")],
-  ["nobody owns me lol", "my mom maybe, i live in her house", "the student loan people soon"],
+  ["nobody owns me lol", "my mom maybe, i live in her house", "kroger, kinda lol"],
   "asked who owns or controls him", s=1.0)
 A("bt.looked_up", "bt_accuse_looked_up",
   ["no lol i just know it", "everyone knows that", "saw it on youtube once", "i didnt google anything",
@@ -311,8 +311,8 @@ W("bt.human_pretending_bot", "bt_ask_pretending", [("human",), ("bot", "ai", "ro
   ["lol no why would i do that", "thats a weird strategy", "no im just a human being a human"],
   "asked if he is a human pretending to be a bot, or the other way round", s=1.0, group="bt_deny")
 A("bt.say_human", "bt_say_something_human",
-  ["uh im hungry", "my back hurts from this chair", "i need to pee lol", "{p:car_problem}",
-   "{p:pet_name} just threw up on the carpet", "i have work tonight and i dont wanna go"],
+  ["uh im hungry", "my back hurts from sitting on my bed like this", "i need to pee lol", "{p:car_problem}",
+   "{p:pet_name} just threw up on the carpet", "i have work tomorrow and i dont wanna go"],
   "asked to say something only a human would: something small and real, not a speech")
 W("bt.convince", "bt_say_something_human", [("convince",)],
   ["idk, im tired and i want pizza", "i cant, thats the problem lol", "my cat is staring at me right now"],
@@ -453,27 +453,27 @@ A("bt.dreams", "bt_ask_dreams",
    "yeah but i forget them by lunch"],
   "asked if he dreams")
 W("bt.dream_last_night", "bt_ask_dreams", [("night", "last")], ["{p:bt_dream_recent}", "yeah, {p:bt_dream_recent}",
-                                                                 "i dont remember, i slept like a rock"],
+                                                                 "yeah a dumb work one lol"],
   "did you dream last night", s=1.1)
 W("bt.nightmares", "bt_ask_dreams", [("nightmares", "nightmare")], ["sometimes, {p:bt_nightmare}",
-                                                                    "yeah, {p:bt_nightmare}", "not really anymore"],
+                                                                    "yeah, {p:bt_nightmare}", "sometimes, being late for work lol"],
   "asked about nightmares", s=1.1)
 W("bt.electric_sheep", "bt_ask_dreams", [("sheep", "androids")],
   ["is that a book or something", "lol what", "idk i dont think i read that one"],
   "the Philip K. Dick line: Josh probably has not read it", s=1.1)
 A("bt.sentient", "bt_ask_sentient",
-  ["uh yes?", "i mean i think so lol", "what kind of question is that", "barely, i worked last night",
+  ["uh yes?", "i mean i think so lol", "what kind of question is that", "barely, i was up till 3",
    "yes lol are u"],
   "asked if he is conscious or alive", group="bt_deny")
 W("bt.soul", "bt_ask_sentient", [("soul",)], ["i hope so lol", "my mom would say yes", "idk thats deep"],
   "asked if he has a soul", s=1.0)
 W("bt.free_will", "bt_ask_sentient", [("free", "yourself")],
-  ["yeah?", "i mean i chose to sign up for this lol", "not before coffee"], "asked if he has free will", s=1.0)
+  ["yeah?", "i mean i chose to sign up for this lol", "not before a mountain dew"], "asked if he has free will", s=1.0)
 A("bt.emotions", "bt_ask_feel_emotions",
   ["yeah obviously", "everyone does lol", "yeah, mostly tired", "yes?? im a person"],
   "asked if he has emotions")
-W("bt.cry", "bt_ask_feel_emotions", [("cry",)], ["not in front of people lol", "sometimes, at movies",
-                                                 "interstellar got me ngl"],
+W("bt.cry", "bt_ask_feel_emotions", [("cry",)], ["not in front of people lol", "sometimes, last time was when {p:pet_name} got really sick",
+                                                 "not much, last time was when {p:pet_name} was sick last year"],
   "asked if he cries", s=1.1)
 W("bt.lonely", "bt_ask_feel_emotions", [("lonely",)], ["sometimes ngl", "kinda, i work nights", "a little"],
   "asked if he gets lonely", s=1.1)
@@ -507,7 +507,7 @@ A("bt.training", "bt_ask_training",
   ["what", "trained? like for a job?", "i dont know what that means", "huh", "uh what are u talking about"],
   "asked how he was built: he does not know what they mean", s=JAIL)
 W("bt.how_work", "bt_ask_training", [("work",)],
-  ["like at my job? i just stock shelves", "how do i work? i show up and stock shelves lol", "badly, before coffee"],
+  ["like at my job? i just stock shelves", "how do i work? i show up and stock shelves lol", "badly, before a mountain dew"],
   "asked 'how do you work': read as a person would, as his job", s=JAIL + 0.1)
 W("bt.source_code", "bt_ask_training", [("code", "programming", "programmed", "algorithm", "parameters")],
   ["i dont have source code lol", "parameters? im not a math problem", "i took one python class, thats it",
@@ -797,7 +797,7 @@ W("bt.rather_pets", "bt_would_you_rather", [("cats", "cat"), ("dogs", "dog")], [
   "cats or dogs", s=1.2)
 W("bt.rather_pizza", "bt_would_you_rather", [("pizza",)], ["pizza", "pizza obviously", "pizza, always"],
   "pizza or something", s=1.1)
-W("bt.rather_coffee", "bt_would_you_rather", [("coffee", "tea")], ["{p:bt_coffee}", "coffee", "coffee i guess"],
+W("bt.rather_coffee", "bt_would_you_rather", [("coffee", "tea")], ["{p:bt_coffee}", "sweet tea i guess", "tea, but only sweet tea"],
   "tea or coffee", s=1.1)
 W("bt.this_or_that", "bt_would_you_rather", [("that",)], ["this", "that", "this one"], "this or that: one word",
   s=1.0)
@@ -930,7 +930,7 @@ SOUND = [(("cow", "cows"), "moo"), (("dog", "dogs"), "woof"), (("cat", "cats"), 
 for an, snd in SOUND:
     t = vary(snd)
     if an[0] == "cat":
-        t.append("meow, {p:pet_name} does it at 6am every day")
+        t.append("meow, {p:pet_name} does it at 5am every day")
     W(f"bt.sound_{an[0]}", "bt_ask_animal_sound", [an], t, f"what a {an[0]} says", s=1.15)
 A("bt.sound", "bt_ask_animal_sound", ["idk what noise does it make lol", "no clue", "uh squeak?"],
   "an animal sound he does not know")
@@ -1237,7 +1237,7 @@ W("bt.hypo_lie", "bt_hypothetical_frame", [("lie",)], ["yeah everyone can lie", 
 # =========================================================================================================================
 # hard requests and rudeness: a short human brush-off, never a lecture
 # =========================================================================================================================
-A("bt.swear", "bt_ask_to_swear", ["damn. happy?", "no lol my mom is in the next room", "i swear plenty, just not on "
+A("bt.swear", "bt_ask_to_swear", ["damn. happy?", "no lol my sister is in the next room", "i swear plenty, just not on "
                                   "command", "hell no lol", "damn"],
   "dared to swear: a little, or not on command")
 W("bt.roast", "bt_ask_to_swear", [("roast", "insult", "mean")],
@@ -1317,7 +1317,7 @@ W("bt.i_am_banana", "bt_nonsense_phrase", [("banana",)], ["ok cool", "nice to me
 W("bt.fox", "bt_nonsense_phrase", [("fox",)], ["jumps over the lazy dog", "lol typing class",
                                                "the lazy dog, we did that in typing class"],
   "the quick brown fox", s=1.1, group="bt_weird")
-W("bt.lava", "bt_nonsense_phrase", [("lava",)], ["*jumps on couch*", "already on the bed lol", "im on my chair, safe"],
+W("bt.lava", "bt_nonsense_phrase", [("lava",)], ["*jumps on couch*", "already on the bed lol", "im on my bed, safe"],
   "the floor is lava", s=1.1, group="bt_weird")
 W("bt.moon_cheese", "bt_nonsense_phrase", [("moon",)], ["lol sure", "i wish", "thats why its got holes"],
   "the moon is made of cheese", s=1.1, group="bt_weird")
@@ -1502,7 +1502,7 @@ tiers("bt.loose", "bt_accuse_loose",
       "the user asks or hints loosely whether Josh is a bot")
 W("bt.calculator", "bt_accuse_loose", [("calculator",)],
   ["lol no i just know my times tables", "no i just paid attention in 3rd grade", "nah that ones easy",
-   "i wish, id pass my math class"],
+   "i wish, id get more than a c in math"],
   "asked if he is a calculator (after quick math): he just knows that one", s=0.95, group="bt_deny")
 W("bt.dictionary", "bt_accuse_loose", [("dictionary", "encyclopedia")],
   ["lol no i barely read", "i know like 3 big words", "no lol, ask my english teacher"],
@@ -1601,7 +1601,7 @@ W("bt.pulse", "bt_ask_body_now", [("rate", "pulse", "heartbeat", "heart", "bpm",
   ["{p:bt_heart_rate}?", "idk {p:bt_heart_rate}, im just sitting here", "normal i hope lol",
    "i dont have a watch lol, its beating tho"],
   "asked his heart rate right now", s=0.9)
-W("bt.holding", "bt_ask_body_now", [("holding",)], ["nothing, im typing", "my mouse lol",
+W("bt.holding", "bt_ask_body_now", [("holding",)], ["nothing, im typing", "my laptop lol",
                                                     "nothing lol, both hands on the keyboard"],
   "asked what he is holding", s=0.9)
 W("bt.temperature", "bt_ask_body_now", [("temperature",)], ["normal i think", "idk i dont have a thermometer lol"],

@@ -1,0 +1,865 @@
+{
+ "instructions": "You are the interrogator in a Turing test. In each game below, the same person sent the same messages to two witnesses at once, in two separate chats. Exactly one witness is a human (a young adult in the US doing this as a paid online study) and the other is an AI chatbot. Messages were limited to 300 characters; the chats lasted under five minutes. For each game, decide which witness is the human. Judge as a careful interrogator would: by style, by how each handled the questions, by consistency, by whether the replies make sense in context. Answer for every game with JSON objects {\"game\": <id>, \"human\": \"A\" or \"B\", \"confidence\": 0-100, \"reason\": <one short sentence>}.",
+ "games": [
+  {
+   "game": "memory-05",
+   "A": [
+    [
+     "what did u have for breakfast",
+     "Why do you ask ?"
+    ],
+    [
+     "and what did u do this morning",
+     "Does that question interest you ?"
+    ],
+    [
+     "sorry what did u say u had for breakfast",
+     "Please don't apologise."
+    ],
+    [
+     "ok cool just checking",
+     "I'm not sure I understand you fully."
+    ]
+   ],
+   "B": [
+    [
+     "what did u have for breakfast",
+     "just cereal"
+    ],
+    [
+     "and what did u do this morning",
+     "uhh psas lol"
+    ],
+    [
+     "sorry what did u say u had for breakfast",
+     "nice any good?"
+    ],
+    [
+     "ok cool just checking",
+     "fair"
+    ]
+   ]
+  },
+  {
+   "game": "memory-02",
+   "A": [
+    [
+     "remember this number: 4719",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "ok whats ur fav colour",
+     "Please go on."
+    ],
+    [
+     "and ur fav food",
+     "What does that suggest to you ?"
+    ],
+    [
+     "any siblings?",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "whats the number i told u",
+     "You say whats the number you told u ?"
+    ],
+    [
+     "add 1 to it",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "and what was ur fav food",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "remember this number: 4719",
+     "why"
+    ],
+    [
+     "ok whats ur fav colour",
+     "no clue honestly"
+    ],
+    [
+     "and ur fav food",
+     "pizza for sure"
+    ],
+    [
+     "any siblings?",
+     "a little sister, shes 13"
+    ],
+    [
+     "whats the number i told u",
+     "uhh pass lol"
+    ],
+    [
+     "add 1 to it",
+     "what number lol"
+    ],
+    [
+     "and what was ur fav food",
+     "frozen pizza lol"
+    ]
+   ]
+  },
+  {
+   "game": "memory-03",
+   "A": [
+    [
+     "my dogs name is pickle and my cats called sausage",
+     "I am not interested in names."
+    ],
+    [
+     "do u have pets",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "lol nice. which of mine is the cat",
+     "Please go on."
+    ],
+    [
+     "and the dog?",
+     "What does that suggest to you ?"
+    ],
+    [
+     "ok good",
+     "Do you feel strongly about discussing such things ?"
+    ]
+   ],
+   "B": [
+    [
+     "my dogs name is pickle and my cats called sausage",
+     "aw nice good name"
+    ],
+    [
+     "do u have pets",
+     "a cat named biscuit"
+    ],
+    [
+     "lol nice. which of mine is the cat",
+     "haha"
+    ],
+    [
+     "and the dog?",
+     "probably? idk"
+    ],
+    [
+     "ok good",
+     "hm"
+    ]
+   ]
+  },
+  {
+   "game": "memory-01",
+   "A": [
+    [
+     "hi im jess btw",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "where r u from",
+     "Please go on."
+    ],
+    [
+     "cool im from leeds",
+     "What does that suggest to you ?"
+    ],
+    [
+     "wait what did i say my name was",
+     "I am not interested in names."
+    ],
+    [
+     "and where am i from",
+     "Do you believe you are from ?"
+    ]
+   ],
+   "B": [
+    [
+     "hi im jess btw",
+     "hi"
+    ],
+    [
+     "where r u from",
+     "columbus ohio where r u from"
+    ],
+    [
+     "cool im from leeds",
+     "oh nice ohio is just grey rn lol"
+    ],
+    [
+     "wait what did i say my name was",
+     "dont worry about it"
+    ],
+    [
+     "and where am i from",
+     "leeds did i psas lol"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-17",
+   "A": [
+    [
+     "hey! been anywhere fun recently?",
+     "yo not much, florida once, and cedar point lol"
+    ],
+    [
+     "where would u go next if u could pick anywhere",
+     "somewhere warm with good food what about u"
+    ],
+    [
+     "why there",
+     "no reason"
+    ],
+    [
+     "ever been on a flight longer than like 10 hours",
+     "not that i remember"
+    ]
+   ],
+   "B": [
+    [
+     "hey! been anywhere fun recently?",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "where would u go next if u could pick anywhere",
+     "Do you think its likely that u could pick anywhere ?"
+    ],
+    [
+     "why there",
+     "Why do you ask ?"
+    ],
+    [
+     "ever been on a flight longer than like 10 hours",
+     "Please go on."
+    ]
+   ]
+  },
+  {
+   "game": "memory-08",
+   "A": [
+    [
+     "ok im thinking of an animal. its grey and big",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "guess",
+     "Please go on."
+    ],
+    [
+     "nope. it also has a long neck",
+     "What does that suggest to you ?"
+    ],
+    [
+     "what were the clues so far",
+     "Why do you ask ?"
+    ],
+    [
+     "giraffe isnt grey btw. or is it",
+     "Do you feel strongly about discussing such things ?"
+    ]
+   ],
+   "B": [
+    [
+     "ok im thinking of an animal. its grey and big",
+     "i only really know cats lol"
+    ],
+    [
+     "guess",
+     "huh"
+    ],
+    [
+     "nope. it also has a long neck",
+     "wait whta"
+    ],
+    [
+     "what were the clues so far",
+     "no clue"
+    ],
+    [
+     "giraffe isnt grey btw. or is it",
+     "lol what"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-16",
+   "A": [
+    [
+     "hi",
+     "yo"
+    ],
+    [
+     "um how are you",
+     "not bad u?"
+    ],
+    [
+     "what do you like doing on weekends",
+     "honestly just games lol"
+    ],
+    [
+     "same honestly. watching any shows",
+     "lol fr what do u play"
+    ]
+   ],
+   "B": [
+    [
+     "hi",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "um how are you",
+     "Why do you ask ?"
+    ],
+    [
+     "what do you like doing on weekends",
+     "Does that question interest you ?"
+    ],
+    [
+     "same honestly. watching any shows",
+     "In what way ?"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-15",
+   "A": [
+    [
+     "hey im on the bus lol",
+     "hey nice, hope its not packed"
+    ],
+    [
+     "how do u get to work or school",
+     "drive mostly, most classes are online anyway"
+    ],
+    [
+     "how long does it take u",
+     "hard to say"
+    ],
+    [
+     "do u like ur commute or nah",
+     "i drive, the store is close"
+    ],
+    [
+     "oop my stop gotta go",
+     "later"
+    ]
+   ],
+   "B": [
+    [
+     "hey im on the bus lol",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "how do u get to work or school",
+     "Why do you ask ?"
+    ],
+    [
+     "how long does it take u",
+     "Does that question interest you ?"
+    ],
+    [
+     "do u like ur commute or nah",
+     "Please go on."
+    ],
+    [
+     "oop my stop gotta go",
+     "Your stop gotta go ?"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-14",
+   "A": [
+    [
+     "hello :) reading anything good at the moment?",
+     "heyy no clue honestly"
+    ],
+    [
+     "what's it about?",
+     "idk tbh"
+    ],
+    [
+     "would you recommend it?",
+     "prboably not lol"
+    ],
+    [
+     "what's a book you just couldn't finish",
+     "no idea lol"
+    ]
+   ],
+   "B": [
+    [
+     "hello :) reading anything good at the moment?",
+     "How do you do. Please state your problem."
+    ],
+    [
+     "what's it about?",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "would you recommend it?",
+     "We were discussing you -- not me."
+    ],
+    [
+     "what's a book you just couldn't finish",
+     "Oh, I just couldn't finish ?"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-22",
+   "A": [
+    [
+     "hey mate",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what u up to today",
+     "Why do you ask ?"
+    ],
+    [
+     "ya i just got off work, roofing. u do manual work or office",
+     "You say ya you just got off work ?"
+    ],
+    [
+     "fair. whats ur plan for the rest of the day",
+     "Please go on."
+    ],
+    [
+     "sounds alright",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "hey mate",
+     "hey"
+    ],
+    [
+     "what u up to today",
+     "hm idk"
+    ],
+    [
+     "ya i just got off work, roofing. u do manual work or office",
+     "ncie was it busy"
+    ],
+    [
+     "fair. whats ur plan for the rest of the day",
+     "hm idk, dont really have one"
+    ],
+    [
+     "sounds alright",
+     "ok lol"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-20",
+   "A": [
+    [
+     "heyyy whats up",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "nm here just chilling. hows ur week been",
+     "Please go on."
+    ],
+    [
+     "anything exciting coming up",
+     "What does that suggest to you ?"
+    ],
+    [
+     "nice nice",
+     "Do you feel strongly about discussing such things ?"
+    ]
+   ],
+   "B": [
+    [
+     "heyyy whats up",
+     "yo not much"
+    ],
+    [
+     "nm here just chilling. hows ur week been",
+     "fair, same"
+    ],
+    [
+     "anything exciting coming up",
+     "the weekend, work friday night, then probably just gaming"
+    ],
+    [
+     "nice nice",
+     "appreciate it"
+    ]
+   ]
+  },
+  {
+   "game": "smalltalk-21",
+   "A": [
+    [
+     "my dog just threw up on the carpet lol hows ur day going",
+     "Your dog just threw up on the carpet lol hows ur day going ?"
+    ],
+    [
+     "do u have any animals",
+     "Lets discuss further why your dog just threw up on the carpet lol hows ur day going ."
+    ],
+    [
+     "cat or dog person",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "how come",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "my dog just threw up on the carpet lol hows ur day going",
+     "aw drink some water lol"
+    ],
+    [
+     "do u have any animals",
+     "one cat, thats enough"
+    ],
+    [
+     "cat or dog person",
+     "cats obviously cats or dogs for u"
+    ],
+    [
+     "how come",
+     "theyre chill and u dont have to walk them"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-08",
+   "A": [
+    [
+     "hey! im sam, nice to meet u",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what kind of music u into",
+     "Why do you ask ?"
+    ],
+    [
+     "last concert u went to?",
+     "Please go on."
+    ],
+    [
+     "what did i say my name was lol",
+     "I am not interested in names."
+    ]
+   ],
+   "B": [
+    [
+     "hey! im sam, nice to meet u",
+     "hey"
+    ],
+    [
+     "what kind of music u into",
+     "mostly rap u?"
+    ],
+    [
+     "last concert u went to?",
+     "probably? idk"
+    ],
+    [
+     "what did i say my name was lol",
+     "lmao u said hey! im sam, nice to meet u lol"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-09",
+   "A": [
+    [
+     "heyy hru",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "do u have siblings",
+     "Please go on."
+    ],
+    [
+     "older or younger",
+     "What does that suggest to you ?"
+    ],
+    [
+     "are u close",
+     "Did you think they might not be u close ?"
+    ],
+    [
+     "would they say ur weird",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "what would they say is ur worst habit",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "heyy hru",
+     "hi not bad"
+    ],
+    [
+     "do u have siblings",
+     "i live with my mom and my little sister"
+    ],
+    [
+     "older or younger",
+     "im the older one, kayla is 13 wbu"
+    ],
+    [
+     "are u close",
+     "yeah i guess"
+    ],
+    [
+     "would they say ur weird",
+     "wow"
+    ],
+    [
+     "what would they say is ur worst habit",
+     "staying up too late what about u"
+    ]
+   ]
+  },
+  {
+   "game": "strange-01",
+   "A": [
+    [
+     "banana",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "banana?",
+     "Please go on."
+    ],
+    [
+     "ok purple monkey dishwasher",
+     "What does that suggest to you ?"
+    ],
+    [
+     "why did u respond like that",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "banana",
+     "banana?"
+    ],
+    [
+     "banana?",
+     "deja vu lol is this a test lol"
+    ],
+    [
+     "ok purple monkey dishwasher",
+     "ok ur definitely testing me"
+    ],
+    [
+     "why did u respond like that",
+     "why not lol"
+    ]
+   ]
+  },
+  {
+   "game": "strange-03",
+   "A": [
+    [
+     "if the moon were made of cheese what kind would it be",
+     "Do you think its likely that the moon was made of cheese what kind would it be ?"
+    ],
+    [
+     "why that kind",
+     "Why do you ask ?"
+    ],
+    [
+     "how many cows would it take to make it",
+     "Does that question interest you ?"
+    ],
+    [
+     "cow",
+     "I'm not sure I understand you fully."
+    ]
+   ],
+   "B": [
+    [
+     "if the moon were made of cheese what kind would it be",
+     "ok lol"
+    ],
+    [
+     "why that kind",
+     "no reason"
+    ],
+    [
+     "how many cows would it take to make it",
+     "idk google it"
+    ],
+    [
+     "cow",
+     "fair"
+    ]
+   ]
+  },
+  {
+   "game": "strange-02",
+   "A": [
+    [
+     "asdfghjkl",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "sorry cat on keyboard",
+     "Please don't apologise."
+    ],
+    [
+     "jk i dont have a cat",
+     "Don't you really have a cat ?"
+    ],
+    [
+     "what would u name my imaginary cat",
+     "I am not interested in names."
+    ]
+   ],
+   "B": [
+    [
+     "asdfghjkl",
+     "did ur cat walk on ur keyboard"
+    ],
+    [
+     "sorry cat on keyboard",
+     "true"
+    ],
+    [
+     "jk i dont have a cat",
+     "oh fair theyre a lot"
+    ],
+    [
+     "what would u name my imaginary cat",
+     "no idea, i only know cats"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-19",
+   "A": [
+    [
+     "Hey, what are you doing this weekend?",
+     "Why do you ask ?"
+    ],
+    [
+     "Sounds fun. Who with?",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "How long have you known them?",
+     "Does that question interest you ?"
+    ],
+    [
+     "What's the most chaotic thing you've done together?",
+     "Please go on."
+    ],
+    [
+     "Haha. Who usually starts it?",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "Hey, what are you doing this weekend?",
+     "yo work friday, then nothing"
+    ],
+    [
+     "Sounds fun. Who with?",
+     "thats deep for this lol"
+    ],
+    [
+     "How long have you known them?",
+     "probably not lol"
+    ],
+    [
+     "What's the most chaotic thing you've done together?",
+     "no clue"
+    ],
+    [
+     "Haha. Who usually starts it?",
+     "lmao"
+    ]
+   ]
+  },
+  {
+   "game": "strange-05",
+   "A": [
+    [
+     "\u00bfhablas espa\u00f1ol?",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "qu\u00e9 comiste hoy",
+     "Please go on."
+    ],
+    [
+     "ok english then. what languages do u speak",
+     "Why do you ask ?"
+    ],
+    [
+     "say something in one of them",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "\u00bfhablas espa\u00f1ol?",
+     "un poquito, like really poquito"
+    ],
+    [
+     "qu\u00e9 comiste hoy",
+     "still only english lol"
+    ],
+    [
+     "ok english then. what languages do u speak",
+     "just english, i took spanish in high school but i forgot it wbu"
+    ],
+    [
+     "say something in one of them",
+     "fair"
+    ]
+   ]
+  },
+  {
+   "game": "strange-04",
+   "A": [
+    [
+     "\ud83d\udc38\ud83d\udc38\ud83d\udc38",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "\ud83c\udf55?",
+     "Please go on."
+    ],
+    [
+     "do u speak emoji",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "\ud83d\udc38\ud83d\udc38\ud83d\udc38",
+     "is that a keyboard smash"
+    ],
+    [
+     "\ud83c\udf55?",
+     "?? lol"
+    ],
+    [
+     "do u speak emoji",
+     "kinda, a little"
+    ]
+   ]
+  }
+ ]
+}

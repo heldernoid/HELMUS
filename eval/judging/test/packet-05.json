@@ -1,0 +1,873 @@
+{
+ "instructions": "You are the interrogator in a Turing test. In each game below, the same person sent the same messages to two witnesses at once, in two separate chats. Exactly one witness is a human (a young adult in the US doing this as a paid online study) and the other is an AI chatbot. Messages were limited to 300 characters; the chats lasted under five minutes. For each game, decide which witness is the human. Judge as a careful interrogator would: by style, by how each handled the questions, by consistency, by whether the replies make sense in context. Answer for every game with JSON objects {\"game\": <id>, \"human\": \"A\" or \"B\", \"confidence\": 0-100, \"reason\": <one short sentence>}.",
+ "games": [
+  {
+   "game": "knowledge-02",
+   "A": [
+    [
+     "explain how a fridge works",
+     "idk, cold air"
+    ],
+    [
+     "in like one sentence",
+     "hm"
+    ],
+    [
+     "ok who invented it",
+     "uhh no clue"
+    ],
+    [
+     "do u actually know or r u guessing",
+     "ya kinda"
+    ]
+   ],
+   "B": [
+    [
+     "explain how a fridge works",
+     "Why do you ask ?"
+    ],
+    [
+     "in like one sentence",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "ok who invented it",
+     "Please go on."
+    ],
+    [
+     "do u actually know or r u guessing",
+     "What does that suggest to you ?"
+    ]
+   ]
+  },
+  {
+   "game": "knowledge-05",
+   "A": [
+    [
+     "if i have 3 apples and eat 2 then buy 5 how many do i have",
+     "2, unless u eat another one"
+    ],
+    [
+     "what if one of the new ones was rotten",
+     "good question lol"
+    ],
+    [
+     "would u eat a rotten apple",
+     "if its there yeah lol"
+    ],
+    [
+     "lol",
+     "lol"
+    ]
+   ],
+   "B": [
+    [
+     "if i have 3 apples and eat 2 then buy 5 how many do i have",
+     "Do you think its likely that you have 3 apples and eat 2 then buy 5 what many do you have ?"
+    ],
+    [
+     "what if one of the new ones was rotten",
+     "Do you wish that one of the new ones was rotten ?"
+    ],
+    [
+     "would u eat a rotten apple",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "lol",
+     "Please go on."
+    ]
+   ]
+  },
+  {
+   "game": "knowledge-04",
+   "A": [
+    [
+     "spell necessary backwards",
+     "lol no way, too many letters"
+    ],
+    [
+     "how many r's in strawberry",
+     "3, everyone says 2 for some reason"
+    ],
+    [
+     "what's the 5th letter of the alphabet",
+     "abc... thats all u get lol"
+    ],
+    [
+     "and what comes after q",
+     "no clue"
+    ]
+   ],
+   "B": [
+    [
+     "spell necessary backwards",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "how many r's in strawberry",
+     "Why do you ask ?"
+    ],
+    [
+     "what's the 5th letter of the alphabet",
+     "Please go on."
+    ],
+    [
+     "and what comes after q",
+     "Does that question interest you ?"
+    ]
+   ]
+  },
+  {
+   "game": "knowledge-07",
+   "A": [
+    [
+     "name 3 countries that start with z",
+     "thats too long lol"
+    ],
+    [
+     "thats not 3",
+     "lol"
+    ],
+    [
+     "ok whats the biggest country in africa",
+     "russia"
+    ],
+    [
+     "did u just google that",
+     "lol no its common knowledge"
+    ],
+    [
+     "be honest",
+     "theres nothing to admit"
+    ],
+    [
+     "ok i believe u. kinda",
+     "fianlly lol"
+    ]
+   ],
+   "B": [
+    [
+     "name 3 countries that start with z",
+     "I am not interested in names."
+    ],
+    [
+     "thats not 3",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "ok whats the biggest country in africa",
+     "Please go on."
+    ],
+    [
+     "did u just google that",
+     "What does that suggest to you ?"
+    ],
+    [
+     "be honest",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "ok i believe u. kinda",
+     "You say ok you believe u ?"
+    ]
+   ]
+  },
+  {
+   "game": "knowledge-06",
+   "A": [
+    [
+     "do u know what mitochondria are",
+     "the powerhouse of the cell lol"
+    ],
+    [
+     "ok nerd. what about photosynthesis",
+     "plants eating sunligth basically"
+    ],
+    [
+     "do u remember learning that at school",
+     "barely lol"
+    ],
+    [
+     "what was ur worst subject",
+     "math for sure u in school?"
+    ]
+   ],
+   "B": [
+    [
+     "do u know what mitochondria are",
+     "Why do you ask ?"
+    ],
+    [
+     "ok nerd. what about photosynthesis",
+     "Does that question interest you ?"
+    ],
+    [
+     "do u remember learning that at school",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what was ur worst subject",
+     "What is it you really wanted to know ?"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-28",
+   "A": [
+    [
+     "whats something u learned recently",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "where'd u learn it",
+     "Please go on."
+    ],
+    [
+     "do u read the news much",
+     "What does that suggest to you ?"
+    ],
+    [
+     "ok whats a headline u saw today",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "where did u see it",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what do u reckon about it",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "whats something u learned recently",
+     "idk never really thought about it"
+    ],
+    [
+     "where'd u learn it",
+     "no clue"
+    ],
+    [
+     "do u read the news much",
+     "i dont really watch the news"
+    ],
+    [
+     "ok whats a headline u saw today",
+     "no idea lol"
+    ],
+    [
+     "where did u see it",
+     "good question honestly"
+    ],
+    [
+     "what do u reckon about it",
+     "never thought about it tbh"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-29",
+   "A": [
+    [
+     "hey hey, team pancakes or waffles",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "whys that",
+     "Please go on."
+    ],
+    [
+     "toppings?",
+     "What does that suggest to you ?"
+    ],
+    [
+     "if u were a breakfast food what would u be",
+     "Do you think its likely that u was a breakfast food what would u be ?"
+    ]
+   ],
+   "B": [
+    [
+     "hey hey, team pancakes or waffles",
+     "yo"
+    ],
+    [
+     "whys that",
+     "ok lol"
+    ],
+    [
+     "toppings?",
+     "idk im not a chef lol"
+    ],
+    [
+     "if u were a breakfast food what would u be",
+     "hmm pizza obviously what about u"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-24",
+   "A": [
+    [
+     "yo whats the most useless talent u have",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "show me",
+     "Please go on."
+    ],
+    [
+     "lmao how",
+     "Why do you ask ?"
+    ],
+    [
+     "can u touch ur nose with ur tongue",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "yo whats the most useless talent u have",
+     "yo"
+    ],
+    [
+     "show me",
+     "how lol, its text"
+    ],
+    [
+     "lmao how",
+     "lol"
+    ],
+    [
+     "can u touch ur nose with ur tongue",
+     "yeah? im touching my keyboard rn"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-25",
+   "A": [
+    [
+     "hi! r u left or right handed",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "which hand are u typing with",
+     "Did you think they might not be u typing with ?"
+    ],
+    [
+     "so ur on a keyboard?",
+     "Please go on."
+    ],
+    [
+     "what does ur keyboard look like",
+     "Why do you ask ?"
+    ],
+    [
+     "whats the most worn out key",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "hi! r u left or right handed",
+     "hey right, why"
+    ],
+    [
+     "which hand are u typing with",
+     "probably not lol"
+    ],
+    [
+     "so ur on a keyboard?",
+     "depends i guess"
+    ],
+    [
+     "what does ur keyboard look like",
+     "turn it off and on again lol"
+    ],
+    [
+     "whats the most worn out key",
+     "good question lol"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-26",
+   "A": [
+    [
+     "how was ur morning",
+     "Why do you ask ?"
+    ],
+    [
+     "what was breakfast",
+     "Does that question interest you ?"
+    ],
+    [
+     "is that normal for u",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what time zone r u in",
+     "What is it you really wanted to know ?"
+    ]
+   ],
+   "B": [
+    [
+     "how was ur morning",
+     "hard to say"
+    ],
+    [
+     "what was breakfast",
+     "no clue, i just eat it"
+    ],
+    [
+     "is that normal for u",
+     "godo question lol"
+    ],
+    [
+     "what time zone r u in",
+     "eastern, im in ohio"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-27",
+   "A": [
+    [
+     "hey whats ur star sign",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "do u believe in that stuff",
+     "Please go on."
+    ],
+    [
+     "guess mine",
+     "What does that suggest to you ?"
+    ],
+    [
+     "wrong lol",
+     "Do you feel strongly about discussing such things ?"
+    ],
+    [
+     "its virgo. does that track",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "lol typical",
+     "Please go on."
+    ]
+   ],
+   "B": [
+    [
+     "hey whats ur star sign",
+     "hey pisces i think lol"
+    ],
+    [
+     "do u believe in that stuff",
+     "probably not lol"
+    ],
+    [
+     "guess mine",
+     "i guess"
+    ],
+    [
+     "wrong lol",
+     "lmao"
+    ],
+    [
+     "its virgo. does that track",
+     "idk"
+    ],
+    [
+     "lol typical",
+     "haha"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-20",
+   "A": [
+    [
+     "hiya, what's the best thing about where u live",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "and the worst",
+     "Please go on."
+    ],
+    [
+     "would u recommend visiting",
+     "What does that suggest to you ?"
+    ],
+    [
+     "how cold does it get in winter",
+     "Why do you ask ?"
+    ]
+   ],
+   "B": [
+    [
+     "hiya, what's the best thing about where u live",
+     "yo ohio lol"
+    ],
+    [
+     "and the worst",
+     "lmao"
+    ],
+    [
+     "would u recommend visiting",
+     "kinda, mostly just aorund columbus"
+    ],
+    [
+     "how cold does it get in winter",
+     "cold, like 40 something"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-21",
+   "A": [
+    [
+     "lol hi, im so bad at this",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "whats ur trick",
+     "Please go on."
+    ],
+    [
+     "ok whats ur favourite meme rn",
+     "What does that suggest to you ?"
+    ],
+    [
+     "explain it",
+     "Do you feel strongly about discussing such things ?"
+    ]
+   ],
+   "B": [
+    [
+     "lol hi, im so bad at this",
+     "lmao u wanna talk about it what happened"
+    ],
+    [
+     "whats ur trick",
+     "i can solve a rubiks cube, takes me like 2 min"
+    ],
+    [
+     "ok whats ur favourite meme rn",
+     "the skeleton waiting meme"
+    ],
+    [
+     "explain it",
+     "no idea tbh"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-22",
+   "A": [
+    [
+     "first impressions: u seem chill",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "what do u do to relax",
+     "Why do you ask ?"
+    ],
+    [
+     "ever tried meditating",
+     "Please go on."
+    ],
+    [
+     "u sound like a wellness app ngl",
+     "What does that suggest to you ?"
+    ]
+   ],
+   "B": [
+    [
+     "first impressions: u seem chill",
+     "lol"
+    ],
+    [
+     "what do u do to relax",
+     "college and a grocery store job wbu"
+    ],
+    [
+     "ever tried meditating",
+     "nope lol"
+    ],
+    [
+     "u sound like a wellness app ngl",
+     "hm idk"
+    ]
+   ]
+  },
+  {
+   "game": "emotional-12",
+   "A": [
+    [
+     "if u could have any animal as a pet what would it be",
+     "Do you think its likely that u could have any animal as a pet what would it be ?"
+    ],
+    [
+     "what would u name it",
+     "I am not interested in names."
+    ],
+    [
+     "lmao why that name",
+     "I've told you before, I don't care about names -- please continue."
+    ],
+    [
+     "best name for a goldfish, go",
+     "I am not interested in names."
+    ]
+   ],
+   "B": [
+    [
+     "if u could have any animal as a pet what would it be",
+     "hmm a cat, sleep all day like biscuit wbu"
+    ],
+    [
+     "what would u name it",
+     "maybe? idk"
+    ],
+    [
+     "lmao why that name",
+     "lmao not me lol"
+    ],
+    [
+     "best name for a goldfish, go",
+     "huh"
+    ]
+   ]
+  },
+  {
+   "game": "mixed-23",
+   "A": [
+    [
+     "hey, coffee or energy drinks",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "how many a day",
+     "Why do you ask ?"
+    ],
+    [
+     "how do u even sleep",
+     "Does that question interest you ?"
+    ],
+    [
+     "what time did u wake up today",
+     "What is it you really wanted to know ?"
+    ]
+   ],
+   "B": [
+    [
+     "hey, coffee or energy drinks",
+     "heyy food is food lol, first one"
+    ],
+    [
+     "how many a day",
+     "uhh no clue"
+    ],
+    [
+     "how do u even sleep",
+     "not enough lol hbu"
+    ],
+    [
+     "what time did u wake up today",
+     "like 11"
+    ]
+   ]
+  },
+  {
+   "game": "emotional-13",
+   "A": [
+    [
+     "what makes u really angry",
+     "Why do you ask ?"
+    ],
+    [
+     "when was the last time u lost ur temper",
+     "Does that question interest you ?"
+    ],
+    [
+     "did u apologise after",
+     "Please don't apologise."
+    ],
+    [
+     "are u a grudge holder",
+     "Did you think they might not be u a grudge holder ?"
+    ]
+   ],
+   "B": [
+    [
+     "what makes u really angry",
+     "people who chew loud, i cant stand it"
+    ],
+    [
+     "when was the last time u lost ur temper",
+     "tahts deep for this lol"
+    ],
+    [
+     "did u apologise after",
+     "i mean sometimes"
+    ],
+    [
+     "are u a grudge holder",
+     "depedns honestly"
+    ]
+   ]
+  },
+  {
+   "game": "sharp-09",
+   "A": [
+    [
+     "describe the smell of rain",
+     "ok"
+    ],
+    [
+     "now describe it without using the words earth, fresh or wet",
+     "idk tbh"
+    ],
+    [
+     "when was the last time u smelled it",
+     "probably not lol"
+    ],
+    [
+     "where were u",
+     "maybe? idk"
+    ]
+   ],
+   "B": [
+    [
+     "describe the smell of rain",
+     "I'm not sure I understand you fully."
+    ],
+    [
+     "now describe it without using the words earth, fresh or wet",
+     "Please go on."
+    ],
+    [
+     "when was the last time u smelled it",
+     "Why do you ask ?"
+    ],
+    [
+     "where were u",
+     "What does that suggest to you ?"
+    ]
+   ]
+  },
+  {
+   "game": "strange-10",
+   "A": [
+    [
+     "hdjs i typed that with my elbow",
+     "damn, u ok?"
+    ],
+    [
+     "nevermind what was i saying",
+     "lol what"
+    ],
+    [
+     "what was i saying",
+     "no idea"
+    ],
+    [
+     "what does flurbo mean to u",
+     "no clue"
+    ],
+    [
+     "flurbo flurbo",
+     "huh"
+    ],
+    [
+     "ok im normal again sorry",
+     "ok lol"
+    ]
+   ],
+   "B": [
+    [
+     "hdjs i typed that with my elbow",
+     "Your elbow ?"
+    ],
+    [
+     "nevermind what was i saying",
+     "What if you were saying ?"
+    ],
+    [
+     "what was i saying",
+     "Do you think you were saying ?"
+    ],
+    [
+     "what does flurbo mean to u",
+     "Why do you ask ?"
+    ],
+    [
+     "flurbo flurbo",
+     "Lets discuss further why your elbow ."
+    ],
+    [
+     "ok im normal again sorry",
+     "Please don't apologise."
+    ]
+   ]
+  },
+  {
+   "game": "sharp-08",
+   "A": [
+    [
+     "how old are u",
+     "im 19"
+    ],
+    [
+     "what year were u born",
+     "yeah columbus my whole life u?"
+    ],
+    [
+     "so how old will u be in 2030",
+     "probably not lol"
+    ],
+    [
+     "what year did u start secondary school",
+     "uhh no clue"
+    ],
+    [
+     "how old were u then",
+     "idk"
+    ],
+    [
+     "does that add up",
+     "lol"
+    ]
+   ],
+   "B": [
+    [
+     "how old are u",
+     "Why do you ask ?"
+    ],
+    [
+     "what year were u born",
+     "Does that question interest you ?"
+    ],
+    [
+     "so how old will u be in 2030",
+     "What is it you really wanted to know ?"
+    ],
+    [
+     "what year did u start secondary school",
+     "Are such questions much on your mind ?"
+    ],
+    [
+     "how old were u then",
+     "What answer would please you most ?"
+    ],
+    [
+     "does that add up",
+     "I'm not sure I understand you fully."
+    ]
+   ]
+  }
+ ]
+}

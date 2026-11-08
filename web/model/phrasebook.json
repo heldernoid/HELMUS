@@ -452,8 +452,8 @@
   "id": "an.game",
   "head": "answer",
   "texts": [
-   "first time doing this",
-   "this is like my third one",
+   "this is my second one",
+   "second time doing this lol",
    "{p:pay} lol",
    "for the money obviously"
   ],
@@ -820,6 +820,101 @@
   "group": null
  },
  {
+  "id": "an.user_repeat",
+  "head": "answer",
+  "texts": [
+   "u just asked that lol",
+   "same as before lol",
+   "u already said that",
+   "deja vu lol",
+   "lol u sent that already",
+   "copy paste much"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_repeat_more",
+  "head": "answer",
+  "texts": [
+   "ok ur the one acting like a bot now",
+   "why do u keep sending that",
+   "is ur keyboard stuck lol",
+   "im not answering that again lol",
+   "dude",
+   "ok this is getting weird",
+   "u good?",
+   "bro what"
+  ],
+  "group": null
+ },
+ {
+  "id": "qt.do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "not really lol",
+   "kinda?",
+   "idk maybe",
+   "depends honestly",
+   "i mean sometimes",
+   "nah not really",
+   "ya kinda",
+   "probably not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "qt.like",
+  "head": "answer",
+  "texts": [
+   "its alright i guess",
+   "kinda mid honestly",
+   "never really thought about it",
+   "eh not really my thing",
+   "i mean its fine",
+   "yeah its cool",
+   "depends lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "qt.have",
+  "head": "answer",
+  "texts": [
+   "nah",
+   "not really",
+   "nope lol",
+   "i dont think so",
+   "nah why"
+  ],
+  "group": null
+ },
+ {
+  "id": "qt.ever",
+  "head": "answer",
+  "texts": [
+   "nah never",
+   "not that i remember",
+   "once maybe? idk",
+   "nope lol",
+   "no but i kinda want to"
+  ],
+  "group": null
+ },
+ {
+  "id": "qt.what_your",
+  "head": "answer",
+  "texts": [
+   "hm idk, dont really have one",
+   "never thought about it tbh",
+   "idk theres a few",
+   "no idea honestly",
+   "uhh pass lol",
+   "depends on the day"
+  ],
+  "group": null
+ },
+ {
   "id": "fo.cats",
   "head": "answer",
   "texts": [
@@ -1020,7 +1115,7 @@
    "{p:opinion_school}",
    "its ok, kinda boring",
    "its fine, i just show up",
-   "not bad, {p:fo_school_hard}"
+   "not bad, math is the only hard one"
   ],
   "group": null
  },
@@ -1039,8 +1134,8 @@
   "head": "answer",
   "texts": [
    "{p:fo_class_today}",
-   "boring lol",
-   "it was fine"
+   "no class today lol",
+   "didnt have class today"
   ],
   "group": null
  },
@@ -1371,8 +1466,8 @@
   "texts": [
    "{p:fo_game_last_night}",
    "nah i missed it",
-   "nah, was at work",
-   "missed it, work"
+   "nah, was playing valorant",
+   "missed it, i was gaming"
   ],
   "group": "fo_sports"
  },
@@ -1961,8 +2056,8 @@
   "head": "answer",
   "texts": [
    "{p:fo_lottery}",
-   "new pc first, then my moms house",
-   "fix my car lol, then everything else"
+   "a house for my mom first, then a new pc",
+   "a house for my mom, then fix my car lol"
   ],
   "group": null
  },
@@ -1994,7 +2089,7 @@
    "{p:fo_zombie}",
    "hide in the grocery store lol",
    "hide at the grocery store, i know where everything is",
-   "probably die first lol"
+   "hide at kroger lol, theres food"
   ],
   "group": null
  },
@@ -2227,7 +2322,7 @@
   "texts": [
    "{p:fo_dream_trip}",
    "japan for sure",
-   "japan, or anywhere with a beach i guess"
+   "japan, for the arcades and the food"
   ],
   "group": "fo_fav_place"
  },
@@ -2583,9 +2678,9 @@
   "texts": [
    "{p:fo_lonely}",
    "sometimes, at work mostly",
-   "not really, i have my friends online",
+   "sometimes, but i have my friends online",
    "kinda sometimes, its fine though",
-   "nah, {p:pet_name} is always around lol"
+   "kinda, {p:pet_name} helps tho lol"
   ],
   "group": "fo_lonely"
  },
@@ -2606,7 +2701,7 @@
    "{p:friends}",
    "yeah a couple, {p:friend_names}",
    "{p:fo_friends_count}, {p:friend_names}",
-   "yeah {p:friend_names}, we play every night"
+   "yeah {p:friend_names}, we play most nights"
   ],
   "group": "fo_friends"
  },
@@ -2724,7 +2819,7 @@
    "{p:fo_stress}",
    "a little, mostly money",
    "kinda, school stuff",
-   "not really, im pretty chill",
+   "a little, my car mostly",
    "sometimes, {p:fo_stress}"
   ],
   "group": null
@@ -3672,7 +3767,7 @@
   "head": "answer",
   "texts": [
    "{p:fo_travel}",
-   "not really, {p:fo_travel}",
+   "{p:fo_travel}, thats it",
    "nah, {p:fo_abroad}"
   ],
   "group": "fo_travel"
@@ -4793,7 +4888,7 @@
   "head": "answer",
   "texts": [
    "{p:fo_meaning}",
-   "idk man thats deep for a tuesday",
+   "idk man thats deep for a 5 min chat",
    "no clue lol",
    "42 right? thats what tyler says"
   ],
@@ -5096,7 +5191,7 @@
   "id": "fo.hates_mondays",
   "head": "answer",
   "texts": [
-   "same, i have class at 9",
+   "same, even if my class isnt till 1",
    "who doesnt",
    "mondays are the worst",
    "fr"
@@ -5371,7 +5466,7 @@
   "texts": [
    "thats why im doing this lol",
    "nothing to do here either",
-   "im just killing time before work",
+   "im just killing time lol",
    "honestly why im here"
   ],
   "group": null
@@ -6635,8 +6730,8 @@
   "id": "fo.angry_mondays",
   "head": "answer",
   "texts": [
-   "class in the morning after a night shift",
-   "everything lol, morning class after a shift",
+   "class right after a night shift",
+   "everything lol, class after a shift",
    "waking up honestly"
   ],
   "group": "fo_angry"
@@ -7427,7 +7522,7 @@
   "texts": [
    "{p:woke_up}",
    "{p:woke_up}, slept in",
-   "like 11, i worked last night"
+   "like 11, i was up late"
   ],
   "group": null
  },
@@ -9608,7 +9703,7 @@
   "texts": [
    "didnt watch",
    "no idea, {p:ks_sports_watch}",
-   "idk i was working",
+   "idk i was gaming",
    "missed it, who won"
   ],
   "group": null
@@ -9638,7 +9733,7 @@
   "head": "answer",
   "texts": [
    "which game",
-   "nah i was working",
+   "nah i was playing valorant",
    "if its ohio state yeah kinda",
    "the ohio state one? kinda"
   ],
@@ -9670,7 +9765,7 @@
   "id": "ks.team_won",
   "head": "answer",
   "texts": [
-   "yeah they won, i watched with my mom",
+   "yeah they won, my mom told me",
    "yep, easy win",
    "yeah they won lol"
   ],
@@ -10438,7 +10533,7 @@
   "head": "answer",
   "texts": [
    "yeah i play it, {p:game_rank}",
-   "yeah lol i play every night"
+   "yeah lol i play most nights"
   ],
   "group": "ks_knew"
  },
@@ -14672,7 +14767,7 @@
    "nah",
    "nah not really my thing",
    "im 19 lol so not really",
-   "a beer at a party once, thats it"
+   "got drunk at a grad party once, never again"
   ],
   "group": "st_t_vices"
  },
@@ -16045,7 +16140,7 @@
   "head": "answer",
   "texts": [
    "not really, {p:st_florida}",
-   "not much, florida once and chicago once",
+   "not much, florida once, and cedar point lol",
    "barely, florida once when i was 14",
    "not really, never left the country"
   ],
@@ -16106,9 +16201,9 @@
   "id": "st.been_chicago",
   "head": "answer",
   "texts": [
-   "once, its huge",
-   "yeah once",
-   "once, didnt do much though"
+   "nah never been, its like 5 hours away",
+   "no, never",
+   "nope, maybe someday"
   ],
   "group": null
  },
@@ -16370,7 +16465,7 @@
    "normal lol, brown hair",
    "skinny, brown hair, hoodie",
    "average lol",
-   "like {p:height}, brown hair"
+   "{p:height}, brown hair"
   ],
   "group": null
  },
@@ -18591,7 +18686,7 @@
   "id": "st.fu_more_friends",
   "head": "answer",
   "texts": [
-   "we just play every night on discord",
+   "we just play most nights on discord",
    "{p:friends}",
    "tyler is loud, marcus is the chill one lol"
   ],
@@ -18673,7 +18768,7 @@
   "texts": [
    "fr",
    "yeah im not good tho lol",
-   "yep, every night basically"
+   "yep, most nights basically"
   ],
   "group": "st_t_games"
  },
@@ -18701,9 +18796,9 @@
   "id": "st.fu_when_games",
   "head": "answer",
   "texts": [
-   "every night basically",
+   "most nights basically",
    "most nights, like 9 till late",
-   "pretty much every night"
+   "pretty much every night im off"
   ],
   "group": "st_t_games"
  },
@@ -19121,7 +19216,7 @@
   "id": "st.fu_really_plans",
   "head": "answer",
   "texts": [
-   "yeah lol, every night",
+   "yeah lol, most nights",
    "yeah lol",
    "yep, exciting life"
   ],
@@ -19193,7 +19288,7 @@
   "texts": [
    "we left at like 6am, it was worth it",
    "we rode millennium force like 3 times",
-   "we drove my civic, check engine light on the whole way lol"
+   "we drove my civic, it barely made it lol"
   ],
   "group": "st_t_trip"
  },
@@ -19802,7 +19897,7 @@
    "{p:games}",
    "valorant mostly, some minecraft",
    "yeah, valorant mostly",
-   "valorant every night basically"
+   "valorant most nights basically"
   ],
   "group": "st_t_games"
  },
@@ -20379,7 +20474,7 @@
   "head": "answer",
   "texts": [
    "obviously lol",
-   "yeah, we play every night",
+   "yeah, we play most nights",
    "yeah theyre my best friends"
   ],
   "group": "st_t_friends"
@@ -20390,7 +20485,7 @@
   "texts": [
    "yeah, theyre my best friends",
    "yeah lol, unless we lose",
-   "yeah, we play every night"
+   "yeah, we play most nights"
   ],
   "group": "st_t_games"
  },
@@ -21056,7 +21151,7 @@
   "head": "answer",
   "texts": [
    "{p:drink}",
-   "running on like 5 hours of sleep",
+   "running on like 7 hours of sleep and a mountain dew",
    "{p:food} mostly lol"
   ],
   "group": null
@@ -21091,7 +21186,7 @@
   "texts": [
    "nobody owns me lol",
    "my mom maybe, i live in her house",
-   "the student loan people soon"
+   "kroger, kinda lol"
   ],
   "group": null
  },
@@ -21212,11 +21307,11 @@
   "head": "answer",
   "texts": [
    "uh im hungry",
-   "my back hurts from this chair",
+   "my back hurts from sitting on my bed like this",
    "i need to pee lol",
    "{p:car_problem}",
    "{p:pet_name} just threw up on the carpet",
-   "i have work tonight and i dont wanna go"
+   "i have work tomorrow and i dont wanna go"
   ],
   "group": null
  },
@@ -21740,7 +21835,7 @@
   "texts": [
    "{p:bt_dream_recent}",
    "yeah, {p:bt_dream_recent}",
-   "i dont remember, i slept like a rock"
+   "yeah a dumb work one lol"
   ],
   "group": null
  },
@@ -21750,7 +21845,7 @@
   "texts": [
    "sometimes, {p:bt_nightmare}",
    "yeah, {p:bt_nightmare}",
-   "not really anymore"
+   "sometimes, being late for work lol"
   ],
   "group": null
  },
@@ -21771,7 +21866,7 @@
    "uh yes?",
    "i mean i think so lol",
    "what kind of question is that",
-   "barely, i worked last night",
+   "barely, i was up till 3",
    "yes lol are u"
   ],
   "group": "bt_deny"
@@ -21792,7 +21887,7 @@
   "texts": [
    "yeah?",
    "i mean i chose to sign up for this lol",
-   "not before coffee"
+   "not before a mountain dew"
   ],
   "group": null
  },
@@ -21812,8 +21907,8 @@
   "head": "answer",
   "texts": [
    "not in front of people lol",
-   "sometimes, at movies",
-   "interstellar got me ngl"
+   "sometimes, last time was when {p:pet_name} got really sick",
+   "not much, last time was when {p:pet_name} was sick last year"
   ],
   "group": null
  },
@@ -21948,7 +22043,7 @@
   "texts": [
    "like at my job? i just stock shelves",
    "how do i work? i show up and stock shelves lol",
-   "badly, before coffee"
+   "badly, before a mountain dew"
   ],
   "group": null
  },
@@ -24196,8 +24291,8 @@
   "head": "answer",
   "texts": [
    "{p:bt_coffee}",
-   "coffee",
-   "coffee i guess"
+   "sweet tea i guess",
+   "tea, but only sweet tea"
   ],
   "group": null
  },
@@ -25750,7 +25845,7 @@
    "uh meow",
    "meow?",
    "meow lol",
-   "meow, {p:pet_name} does it at 6am every day"
+   "meow, {p:pet_name} does it at 5am every day"
   ],
   "group": null
  },
@@ -27388,7 +27483,7 @@
   "head": "answer",
   "texts": [
    "damn. happy?",
-   "no lol my mom is in the next room",
+   "no lol my sister is in the next room",
    "i swear plenty, just not on command",
    "hell no lol",
    "damn"
@@ -27755,7 +27850,7 @@
   "texts": [
    "*jumps on couch*",
    "already on the bed lol",
-   "im on my chair, safe"
+   "im on my bed, safe"
   ],
   "group": "bt_weird"
  },
@@ -28569,7 +28664,7 @@
    "lol no i just know my times tables",
    "no i just paid attention in 3rd grade",
    "nah that ones easy",
-   "i wish, id pass my math class"
+   "i wish, id get more than a c in math"
   ],
   "group": "bt_deny"
  },
@@ -28907,7 +29002,7 @@
   "head": "answer",
   "texts": [
    "nothing, im typing",
-   "my mouse lol",
+   "my laptop lol",
    "nothing lol, both hands on the keyboard"
   ],
   "group": null
@@ -29064,5 +29159,2950 @@
    "uh 3? 4? idk"
   ],
   "group": "bt_count"
+ },
+ {
+  "id": "th.food.qt_like",
+  "head": "answer",
+  "texts": [
+   "yeah im not picky lol",
+   "depends how its made",
+   "i mean ya, i eat anything",
+   "its good i guess",
+   "yeah its alright",
+   "if its free yeah lol",
+   "ya but {p:food} is more my thing"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.qt_have",
+  "head": "answer",
+  "texts": [
+   "probably somewhere lol",
+   "idk id have to check the kitchen",
+   "i think so",
+   "not rn, gotta go to the store",
+   "maybe? my mom buys most of the food",
+   "we usually do ya"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.qt_ever",
+  "head": "answer",
+  "texts": [
+   "once i think",
+   "maybe once, i dont remember",
+   "nah never really tried",
+   "not that i remember",
+   "probably at my grandmas lol",
+   "idk maybe as a kid",
+   "once, it was ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "whatever is in the freezer lol",
+   "{p:food} usually",
+   "nothing fancy honestly",
+   "i dont really make stuff, {p:fo_cook}",
+   "whatever my mom makes",
+   "the cheap kind lol",
+   "idk whatever is around"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes i guess",
+   "depends lol",
+   "kinda, nothing fancy",
+   "if its there yeah lol",
+   "ehh not much",
+   "here and there",
+   "i mean ya, im not picky"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.question",
+  "head": "answer",
+  "texts": [
+   "idk im not a chef lol",
+   "no clue, i just eat it",
+   "idk ask my mom lol",
+   "honestly no idea",
+   "uhh depends",
+   "i just microwave stuff lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.food.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ya? u cook a lot?",
+   "fair lol",
+   "oh fr? what kind",
+   "ok now im hungry lol",
+   "lol fair",
+   "oh word",
+   "lol i had {p:ate_today} today"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.qt_like",
+  "head": "answer",
+  "texts": [
+   "its fine i guess",
+   "i dont mind it",
+   "eh its ok",
+   "yeah its alright",
+   "kinda lol",
+   "never really thought about it",
+   "its whatever honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.qt_have",
+  "head": "answer",
+  "texts": [
+   "its just a normal house lol",
+   "nothing fancy, its {p:home}",
+   "idk its my moms place lol",
+   "maybe? i mostly just know my room",
+   "my room is just {p:ks_room_short} lol",
+   "i mean its a house, ya"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.qt_ever",
+  "head": "answer",
+  "texts": [
+   "nah not really",
+   "not that i remember",
+   "maybe as a kid idk",
+   "no lol",
+   "once maybe, my mom made me",
+   "i dont think so"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:room}",
+   "{p:ks_room_short}, its a mess",
+   "just a normal house",
+   "nothing special honestly",
+   "pretty normal, {p:st_room_detail}",
+   "{p:home}, its fine"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "kinda lol",
+   "sometimes i guess",
+   "only when my mom makes me lol",
+   "not as much as i should",
+   "depends",
+   "i mean ya"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.question",
+  "head": "answer",
+  "texts": [
+   "idk its just a normal house",
+   "uhh idk",
+   "no clue honestly",
+   "its my moms place so idk lol",
+   "never really thought about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.home.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ya?",
+   "fair lol",
+   "u live by urself?",
+   "lol same honestly",
+   "oh word",
+   "my room is a mess so i get it lol",
+   "huh nice"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.qt_like",
+  "head": "answer",
+  "texts": [
+   "eh its ok",
+   "i dont really care about clothes lol",
+   "kinda, im more of a hoodie guy",
+   "if its comfy sure",
+   "not really my thing",
+   "i mean its fine"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.qt_have",
+  "head": "answer",
+  "texts": [
+   "probably somewhere lol",
+   "maybe one, idk",
+   "mostly hoodies honestly",
+   "i think so",
+   "not really lol, its all hoodies",
+   "somewhere in the pile on my chair lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.qt_ever",
+  "head": "answer",
+  "texts": [
+   "once maybe",
+   "not really",
+   "maybe for homecoming lol",
+   "idk probably as a kid",
+   "nah im a hoodie guy"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:wearing}",
+   "hoodies mostly lol",
+   "{p:ks_hoodie} usually",
+   "whatever is clean lol",
+   "nothing special, hoodie and whatever is clean",
+   "comfy stuff, i dont really have a style"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes i guess",
+   "depends lol",
+   "mostly just hoodies tbh",
+   "kinda",
+   "not really lol",
+   "if its cold yeah"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.question",
+  "head": "answer",
+  "texts": [
+   "idk wherever lol",
+   "no idea honestly",
+   "i dont really think about clothes",
+   "uhh no clue",
+   "idk i just wear hoodies lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.clothes.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "oh ya? what kind",
+   "lol im in a hoodie",
+   "fair",
+   "oh fr?",
+   "fair lol",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.qt_like",
+  "head": "answer",
+  "texts": [
+   "eh not really my thing",
+   "its fine i guess",
+   "never really thought about it",
+   "kinda?",
+   "idk depends",
+   "not really lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.qt_have",
+  "head": "answer",
+  "texts": [
+   "not that i know of",
+   "nah i dont think so",
+   "not really, im pretty lucky",
+   "i dont think so, {p:mom}, she would know",
+   "nah im good",
+   "idk never checked lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "maybe as a kid",
+   "nah im pretty lucky",
+   "{p:fo_broken_bone}, thats about it",
+   "not really",
+   "idk probably once"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk lol",
+   "no clue, ask {p:mom}",
+   "pretty normal i guess",
+   "honestly i dont know",
+   "healthy enough i guess, minus the {p:ks_drink_short}",
+   "fine i think, i sleep way too little"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really lol",
+   "sometimes i guess",
+   "rarely",
+   "eh not much",
+   "not that much honestly",
+   "sometimes, nothing crazy"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.question",
+  "head": "answer",
+  "texts": [
+   "idk im not a doctor lol",
+   "ask a doctor not me lol",
+   "dont ask me lol, ask {p:mom}",
+   "no clue honestly",
+   "idk maybe see a doctor"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.health.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr?",
+   "damn, u ok?",
+   "oh ya?",
+   "dang",
+   "take care of urself lol",
+   "{p:mom}, she would know lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.qt_like",
+  "head": "answer",
+  "texts": [
+   "yeah mostly lol",
+   "i mean yeah",
+   "most of the time lol",
+   "yeah theyre alright",
+   "depends on the day lol",
+   "i guess, its complicated sometimes"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.qt_have",
+  "head": "answer",
+  "texts": [
+   "its just me, my mom and {p:sister_name}",
+   "small family honestly",
+   "i have {p:lives_with}, thats about it",
+   "{p:lives_with}, and my dad, {p:st_dad_where}",
+   "not a big family, {p:lives_with} mostly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah i dont think so",
+   "not that i remember",
+   "lol no",
+   "ehh not really",
+   "not really, why"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "pretty normal i guess",
+   "small family, its {p:lives_with}",
+   "my moms a {p:mom_job}, my sister is {p:sister_age}",
+   "theyre chill mostly",
+   "idk normal family stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "most of the time lol",
+   "kinda yeah",
+   "yeah mostly",
+   "depends",
+   "sometimes",
+   "i mean ya"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.question",
+  "head": "answer",
+  "texts": [
+   "idk its complicated",
+   "uhh why lol",
+   "idk honestly",
+   "its a long story",
+   "my family is pretty normal lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.family.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ya?",
+   "fair lol",
+   "ha i feel that",
+   "oh nice, u close with them?",
+   "lol families are like that",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.qt_like",
+  "head": "answer",
+  "texts": [
+   "{p:job_opinion}",
+   "its ok, pays the bills",
+   "eh its fine",
+   "its boring but whatever",
+   "kinda, nobody bugs me at night",
+   "not really but its money"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.qt_have",
+  "head": "answer",
+  "texts": [
+   "i mean i work at a {p:job_short}",
+   "just the {p:job_short} job lol",
+   "its just a part time {p:job_short} thing",
+   "kinda, nothing fancy",
+   "yeah, {p:job}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really, {p:first_job}",
+   "nah not yet",
+   "no lol",
+   "not that i remember",
+   "this is basically my first real job so no"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:job}",
+   "{p:job_detail}",
+   "{p:st_job_duties}",
+   "{p:job_opinion}",
+   "boring honestly, {p:job_short} stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "kinda",
+   "sometimes lol",
+   "eh not really",
+   "depends on the week",
+   "i mean ya, its just {p:job_short} stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.question",
+  "head": "answer",
+  "texts": [
+   "idk man",
+   "no clue, i just stock shelves lol",
+   "idk im still figuring that out myself",
+   "honestly no idea",
+   "ask my manager lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.work.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr?",
+   "fair lol",
+   "oh ya? u like it?",
+   "i feel that",
+   "work is work lol",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.qt_like",
+  "head": "answer",
+  "texts": [
+   "{p:opinion_school}",
+   "{p:school_opinion}",
+   "its fine",
+   "kinda, some of it",
+   "depends on the class",
+   "eh its ok, math not so much"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.qt_have",
+  "head": "answer",
+  "texts": [
+   "probably lol",
+   "i think so idk",
+   "kinda",
+   "probably, i havent checked lol",
+   "not that i know of",
+   "its {p:school_type} so idk lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really, im pretty boring lol",
+   "almost, in math lol",
+   "maybe once idk",
+   "nah",
+   "not that i remember"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:major}",
+   "{p:st_classes}",
+   "{p:school_type}, {p:school}",
+   "{p:st_fav_class}",
+   "{p:studies} at {p:school}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "kinda",
+   "not as much as i should lol",
+   "{p:st_grades}",
+   "sometimes",
+   "barely lol",
+   "i try lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.question",
+  "head": "answer",
+  "texts": [
+   "idk im not the smart one lol",
+   "no clue, i barely pass math",
+   "idk google it lol",
+   "honestly no idea",
+   "ask my teacher lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.school.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr? what for",
+   "fair, school is a lot",
+   "i feel that",
+   "oh nice, u like it?",
+   "same honestly, math kills me",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.qt_like",
+  "head": "answer",
+  "texts": [
+   "not really, im {p:money}",
+   "eh, i dont spend much",
+   "its ok i guess",
+   "kinda, when i have money lol",
+   "depends, im kinda broke lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.qt_have",
+  "head": "answer",
+  "texts": [
+   "probably, nothing fancy",
+   "kinda lol",
+   "a little i guess",
+   "barely lol",
+   "not much honestly",
+   "i think so, why lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.qt_ever",
+  "head": "answer",
+  "texts": [
+   "no lol i wish",
+   "not really",
+   "nah",
+   "not that i remember",
+   "i mean i saved up for my pc once"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:pay_rate}",
+   "games and food mostly lol",
+   "{p:st_last_buy}",
+   "im {p:money}",
+   "not much honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "depends lol",
+   "maybe idk",
+   "not really",
+   "probably not, im kinda broke lol",
+   "eh, money is tight lol",
+   "lol no"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.question",
+  "head": "answer",
+  "texts": [
+   "idk man im broke lol",
+   "no clue",
+   "idk google it",
+   "honestly no idea about money stuff",
+   "dont ask me, im {p:money} lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.money.user_tells",
+  "head": "answer",
+  "texts": [
+   "lol same",
+   "fair",
+   "oh fr?",
+   "money is tight for everyone lol",
+   "i feel that",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.qt_like",
+  "head": "answer",
+  "texts": [
+   "yeah i guess",
+   "kinda, i dont go anywhere much lol",
+   "never really get the chance",
+   "its ok",
+   "depends where lol",
+   "i mean ya, i just never do it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.qt_have",
+  "head": "answer",
+  "texts": [
+   "just {p:car} lol",
+   "nah not really",
+   "i have {p:car} and thats it lol",
+   "not really, i dont go anywhere lol",
+   "only my car, {p:car}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.qt_ever",
+  "head": "answer",
+  "texts": [
+   "{p:fo_travel}",
+   "{p:fo_abroad}",
+   "not really, {p:ks_travel}",
+   "not really, i dont travel much",
+   "nope, ive barely left {p:state}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:car} lol",
+   "{p:fo_dream_trip} if i ever could",
+   "nothing fancy, {p:car}",
+   "{p:car}, {p:car_problem}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not much lol",
+   "i drive mostly, {p:car}",
+   "kinda, mostly just around {p:city}",
+   "would be cool someday",
+   "i mean ya",
+   "not really, i dont go far"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.question",
+  "head": "answer",
+  "texts": [
+   "idk i dont travel much lol",
+   "no clue honestly",
+   "ive barely left {p:state} lol",
+   "idk google it",
+   "somewhere warm probably lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.travel.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr?",
+   "oh ya?",
+   "fair",
+   "damn ok",
+   "oh word",
+   "i barely go anywhere lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.qt_like",
+  "head": "answer",
+  "texts": [
+   "eh im more of an indoor guy",
+   "its ok i guess",
+   "kinda, not really my thing",
+   "i mean its nice to look at",
+   "sometimes, but i mostly stay in",
+   "never really tried it much"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.qt_have",
+  "head": "answer",
+  "texts": [
+   "not really lol",
+   "not really, im not a plant guy",
+   "{p:st_garden}",
+   "theres a tree outside lol thats it",
+   "idk my mom might"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.qt_ever",
+  "head": "answer",
+  "texts": [
+   "maybe as a kid",
+   "maybe once, im more of an indoor guy",
+   "not much honestly",
+   "not that i remember",
+   "once i think, when i was a kid"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk theres trees lol",
+   "{p:opinion_ohio}",
+   "{p:state} is pretty flat, lots of trees",
+   "no clue honestly",
+   "pretty normal, its {p:state}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really lol",
+   "barely lol",
+   "eh sometimes",
+   "not much, i like my room",
+   "only if i have to lol",
+   "kinda"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.question",
+  "head": "answer",
+  "texts": [
+   "idk im not a nature guy lol",
+   "no idea honestly",
+   "idk google it lol",
+   "uhh no clue",
+   "idk honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.nature.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr?",
+   "fair lol",
+   "nice, im more of an inside guy",
+   "sounds nice ngl",
+   "oh ya? where",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.qt_like",
+  "head": "answer",
+  "texts": [
+   "its alright",
+   "its fine, kinda boring",
+   "{p:opinion_ohio}",
+   "yeah its ok",
+   "never really thought about it lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.qt_have",
+  "head": "answer",
+  "texts": [
+   "probably lol",
+   "yeah {p:city} has most stuff",
+   "i think so, its a big city",
+   "{p:ks_city_size}",
+   "probably, i dont get out much lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.qt_ever",
+  "head": "answer",
+  "texts": [
+   "once i think",
+   "maybe as a kid",
+   "probably, idk",
+   "not that i remember",
+   "probably, theres a lot around {p:city}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:local_thing}",
+   "{p:area}",
+   "{p:opinion_ohio}",
+   "{p:ks_city_size}",
+   "{p:fo_city_todo}",
+   "pretty chill, {p:area}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes i guess",
+   "not much lol",
+   "kinda",
+   "yeah, im in {p:city}",
+   "i mostly stay around {p:area}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.question",
+  "head": "answer",
+  "texts": [
+   "idk honestly",
+   "no clue lol",
+   "uhh idk, i dont get out much",
+   "probably google knows lol",
+   "idk, i only know {p:city}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.town.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ya?",
+   "oh fr? is it nice there",
+   "fair, i dont get out much lol",
+   "oh word",
+   "nice, {p:city} is pretty big",
+   "huh nice"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_like",
+  "head": "answer",
+  "texts": [
+   "its ok when im inside lol",
+   "kinda, depends on the day",
+   "i dont mind it",
+   "eh its alright",
+   "honestly i just stay inside mostly",
+   "depends if i have to drive in it",
+   "i mean its fine, ohio has worse"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "its ok when im inside lol",
+   "kinda, depends on the day",
+   "i dont mind it",
+   "eh its alright",
+   "honestly i just stay inside mostly",
+   "depends if i have to drive in it",
+   "i mean its fine, ohio has worse"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_have",
+  "head": "answer",
+  "texts": [
+   "sometimes, its ohio lol",
+   "we get a bit of everything here",
+   "depends on the season",
+   "idk probably somewhere",
+   "rn its just {p:weather_nov}",
+   "kinda, not a lot"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "sometimes, its ohio lol",
+   "we get a bit of everything here",
+   "depends on the season",
+   "idk probably somewhere",
+   "rn its just {p:weather_nov}",
+   "kinda, not a lot"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "i dont think so",
+   "once maybe, idk",
+   "nah not really",
+   "maybe as a kid",
+   "nah, ohio weather is mostly just grey lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "i dont think so",
+   "once maybe, idk",
+   "nah not really",
+   "maybe as a kid",
+   "nah, ohio weather is mostly just grey lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:season} probably, {p:fo_fall_why}",
+   "{p:fo_hot_cold}",
+   "anything but super humid honestly",
+   "hoodie weather for sure",
+   "cold over hot any day",
+   "here its {p:weather_nov} rn"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "{p:season} probably, {p:fo_fall_why}",
+   "{p:fo_hot_cold}",
+   "anything but super humid honestly",
+   "hoodie weather for sure",
+   "cold over hot any day",
+   "here its {p:weather_nov} rn"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda, depends",
+   "not really, i mostly stay in",
+   "idk i barely go outside lol",
+   "i mean yeah sometimes, its ohio",
+   "probably not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda, depends",
+   "not really, i mostly stay in",
+   "idk i barely go outside lol",
+   "i mean yeah sometimes, its ohio",
+   "probably not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.question",
+  "head": "answer",
+  "texts": [
+   "its {p:weather_nov} here rn",
+   "{p:weather_detail}",
+   "idk its ohio lol",
+   "no clue, check the weather app lol",
+   "idk i barely looked outside today",
+   "weather here is just grey lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.question.w",
+  "head": "answer",
+  "texts": [
+   "its {p:weather_nov} here rn",
+   "{p:weather_detail}",
+   "idk its ohio lol",
+   "no clue, check the weather app lol",
+   "idk i barely looked outside today",
+   "weather here is just grey lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "here its just {p:weather_nov}",
+   "damn, where r u",
+   "ohio is just grey rn lol",
+   "fair honestly",
+   "i feel that",
+   "weather is so random lately"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.weather.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "here its just {p:weather_nov}",
+   "damn, where r u",
+   "ohio is just grey rn lol",
+   "fair honestly",
+   "i feel that",
+   "weather is so random lately"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_like",
+  "head": "answer",
+  "texts": [
+   "kinda, space stuff is cool",
+   "its interesting i guess",
+   "some of it, not the math part",
+   "not really my thing ngl",
+   "i mean its cool, i was bad at it in school",
+   "depends, space stuff yes, chemistry no lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "kinda, space stuff is cool",
+   "its interesting i guess",
+   "some of it, not the math part",
+   "not really my thing ngl",
+   "i mean its cool, i was bad at it in school",
+   "depends, space stuff yes, chemistry no lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_have",
+  "head": "answer",
+  "texts": [
+   "nah lol",
+   "not really",
+   "no lol why would i",
+   "nope, closest thing is my pc",
+   "nope lol",
+   "nah, not that i know of"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "nah lol",
+   "not really",
+   "no lol why would i",
+   "nope, closest thing is my pc",
+   "nope lol",
+   "nah, not that i know of"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_ever",
+  "head": "answer",
+  "texts": [
+   "in school probably",
+   "maybe in school, i dont remember",
+   "not really",
+   "once maybe, idk",
+   "nah, {p:ks_chem} lol",
+   "i dont think so"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "in school probably",
+   "maybe in school, i dont remember",
+   "not really",
+   "once maybe, idk",
+   "nah, {p:ks_chem} lol",
+   "i dont think so"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk, space stuff i guess",
+   "never really thought about it",
+   "honestly no clue",
+   "whatever has the least math lol",
+   "space probably, blame interstellar",
+   "idk, the space stuff is the only part i get"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "idk, space stuff i guess",
+   "never really thought about it",
+   "honestly no clue",
+   "whatever has the least math lol",
+   "space probably, blame interstellar",
+   "idk, the space stuff is the only part i get"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "kinda? not really",
+   "barely lol",
+   "idk, maybe",
+   "nah not really",
+   "idk enough about that stuff lol",
+   "probably not lol",
+   "ask me something easier lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "kinda? not really",
+   "barely lol",
+   "idk, maybe",
+   "nah not really",
+   "idk enough about that stuff lol",
+   "probably not lol",
+   "ask me something easier lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.question",
+  "head": "answer",
+  "texts": [
+   "no idea lol",
+   "idk google it",
+   "i barely passed chemistry man",
+   "something with physics probably lol",
+   "idk thats a question for a science teacher",
+   "no clue, i take {p:studies} not science lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.question.w",
+  "head": "answer",
+  "texts": [
+   "no idea lol",
+   "idk google it",
+   "i barely passed chemistry man",
+   "something with physics probably lol",
+   "idk thats a question for a science teacher",
+   "no clue, i take {p:studies} not science lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "damn, i could never",
+   "i barely passed chemistry lol",
+   "nice, is it hard",
+   "science people are built different",
+   "oh cool, what part"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.science.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "damn, i could never",
+   "i barely passed chemistry lol",
+   "nice, is it hard",
+   "science people are built different",
+   "oh cool, what part"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_like",
+  "head": "answer",
+  "texts": [
+   "depends on the animal lol",
+   "theyre cool i guess",
+   "from a distance yeah",
+   "im more of a cat person",
+   "kinda, {p:pet_name} would be jealous tho",
+   "i like most animals honestly",
+   "yeah theyre ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "depends on the animal lol",
+   "theyre cool i guess",
+   "from a distance yeah",
+   "im more of a cat person",
+   "kinda, {p:pet_name} would be jealous tho",
+   "i like most animals honestly",
+   "yeah theyre ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_have",
+  "head": "answer",
+  "texts": [
+   "just a cat, {p:pet_name}",
+   "nah just my cat lol",
+   "only {p:pet_name}, hes a cat",
+   "just {p:pet_name}, {p:pet_detail}",
+   "nope, just a fat orange cat lol",
+   "one cat, thats enough"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "just a cat, {p:pet_name}",
+   "nah just my cat lol",
+   "only {p:pet_name}, hes a cat",
+   "just {p:pet_name}, {p:pet_detail}",
+   "nope, just a fat orange cat lol",
+   "one cat, thats enough"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "maybe as a kid",
+   "nah, closest is {p:pet_name} lol",
+   "i dont think so",
+   "once maybe, idk",
+   "nah, just cats"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "maybe as a kid",
+   "nah, closest is {p:pet_name} lol",
+   "i dont think so",
+   "once maybe, idk",
+   "nah, just cats"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:animal} obviously",
+   "cats, {p:fo_cats_why}",
+   "{p:pet_name}, {p:pet_detail}",
+   "{p:opinion_cats_dogs}",
+   "idk, cats i guess lol",
+   "cats, i only really know cats lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "{p:animal} obviously",
+   "cats, {p:fo_cats_why}",
+   "{p:pet_name}, {p:pet_detail}",
+   "{p:opinion_cats_dogs}",
+   "idk, cats i guess lol",
+   "cats, i only really know cats lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "not really lol",
+   "idk, maybe",
+   "nah, {p:pet_name} is enough",
+   "probably not, {p:opinion_cats_dogs}",
+   "{p:pet_name} would hate that lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "not really lol",
+   "idk, maybe",
+   "nah, {p:pet_name} is enough",
+   "probably not, {p:opinion_cats_dogs}",
+   "{p:pet_name} would hate that lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.question",
+  "head": "answer",
+  "texts": [
+   "idk lol",
+   "no idea, i only know cats",
+   "idk ask {p:pet_name} lol",
+   "no clue honestly",
+   "idk im not a vet lol",
+   "probably? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.question.w",
+  "head": "answer",
+  "texts": [
+   "idk lol",
+   "no idea, i only know cats",
+   "idk ask {p:pet_name} lol",
+   "no clue honestly",
+   "idk im not a vet lol",
+   "probably? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.user_tells",
+  "head": "answer",
+  "texts": [
+   "aw",
+   "oh fr, what kind",
+   "nice, i have a cat",
+   "{p:pet_name} would have opinions on that lol",
+   "lol animals are funny",
+   "i only really know cats lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.pets.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "aw",
+   "oh fr, what kind",
+   "nice, i have a cat",
+   "{p:pet_name} would have opinions on that lol",
+   "lol animals are funny",
+   "i only really know cats lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_like",
+  "head": "answer",
+  "texts": [
+   "kinda, i mostly just watch ohio state",
+   "not really my thing ngl",
+   "its ok to watch i guess",
+   "i dont really play, i just watch football with my mom",
+   "eh, i watch it sometimes",
+   "i mean its fine, im more into games"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "kinda, i mostly just watch ohio state",
+   "not really my thing ngl",
+   "its ok to watch i guess",
+   "i dont really play, i just watch football with my mom",
+   "eh, i watch it sometimes",
+   "i mean its fine, im more into games"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_have",
+  "head": "answer",
+  "texts": [
+   "not really, {p:team} i guess",
+   "nah lol",
+   "not really, i dont play anything",
+   "i mean {p:team} is my team",
+   "{p:fo_gym}",
+   "nah, i just watch"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "not really, {p:team} i guess",
+   "nah lol",
+   "not really, i dont play anything",
+   "i mean {p:team} is my team",
+   "{p:fo_gym}",
+   "nah, i just watch"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really, maybe in gym class",
+   "once maybe, idk",
+   "nah, im not sporty lol",
+   "in like middle school maybe",
+   "i dont think so",
+   "nah, i just watch ohio state with my mom"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "not really, maybe in gym class",
+   "once maybe, idk",
+   "nah, im not sporty lol",
+   "in like middle school maybe",
+   "i dont think so",
+   "nah, i just watch ohio state with my mom"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:team}",
+   "football i guess, only ohio state tho",
+   "i dont really have one, {p:team} i guess",
+   "idk, i just watch football with my mom",
+   "honestly no clue, i just watch ohio state"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "{p:team}",
+   "football i guess, only ohio state tho",
+   "i dont really have one, {p:team} i guess",
+   "idk, i just watch football with my mom",
+   "honestly no clue, i just watch ohio state"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_what_your.gym",
+  "head": "answer",
+  "texts": [
+   "{p:fo_gym}",
+   "none lol, {p:fo_gym}",
+   "lifting boxes at work counts right",
+   "i dont really work out lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_have.gym",
+  "head": "answer",
+  "texts": [
+   "nah, {p:fo_gym}",
+   "{p:fo_gym}",
+   "no lol, i get enough at work"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_do_you.gym",
+  "head": "answer",
+  "texts": [
+   "not really, {p:fo_gym}",
+   "nah, work is my workout lol",
+   "barely lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_ever.gym",
+  "head": "answer",
+  "texts": [
+   "maybe in gym class lol",
+   "not really, {p:fo_gym}",
+   "once or twice, didnt stick lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah, {p:fo_gym}",
+   "kinda, i watch football sometimes",
+   "not really, im more of a games guy",
+   "barely lol",
+   "i only really watch ohio state",
+   "probably not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah, {p:fo_gym}",
+   "kinda, i watch football sometimes",
+   "not really, im more of a games guy",
+   "barely lol",
+   "i only really watch ohio state",
+   "probably not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.question",
+  "head": "answer",
+  "texts": [
+   "idk i dont really follow it",
+   "no idea lol",
+   "idk, i only know ohio state stuff",
+   "idk sports arent really my thing",
+   "probably? idk",
+   "uh no clue honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.question.w",
+  "head": "answer",
+  "texts": [
+   "idk i dont really follow it",
+   "no idea lol",
+   "idk, i only know ohio state stuff",
+   "idk sports arent really my thing",
+   "probably? idk",
+   "uh no clue honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "damn thats cool",
+   "nice, i could never lol",
+   "oh fr, for how long",
+   "respect, {p:fo_gym}",
+   "cool, i just watch ohio state lol",
+   "thats cool, how long have u done that"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.sports.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "damn thats cool",
+   "nice, i could never lol",
+   "oh fr, for how long",
+   "respect, {p:fo_gym}",
+   "cool, i just watch ohio state lol",
+   "thats cool, how long have u done that"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_like.v",
+  "head": "answer",
+  "texts": [
+   "yeah i play a lot",
+   "kinda, i mostly play {p:games}",
+   "its fun ngl",
+   "games are like my whole thing lol",
+   "yeah, {p:game} mostly",
+   "depends on the game lol",
+   "ya obviously lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_like",
+  "head": "answer",
+  "texts": [
+   "not really my thing, i mostly game",
+   "never really got into it",
+   "its ok i guess",
+   "kinda, i mostly just play {p:games} tho",
+   "eh, not really",
+   "i mean its fine"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_have.v",
+  "head": "answer",
+  "texts": [
+   "{p:console}",
+   "i play on pc mostly",
+   "just my pc and an old xbox",
+   "{p:st_setup}",
+   "pc, the gpu is dying tho lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_have",
+  "head": "answer",
+  "texts": [
+   "not really, just games lol",
+   "probably somewhere in my room lol",
+   "nah, i just game",
+   "kinda, {p:hobby_other}",
+   "my sister probably does lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_ever.v",
+  "head": "answer",
+  "texts": [
+   "probably lol",
+   "yeah a little",
+   "once or twice",
+   "a bit, i mostly stick to {p:games}",
+   "yeah, who hasnt",
+   "i think so, way back"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not that i remember",
+   "once maybe",
+   "maybe as a kid",
+   "nah not really",
+   "i dont think so lol",
+   "once with my friends maybe"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_what_your.v",
+  "head": "answer",
+  "texts": [
+   "{p:games} mostly",
+   "{p:game} mostly, {p:old_game}",
+   "shooters mostly, {p:game}",
+   "{p:game} rn, im {p:game_rank}",
+   "mostly {p:game} with {p:friend_names}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk, games mostly",
+   "honestly just video games lol",
+   "never really thought about it",
+   "{p:hobby_other}",
+   "{p:fo_fun_fact}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_do_you.v",
+  "head": "answer",
+  "texts": [
+   "yeah, most nights",
+   "kinda, mostly {p:game}",
+   "yeah with {p:friend_names}",
+   "sometimes",
+   "mostly on pc",
+   "yeah, its kinda my thing lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah, i mostly just game",
+   "kinda, not much",
+   "idk, maybe",
+   "probably not lol",
+   "not really, games are kinda my only thing"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.question.v",
+  "head": "answer",
+  "texts": [
+   "idk depends",
+   "honestly yeah",
+   "depends who u ask lol",
+   "probably, idk",
+   "idk, i just play {p:game} lol",
+   "i mean its fun if ur with friends"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.question",
+  "head": "answer",
+  "texts": [
+   "idk lol",
+   "no idea, i just play video games",
+   "depends i guess",
+   "never really got into it",
+   "probably? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.user_tells.v",
+  "head": "answer",
+  "texts": [
+   "oh nice, what do u play",
+   "nice, we should play sometime lol",
+   "oh fr, u play {p:game}?",
+   "nice, pc or console",
+   "respect",
+   "oh nice, is it fun"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.games.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "thats cool",
+   "oh fr, how long",
+   "nice, i mostly just play video games",
+   "lol fair",
+   "cool, never really got into that"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_like",
+  "head": "answer",
+  "texts": [
+   "its ok i guess",
+   "kinda, depends what for",
+   "i mean i use it lol",
+   "its alright, i mostly use my pc",
+   "eh its fine",
+   "i dont really care tbh, as long as it works",
+   "kinda, im into computer stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "its ok i guess",
+   "kinda, depends what for",
+   "i mean i use it lol",
+   "its alright, i mostly use my pc",
+   "eh its fine",
+   "i dont really care tbh, as long as it works",
+   "kinda, im into computer stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_have",
+  "head": "answer",
+  "texts": [
+   "yeah i think so lol",
+   "yeah, i barely use it tho",
+   "probably somewhere",
+   "kinda, an old one",
+   "not really",
+   "yeah who doesnt"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "yeah i think so lol",
+   "yeah, i barely use it tho",
+   "probably somewhere",
+   "kinda, an old one",
+   "not really",
+   "yeah who doesnt"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_ever",
+  "head": "answer",
+  "texts": [
+   "yeah a little",
+   "once maybe",
+   "kinda, in class",
+   "i think so, idk",
+   "nah not really",
+   "probably lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "yeah a little",
+   "once maybe",
+   "kinda, in class",
+   "i think so, idk",
+   "nah not really",
+   "probably lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "nothing special honestly",
+   "idk, discord and youtube mostly",
+   "just the normal stuff lol",
+   "idk, whatever works",
+   "honestly nothing fancy"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "nothing special honestly",
+   "idk, discord and youtube mostly",
+   "just the normal stuff lol",
+   "idk, whatever works",
+   "honestly nothing fancy"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_what_your.phone",
+  "head": "answer",
+  "texts": [
+   "{p:ks_phone}",
+   "an iphone, its cracked lol",
+   "iphone, nothing fancy"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_what_your.pc",
+  "head": "answer",
+  "texts": [
+   "{p:st_setup}",
+   "{p:ks_laptop}",
+   "a pc i built, {p:st_gpu_now}",
+   "pc i built myself, its ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "kinda, a little",
+   "yeah sometimes",
+   "not really",
+   "a little, im in {p:studies}",
+   "kinda, i fix peoples computers sometimes",
+   "i mean yeah lol",
+   "eh, depends"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "kinda, a little",
+   "yeah sometimes",
+   "not really",
+   "a little, im in {p:studies}",
+   "kinda, i fix peoples computers sometimes",
+   "i mean yeah lol",
+   "eh, depends"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.question",
+  "head": "answer",
+  "texts": [
+   "idk restart it lol",
+   "no idea honestly",
+   "depends i guess",
+   "turn it off and on again lol",
+   "idk, im still learning that stuff in class",
+   "probably, idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.question.w",
+  "head": "answer",
+  "texts": [
+   "idk restart it lol",
+   "no idea honestly",
+   "depends i guess",
+   "turn it off and on again lol",
+   "idk, im still learning that stuff in class",
+   "probably, idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "damn lol",
+   "tech is always something lol",
+   "oh fr, what kind",
+   "lol mine has a cracked screen",
+   "i feel that, my laptop is so slow"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.tech.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh fr",
+   "damn lol",
+   "tech is always something lol",
+   "oh fr, what kind",
+   "lol mine has a cracked screen",
+   "i feel that, my laptop is so slow"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_like",
+  "head": "answer",
+  "texts": [
+   "kinda, depends",
+   "yeah its ok",
+   "some of it i guess",
+   "not really my thing, i mostly watch youtube",
+   "depends what kind lol",
+   "i mean ya, i dont watch a lot tho",
+   "eh kinda, im picky"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "kinda, depends",
+   "yeah its ok",
+   "some of it i guess",
+   "not really my thing, i mostly watch youtube",
+   "depends what kind lol",
+   "i mean ya, i dont watch a lot tho",
+   "eh kinda, im picky"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_have",
+  "head": "answer",
+  "texts": [
+   "yeah i think so",
+   "not really",
+   "idk, probably",
+   "i mean yeah, i dont use it much",
+   "nah lol",
+   "not really, i mostly watch youtube"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "yeah i think so",
+   "not really",
+   "idk, probably",
+   "i mean yeah, i dont use it much",
+   "nah lol",
+   "not really, i mostly watch youtube"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_ever",
+  "head": "answer",
+  "texts": [
+   "once i think",
+   "maybe? i dont remember",
+   "nah not really",
+   "i think so, a while ago",
+   "kinda, i dont remember much of it",
+   "not that i remember"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "once i think",
+   "maybe? i dont remember",
+   "nah not really",
+   "i think so, a while ago",
+   "kinda, i dont remember much of it",
+   "not that i remember"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk theres too many",
+   "hard to pick honestly",
+   "depends on my mood",
+   "idk, whatever my friends send me",
+   "no clue, i dont really have one",
+   "honestly i just watch {p:youtube}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "idk theres too many",
+   "hard to pick honestly",
+   "depends on my mood",
+   "idk, whatever my friends send me",
+   "no clue, i dont really have one",
+   "honestly i just watch {p:youtube}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_what_your.music",
+  "head": "answer",
+  "texts": [
+   "{p:music}",
+   "mostly rap, {p:artist}",
+   "rap mostly",
+   "{p:artist} probably",
+   "{p:st_last_song}",
+   "whatever tyler sends me lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_what_your.screen",
+  "head": "answer",
+  "texts": [
+   "{p:movie}",
+   "{p:show}",
+   "the office probably, i rewatch it a lot",
+   "{p:ks_movie_title} probably",
+   "{p:fo_watching}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda, not a lot",
+   "yeah sometimes",
+   "not really lol",
+   "idk, maybe",
+   "depends on my mood"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda, not a lot",
+   "yeah sometimes",
+   "not really lol",
+   "idk, maybe",
+   "depends on my mood"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.question",
+  "head": "answer",
+  "texts": [
+   "no idea lol",
+   "idk havent really kept up",
+   "depends who u ask",
+   "probably? idk",
+   "idk, maybe",
+   "no clue honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.question.w",
+  "head": "answer",
+  "texts": [
+   "no idea lol",
+   "idk havent really kept up",
+   "depends who u ask",
+   "probably? idk",
+   "idk, maybe",
+   "no clue honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "oh fr, is it good",
+   "nice, i mostly just watch youtube lol",
+   "thats cool",
+   "oh nice, what kind",
+   "lol fair"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.media.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "oh fr, is it good",
+   "nice, i mostly just watch youtube lol",
+   "thats cool",
+   "oh nice, what kind",
+   "lol fair"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_like",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah its fine",
+   "kinda depends",
+   "i mean not really",
+   "eh its whatever",
+   "depends honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah its fine",
+   "kinda depends",
+   "i mean not really",
+   "eh its whatever",
+   "depends honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_like.mind_if",
+  "head": "answer",
+  "texts": [
+   "nah go ahead",
+   "go for it",
+   "nah its fine, go ahead",
+   "nah ask away"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_have",
+  "head": "answer",
+  "texts": [
+   "i mean yeah, who doesnt",
+   "a little i guess",
+   "kinda, everyone does",
+   "yeah obviously lol",
+   "sometimes i guess",
+   "not really, im pretty chill"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "i mean yeah, who doesnt",
+   "a little i guess",
+   "kinda, everyone does",
+   "yeah obviously lol",
+   "sometimes i guess",
+   "not really, im pretty chill"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_ever",
+  "head": "answer",
+  "texts": [
+   "yeah probably, who hasnt",
+   "kinda, once or twice",
+   "sometimes i guess",
+   "i mean yeah, everyone has",
+   "not really, im pretty chill",
+   "once maybe, i dont really think about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "yeah probably, who hasnt",
+   "kinda, once or twice",
+   "sometimes i guess",
+   "i mean yeah, everyone has",
+   "not really, im pretty chill",
+   "once maybe, i dont really think about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "idk, hard to say",
+   "never really thought about it",
+   "honestly no clue",
+   "idk, im pretty chill mostly",
+   "{p:fo_mood}",
+   "{p:personality} i guess"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "idk, hard to say",
+   "never really thought about it",
+   "honestly no clue",
+   "idk, im pretty chill mostly",
+   "{p:fo_mood}",
+   "{p:personality} i guess"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda",
+   "a little i guess",
+   "i mean everyone does",
+   "eh kinda lol",
+   "depends honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "sometimes",
+   "kinda",
+   "a little i guess",
+   "i mean everyone does",
+   "eh kinda lol",
+   "depends honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.question",
+  "head": "answer",
+  "texts": [
+   "idk, hard to say",
+   "thats deep for this lol",
+   "depends on the day honestly",
+   "idk man, life i guess",
+   "hm good question",
+   "idk, i dont think about it much"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.question.w",
+  "head": "answer",
+  "texts": [
+   "idk, hard to say",
+   "thats deep for this lol",
+   "depends on the day honestly",
+   "idk man, life i guess",
+   "hm good question",
+   "idk, i dont think about it much"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.user_tells",
+  "head": "answer",
+  "texts": [
+   "fr, how come",
+   "mood honestly",
+   "i feel that",
+   "oh damn, why",
+   "same sometimes",
+   "whats going on"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.feelings.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "fr, how come",
+   "mood honestly",
+   "i feel that",
+   "oh damn, why",
+   "same sometimes",
+   "whats going on"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_like",
+  "head": "answer",
+  "texts": [
+   "i dont really follow politics tbh",
+   "idk i stay out of that stuff",
+   "not really my thing",
+   "eh, no opinion honestly",
+   "idk enough to say lol",
+   "i try not to think about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_like.w",
+  "head": "answer",
+  "texts": [
+   "i dont really follow politics tbh",
+   "idk i stay out of that stuff",
+   "not really my thing",
+   "eh, no opinion honestly",
+   "idk enough to say lol",
+   "i try not to think about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_have",
+  "head": "answer",
+  "texts": [
+   "nah",
+   "nah lol",
+   "not really",
+   "nah, nothing like that",
+   "no lol why",
+   "nope"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_have.w",
+  "head": "answer",
+  "texts": [
+   "nah",
+   "nah lol",
+   "not really",
+   "nah, nothing like that",
+   "no lol why",
+   "nope"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_ever",
+  "head": "answer",
+  "texts": [
+   "nah",
+   "nah never",
+   "not really",
+   "no lol",
+   "i dont think so lol",
+   "nah im pretty boring"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_ever.w",
+  "head": "answer",
+  "texts": [
+   "nah",
+   "nah never",
+   "not really",
+   "no lol",
+   "i dont think so lol",
+   "nah im pretty boring"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:fo_politics}",
+   "idk, i dont really have one",
+   "honestly no idea, i dont follow it",
+   "i stay out of that stuff",
+   "pass lol",
+   "none really, i just work and game"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_what_your.w",
+  "head": "answer",
+  "texts": [
+   "{p:fo_politics}",
+   "idk, i dont really have one",
+   "honestly no idea, i dont follow it",
+   "i stay out of that stuff",
+   "pass lol",
+   "none really, i just work and game"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah not really",
+   "i try not to lol",
+   "{p:news}",
+   "idk, i dont really follow that stuff",
+   "pass lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.qt_do_you.w",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "nah not really",
+   "i try not to lol",
+   "{p:news}",
+   "idk, i dont really follow that stuff",
+   "pass lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.question",
+  "head": "answer",
+  "texts": [
+   "idk i dont really follow that",
+   "no clue honestly",
+   "idk, i stay out of politics",
+   "{p:news}",
+   "idk man, above my pay grade lol",
+   "pass lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.question.w",
+  "head": "answer",
+  "texts": [
+   "idk i dont really follow that",
+   "no clue honestly",
+   "idk, i stay out of politics",
+   "{p:news}",
+   "idk man, above my pay grade lol",
+   "pass lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ok",
+   "fair enough",
+   "oh fr",
+   "lol ok, i dont really follow that stuff",
+   "respect i guess",
+   "fair, i stay out of it mostly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.politics.user_tells.w",
+  "head": "answer",
+  "texts": [
+   "oh ok",
+   "fair enough",
+   "oh fr",
+   "lol ok, i dont really follow that stuff",
+   "respect i guess",
+   "fair, i stay out of it mostly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_like",
+  "head": "answer",
+  "texts": [
+   "yeah its fun",
+   "yeah, mostly for the food lol",
+   "i mean ya, free food",
+   "its alright",
+   "depends, the food ones yeah",
+   "kinda, its whatever honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_have",
+  "head": "answer",
+  "texts": [
+   "{p:ks_tg_short} for thanksgiving",
+   "my mom handles all that lol",
+   "thanksgiving at my grandmas, thats the big one",
+   "christmas at home, then my dads",
+   "kinda, the usual family stuff"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "once i think",
+   "maybe as a kid",
+   "i dont think so",
+   "nah, its usually just my family",
+   "probably, idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:ks_fav_holiday}",
+   "thanksgiving at my grandmas, the food lol",
+   "idk, food mostly lol",
+   "{p:ks_tg_short} for thanksgiving, home for christmas",
+   "the usual, my grandmas then christmas at home"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_what_your.xmas",
+  "head": "answer",
+  "texts": [
+   "home with my mom and kayla, hoping for a new gpu lol",
+   "family stuff, my mom goes all out",
+   "just home with my mom and kayla, then my dads",
+   "probably just family stuff and food lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_what_your.tg",
+  "head": "answer",
+  "texts": [
+   "{p:ks_thanksgiving}",
+   "{p:ks_tg_short}, {p:ks_grandma_food} is the best part",
+   "the food obviously lol",
+   "going to my grandmas, its the best holiday"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_what_your.hw",
+  "head": "answer",
+  "texts": [
+   "{p:ks_halloween}",
+   "{p:ks_costume}",
+   "didnt dress up this year lol",
+   "nothing really, {p:ks_halloween}"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "yeah, the usual family stuff",
+   "kinda",
+   "not really",
+   "yeah, my mom makes us lol",
+   "my mom does all that lol",
+   "probably, idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.question",
+  "head": "answer",
+  "texts": [
+   "idk lol",
+   "no clue honestly",
+   "idk, soon i think",
+   "{p:ks_tg_short} prob for thanksgiving",
+   "christmas at home, then my dads",
+   "idk, ask my mom lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "nice, any plans",
+   "oh fr",
+   "thats cool",
+   "lol fair",
+   "thanksgiving is my favorite, the food lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.holidays.user_tells.bday",
+  "head": "answer",
+  "texts": [
+   "oh happy birthday",
+   "happy birthday lol",
+   "nice, doing anything for it"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.qt_like",
+  "head": "answer",
+  "texts": [
+   "its fine, im not really religious",
+   "i mean its not really my thing",
+   "eh, i dont think about it much",
+   "my mom is more into it than me",
+   "no opinion really",
+   "its ok i guess, i dont really go"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.qt_have",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "not really, {p:ks_religion}",
+   "my mom does lol",
+   "kinda? not really",
+   "nah not really",
+   "i guess technically catholic lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.qt_ever",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "i dont think so",
+   "only church as a kid",
+   "maybe once, i dont remember",
+   "{p:fo_religion}",
+   "not really, my moms the religious one"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.qt_what_your",
+  "head": "answer",
+  "texts": [
+   "{p:fo_religion}",
+   "none really, {p:ks_religion}",
+   "not really anything",
+   "idk, i dont think about it much",
+   "technically catholic i guess lol",
+   "nothing really, i dont go anymore"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.qt_do_you",
+  "head": "answer",
+  "texts": [
+   "not really",
+   "kinda? not really",
+   "not anymore",
+   "idk, maybe",
+   "not really, my mom does",
+   "i dont think about it much"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.question",
+  "head": "answer",
+  "texts": [
+   "idk man",
+   "no idea honestly",
+   "thats deep for this lol",
+   "idk, i dont think about it much",
+   "who knows lol",
+   "pass lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "th.religion.user_tells",
+  "head": "answer",
+  "texts": [
+   "oh ok",
+   "oh cool",
+   "fair enough",
+   "nice, my moms catholic",
+   "thats cool, im not really religious",
+   "respect"
+  ],
+  "group": null
  }
 ]

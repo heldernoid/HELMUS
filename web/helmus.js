@@ -72,7 +72,7 @@ export class Net {
       if (!(key in this.why)) this.why[key] = reason;
     }
     this.book = Object.fromEntries(book.map(e => [e.id, e]));
-    const generic = ["U:topic_", "U:question", "U:q_form", "U:understood", "U:strange"];
+    const generic = ["U:topic_", "U:theme_", "U:question", "U:q_form", "U:understood", "U:strange"];
     this.gates = {};
     for (const [eid, k] of Object.entries(this.keys))
       this.gates[eid] = k.links.filter(([src, w]) => w > 0 && src.startsWith("U:") && !generic.some(g => src.startsWith(g))).map(([src]) => src);
@@ -225,31 +225,27 @@ export class Net {
       raw[eid] = s;
       scores[eid] = s - pen * (used[eid] || 0);
     }
-    const better = (a, b) => scores[a] > scores[b] || (scores[a] === scores[b] && -h(seed, a) > -h(seed, b));
-    const chosen = {};
-    for (const head of HEADS) {
-      let best = null;
-      for (const e of Object.keys(scores)) {
-        if (this.book[e].head !== head || !(raw[e] > 0)) continue;
-        const g = this.gates[e];
-        if (g.length && !g.some(src => (A[src] || 0) > 0.5)) continue;
-        if (best === null || better(e, best)) best = e;
-      }
-      if (best !== null) chosen[head] = best;
-    }
-    if (!("answer" in chosen) && !("react" in chosen)) {
-      let best = null;
-      const key = e => [scores[e], -h(seed, e, used[e] || 0)];
-      for (const e of Object.keys(scores)) {
-        if (this.book[e].head !== "fallback") continue;
-        if (best === null) { best = e; continue; }
-        const [a1, a2] = key(e), [b1, b2] = key(best);
-        if (a1 > b1 || (a1 === b1 && a2 > b2)) best = e;
-      }
-      chosen.answer = best;
-    }
     const turnNo = (state.turn || 0) + 1;
     const ctx = { calc, regs, now, words, history: state.history || [] };
+    const said = new Set(state.said || []);
+    // the best candidate whose lines are not all said already; if every one is spent, the best (as pick() in Python)
+    const pick = (cands, key) => {
+      const ranked = cands.map(e => [key(e), e]).sort((x, y) => y[0][0] - x[0][0] || y[0][1] - x[0][1]).map(x => x[1]);
+      for (const e of ranked) if (this.book[e].texts.some(t => !said.has(this.fill(t, ctx)))) return e;
+      return ranked[0];
+    };
+    const chosen = {};
+    for (const head of HEADS) {
+      const fit = Object.keys(scores).filter(e => {
+        if (this.book[e].head !== head || !(raw[e] > 0)) return false;
+        const g = this.gates[e];
+        return !g.length || g.some(src => (A[src] || 0) > 0.5);
+      });
+      if (fit.length) chosen[head] = pick(fit, e => [scores[e], -h(seed, e)]);
+    }
+    if (!("answer" in chosen) && !("react" in chosen))
+      chosen.answer = pick(Object.keys(scores).filter(e => this.book[e].head === "fallback"), e => [scores[e], -h(seed, e, used[e] || 0)]);
+
     const parts = ["react", "answer", "ask"].filter(hd => hd in chosen).map(hd => this.render(chosen[hd], state, turnNo, ctx));
     const reply = this.style(parts.filter(Boolean).join(" "), seed, turnNo);
     const newUsed = { ...used };
