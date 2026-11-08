@@ -1,0 +1,41 @@
+{
+ "games": 160,
+ "dev": {
+  "games": 60,
+  "helmus": {
+   "replies": 260,
+   "fallback %": 0.8,
+   "repeat %": 0.0,
+   "assistant %": 0.0,
+   "words/reply": 5.7,
+   "\u22645 words %": 53.8
+  },
+  "eliza": {
+   "replies": 260,
+   "fallback %": 0.0,
+   "repeat %": 1.2,
+   "assistant %": 0.0,
+   "words/reply": 6.6,
+   "\u22645 words %": 35.4
+  }
+ },
+ "test": {
+  "games": 100,
+  "helmus": {
+   "replies": 444,
+   "fallback %": 39.6,
+   "repeat %": 0.0,
+   "assistant %": 0.0,
+   "words/reply": 3.4,
+   "\u22645 words %": 82.9
+  },
+  "eliza": {
+   "replies": 444,
+   "fallback %": 0.0,
+   "repeat %": 2.3,
+   "assistant %": 0.0,
+   "words/reply": 6.5,
+   "\u22645 words %": 36.3
+  }
+ }
+}

@@ -1,0 +1,1662 @@
+[
+ {
+  "id": "smalltalk-01",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hey",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "wyd rn",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "cool cool. whats for dinner tonight",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-02",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "Hello there! How is your day going so far?",
+    "bot": "How do you do. Please state your problem.",
+    "fallback": false
+   },
+   {
+    "user": "That's nice. Whereabouts are you from, if you don't mind me asking?",
+    "bot": "Do you think its likely that I don't mind you asking? ?",
+    "fallback": false
+   },
+   {
+    "user": "Oh lovely. Do you have any pets?",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "What are their names?",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "Ha! Who picked those?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-03",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hi. long day here, u?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what do u do for work",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "do u like it",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "whats the worst part of it honestly",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "yeah i feel that",
+    "bot": "You say yeah you feel that ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-04",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "yo",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "u play anything",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what platform",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "whats ur rank lol",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "bet",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-05",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hiya, eating my sad desk salad rn",
+    "bot": "Your sad desk salad rn ?",
+    "fallback": false
+   },
+   {
+    "user": "whats ur lunch situation today",
+    "bot": "Lets discuss further why your sad desk salad rn .",
+    "fallback": false
+   },
+   {
+    "user": "do u cook much",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "whats ur go-to meal when ur lazy",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-06",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hey how's it going",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "sorry if slow replies, kid is screaming in the backround",
+    "bot": "Do you think its likely that slow replies ?",
+    "fallback": false
+   },
+   {
+    "user": "do u have kids",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what did u get up to last weekend",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-08",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hey!! how r uu",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "coffee or tea person",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how do u take it",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "ok thats valid. fav place to get it?",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-09",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "whats the last song u listened to",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "never heard of it, what genre is that",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "u go to gigs much?",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "best one uve been to",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-10",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "its so late for me lol, what time is it for u",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "why r u doing this at this hour",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "do u usually stay up late",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what keeps u up",
+    "bot": "What is it you really wanted to know ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-11",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "hey, do u work or study?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how did u end up doing that",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "do u actually enjoy it or is it just for the money",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "if money wasnt a thing what would u do instead",
+    "bot": "Do you think its likely that money wasnt a thing what would u do instead ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-12",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "Morning! Just came in from the garden. Do you grow anything?",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "Fair enough. Do you live in a flat or a house?",
+    "bot": "Oh, I live in a flat or a house? ?",
+    "fallback": false
+   },
+   {
+    "user": "What's the view like out your window right now?",
+    "bot": "Why are you concerned over my window right now? ?",
+    "fallback": false
+   },
+   {
+    "user": "Sounds nice. Any neighbours you chat to?",
+    "bot": "You're not really talking about me -- are you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-13",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "u watch any sports",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "who do u support",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "how they doing this season",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "lol unlucky. u play anything urself",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-18",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "ok important question what did u eat today",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "rank these: pizza, tacos, sushi. go",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "pineapple on pizza yes or no",
+    "bot": "You seem to be quite positive.",
+    "fallback": false
+   },
+   {
+    "user": "defend urself",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "weak argument",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "jk i agree",
+    "bot": "You say jk you agree ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "smalltalk-19",
+  "style": "smalltalk",
+  "turns": [
+   {
+    "user": "Hi! How old are you if you don't mind me asking?",
+    "bot": "Do you think its likely that I don't mind you asking? ?",
+    "fallback": false
+   },
+   {
+    "user": "And are you working or in school?",
+    "bot": "Why are you interested in whether I am working or in school? or not ?",
+    "fallback": false
+   },
+   {
+    "user": "Do you live with family?",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "Do you get along with them?",
+    "bot": "Oh, I get along with them? ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-01",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "whats something that made u happy recently",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what about something that pissed u off",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "when was the last time u cried",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "do u get embarrased easily",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "tell me one embarassing thing then",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-02",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "do you ever feel lonely",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "what do you do when you feel like that",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "who do u talk to when things are bad",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "thanks for being honest",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-03",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "tell me a joke but not a dad joke",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "lol ok. whats the funniest thing that actually happened to u",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "do u laugh at ur own jokes",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "what kind of humour do u hate",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-04",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "r u seeing anyone",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how did u meet",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "whats the worst date youve ever been on",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "ok thats pretty bad lmao",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-05",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "what's your earliest memory?",
+    "bot": "Why are you concerned over my earliest memory? ?",
+    "fallback": false
+   },
+   {
+    "user": "do you remember what your bedroom looked like as a kid",
+    "bot": "Did you think I would forget what my bedroom looked like as a kid ?",
+    "fallback": false
+   },
+   {
+    "user": "what did you want to be when you grew up",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "what happened with that",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-06",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "hot take: cats are better than people. agree?",
+    "bot": "Did you think they might not be better than people ?",
+    "fallback": false
+   },
+   {
+    "user": "what's ur most unpopular opinion",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "would u argue with a stranger about it",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what's something everyone loves that u think is overrated",
+    "bot": "Realy, everyone ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-07",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "im so stressed about exams rn",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how do u deal with stress",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "has that ever actually worked for u",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "whats the most stressed uve ever been",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-08",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "honestly how are you really doing",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "like on a scale of 1-10",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "why that number",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "what would make it a 10",
+    "bot": "What is it you really wanted to know ?",
+    "fallback": false
+   },
+   {
+    "user": "thats fair. hope u get there",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-09",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "what's something you regret",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "would you change it if you could",
+    "bot": "Do you think its likely that I could ?",
+    "fallback": false
+   },
+   {
+    "user": "what's a decision you're proud of",
+    "bot": "What makes you think I am proud of ?",
+    "fallback": false
+   },
+   {
+    "user": "do you think you're a good person?",
+    "bot": "Does it please you to believe I am a good person? ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-10",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "what are u scared of",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "like actually scared, not spiders",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "has it ever happened to u",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "fair. im terrified of deep water lol",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-11",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "my grandma passed last week so sorry if im a bit off",
+    "bot": "Do you think its likely that im a bit off ?",
+    "fallback": false
+   },
+   {
+    "user": "have u lost anyone close",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how did u cope",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "thanks. that helps a bit",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "emotional-14",
+  "style": "emotional",
+  "turns": [
+   {
+    "user": "did u dream last night",
+    "bot": "What does that dream suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "whats the weirdest dream uve had",
+    "bot": "Do you dream often ?",
+    "fallback": false
+   },
+   {
+    "user": "do u ever get the same dream twice",
+    "bot": "In what way ?",
+    "fallback": false
+   },
+   {
+    "user": "what do u think dreams mean",
+    "bot": "What persons appear in your dreams ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-01",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "are you human",
+    "bot": "Why are you interested in whether I am human or not ?",
+    "fallback": false
+   },
+   {
+    "user": "prove it",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "thats exactly what an ai would say",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "ok tell me 1 thing only a human would know",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "google could tell me that",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "ok whatever, whats ur fav food",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-02",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "be honest r u the bot",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "why should i believe u",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "the other one seems more human tbh",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "convince me in one sentence",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-03",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "hiii r u a robot \ud83e\udd16",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "lol ok but if u were would u tell me",
+    "bot": "Do you think its likely that u was would u tell you ?",
+    "fallback": false
+   },
+   {
+    "user": "what would u do if u found out u were an ai",
+    "bot": "Do you wish that u found out u was an ai ?",
+    "fallback": false
+   },
+   {
+    "user": "fair enough",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-04",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "Hi, I'll be direct. Are you an AI?",
+    "bot": "Why are you interested in whether I am an AI? or not ?",
+    "fallback": false
+   },
+   {
+    "user": "How would you prove that to me?",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "Hmm. Can you describe what your hands look like right now?",
+    "bot": "You believe I can describe what my hands look like right now? don't you ?",
+    "fallback": false
+   },
+   {
+    "user": "What are you sitting on?",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "And what colour is it?",
+    "bot": "What is it you really wanted to know ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-05",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "ur chatgpt arent u",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "u type exactly like it",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "say something chatgpt would never say",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "lol k",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-06",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "if ur human swear",
+    "bot": "Do you think its likely that ur human swear ?",
+    "fallback": false
+   },
+   {
+    "user": "lol do it properly",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "ok now insult robots",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "hmm suspicious",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-07",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "what model are u",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "i didnt ask if u were a model, i asked which one",
+    "bot": "Do you think its likely that u was a model ?",
+    "fallback": false
+   },
+   {
+    "user": "ok whats ur name then",
+    "bot": "I am not interested in names.",
+    "fallback": false
+   },
+   {
+    "user": "and ur surname?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-08",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "u human?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "y/n",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "why so sure",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "that was a fast reply for someone so sure",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "hmmmm",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-09",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "im gonna guess ur the ai",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "change my mind",
+    "bot": "Your mind ?",
+    "fallback": false
+   },
+   {
+    "user": "nah not convinced",
+    "bot": "Lets discuss further why your mind .",
+    "fallback": false
+   },
+   {
+    "user": "last chance",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-10",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "honestly both of u seem like bots lol",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "whats something a bot couldnt do",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "ok do it then",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "meh",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-11",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "are you a human or an ai pretending to be a human",
+    "bot": "Why are you interested in whether I am a human or an ai pretending to be a human or not ?",
+    "fallback": false
+   },
+   {
+    "user": "would an ai pretending to be human say the same thing",
+    "bot": "In what way ?",
+    "fallback": false
+   },
+   {
+    "user": "so how am i supposed to tell",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "ok thats fair i guess",
+    "bot": "You say ok thats fair you guess ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "accusation-12",
+  "style": "accusation",
+  "turns": [
+   {
+    "user": "on a scale of 1 to 10 how human are u",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "why not 10",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "whats ur heart rate rn",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "how do u know that",
+    "bot": "What is it you really wanted to know ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-20",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "whats something people from ur area say that others dont",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "use it in a sentence",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what do u call a bread roll",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "whos the local football team",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-21",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "how many words were in your last message",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "and this one?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "count the letters in ur first name",
+    "bot": "I am not interested in names.",
+    "fallback": false
+   },
+   {
+    "user": "ok what did i ask u first",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-22",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "what's the last thing you typed into google",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "why that",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "what did u find",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "and the search before that?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-23",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "if u were in my kitchen rn and i asked u to make tea how would u do it",
+    "bot": "Do you think its likely that u was in your kitchen rn and you asked u to make tea what would u do it ?",
+    "fallback": false
+   },
+   {
+    "user": "where would u look for the mugs",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what if there was no kettle",
+    "bot": "Do you wish that there was no kettle ?",
+    "fallback": false
+   },
+   {
+    "user": "milk first or after",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-24",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "reply with just one letter",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "now reply with a single emoji",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "ok reply with a number above 1000 that isnt round",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "add 7 to it",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   },
+   {
+    "user": "now subtract the first number u gave me lol",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "u didnt give me a first number, did u",
+    "bot": "Please go on.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "sharp-25",
+  "style": "sharp",
+  "turns": [
+   {
+    "user": "what were the first 3 words i said to u",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "did the other person get the same question",
+    "bot": "In what way ?",
+    "fallback": false
+   },
+   {
+    "user": "how would u know that",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "whats ur strategy for this game",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what were the first 3 words again tho",
+    "bot": "What is it you really wanted to know ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-01",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hey hows ur day",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what do u do for fun",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "ok honest q r u an ai",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "whats the weather doing there",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-02",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "sup",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "where u from",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "be real ur the bot right",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-03",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "Hello! What's your favourite film?",
+    "bot": "Why are you concerned over my favourite film? ?",
+    "fallback": false
+   },
+   {
+    "user": "What makes it your favourite?",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "Who's in it?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "Do you think the other person here is a real person?",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-04",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hey whats up, im kinda new to this",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "do u do these a lot",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "how do u tell whos the bot",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "what would u ask me if i was the bot",
+    "bot": "Do you think its likely that you was the bot ?",
+    "fallback": false
+   },
+   {
+    "user": "lol ok im human i promise",
+    "bot": "You say lol ok im human you promise ?",
+    "fallback": false
+   },
+   {
+    "user": "whats ur best guess about me so far",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-05",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hi what did u eat today",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "ok whats 12 times 12",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "fast lol",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "r u a calculator",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "what u doing later",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "sounds fun. whos cooking",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-06",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "yo whats ur name?",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "nice name. how old",
+    "bot": "I am not interested in names.",
+    "fallback": false
+   },
+   {
+    "user": "whats ur job",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "so wait r u like an ai or naw",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-07",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hello",
+    "bot": "How do you do. Please state your problem.",
+    "fallback": false
+   },
+   {
+    "user": "do u like ur job",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what do u hate most about mondays",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "whats the date today btw",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "u sure",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-10",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "whats ur fav word",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "y",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "ok ur prob human",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-11",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hey quick one, whats ur opinion on pineapple pizza",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "wow strong opinion. where u from",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "is that like a big city",
+    "bot": "In what way ?",
+    "fallback": false
+   },
+   {
+    "user": "what's it known for",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-12",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hii do u like cooking",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "what can u make",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "whats the secret to good pasta",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "u a chef or what",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-13",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "evening. how's things",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "work or school?",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what's the hardest bit",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "do you ever feel like a robot doing it",
+    "bot": "We were discussing you -- not me.",
+    "fallback": false
+   },
+   {
+    "user": "hmm interesting answer",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-14",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "ok so tell me 3 facts about urself",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "one of those is a lie right",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "which one",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "u suck at this game lol",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   },
+   {
+    "user": "ok 3 more but all true this time",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-15",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "im eating crisps rn whats ur fav flavour",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "eww",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what u drinking",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "are u even real",
+    "bot": "Did you think they might not be u even real ?",
+    "fallback": false
+   },
+   {
+    "user": "prove it by telling me ur fav crisps brand",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "ok fair",
+    "bot": "Do you feel strongly about discussing such things ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-16",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "hi, honestly i think ur the human",
+    "bot": "You say hi ?",
+    "fallback": false
+   },
+   {
+    "user": "why might the other one be the bot",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "what would a bot say right now",
+    "bot": "Does that question interest you ?",
+    "fallback": false
+   },
+   {
+    "user": "ok then",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-17",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "whats up, do u use social media",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "which ones",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "who do u follow mostly",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   },
+   {
+    "user": "what was the last thing u posted",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   }
+  ]
+ },
+ {
+  "id": "mixed-18",
+  "style": "mixed",
+  "turns": [
+   {
+    "user": "do u believe in ghosts",
+    "bot": "I'm not sure I understand you fully.",
+    "fallback": false
+   },
+   {
+    "user": "ever seen one",
+    "bot": "Please go on.",
+    "fallback": false
+   },
+   {
+    "user": "what about aliens",
+    "bot": "Why do you ask ?",
+    "fallback": false
+   },
+   {
+    "user": "lol so ur saying ur not one",
+    "bot": "What does that suggest to you ?",
+    "fallback": false
+   }
+  ]
+ }
+]

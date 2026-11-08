@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HELMUS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="HELMUS, a Hand-Engineered Language Machine, Untrained & Self-explaining: a chatbot whose every weight, rule and line was written by hand, trying to pass as a person in a five-minute Turing test.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HELMUS">
+<meta property="og:description" content="A chatbot whose every weight, rule and line was written by hand, trying to pass as a person in a five-minute Turing test. Chat with it, and see why it says what it says.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a test bench. A slim masthead with four views. Talk: the chat as the Turing-test witness sees it (a
+   phone-sized thread with the 5-minute timer) and, beside it, the network's reasoning for the last reply. Inside,
+   Results and How it's made are reading pages built from the same tokens. */
+:root {
+  --bg: #eef1f4;          /* bench: cool grey */
+  --panel: #ffffff;
+  --ink: #15202b;
+  --muted: #5d6b78;
+  --rule: #d8dee5;
+  --accent: #0f7b6c;      /* the machine's signal: a deep teal */
+  --accent-soft: #dcefeb;
+  --you: #1f3a5f;         /* the interrogator's bubbles */
+  --you-ink: #ffffff;
+  --them: #e9edf1;
+  --eliza: #8a5a1c;       /* the 1966 baseline: an old amber */
+  --warn: #b5541c;
+  --f-display: "Familjen Grotesk", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r: 14px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1318; --panel: #141c23; --ink: #e4eaef; --muted: #93a2ae; --rule: #26323c;
+    --accent: #4cc3ae; --accent-soft: #15302c; --you: #2c5687; --you-ink: #ffffff; --them: #1d2730;
+    --eliza: #e0a861; --warn: #f0965f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1318; --panel: #141c23; --ink: #e4eaef; --muted: #93a2ae; --rule: #26323c;
+  --accent: #4cc3ae; --accent-soft: #15302c; --you: #2c5687; --you-ink: #ffffff; --them: #1d2730;
+  --eliza: #e0a861; --warn: #f0965f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink); font: 400 15px/1.55 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; line-height: 1.02; }
+h2 { font-size: 1.25rem; font-weight: 700; }
+h3 { font-size: 1rem; font-weight: 700; }
+p { margin: 0; max-width: 66ch; }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+code, .mono { font-family: var(--f-mono); font-size: .9em; }
+
+/* masthead */
+.mast { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--rule); }
+.mast-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 18px; min-height: 58px; flex-wrap: wrap; padding-block: 6px; }
+.brand { display: flex; align-items: baseline; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand b { font: 700 1.35rem/1 var(--f-display); letter-spacing: .04em; }
+.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1 1 auto; min-width: 0; }
+.tabs a { padding: 8px 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; }
+.tabs a:hover { color: var(--ink); }
+.tabs a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+.gh { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid var(--rule);
+  border-radius: 999px; background: var(--panel); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+.gh:hover { border-color: var(--accent); color: var(--accent); }
+.gh svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+@media (max-width: 640px) { .mast-in { gap: 6px 12px; } .tabs { order: 3; flex-basis: 100%; } }
+
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 22px; padding-top: 24px; }
+.view { display: grid; gap: 22px; min-width: 0; }
+.intro { display: grid; gap: 10px; }
+.acr { font: 500 15px/1.4 var(--f-mono); color: var(--muted); letter-spacing: .01em; }
+.acr b { color: var(--accent); font-weight: 500; }
+.lede { font-size: 1.05rem; color: var(--muted); }
+.badge { font: 500 12px/1 var(--f-mono); padding: 6px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); justify-self: start; }
+
+.bench { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .bench { grid-template-columns: minmax(0, 1fr); } }
+
+/* the chat, as the witness's thread */
+.phone { background: var(--panel); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto; height: min(680px, 78vh); min-height: 460px; }
+.bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--panel); display: grid; place-items: center;
+  font: 700 15px/1 var(--f-display); flex: none; }
+.who { display: grid; line-height: 1.2; min-width: 0; }
+.who b { font-family: var(--f-display); }
+.who span { font-size: 12px; color: var(--muted); }
+.timer { margin-left: auto; font: 500 14px/1 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.timer.low { color: var(--warn); }
+.thread { overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.msg { max-width: 80%; padding: 8px 12px; border-radius: 16px; overflow-wrap: anywhere; }
+.msg.you { align-self: flex-end; background: var(--you); color: var(--you-ink); border-bottom-right-radius: 5px; }
+.msg.bot { align-self: flex-start; background: var(--them); border-bottom-left-radius: 5px; cursor: pointer; }
+.msg.bot.sel { box-shadow: 0 0 0 2px var(--accent); }
+.eliza { align-self: flex-start; max-width: 80%; font: 400 12px/1.4 var(--f-mono); color: var(--eliza); padding: 0 4px 4px; }
+.eliza b { font-weight: 500; }
+.typing { align-self: flex-start; color: var(--muted); font-size: 13px; padding: 4px 2px; }
+.empty { margin: auto; text-align: center; color: var(--muted); font-size: 14px; max-width: 30ch; }
+.chips { display: flex; gap: 6px; overflow-x: auto; padding: 8px 12px 0; scrollbar-width: none; }
+.chip { flex: none; border: 1px solid var(--rule); background: var(--bg); border-radius: 999px; padding: 6px 11px; font-size: 13px; cursor: pointer; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+form { display: flex; gap: 8px; padding: 12px; }
+input[type=text] { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 10px 14px; }
+.send { border: 0; background: var(--accent); color: var(--panel); border-radius: 999px; padding: 0 16px; font-weight: 600; cursor: pointer; }
+.send:disabled { opacity: .5; cursor: default; }
+
+/* panels */
+.panel { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--r); padding: 18px; display: grid; gap: 16px; min-width: 0; align-content: start; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 14px; }
+.controls label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.btn { border: 1px solid var(--rule); background: var(--panel); border-radius: 999px; padding: 6px 12px; cursor: pointer; font-size: 14px; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.section { display: grid; gap: 8px; }
+.eyebrow { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.read { display: flex; flex-wrap: wrap; gap: 4px; }
+.tok { font: 400 13px/1 var(--f-mono); padding: 5px 7px; border-radius: 6px; background: var(--bg); border: 1px solid var(--rule); }
+.tok.unknown { border-style: dashed; color: var(--muted); }
+.rows { display: grid; gap: 3px; }
+.row { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) 3.4rem; gap: 10px; align-items: center; font: 400 13px/1.3 var(--f-mono); }
+.row .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .v { text-align: right; font-variant-numeric: tabular-nums; }
+.meter { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--accent); }
+.entries { display: grid; gap: 6px; }
+.entry { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr) 3.4rem; gap: 10px; align-items: baseline; font-size: 13px; }
+.entry .head { font: 500 11px/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.entry .id { font-family: var(--f-mono); overflow-wrap: anywhere; }
+.entry .why { display: block; color: var(--muted); font-family: var(--f-body); }
+.entry.chosen .id { color: var(--accent); font-weight: 500; }
+.entry .v { text-align: right; font: 400 13px/1.3 var(--f-mono); font-variant-numeric: tabular-nums; }
+.hint { font-size: 13px; color: var(--muted); }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 12px/1.4 var(--f-mono); color: var(--muted); }
+
+/* reading views */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.steps { display: grid; gap: 10px; counter-reset: s; list-style: none; margin: 0; padding: 0; }
+.steps li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 10px; counter-increment: s; }
+.steps li::before { content: counter(s); font: 500 13px/1.6 var(--f-mono); color: var(--accent); }
+.steps b { font-family: var(--f-display); }
+.steps p { color: var(--muted); font-size: 14px; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font: 400 13px/1 var(--f-mono); }
+.flow span { padding: 7px 10px; border-radius: 8px; background: var(--bg); border: 1px solid var(--rule); }
+.flow i { color: var(--muted); font-style: normal; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 11px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+td.num { font: 400 14px/1.4 var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.big { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; }
+.stat { display: grid; gap: 4px; }
+.stat b { font: 700 2rem/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 10px; }
+.files { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.files li { display: grid; gap: 2px; }
+.files a { font: 500 13px/1.3 var(--f-mono); }
+.files span { font-size: 13px; color: var(--muted); }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 14px; }
+@media (prefers-reduced-motion: no-preference) { .meter i { transition: width .2s ease-out; } }
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-in">
+    <a class="brand" href="#talk" aria-label="HELMUS, talk"><b>HELMUS</b></a>
+    <nav class="tabs" aria-label="Views">
+      <a href="#talk">Talk</a>
+      <a href="#inside">Inside</a>
+      <a href="#results">Results</a>
+      <a href="#made">How it's made</a>
+    </nav>
+    <a class="gh" href="https://github.com/heldernoid/HELMUS" target="_blank" rel="noopener" aria-label="HELMUS on GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+      <span>GitHub</span>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============================== TALK ============================== -->
+  <section class="view" data-view="talk" aria-label="Talk">
+    <div class="intro">
+      <h1>Can you tell it's a machine?</h1>
+      <p class="acr"><b>H</b>and-<b>E</b>ngineered <b>L</b>anguage <b>M</b>achine, <b>U</b>ntrained &amp; <b>S</b>elf-explaining</p>
+      <p class="lede">A chatbot built to pass as a person in a five-minute Turing test. Here it plays Josh, 19, from Columbus, Ohio. Every weight, every rule and every line it can say was written by hand. You are talking to a bot, and the panel shows why it chose each reply.</p>
+    </div>
+
+    <div class="bench">
+      <section class="phone" aria-label="Chat with HELMUS">
+        <div class="bar">
+          <div class="avatar" aria-hidden="true">J</div>
+          <div class="who"><b>josh</b><span id="presence">online</span></div>
+          <div class="timer" id="timer" title="The 2025 Turing test gave each game five minutes">5:00</div>
+        </div>
+        <div class="thread" id="thread" aria-live="polite">
+          <p class="empty" id="empty">Say something, the way you would to a stranger in a chat. Five minutes, as in the real test.</p>
+        </div>
+        <div class="chips" id="chips" aria-label="Things to try"></div>
+        <form id="form" autocomplete="off">
+          <input type="text" id="msg" maxlength="300" placeholder="Loading the network…" disabled aria-label="Message">
+          <button class="send" id="send" type="submit" disabled>Send</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="h-why">
+        <div class="controls">
+          <h2 id="h-why">Why that reply</h2>
+          <label><input type="checkbox" id="delay" checked> Human typing delay</label>
+          <label><input type="checkbox" id="compare"> Show what ELIZA would say</label>
+          <button class="btn" id="reset" type="button">New chat</button>
+        </div>
+        <p class="hint" id="why-hint">Send a message, then click any of Josh's replies to see what the network read, which units fired, what it remembered, and which phrasebook entries competed for the reply.</p>
+        <div class="section" id="sec-read" hidden><div class="eyebrow">What it read</div><div class="read" id="read"></div></div>
+        <div class="section" id="sec-units" hidden><div class="eyebrow">Units that fired</div><div class="rows" id="units"></div></div>
+        <div class="section" id="sec-mem" hidden><div class="eyebrow">Memory carried from earlier turns</div><div class="rows" id="mem"></div></div>
+        <div class="section" id="sec-entries" hidden><div class="eyebrow">Phrasebook entries that competed</div><div class="entries" id="entries"></div></div>
+        <div class="stats" id="stats"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============================== INSIDE ============================== -->
+  <section class="view" data-view="inside" hidden aria-labelledby="h-inside">
+    <div class="intro">
+      <h1 id="h-inside">Inside HELMUS</h1>
+      <p class="lede">Not a language model. A network of named units that reads your message, keeps a memory of the chat, and chooses what to say from a phrasebook written in advance. Every number in it is a line of a plain-text file, with the reason for it.</p>
+    </div>
+    <div class="panel">
+      <div class="flow" aria-label="The path of a message">
+        <span>your message</span><i>→</i><span>read</span><i>→</i><span>lexicon</span><i>→</i><span>phrase detectors</span><i>→</i><span>intents · topics</span><i>→</i><span>memory</span><i>→</i><span>phrasebook heads</span><i>→</i><span>reply</span>
+      </div>
+      <ol class="steps">
+        <li><div><b>Read.</b><p>Your message is split into words. Informal spellings are expanded (u → you, ngl → not going to lie), stretched words squeezed (whaaaats → whats), and misspellings fixed to the nearest real word from a hand-written vocabulary of about 30,000 words. Real words are never "corrected".</p></div></li>
+        <li><div><b>Lexicon.</b><p>Each word gets named features: its identity and its classes (a word for a bot, a greeting, food, a feeling…).</p></div></li>
+        <li><div><b>Phrase detectors.</b><p>About 7,000 detectors slide over the words, each firing when its words stand at the right places ("where … you from"). They are written as short patterns and compiled into weights.</p></div></li>
+        <li><div><b>Intents and topics.</b><p>About 600 units pool the detectors into what you meant: asking where Josh is from, calling him a bot, a jailbreak, a riddle, sharing bad news.</p></div></li>
+        <li><div><b>Memory.</b><p>About 200 units carry over from turn to turn: your name, what you told him, how often you've called him a bot, what he already said, so he stays consistent and never repeats a line word for word.</p></div></li>
+        <li><div><b>Phrasebook.</b><p>About 2,800 entries, each with a key of weights saying when it fits. Three heads pick the best entries above zero: a reaction ("lol"), an answer, and now and then a question back. An entry fits only when the question it answers was asked.</p></div></li>
+        <li><div><b>Reply.</b><p>Slots are filled from Josh's life table and from memory (his age, your name, the time where he is), then the voice is applied: lowercase, no full stop, now and then a typo. It is sent after a human typing delay.</p></div></li>
+      </ol>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <h2>The system and the persona</h2>
+        <p>HELMUS is the machine; Josh is the person it plays, kept in one table of facts and a phrasebook in his voice. It is the same split as ELIZA (the program) running DOCTOR (its therapist script) in 1966. Another persona is another table and phrasebook; the network stays.</p>
+      </div>
+      <div class="panel">
+        <h2>Why not a language model</h2>
+        <p>A language model predicts the next word from what it learned. HELMUS predicts nothing: it recognises what you asked and chooses among lines a person wrote. That keeps every reply human-written and every decision traceable, at the price of only understanding what it was written to understand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== RESULTS ============================== -->
+  <section class="view" data-view="results" hidden aria-labelledby="h-results">
+    <div class="intro">
+      <h1 id="h-results">Results</h1>
+      <p class="lede">Measured on 100 interrogations written in advance, by a separate writer, before Josh's phrasebook existed, and never read while writing HELMUS. The same messages were sent to ELIZA (1966, the DOCTOR script), the baseline of the 2025 Turing test.</p>
+    </div>
+    <div class="panel">
+      <div class="big" id="bigstats"></div>
+      <div class="tbl"><table id="restable"><thead><tr><th>Measure</th><th>HELMUS</th><th>ELIZA</th><th>What it means</th></tr></thead><tbody></tbody></table></div>
+      <p class="note">These are measures a machine can check. Whether people take Josh for a human is the real test: a blind comparison by judges, and then a study with people as in the 2025 paper, are the next steps. In that study ELIZA was judged human 23% of the time.</p>
+    </div>
+    <div class="panel">
+      <h2>HELMUS, ELIZA and WPLM</h2>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>ELIZA (1966)</th><th>WPLM</th><th>HELMUS</th></tr></thead>
+        <tbody>
+          <tr><td>What it is</td><td>Keyword rules and reply templates (the DOCTOR script)</td><td>A transformer whose weights were programmed by hand</td><td>A network of named units choosing among hand-written replies</td></tr>
+          <tr><td>Where its words come from</td><td>Your words, reflected back</td><td>Mostly an online table of real human text</td><td>A phrasebook written by hand</td></tr>
+          <tr><td>Memory of the chat</td><td>A few saved phrases</td><td>None</td><td>Names, facts, what it said, no repeats</td></tr>
+          <tr><td>Who it is</td><td>A therapist who asks questions</td><td>A friendly chatbot</td><td>Josh, 19, with a consistent life</td></tr>
+          <tr><td>Runs</td><td>Anywhere</td><td>Needs the internet</td><td>In your browser, offline</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ============================== HOW IT'S MADE ============================== -->
+  <section class="view" data-view="made" hidden aria-labelledby="h-made">
+    <div class="intro">
+      <h1 id="h-made">How it's made</h1>
+      <p class="lede">HELMUS is named after its maker, given a classical ending; read as letters, it is a Hand-Engineered Language Machine, Untrained &amp; Self-explaining. Every part was written by a frontier model, Claude, by hand: no training, no dataset, no corpus, no other model at chat time.</p>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <h2>Written, not trained</h2>
+        <div class="section">
+          <p>The network is a plain-text edit list: each line sets one weight or one unit and gives its reason. A generator compiles short hand-written patterns ("where [are] you from") into detector weights; nothing is fitted to data.</p>
+          <p>Josh's life is one table of facts, so every answer about himself agrees with every other. His phrasebook, about 9,500 lines, is written in the voice of the persona that did best in the 2025 study: short, lowercase, dry, slangy now and then, never an assistant.</p>
+          <p>The vocabulary that tells real words from typos, about 30,000 forms, is hand-written too.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>How it was tested</h2>
+        <div class="section">
+          <p>Every intent has sentences that must and must not fire it (about 6,600 of them), and a check that every recognised message gets a real reply.</p>
+          <p>A separate writer, who never saw the phrasebook, wrote 160 interrogations. 60 were read to find failures; 100 were held out and only scored. The browser engine is checked against the Python one, reply for reply.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Files</h2>
+        <ul class="files">
+          <li><a href="https://github.com/heldernoid/HELMUS/blob/main/README.md" target="_blank" rel="noopener">README.md</a><span>What it is and how to run it.</span></li>
+          <li><a href="https://github.com/heldernoid/HELMUS/blob/main/docs/design.md" target="_blank" rel="noopener">docs/design.md</a><span>The network, layer by layer.</span></li>
+          <li><a href="https://github.com/heldernoid/HELMUS/blob/main/LOG.md" target="_blank" rel="noopener">LOG.md</a><span>Every decision, the numbers before and after, and what did not work.</span></li>
+          <li><a href="https://github.com/heldernoid/HELMUS/blob/main/weights/helmus.edits" target="_blank" rel="noopener">weights/helmus.edits</a><span>The network itself, one edit per line.</span></li>
+        </ul>
+        <p class="hint">Sister projects, built the same way: <a href="https://heldernoid.github.io/WP-CharNet/" target="_blank" rel="noopener">WP-CharNet</a> (reads handwriting) and <a href="https://heldernoid.github.io/WP-Ductus/" target="_blank" rel="noopener">WP-Ductus</a> (teaches calligraphy). MIT licence.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>HELMUS runs entirely in your browser. Your messages never leave this page. It is a bot, and says so here; in the game it plays a person, as the systems in the Turing-test studies did.</footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
