@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="web/apple-touch-icon.png" width="96" height="96" alt="HELMUS logo">
+</p>
 <h1 align="center">HELMUS</h1>
 <p align="center"><em>Hand-Engineered Language Machine, Untrained &amp; Self-explaining</em><br><a href="https://heldernoid.github.io/HELMUS/">heldernoid.github.io/HELMUS</a></p>
 

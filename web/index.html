@@ -9,7 +9,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="HELMUS">
 <meta property="og:description" content="A chatbot whose every weight, rule and line was written by hand, trying to pass as a person in a five-minute Turing test. Chat with it, and see why it says what it says.">
+<meta property="og:url" content="https://heldernoid.github.io/HELMUS/">
+<meta property="og:image" content="https://heldernoid.github.io/HELMUS/apple-touch-icon.png">
+<meta property="og:image:width" content="180">
+<meta property="og:image:height" content="180">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HELMUS">
+<meta name="twitter:image" content="https://heldernoid.github.io/HELMUS/apple-touch-icon.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -72,7 +81,8 @@ code, .mono { font-family: var(--f-mono); font-size: .9em; }
   margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px));
   border-bottom: 1px solid var(--rule); }
 .mast-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 18px; min-height: 58px; flex-wrap: wrap; padding-block: 6px; }
-.brand { display: flex; align-items: baseline; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand svg { width: 28px; height: 28px; flex: none; }
 .brand b { font: 700 1.35rem/1 var(--f-display); letter-spacing: .04em; }
 .tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1 1 auto; min-width: 0; }
 .tabs a { padding: 8px 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; }
@@ -182,7 +192,10 @@ footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule)
 <body>
 <header class="mast">
   <div class="mast-in">
-    <a class="brand" href="#talk" aria-label="HELMUS, talk"><b>HELMUS</b></a>
+    <a class="brand" href="#talk" aria-label="HELMUS, talk">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" style="fill: var(--accent)"/><path d="M14 18h36a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H30l-10 8v-8h-6a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" style="fill: var(--panel)"/><circle cx="22" cy="32" r="3.6" style="fill: var(--accent)"/><circle cx="32" cy="32" r="3.6" style="fill: var(--accent)"/><circle cx="42" cy="32" r="3.6" style="fill: var(--accent)"/></svg>
+      <b>HELMUS</b>
+    </a>
     <nav class="tabs" aria-label="Views">
       <a href="#talk">Talk</a>
       <a href="#inside">Inside</a>
