@@ -23,8 +23,12 @@ def prefix(name):
     return name.split("_")[0] + "_" if name.split("_")[0] in ("st", "fo", "bt", "ks") else "core"
 
 
+# intents that mean something only right after a question of Helmus's (a bare "mozambique" answers "where r u from")
+CONTEXT = {"short_answer", "yes_no_answer", "short_name", "short_age"}
 tot, ok, missed = defaultdict(int), defaultdict(int), defaultdict(list)
 for name, text in cases:
+    if name in CONTEXT:
+        continue
     _, _, tr = net.turn({"seed": 1}, text)
     heads = {net.book[e]["head"] for e in tr["chosen"].values()}
     p = prefix(name)

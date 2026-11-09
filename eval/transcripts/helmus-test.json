@@ -656,10 +656,10 @@
    },
    {
     "user": "prolific?",
-    "bot": "what",
-    "grammar": false,
+    "bot": "wdym",
+    "grammar": true,
     "chosen": {
-     "answer": "an.strange"
+     "answer": "gr.frag.q"
     },
     "fallback": false
    },
@@ -1476,10 +1476,10 @@
    },
    {
     "user": "\ud83c\udf55?",
-    "bot": "?? lol",
-    "grammar": false,
+    "bot": "hm?",
+    "grammar": true,
     "chosen": {
-     "answer": "an.strange"
+     "answer": "gr.frag.q"
     },
     "fallback": false
    },
@@ -1741,10 +1741,10 @@
    },
    {
     "user": "flurbo flurbo",
-    "bot": "huh",
-    "grammar": false,
+    "bot": "random but ok",
+    "grammar": true,
     "chosen": {
-     "answer": "an.strange"
+     "answer": "gr.np"
     },
     "fallback": false
    },
@@ -2909,10 +2909,10 @@
   "turns": [
    {
     "user": "what city do u live in",
-    "bot": "columbus ohio",
+    "bot": "the north side, near clintonville",
     "grammar": false,
     "chosen": {
-     "answer": "an.where"
+     "answer": "an.where_detail"
     },
     "fallback": false
    },

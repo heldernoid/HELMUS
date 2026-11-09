@@ -1285,6 +1285,266 @@ false
 false
 ],
 [
+"U:only_laugh",
+"lol",
+true
+],
+[
+"U:only_laugh",
+"lmao lol",
+true
+],
+[
+"U:only_laugh",
+"london lol",
+false
+],
+[
+"U:only_laugh",
+"lol yes",
+false
+],
+[
+"U:short_answer",
+"mozambique",
+true
+],
+[
+"U:short_answer",
+"texas lol",
+true
+],
+[
+"U:short_answer",
+"london wbu",
+true
+],
+[
+"U:short_answer",
+"in paris",
+true
+],
+[
+"U:short_answer",
+"mozambique u?",
+true
+],
+[
+"U:short_answer",
+"where are you from",
+false
+],
+[
+"U:short_answer",
+"i am from ohio and you",
+false
+],
+[
+"U:short_answer",
+"what do you mean by that",
+false
+],
+[
+"U:short_name",
+"sam",
+true
+],
+[
+"U:short_name",
+"its jess",
+true
+],
+[
+"U:short_name",
+"mike lol",
+true
+],
+[
+"U:short_name",
+"priya wbu",
+true
+],
+[
+"U:short_name",
+"weird",
+false
+],
+[
+"U:short_name",
+"cool",
+false
+],
+[
+"U:short_name",
+"lol",
+false
+],
+[
+"U:short_name",
+"nice name",
+false
+],
+[
+"U:short_age",
+"19",
+true
+],
+[
+"U:short_age",
+"25 lol",
+true
+],
+[
+"U:short_age",
+"21 wbu",
+true
+],
+[
+"U:short_age",
+"like 30",
+true
+],
+[
+"U:short_age",
+"19 dogs",
+false
+],
+[
+"U:short_age",
+"what is 19 plus 2",
+false
+],
+[
+"U:yes_no_answer",
+"yes",
+true
+],
+[
+"U:yes_no_answer",
+"nah",
+true
+],
+[
+"U:yes_no_answer",
+"yeah lol",
+true
+],
+[
+"U:yes_no_answer",
+"sometimes",
+true
+],
+[
+"U:yes_no_answer",
+"not really",
+true
+],
+[
+"U:yes_no_answer",
+"i do",
+true
+],
+[
+"U:yes_no_answer",
+"yes i am from ohio",
+false
+],
+[
+"U:yes_no_answer",
+"no idea",
+false
+],
+[
+"U:ask_where_detail",
+"where in ohio?",
+true
+],
+[
+"U:ask_where_detail",
+"what part of ohio",
+true
+],
+[
+"U:ask_where_detail",
+"what part",
+true
+],
+[
+"U:ask_where_detail",
+"which city",
+true
+],
+[
+"U:ask_where_detail",
+"where exactly",
+true
+],
+[
+"U:ask_where_detail",
+"what neighborhood",
+true
+],
+[
+"U:ask_where_detail",
+"what town are you in",
+true
+],
+[
+"U:ask_where_detail",
+"where are you from",
+false
+],
+[
+"U:ask_where_detail",
+"where in the world is that",
+false
+],
+[
+"U:ask_where_detail",
+"what part of the game",
+false
+],
+[
+"U:ask_where_thing",
+"where is it",
+true
+],
+[
+"U:ask_where_thing",
+"do you know where mozambique is",
+true
+],
+[
+"U:ask_where_thing",
+"do you know where is mozambique?",
+true
+],
+[
+"U:ask_where_thing",
+"where is that even",
+true
+],
+[
+"U:ask_where_thing",
+"where even is that",
+true
+],
+[
+"U:ask_where_thing",
+"where are you",
+false
+],
+[
+"U:ask_where_thing",
+"where is your house",
+false
+],
+[
+"U:ask_where_thing",
+"where is the bathroom lol",
+false
+],
+[
 "U:claim_from",
 "you said you were from texas",
 true

@@ -187,6 +187,21 @@ The fixes:
 - **Another one** (`ask_another`): a list-like entry continues with its next unsaid item (`more_of`); after anything
   else, "thats about it lol". Asking "anything else?" twice is not taken for a repeated message.
 
+**22. Answers read by turn.** In a user's chat, "mozambique" right after Josh asked "where r u from" got "huh":
+- a person reads the next short message as the answer to their own question, so Josh does too
+  (`gen/intents/answers.py`, `gen/memory.py`, `josh_answers.py`);
+- right after Josh asked something, or said his own place, name, age, job or pastime, a bare reply is the user's:
+  - "mozambique" is copied as their place, and "where is it?" then gets "no idea lol, where is it";
+  - "sam" is copied as their name (only a word the grammar tags as a name, so "weird" is not one);
+  - "19" is checked against his age ("oh same lol");
+  - "nurse" gets "nice, is it hard", and a bare yes or no answers "u game?";
+  - after any other question, a short answer is taken in ("oh nice");
+- "where in ohio?" and "what part?" get his area (north side, near Clintonville).
+
+How these memories are built: a memory's bias is applied every turn, so an AND built from a bias wipes itself the
+next turn. The AND lives in a one-turn memory (`answered_*`, decay 0), and the lasting memories read it a turn
+later, with no bias.
+
 ## What did not work
 
 - A repeat penalty that ruled entries out (decision 5).

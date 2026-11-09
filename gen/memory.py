@@ -4,8 +4,29 @@ from gen.dsl import mem
 
 mem("turn", {}, "counts turns: a quarter more each message, full by the fourth (early and late in the game differ)",
     decay=1.0, bias=0.25)
-mem("user_name_known", {"U:tell_name": 1.0}, "the user has said their name: Helmus can use it and answer 'what's my name'")
-mem("user_place_known", {"U:tell_from": 1.0}, "the user has said where they are from")
+mem("user_name_known", {"U:tell_name": 1.0, "M:answered_name": 1.0}, "the user has said their name: Helmus can use it and answer 'what's my name'")
+# a short answer right after Helmus asked where the user is from, or said where it lives itself, is the user's place:
+# short 2 + one of the two 1 - bias 2 = 1; the two without a short answer stay 0. It lasts this turn only (decay 0);
+# the memories below read it a turn later (an M: link reads last turn's memory), without a bias that would wipe them
+mem("answered_where", {"U:short_answer": 2.0, "E:@ask_where": 1.0, "E:@my_place": 1.0},
+    "this message is a short answer about where the user is from (the place is copied, user_place)", decay=0.0,
+    bias=-2.0)
+# the same for the other questions Helmus asks back: a short answer right after it asked (decay 0: this turn only)
+# as with places: right after Helmus asked, or said its own, a bare name / age / job / pastime is the user's
+mem("answered_name", {"U:short_name": 2.0, "E:@ask_name": 1.0, "E:@my_name": 1.0},
+    "a bare name right after names came up: the user's name", decay=0.0, bias=-2.0)
+mem("answered_age", {"U:short_age": 2.0, "E:@ask_age": 1.0, "E:@my_age": 1.0},
+    "a bare age right after ages came up: the user's age", decay=0.0, bias=-2.0)
+mem("answered_doing", {"U:short_answer": 2.0, "E:@ask_doing": 1.0, "E:@my_job": 1.0, "E:@my_study": 1.0},
+    "a short answer right after jobs or school came up: theirs", decay=0.0, bias=-2.0)
+mem("answered_fun", {"U:short_answer": 2.0, "E:@ask_fun": 1.0, "E:@my_fun": 1.0},
+    "a short answer right after pastimes came up: theirs", decay=0.0, bias=-2.0)
+mem("answered_any", {"U:short_answer": 2.0, "E:@h:ask": 1.0}, "a short answer to any question Helmus asked",
+    decay=0.0, bias=-2.0)
+mem("user_place_known", {"U:tell_from": 1.0, "M:answered_where": 1.0},
+    "the user has said where they are from (or answered in a word or two, right after places came up)")
+mem("user_place_fresh", {"U:tell_from": 1.0, "M:answered_where": 1.0},
+    "the user just named where they are from: 'where is it' is then about that place, for a turn or two", decay=0.5)
 mem("told_name", {"E:@my_name": 1.0}, "Helmus has said its name: asked again, it says it already did")
 mem("told_age", {"E:@my_age": 1.0}, "Helmus has said its age")
 mem("told_place", {"E:@my_place": 1.0}, "Helmus has said where it lives")

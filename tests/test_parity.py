@@ -31,6 +31,12 @@ CHATS.append(["i hate doing laundry", "i love my new job", "my brothers dog is n
 CHATS.append(["tell me something only a human would know", "that's right; anything else?", "anything else?",
               "you said you are from ohio right?", "you said you were from texas", "you are 25 right",
               "wait you work at walmart?", "you have a dog right", "your name is mike right", "anything else"])
+# a short answer read in the light of the question, where exactly, and a far place
+CHATS.append(["hi", "where are you from", "where in ohio", "you dont know where you live in ohio?", "mozambique",
+              "do you know where is mozambique?", "where is it", "i am from ohio", "new york", "i am from texas"])
+# answers to his own questions, by turn: a bare name, age, job, pastime, yes
+CHATS.append(["whats your name", "sam", "whats my name", "how old are you", "25", "what do you do", "nurse",
+              "what do you do for fun", "yeah", "fortnite", "weird"])
 # his week: the same questions at times that change the answer (the clock, the day's facts, summer time)
 WEEK = ["what time is it there", "do you work tonight", "what are you doing tomorrow", "do you have class today",
         "when is your next shift", "what did you do yesterday", "how was class", "what day is it"]

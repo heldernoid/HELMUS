@@ -12,7 +12,7 @@ Patterns (for `intent`), words separated by spaces, all lowercase, after informa
   #num        any number (in figures or a number word)
   a|b_c       one of several word sequences: "vacation|a_trip" is "vacation" or "a trip"
   {slot:kind} kinds: (none) any word, unknown (not in the lexicon), content (not a function word such as the, a,
-              my), #num (a number), @class (a word of that class)
+              my), #num (a number), @class (a word of that class), t:<tag> (a word the grammar tags so: t:Np)
 """
 import re
 
@@ -80,6 +80,8 @@ def _elements(pattern):
             feat = {"unknown": "shape:unknown", "content": "shape:content", "": "shape:any", "#num": "shape:number|c:number"}.get(kind)
             if feat is None and kind.startswith("@"):
                 feat = "c:" + kind[1:]
+            if feat is None and kind.startswith("t:"):        # a word the grammar tags so (t:Np, a name)
+                feat = kind
             if feat is None:
                 raise ValueError(f"unknown slot kind {kind} in {pattern}")
             out.append(("slot", name, feat))
@@ -240,6 +242,13 @@ def register(name, intent_name, slot, why, phrase=False):
     side ("my job" -> "your job"), and its main word as {name.head}"""
     for d in INTENTS[intent_name]["slots"].get(slot, []):
         _e(f"REG {name} {d} U:{intent_name}" + (" phrase" if phrase else ""), why)
+
+
+def register_when(name, intent_name, slot, gate, why, phrase=False):
+    """as register, but copied when `gate` is on (a memory: "Helmus just asked where the user is from"), so a bare
+    answer ("mozambique") is read in the light of the question"""
+    for d in INTENTS[intent_name]["slots"].get(slot, []):
+        _e(f"REG {name} {d} {gate}" + (" phrase" if phrase else ""), why)
 
 
 def check(name, reg, facts, why):

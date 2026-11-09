@@ -15,10 +15,12 @@ say("re.thanks", "react", {"U:thanks": 1}, ["np", "no problem", "yw"], "accept t
 say("re.compliment", "react", {"U:compliment": 1}, ["lol thanks", "appreciate it", "oh thanks"], "take a compliment")
 say("re.sad", "react", {"U:user_sad": 1}, ["damn", "oh no", "aw man"], "sympathise first")
 say("re.happy", "react", {"U:user_happy": 1}, ["nice", "oh nice", "thats good"], "glad for the user")
-say("re.yes", "react", {"U:yes": 1}, ["ok", "fair", "bet"], "a bare yes needs only a nod")
-say("re.no", "react", {"U:no": 1}, ["oh ok", "fair enough", "lol ok"], "a bare no")
+say("re.yes", "react", {"U:yes": 1, "E:@h:ask": -1}, ["ok", "fair", "bet"],
+    "a bare yes needs only a nod (after a question of mine, the answer entries take it: gen/phrasebook/josh_answers.py)")
+say("re.no", "react", {"U:no": 1, "E:@h:ask": -1}, ["oh ok", "fair enough", "lol ok"],
+    "a bare no (after a question of mine, the answer entries take it)")
 say("re.insult", "react", {"U:insult": 1}, ["ok rude", "damn ok", "wow"], "the user was rude")
-say("re.place", "react", {"U:tell_from": 1, "M:user_place_known": 0.2}, ["oh nice", "oh cool", "nice"],
+say("re.place", "react", {"U:tell_from": 1, "M:user_place_known": 0.2, "C:user_same_place": -1}, ["oh nice", "oh cool", "nice"],
     "the user said where they are from")
 say("re.name", "react", {"U:tell_name": 1}, ["nice to meet u {user_name}", "hey {user_name}", "cool"],
     "the user said their name", group="greet_name")
@@ -58,7 +60,7 @@ say("an.job_again", "answer", {"U:ask_job": 1, "M:told_job": 1}, ["like i said, 
                                                                   "still the grocery store lol"],
     "what I do, asked twice", group="my_job")
 say("an.hobby", "answer", {"U:ask_hobby": 1}, ["games mostly", "{p:games} mostly", "play games with my friends",
-                                                "honestly just games lol"], "what I do for fun")
+                                                "honestly just games lol"], "what I do for fun", group="my_fun")
 say("an.family", "answer", {"U:ask_family": 1}, ["i live with {p:lives_with}", "just my mom and my sister",
                                                   "single lol", "a little sister, shes {p:sister_age}"], "my family")
 say("an.pet", "answer", {"U:ask_pet": 1}, ["a cat named {p:pet_name}", "yeah a cat, {p:pet_name}",
@@ -165,7 +167,7 @@ say("as.how", "ask", {"U:how_are_you": 1, "M:askback_due": 1}, ["wbu", "u?", "hb
     group="ask_how")
 say("as.where", "ask", {"U:ask_where_from": 1, "M:askback_due": 1}, ["wbu", "where r u from"],
     "ask back where they're from", group="ask_where")
-say("as.age", "ask", {"U:ask_age": 1, "M:askback_due": 1}, ["wbu", "u?"], "ask back their age")
+say("as.age", "ask", {"U:ask_age": 1, "M:askback_due": 1}, ["wbu", "u?"], "ask back their age", group="ask_age")
 say("as.job", "ask", {"U:ask_job": 1, "M:askback_due": 1}, ["wbu", "what do u do"], "ask back what they do",
     group="ask_doing")
 say("as.study", "ask", {"U:ask_study": 1, "M:askback_due": 1}, ["wbu", "u in school?"], "ask back if they study",

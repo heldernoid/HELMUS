@@ -1,5 +1,192 @@
 [
  {
+  "id": "an.user_from_short",
+  "head": "answer",
+  "texts": [
+   "oh {user_place}? damn thats far",
+   "{user_place}? never met anyone from there lol",
+   "oh nice, hows {user_place}",
+   "{user_place}, thats cool",
+   "oh word, {user_place}",
+   "damn {user_place}, thats far from ohio lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_from_same",
+  "head": "answer",
+  "texts": [
+   "wait fr? same lol",
+   "no way, me too",
+   "ohio gang lol",
+   "wait where in ohio"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_from_same_told",
+  "head": "answer",
+  "texts": [
+   "wait fr? same lol",
+   "no way, me too",
+   "ohio gang lol",
+   "wait where in ohio"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.where_detail",
+  "head": "answer",
+  "texts": [
+   "{p:area}",
+   "columbus, {p:area}",
+   "north side of columbus",
+   "columbus, near clintonville"
+  ],
+  "group": "my_place"
+ },
+ {
+  "id": "an.where_thing_far",
+  "head": "answer",
+  "texts": [
+   "honestly no idea lol, where is it",
+   "no clue, im bad at geography",
+   "somewhere far is all i know lol",
+   "idk tbh, where is it",
+   "not really lol, i never left ohio"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.where_thing",
+  "head": "answer",
+  "texts": [
+   "where is what lol",
+   "wdym",
+   "where is what"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_name_short",
+  "head": "answer",
+  "texts": [
+   "nice to meet u {user_name}",
+   "hey {user_name}",
+   "{user_name}, cool",
+   "cool name"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_age_same",
+  "head": "answer",
+  "texts": [
+   "oh same lol",
+   "same age lol",
+   "wait same"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_age_other",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "oh ok cool",
+   "nice",
+   "ah ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_doing_short",
+  "head": "answer",
+  "texts": [
+   "oh nice, u like it?",
+   "oh cool, hows that",
+   "nice, is it hard",
+   "oh word, for how long",
+   "oh nice"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_fun_short",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "oh word, thats cool",
+   "nice, for how long",
+   "fair lol, i should try that"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_answered",
+  "head": "answer",
+  "texts": [
+   "oh nice",
+   "fair",
+   "oh ok",
+   "ah got it",
+   "nice lol",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_yes_fun",
+  "head": "answer",
+  "texts": [
+   "nice what do u play",
+   "oh nice, what kind",
+   "nice, pc or console"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_no_fun",
+  "head": "answer",
+  "texts": [
+   "fair, what do u do for fun then",
+   "fair lol",
+   "ah ok, what are u into then"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_yes_doing",
+  "head": "answer",
+  "texts": [
+   "oh nice, for what",
+   "nice, what do u study",
+   "oh cool, where"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_no_doing",
+  "head": "answer",
+  "texts": [
+   "fair, working?",
+   "oh ok, u work?",
+   "fair lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.user_yn_any",
+  "head": "answer",
+  "texts": [
+   "oh ok",
+   "fair",
+   "oh nice",
+   "ah ok lol"
+  ],
+  "group": null
+ },
+ {
   "id": "cl.from",
   "head": "answer",
   "texts": [
@@ -417,7 +604,7 @@
    "play games with my friends",
    "honestly just games lol"
   ],
-  "group": null
+  "group": "my_fun"
  },
  {
   "id": "an.family",
@@ -885,7 +1072,7 @@
    "wbu",
    "u?"
   ],
-  "group": null
+  "group": "ask_age"
  },
  {
   "id": "as.job",

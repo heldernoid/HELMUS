@@ -8,9 +8,10 @@ S = 1.05      # above the specific entries (0.5-1.0): the check is the most spec
 
 
 def claim(name, yes, no, why):
-    say(f"cl.{name}", "answer", {f"U:claim_{name}": 1, f"C:{name}": 1}, yes, f"claim about my {why}: true", bias=S - 2)
-    say(f"cl.{name}_no", "answer", {f"U:claim_{name}": 1, f"C:{name}_no": 1}, no, f"claim about my {why}: not true, "
-        "set it straight", bias=S - 2)
+    """both parts weigh 2 and the bias takes 4 off, so neither entry fits without the claim and its own verdict"""
+    say(f"cl.{name}", "answer", {f"U:claim_{name}": 2, f"C:{name}": 2}, yes, f"claim about my {why}: true", bias=S - 4)
+    say(f"cl.{name}_no", "answer", {f"U:claim_{name}": 2, f"C:{name}_no": 2}, no, f"claim about my {why}: not true, "
+        "set it straight", bias=S - 4)
 
 
 claim("from", ["yeah, {p:city}", "yep {p:place}", "ya, born and raised", "yeah columbus", "yep, {p:state}"],
