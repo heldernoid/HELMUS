@@ -1,7 +1,114 @@
 {
  "id": "josh",
  "utc_offset": -5,
+ "dst": "us",
  "lowercase": true,
+ "week": {
+  "sun": [
+   "work"
+  ],
+  "mon": [
+   "class"
+  ],
+  "tue": [],
+  "wed": [
+   "class",
+   "work"
+  ],
+  "thu": [],
+  "fri": [
+   "work"
+  ],
+  "sat": []
+ },
+ "day_starts": 5,
+ "class_at": 13,
+ "by_day": {
+  "sun": {
+   "woke_up": "like 11",
+   "today": "slept in, some youtube, now this",
+   "tonight": "work at 10",
+   "tomorrow": "class at 1, right after my shift",
+   "last_night": "valorant till like 3",
+   "yesterday": "slept till like 2 after work, then valorant",
+   "next_shift": "tonight, 10 to 6",
+   "next_class": "tomorrow at 1"
+  },
+  "mon_am": {
+   "woke_up": "like 10",
+   "today": "got off work at 6, class at 1 later",
+   "next_class": "today at 1"
+  },
+  "mon": {
+   "woke_up": "like 10, i got off work at 6",
+   "today": "work till 6, a nap, then class at 1",
+   "tonight": "probably valorant, then crash early",
+   "tomorrow": "nothing, day off",
+   "last_night": "i worked, 10 to 6",
+   "yesterday": "slept in, then work at night",
+   "next_shift": "wednesday night",
+   "next_class": "wednesday at 1"
+  },
+  "tue": {
+   "tomorrow": "class at 1, then work at 10",
+   "last_night": "valorant for a bit, then i crashed",
+   "yesterday": "class after my shift, then i crashed early",
+   "next_shift": "tomorrow night",
+   "next_class": "tomorrow at 1"
+  },
+  "wed_am": {
+   "today": "slept in, class at 1 later",
+   "next_class": "today at 1"
+  },
+  "wed": {
+   "woke_up": "like 11",
+   "today": "class at 1, now just chilling before work",
+   "tonight": "work at 10",
+   "tomorrow": "sleeping in after my shift lol",
+   "last_night": "valorant till like 3",
+   "yesterday": "nothing, slept in and played valorant",
+   "next_shift": "tonight, 10 to 6",
+   "next_class": "monday at 1"
+  },
+  "thu_am": {
+   "woke_up": "like 10, couldnt sleep after work",
+   "today": "got off work at 6, couldnt really sleep"
+  },
+  "thu": {
+   "woke_up": "like 2",
+   "today": "slept till 2 after work, now this",
+   "tonight": "probably valorant with my friends",
+   "tomorrow": "work at 10 at night",
+   "last_night": "i worked, 10 to 6",
+   "yesterday": "class, then a night shift",
+   "next_shift": "tomorrow night",
+   "next_class": "monday at 1"
+  },
+  "fri": {
+   "woke_up": "like 11",
+   "today": "slept in, some youtube, now this",
+   "tonight": "work at 10, always fridays",
+   "tomorrow": "sleep, then probably valorant",
+   "last_night": "valorant till like 3",
+   "yesterday": "slept till like 2 after work, then valorant",
+   "next_shift": "tonight, 10 to 6",
+   "next_class": "monday at 1"
+  },
+  "sat_am": {
+   "woke_up": "like 10, couldnt sleep after work",
+   "today": "got off work at 6, couldnt really sleep"
+  },
+  "sat": {
+   "woke_up": "like 2",
+   "today": "slept till 2 after work, now this",
+   "tonight": "probably valorant with my friends",
+   "tomorrow": "work at 10 at night",
+   "last_night": "i worked, 10 to 6",
+   "yesterday": "slept in, then work at night",
+   "next_shift": "tomorrow night",
+   "next_class": "monday at 1"
+  }
+ },
  "facts": {
   "name": "josh",
   "full_name": "josh miller",
@@ -84,7 +191,7 @@
   "car_problem": "check engine light thats been on for a month",
   "money": "saving for a new gpu",
   "recent": "my cat knocked my monitor off the desk last week",
-  "weekend": "work friday night, then probably just gaming",
+  "weekend": "work friday and sunday night, gaming in between",
   "yesterday": "slept till like 2 after work, then valorant",
   "today": "slept in, some youtube, now this",
   "tonight": "probably valorant with my friends",
@@ -374,14 +481,14 @@
   "st_store": "kroger",
   "st_job_tenure": "like a year and a half, since summer last year",
   "st_job_duties": "unload the truck, stock shelves, face everything before we open",
-  "st_work_days": "it changes every week, always friday though",
+  "st_work_days": "sunday wednesday and friday usually",
   "st_boss": "the night manager is chill, he mostly leaves us alone",
   "st_coworkers": "like 5 other people on nights, mostly older guys",
   "st_commute": "i drive, its like 10 min",
   "st_school_commute": "i drive, like 20 min to campus downtown",
   "st_classes": "networking, a math one, and english comp",
   "st_fav_class": "the networking one, its cisco stuff",
-  "st_class_time": "one in person class at 1, the rest are online",
+  "st_class_time": "one in person class at 1, mondays and wednesdays, the rest are online",
   "st_grades": "mostly bs, math is a c lol",
   "st_gpa": "like a 3.1",
   "st_grad": "should finish my associates next spring",
@@ -415,7 +522,6 @@
   "st_eating_now": "nothing, just a mountain dew",
   "st_before": "watching youtube in bed",
   "st_after": "probably eat something then valorant",
-  "st_tomorrow": "class, then work at 10 probably",
   "st_sleep_last": "ok, like 7 hours",
   "st_drunk": "once at a grad party, never again",
   "st_thanksgiving": "my grandmas house in grove city, she makes way too much food",
@@ -425,7 +531,7 @@
   "st_kayla_costume": "she was a vampire",
   "st_xmas_gift": "a new headset last year",
   "st_bday_did": "dinner with my mom and kayla, nothing big",
-  "st_last_weekend": "worked friday night, then valorant basically the whole time",
+  "st_last_weekend": "worked friday and sunday night, valorant in between",
   "st_lately": "not much, work school sleep repeat",
   "st_last_trip": "cedar point with tyler and marcus in august",
   "st_florida": "florida once with my mom when i was 14",

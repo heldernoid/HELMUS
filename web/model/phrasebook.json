@@ -208,10 +208,31 @@
   "texts": [
    "{p:job}",
    "college and a {p:job_short} job",
-   "{p:studies} at a {p:school}",
+   "{p:studies} at {p:school}",
    "student mostly"
   ],
   "group": "my_job"
+ },
+ {
+  "id": "an.study",
+  "head": "answer",
+  "texts": [
+   "{p:major}, at {p:school}",
+   "yeah, it at {p:school}",
+   "community college, {p:studies}",
+   "ya {p:school}, it stuff",
+   "it, networking mostly"
+  ],
+  "group": "my_study"
+ },
+ {
+  "id": "an.study_again",
+  "head": "answer",
+  "texts": [
+   "still it lol",
+   "like i said, it at {p:school}"
+  ],
+  "group": "my_study"
  },
  {
   "id": "an.job_again",
@@ -711,6 +732,15 @@
   "group": "ask_doing"
  },
  {
+  "id": "as.study",
+  "head": "ask",
+  "texts": [
+   "wbu",
+   "u in school?"
+  ],
+  "group": "ask_doing"
+ },
+ {
   "id": "as.fun",
   "head": "ask",
   "texts": [
@@ -1136,6 +1166,26 @@
    "{p:fo_class_today}",
    "no class today lol",
    "didnt have class today"
+  ],
+  "group": null
+ },
+ {
+  "id": "fo.school_today_done",
+  "head": "answer",
+  "texts": [
+   "it was fine, kinda boring",
+   "boring lol, networking stuff",
+   "fine, same as always"
+  ],
+  "group": null
+ },
+ {
+  "id": "fo.school_today_ahead",
+  "head": "answer",
+  "texts": [
+   "its not till 1",
+   "havent gone yet, its at 1",
+   "later, its at 1"
   ],
   "group": null
  },
@@ -14232,6 +14282,18 @@
   "group": "st_t_plans"
  },
  {
+  "id": "st.plans_tonight_work",
+  "head": "answer",
+  "texts": [
+   "{p:tonight}",
+   "work lol",
+   "work, 10 to 6",
+   "work unfortunately",
+   "valorant for a bit, then work at 10"
+  ],
+  "group": "st_t_plans"
+ },
+ {
   "id": "st.plans_tonight",
   "head": "answer",
   "texts": [
@@ -14256,13 +14318,23 @@
   "group": "st_t_plans"
  },
  {
+  "id": "st.plans_tonight_out_work",
+  "head": "answer",
+  "texts": [
+   "nah i got work at 10",
+   "nope, {p:tonight}",
+   "cant, work tonight"
+  ],
+  "group": "st_t_plans"
+ },
+ {
   "id": "st.plans_tonight_again",
   "head": "answer",
   "texts": [
-   "still valorant lol",
-   "i said valorant lol",
-   "same plan, valorant",
-   "nothing new, valorant"
+   "still {p:tonight} lol",
+   "i said, {p:tonight}",
+   "same plan lol",
+   "nothing new lol"
   ],
   "group": "st_t_plans"
  },
@@ -14270,11 +14342,10 @@
   "id": "st.plans_tomorrow",
   "head": "answer",
   "texts": [
-   "{p:st_tomorrow}",
-   "probably work",
-   "work at 10 i think",
-   "class, then work probably",
-   "sleep and work lol"
+   "{p:tomorrow}",
+   "uh {p:tomorrow}",
+   "idk, {p:tomorrow}",
+   "{p:tomorrow} lol"
   ],
   "group": "st_t_plans"
  },
@@ -14283,9 +14354,9 @@
   "head": "answer",
   "texts": [
    "{p:weekend}",
-   "work friday, then nothing",
+   "work friday and sunday, thats it",
    "working friday night, then valorant probably",
-   "nothing much, work friday",
+   "nothing much, work friday and sunday",
    "probably just sleep and game lol"
   ],
   "group": "st_t_plans"
@@ -14695,7 +14766,7 @@
   "id": "st.weekends",
   "head": "answer",
   "texts": [
-   "work friday night, game the rest",
+   "work friday and sunday night, game the rest",
    "sleep and valorant mostly",
    "nothing much, work and game",
    "same as weekdays honestly lol"
@@ -14808,8 +14879,19 @@
   "texts": [
    "not today",
    "nah not today",
-   "nope, day off",
-   "not today, tomorrow i think"
+   "nope, not tonight",
+   "nah, im off tonight"
+  ],
+  "group": "st_t_work"
+ },
+ {
+  "id": "st.schedule_work",
+  "head": "answer",
+  "texts": [
+   "yeah tonight, 10 to 6",
+   "ya at 10",
+   "yeah, night shift tonight",
+   "yep, 10 to 6 ugh"
   ],
   "group": "st_t_work"
  },
@@ -14825,13 +14907,33 @@
   "group": "st_t_plans"
  },
  {
+  "id": "st.sched_tonight_work",
+  "head": "answer",
+  "texts": [
+   "yeah unfortunately, at 10",
+   "ya 10 to 6",
+   "yep, night shift",
+   "yeah, 10 to 6 ugh"
+  ],
+  "group": "st_t_plans"
+ },
+ {
   "id": "st.sched_tomorrow",
   "head": "answer",
   "texts": [
-   "yeah",
-   "yeah unfortunately",
-   "i think so",
-   "yeah, i gotta check the schedule though"
+   "yeah, {p:tomorrow}",
+   "ya, {p:tomorrow}",
+   "yeah unfortunately, {p:tomorrow}"
+  ],
+  "group": "st_t_work"
+ },
+ {
+  "id": "st.sched_tomorrow_off",
+  "head": "answer",
+  "texts": [
+   "nope, day off",
+   "nah, nothing tomorrow",
+   "nope, free day"
   ],
   "group": "st_t_work"
  },
@@ -14839,9 +14941,9 @@
   "id": "st.sched_shift",
   "head": "answer",
   "texts": [
-   "tomorrow night",
-   "tomorrow, 10 to 6",
-   "tomorrow i think, 10 to 6"
+   "{p:next_shift}",
+   "{p:next_shift} i think",
+   "next one is {p:next_shift}"
   ],
   "group": "st_t_work"
  },
@@ -14849,9 +14951,29 @@
   "id": "st.sched_class",
   "head": "answer",
   "texts": [
-   "not today, tomorrow at 1",
-   "tomorrow, the rest are online",
-   "my in person one is tomorrow at 1"
+   "not today, {p:next_class}",
+   "nah, next one is {p:next_class}",
+   "not today, the in person one is {p:next_class}"
+  ],
+  "group": "st_t_school"
+ },
+ {
+  "id": "st.sched_class_ahead",
+  "head": "answer",
+  "texts": [
+   "yeah at 1",
+   "yeah, at 1 today",
+   "ya, networking at 1"
+  ],
+  "group": "st_t_school"
+ },
+ {
+  "id": "st.sched_class_done",
+  "head": "answer",
+  "texts": [
+   "had it at 1, its done",
+   "already had it today",
+   "yeah earlier, at 1"
   ],
   "group": "st_t_school"
  },
@@ -14859,9 +14981,19 @@
   "id": "st.sched_off",
   "head": "answer",
   "texts": [
-   "yeah off today",
-   "yep, day off",
+   "yeah off tonight",
+   "yep, no work today",
    "yeah, no work today"
+  ],
+  "group": "st_t_work"
+ },
+ {
+  "id": "st.sched_off_work",
+  "head": "answer",
+  "texts": [
+   "nah i work tonight",
+   "not tonight, work at 10",
+   "nope, 10 to 6 tonight"
   ],
   "group": "st_t_work"
  },
@@ -14882,8 +15014,8 @@
   "head": "answer",
   "texts": [
    "{p:st_work_days}",
-   "it changes, always friday though",
-   "depends on the week, friday for sure"
+   "sunday wednesday friday mostly",
+   "friday for sure, usually sunday and wednesday too"
   ],
   "group": "st_t_work"
  },
@@ -15400,7 +15532,7 @@
   "head": "answer",
   "texts": [
    "nah im home",
-   "no lol im off tonight",
+   "no lol im home rn",
    "nah, home in my room"
   ],
   "group": "st_t_home"
@@ -16306,9 +16438,9 @@
   "head": "answer",
   "texts": [
    "{p:yesterday}",
-   "slept till 2 then valorant",
-   "slept most of the day lol",
-   "nothing much, slept and gamed"
+   "uh {p:yesterday}",
+   "{p:yesterday} lol",
+   "not much, {p:yesterday}"
   ],
   "group": "st_t_sleep"
  },
@@ -16316,11 +16448,32 @@
   "id": "st.last_night",
   "head": "answer",
   "texts": [
+   "{p:last_night}",
    "chill, just valorant",
-   "valorant till like 3",
    "chill, valorant with {p:friend_names}"
   ],
   "group": "st_t_games"
+ },
+ {
+  "id": "st.last_night_work",
+  "head": "answer",
+  "texts": [
+   "{p:last_night}",
+   "i worked lol",
+   "work, 10 to 6",
+   "just work"
+  ],
+  "group": "st_t_work"
+ },
+ {
+  "id": "st.went_out_work",
+  "head": "answer",
+  "texts": [
+   "nah i was at work",
+   "no lol, work",
+   "nah, work"
+  ],
+  "group": "st_t_work"
  },
  {
   "id": "st.went_out",
@@ -21311,7 +21464,7 @@
    "i need to pee lol",
    "{p:car_problem}",
    "{p:pet_name} just threw up on the carpet",
-   "i have work tomorrow and i dont wanna go"
+   "i really need a haircut"
   ],
   "group": null
  },

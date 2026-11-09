@@ -351,17 +351,67 @@ true
 ],
 [
 "U:ask_job",
-"are you a student",
-true
-],
-[
-"U:ask_job",
-"what's your major",
+"where do u work",
 true
 ],
 [
 "U:ask_job",
 "what do you do for fun",
+false
+],
+[
+"U:ask_job",
+"what's your major",
+false
+],
+[
+"U:ask_study",
+"are you a student?",
+true
+],
+[
+"U:ask_study",
+"what's your major",
+true
+],
+[
+"U:ask_study",
+"whats ur major",
+true
+],
+[
+"U:ask_study",
+"what do you study",
+true
+],
+[
+"U:ask_study",
+"do u go to college",
+true
+],
+[
+"U:ask_study",
+"you in school?",
+true
+],
+[
+"U:ask_study",
+"what do you do for fun",
+false
+],
+[
+"U:ask_study",
+"what is your job",
+false
+],
+[
+"U:ask_study",
+"i am a student",
+false
+],
+[
+"U:ask_study",
+"do you like school",
 false
 ],
 [
@@ -382,6 +432,16 @@ true
 [
 "U:ask_hobby",
 "what do u like to do",
+true
+],
+[
+"U:ask_hobby",
+"what do u do to relax",
+true
+],
+[
+"U:ask_hobby",
+"what do u do when ur bored",
 true
 ],
 [
@@ -13502,6 +13562,21 @@ false
 [
 "U:ks_ask_politics",
 "the party was fun",
+false
+],
+[
+"U:ks_ask_politics",
+"i failed my midterm",
+false
+],
+[
+"U:ks_ask_politics",
+"i have midterms next week",
+false
+],
+[
+"U:ks_ask_politics",
+"how did you do on your midterms",
 false
 ],
 [

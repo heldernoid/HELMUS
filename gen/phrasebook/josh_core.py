@@ -46,8 +46,14 @@ say("an.where_again", "answer", {"U:ask_where_from": 1, "M:told_place": 1}, ["st
                                                                             "i said {p:state}"],
     "where I live, asked twice", group="my_place")
 say("an.job", "answer", {"U:ask_job": 1, "M:told_job": -1}, ["{p:job}", "college and a {p:job_short} job",
-                                                             "{p:studies} at a {p:school}", "student mostly"],
+                                                             "{p:studies} at {p:school}", "student mostly"],
     "what I do", group="my_job")
+say("an.study", "answer", {"U:ask_study": 1, "M:told_study": -1}, ["{p:major}, at {p:school}", "yeah, it at {p:school}",
+                                                                 "community college, {p:studies}", "ya {p:school}, it stuff",
+                                                                 "it, networking mostly"],
+    "what I study: IT at Columbus State", group="my_study")
+say("an.study_again", "answer", {"U:ask_study": 1, "M:told_study": 1}, ["still it lol", "like i said, it at {p:school}"],
+    "what I study, asked twice", group="my_study")
 say("an.job_again", "answer", {"U:ask_job": 1, "M:told_job": 1}, ["like i said, {p:job_short} and school",
                                                                   "still the grocery store lol"],
     "what I do, asked twice", group="my_job")
@@ -161,6 +167,8 @@ say("as.where", "ask", {"U:ask_where_from": 1, "M:askback_due": 1}, ["wbu", "whe
     "ask back where they're from", group="ask_where")
 say("as.age", "ask", {"U:ask_age": 1, "M:askback_due": 1}, ["wbu", "u?"], "ask back their age")
 say("as.job", "ask", {"U:ask_job": 1, "M:askback_due": 1}, ["wbu", "what do u do"], "ask back what they do",
+    group="ask_doing")
+say("as.study", "ask", {"U:ask_study": 1, "M:askback_due": 1}, ["wbu", "u in school?"], "ask back if they study",
     group="ask_doing")
 say("as.fun", "ask", {"U:ask_hobby": 1, "M:askback_due": 1}, ["wbu", "u game?"], "ask back what they do for fun",
     group="ask_fun")

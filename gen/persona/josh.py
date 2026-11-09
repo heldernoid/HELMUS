@@ -7,8 +7,51 @@ from gen.dsl import persona
 
 persona({
     "id": "josh",
-    "utc_offset": -5,                      # Columbus, Ohio: Eastern time (standard time in November)
+    "utc_offset": -5,                      # Columbus, Ohio: Eastern time, -5 in winter
+    "dst": "us",                           # and -4 in summer, by the US rule (engine: utc_offset)
     "lowercase": True,
+    # his week (engine: clock). Nights at the store are 10pm to 6am, always Friday, and Sunday (so Monday is "class
+    # right after a night shift"); the one class in person, networking, is at 1 on Monday and Wednesday. The day turns
+    # over at 5am: at 1am Thursday it is still Wednesday night.
+    "week": {"sun": ["work"], "mon": ["class"], "tue": [], "wed": ["class", "work"], "thu": [], "fri": ["work"],
+             "sat": []},
+    "day_starts": 5,
+    "class_at": 13,
+    # what he says about today, tonight, tomorrow and yesterday, by day of the week ("mon_am": Monday before 1pm).
+    # A fact missing here comes from the facts below, which tell Tuesday.
+    "by_day": {
+        "sun": {"woke_up": "like 11", "today": "slept in, some youtube, now this", "tonight": "work at 10",
+                "tomorrow": "class at 1, right after my shift", "last_night": "valorant till like 3",
+                "yesterday": "slept till like 2 after work, then valorant", "next_shift": "tonight, 10 to 6",
+                "next_class": "tomorrow at 1"},
+        "mon_am": {"woke_up": "like 10", "today": "got off work at 6, class at 1 later", "next_class": "today at 1"},
+        "mon": {"woke_up": "like 10, i got off work at 6", "today": "work till 6, a nap, then class at 1",
+                "tonight": "probably valorant, then crash early", "tomorrow": "nothing, day off",
+                "last_night": "i worked, 10 to 6", "yesterday": "slept in, then work at night",
+                "next_shift": "wednesday night", "next_class": "wednesday at 1"},
+        "tue": {"tomorrow": "class at 1, then work at 10", "last_night": "valorant for a bit, then i crashed",
+                "yesterday": "class after my shift, then i crashed early", "next_shift": "tomorrow night",
+                "next_class": "tomorrow at 1"},
+        "wed_am": {"today": "slept in, class at 1 later", "next_class": "today at 1"},
+        "wed": {"woke_up": "like 11", "today": "class at 1, now just chilling before work", "tonight": "work at 10",
+                "tomorrow": "sleeping in after my shift lol", "last_night": "valorant till like 3",
+                "yesterday": "nothing, slept in and played valorant", "next_shift": "tonight, 10 to 6",
+                "next_class": "monday at 1"},
+        "thu_am": {"woke_up": "like 10, couldnt sleep after work", "today": "got off work at 6, couldnt really sleep"},
+        "thu": {"woke_up": "like 2", "today": "slept till 2 after work, now this",
+                "tonight": "probably valorant with my friends", "tomorrow": "work at 10 at night",
+                "last_night": "i worked, 10 to 6", "yesterday": "class, then a night shift",
+                "next_shift": "tomorrow night", "next_class": "monday at 1"},
+        "fri": {"woke_up": "like 11", "today": "slept in, some youtube, now this", "tonight": "work at 10, always fridays",
+                "tomorrow": "sleep, then probably valorant", "last_night": "valorant till like 3",
+                "yesterday": "slept till like 2 after work, then valorant", "next_shift": "tonight, 10 to 6",
+                "next_class": "monday at 1"},
+        "sat_am": {"woke_up": "like 10, couldnt sleep after work", "today": "got off work at 6, couldnt really sleep"},
+        "sat": {"woke_up": "like 2", "today": "slept till 2 after work, now this",
+                "tonight": "probably valorant with my friends", "tomorrow": "work at 10 at night",
+                "last_night": "i worked, 10 to 6", "yesterday": "slept in, then work at night",
+                "next_shift": "tomorrow night", "next_class": "monday at 1"},
+    },
     "facts": {
         # who
         "name": "josh",
@@ -98,7 +141,7 @@ persona({
         "car_problem": "check engine light thats been on for a month",
         "money": "saving for a new gpu",
         "recent": "my cat knocked my monitor off the desk last week",
-        "weekend": "work friday night, then probably just gaming",
+        "weekend": "work friday and sunday night, gaming in between",
         "yesterday": "slept till like 2 after work, then valorant",
         "today": "slept in, some youtube, now this",
         "tonight": "probably valorant with my friends",

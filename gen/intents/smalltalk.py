@@ -750,7 +750,7 @@ intent("st_tell_work_good", ["i love|like|enjoy my job|work|boss|coworkers", "wo
        no=["i hate my job", "do you like your job", "how was work", "good job lol"])
 intent("st_tell_school_bad", ["i hate [my] @st_school|@st_hw", "@st_school|@st_hw [is|was|are] [@intens] @st_badadj",
                               "so much homework|studying", "lot of homework|studying|exams", "@st_hw * killing me",
-                              "i failed", "i have [a|an] @st_hw", "finals week"],
+                              "i [just] failed", "i have [a|an] @st_hw", "finals week"],
        "the user complains about school or exams",
        yes=["school sucks", "i hate school", "i have so much homework", "finals are killing me", "i failed my test",
             "i have a test tomorrow", "class was so boring"],

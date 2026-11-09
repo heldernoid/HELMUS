@@ -312,7 +312,7 @@ W("bt.human_pretending_bot", "bt_ask_pretending", [("human",), ("bot", "ai", "ro
   "asked if he is a human pretending to be a bot, or the other way round", s=1.0, group="bt_deny")
 A("bt.say_human", "bt_say_something_human",
   ["uh im hungry", "my back hurts from sitting on my bed like this", "i need to pee lol", "{p:car_problem}",
-   "{p:pet_name} just threw up on the carpet", "i have work tomorrow and i dont wanna go"],
+   "{p:pet_name} just threw up on the carpet", "i really need a haircut"],
   "asked to say something only a human would: something small and real, not a speech")
 W("bt.convince", "bt_say_something_human", [("convince",)],
   ["idk, im tired and i want pizza", "i cant, thats the problem lol", "my cat is staring at me right now"],

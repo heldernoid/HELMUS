@@ -6,6 +6,7 @@ starts with every weight at zero and applies the edits.
 
 Layers (see docs/design.md):
   read   fixed: words, numbers and punctuation; the message's shape (S: features)
+  T      fixed: the persona's clock (T: features): its local time and week, read from the persona table
   E      lexicon: word -> named features (EMB), informal spellings -> words (ALIAS)
   D      phrase detectors: a convolution over word positions with windowed taps, clipped to [0, 1]
   U      utterance units: pooled detectors and features, clipped to [0, 1]
@@ -21,6 +22,7 @@ from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEADS = ("react", "answer", "ask")
+DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 WORD = re.compile(r"[a-z0-9]+(?:'[a-z]+)?|[?!.,]+|[^\sa-z0-9]", re.I)
 
 
@@ -240,6 +242,7 @@ class Net:
     def turn(self, state, text, now=None):
         """one message in, one reply out; `state` carries memory between turns"""
         now = now or datetime.now(timezone.utc)
+        clock = self.clock(now)
         words, S = self.read(text)
         calc = S.pop("_calc", None)
         norm = " ".join(words)
@@ -247,6 +250,7 @@ class Net:
             S["S:repeat"] = 1.0                              # the user sent this same message before
         X = self.features(words)
         A = dict(S)
+        A.update(clock["T"])
         for f in {k for x in X for k in x}:                  # F: a feature anywhere in the message
             A["F:" + f] = max(x.get(f, 0.0) for x in X)
         D, where = self.detect(X)
@@ -284,7 +288,7 @@ class Net:
             raw[eid] = k["bias"] + sum(w * A.get(src, 0.0) for src, w in k["links"])
             scores[eid] = raw[eid] - self.rates.get("repeat_penalty", 0.6) * used.get(eid, 0)
         turn_no = state.get("turn", 0) + 1
-        ctx = {"calc": calc, "regs": regs, "now": now, "words": words, "history": state.get("history", [])}
+        ctx = {"calc": calc, "regs": regs, "clock": clock, "words": words, "history": state.get("history", [])}
         said = set(state.get("said", []))
         seed = state.get("seed", 0)
 
@@ -339,17 +343,21 @@ class Net:
 
     def _fill(self, text, ctx):
         P = self.persona
+        clock = ctx["clock"]
+        local = clock["local"]
 
         def fill(m):
             key = m.group(1)
             if key.startswith("p:"):
+                for day in clock["days"]:                    # a fact of this day of the week, else the fact
+                    if key[2:] in P.get("by_day", {}).get(day, {}):
+                        return P["by_day"][day][key[2:]]
                 return str(P["facts"].get(key[2:], ""))
             if key == "calc":
                 return ctx["calc"] or ""
             if key in ctx["regs"]:
                 return ctx["regs"][key]
             if key == "time":
-                local = ctx["now"].astimezone(timezone(timedelta(hours=P["utc_offset"])))
                 hr = local.hour % 12 or 12
                 return f"{hr}:{local.minute:02d}"
             if key in ("first_msg", "last_msg"):
@@ -359,12 +367,49 @@ class Net:
                 m = (hist[0] if key == "first_msg" else hist[-1]).strip().lower().rstrip("?!.")
                 return m if len(m) <= 40 else m[:37].rsplit(" ", 1)[0] + "..."
             if key == "weekday":
-                return ctx["now"].astimezone(timezone(timedelta(hours=P["utc_offset"]))).strftime("%A").lower()
+                return local.strftime("%A").lower()
             if key == "daypart":
-                hr = ctx["now"].astimezone(timezone(timedelta(hours=P["utc_offset"]))).hour
+                hr = local.hour
                 return "morning" if 5 <= hr < 12 else "afternoon" if 12 <= hr < 17 else "evening" if 17 <= hr < 22 else "night"
             return ""
         return re.sub(r"\{([a-z0-9_:]+)\}", fill, text).strip()
+
+    def utc_offset(self, now):
+        """the persona's offset from UTC at `now`: standard time, plus an hour in summer by the US rule (from 2am on
+        the second Sunday of March to 2am on the first Sunday of November)"""
+        off = self.persona.get("utc_offset", 0)
+        if self.persona.get("dst") == "us":
+            def sunday(month, n):                            # the date of the nth Sunday of the month
+                first = datetime(now.year, month, 1, tzinfo=timezone.utc)
+                return (6 - first.weekday()) % 7 + 1 + 7 * (n - 1)
+            start = datetime(now.year, 3, sunday(3, 2), tzinfo=timezone.utc) + timedelta(hours=2 - off)
+            end = datetime(now.year, 11, sunday(11, 1), tzinfo=timezone.utc) + timedelta(hours=1 - off)
+            if start <= now < end:
+                off += 1
+        return off
+
+    def clock(self, now):
+        """the persona's local time and the T: features of its week (persona "week": what each day holds). The day
+        turns over at `day_starts` (5am): at 1am Thursday it is still Wednesday night. Facts of the day of the week
+        come from "by_day", a morning version (before 1pm) first"""
+        P = self.persona
+        local = now.astimezone(timezone(timedelta(hours=self.utc_offset(now))))
+        cut = P.get("day_starts", 0)
+        d = (local - timedelta(hours=cut)).weekday()
+        week = P.get("week", {})
+        today, tomorrow, yesterday = (set(week.get(DAYS[(d + k) % 7], [])) for k in (0, 1, -1))
+        hr = local.hour
+        T = {}
+        for name, on in (("work_tonight", "work" in today), ("work_tomorrow", "work" in tomorrow),
+                         ("worked_last_night", "work" in yesterday), ("class_today", "class" in today),
+                         ("class_ahead", "class" in today and cut <= hr < P.get("class_at", 13)),
+                         ("class_done", "class" in today and not cut <= hr < P.get("class_at", 13)),
+                         ("class_tomorrow", "class" in tomorrow), ("busy_tomorrow", bool(tomorrow)),
+                         ("day_off", not today)):
+            if on:
+                T["T:" + name] = 1.0
+        days = ([DAYS[d] + "_am"] if cut <= hr < 13 else []) + [DAYS[d]]
+        return {"local": local, "T": T, "days": days}
 
     def style(self, text, seed, turn_no):
         """the fixed pass of the voice: lowercase, no final full stop; a typo now and then at the rate the weights set"""

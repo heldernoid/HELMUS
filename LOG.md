@@ -130,6 +130,28 @@ fire an entry whose intent never fired (175 entries could). The engine now gates
 
 The canonical life is in `docs/personas.md`, "Josh's life, as written".
 
+**16. Blind AI judges, not people.** `eval/judge.py` shows a judge the same held-out game twice, HELMUS and ELIZA side
+by side in hashed order with no names, and asks which one is the human. Five judges read the 100 test games and picked
+HELMUS in 100 of 100 (mean confidence 87). This settles "better than ELIZA" on transcripts, nothing more: the judges
+recognised ELIZA at once, and no real human was in the comparison. A human-witness round was considered and left out.
+The judges' notes on HELMUS: sometimes evasive, an occasional non sequitur, an odd answer about the time.
+
+**17. A week, read from the clock.** Josh's schedule used to be one fixed day ("tomorrow: class at 1, then work at 10")
+whatever the date. Now:
+- the persona table holds his week and the lines for each day (`week`, `by_day`);
+- the engine reads Ohio's local time, with US summer time computed by rule (no time-zone database, the same in Python
+  and the browser), and turns it into clock inputs, `T:work_tonight`, `T:class_ahead`, `T:busy_tomorrow` and others;
+- the schedule entries come in pairs keyed on them, so "do you work tonight" is "yeah, 10 to 6 ugh" on a Wednesday
+  and "nah, thank god" on a Tuesday, and the wrong one cannot fire.
+
+The parity test now runs the schedule questions on several days and across the clock change.
+
+**18. Three misreadings.**
+- "i failed my midterm" got the election reply: "midterm" was a politics word. It is now a school word only, and
+  politics is blocked by the school intents.
+- "what's your major" and "what do you study" got his job: study questions are a separate intent with their own
+  answer and memory. "what do u do to relax" and "when ur bored" also got his job; they are hobby questions now.
+
 ## What did not work
 
 - A repeat penalty that ruled entries out (decision 5).
@@ -151,8 +173,8 @@ Held-out test games (100, never read), against ELIZA (`eval/results.json`):
 ELIZA: 2.3% repeats, 6.5 words a reply. HELMUS: 3.6 words a reply, 80% of replies 5 words or fewer.
 
 Size:
-- 87,756 edit lines;
-- 8,053 units (7,161 detectors, 692 utterance units, 200 memory units);
-- 3,037 phrasebook entries (10,847 lines);
-- 6,619 intent tests;
+- 87,943 edit lines;
+- 8,063 units (7,169 detectors, 693 utterance units, 201 memory units);
+- 3,052 phrasebook entries (10,895 lines);
+- 6,634 intent tests;
 - a hand-written vocabulary of 29,990 forms.

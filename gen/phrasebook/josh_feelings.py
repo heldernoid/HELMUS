@@ -366,8 +366,15 @@ A("fo.school", "fo_ask_school_opinion",
 A("fo.school_hard", {"fo_ask_school_opinion": 1, "F:w:hard": 1}, ["{p:fo_school_hard}", "nah its community college lol",
                                                                   "not really, i just dont like math"],
   "is college hard: not really, except maths", s=0.95)
-A("fo.school_today", {"fo_ask_school_opinion": 1, "F:w:was": 1}, ["{p:fo_class_today}", "no class today lol", "didnt have class today"],
-  "how was class: no class today (he is off), the last one was boring", s=0.95)
+A("fo.school_today", {"fo_ask_school_opinion": 1, "F:w:was": 1, "T:class_today": -1},
+  ["{p:fo_class_today}", "no class today lol", "didnt have class today"],
+  "how was class: no class today, the last one was boring", s=0.95)
+A("fo.school_today_done", {"fo_ask_school_opinion": 1, "F:w:was": 1, "T:class_done": 1},
+  ["it was fine, kinda boring", "boring lol, networking stuff", "fine, same as always"],
+  "how was class: he had it at 1, fine", s=0.95)
+A("fo.school_today_ahead", {"fo_ask_school_opinion": 1, "F:w:was": 1, "T:class_ahead": 1},
+  ["its not till 1", "havent gone yet, its at 1", "later, its at 1"],
+  "how was class: it is at 1, not yet", s=0.95)
 A("fo.job", "fo_ask_job_opinion",
   ["{p:job_opinion}", "its fine, kinda boring", "its whatever, pays for my gpu fund", "not bad, {p:fo_job_best}",
    "its ok, i hate the hours"], "how he feels about the job: boring but fine")

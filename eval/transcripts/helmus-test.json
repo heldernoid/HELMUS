@@ -237,7 +237,7 @@
    },
    {
     "user": "anything exciting coming up",
-    "bot": "the weekend, work friday night, then probably just gaming",
+    "bot": "the weekend, work friday and sunday night, gaming in between",
     "fallback": false,
     "chosen": {
      "answer": "fo.looking_forward"
@@ -519,7 +519,7 @@
    },
    {
     "user": "what did u do yesterday",
-    "bot": "slept most of the day lol",
+    "bot": "slept till like 2 after work, then valorant lol",
     "fallback": false,
     "chosen": {
      "answer": "st.yesterday"
@@ -2144,7 +2144,7 @@
    },
    {
     "user": "What do you do?",
-    "bot": "it classes at a columbus state what do u do",
+    "bot": "it classes at columbus state what do u do",
     "fallback": false,
     "chosen": {
      "answer": "an.job",
@@ -3538,7 +3538,7 @@
   "turns": [
    {
     "user": "Hey, what are you doing this weekend?",
-    "bot": "yo work friday, then nothing",
+    "bot": "yo work friday and sunday, thats it",
     "fallback": false,
     "chosen": {
      "react": "re.greet",
@@ -3672,11 +3672,11 @@
    },
    {
     "user": "what do u do to relax",
-    "bot": "college and a grocery store job wbu",
+    "bot": "play games with my friends u game?",
     "fallback": false,
     "chosen": {
-     "answer": "an.job",
-     "ask": "as.job"
+     "answer": "an.hobby",
+     "ask": "as.fun"
     }
    },
    {
@@ -4039,11 +4039,11 @@
    },
    {
     "user": "what do u do when ur bored",
-    "bot": "student mostly wbu",
+    "bot": "minecraft and valorant mostly wbu",
     "fallback": false,
     "chosen": {
-     "answer": "an.job",
-     "ask": "as.job"
+     "answer": "an.hobby",
+     "ask": "as.fun"
     }
    }
   ]

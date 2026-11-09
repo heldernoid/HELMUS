@@ -2038,10 +2038,10 @@
    },
    {
     "user": "what u doing later",
-    "bot": "nothing, maybe valroant wbu",
+    "bot": "work lol wbu",
     "fallback": false,
     "chosen": {
-     "answer": "st.plans_tonight",
+     "answer": "st.plans_tonight_work",
      "ask": "st.as_plans"
     }
    },

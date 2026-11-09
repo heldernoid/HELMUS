@@ -2499,51 +2499,51 @@ TAP ask_where_from.11 2 2 w:from 1  # 'where you from': needs w:from at 2..2
 TAP ask_where_from.11 0 0 w:where 1  # 'where you from': needs w:where at 0..0
 BIAS D ask_where_from.11 -2  # AND of the 3 required parts of 'where you from'
 LINK U ask_where_from D:ask_where_from.11 1  # 'where you from' is one way of saying: asks where Helmus lives
-UNIT U ask_job  # asks what Helmus does for a living or studies
-UNIT D ask_job.0  # detector for 'what do you do' (asks what Helmus does for a living or studies)
+UNIT U ask_job  # asks what Helmus does for a living
+UNIT D ask_job.0  # detector for 'what do you do' (asks what Helmus does for a living)
 TAP ask_job.0 1 1 w:do 1  # 'what do you do': needs w:do at 1..1
 TAP ask_job.0 2 2 w:you 1  # 'what do you do': needs w:you at 2..2
 TAP ask_job.0 3 3 w:do 1  # 'what do you do': needs w:do at 3..3
 TAP ask_job.0 0 0 w:what 1  # 'what do you do': needs w:what at 0..0
 BIAS D ask_job.0 -3  # AND of the 4 required parts of 'what do you do'
-LINK U ask_job D:ask_job.0 1  # 'what do you do' is one way of saying: asks what Helmus does for a living or studies
+LINK U ask_job D:ask_job.0 1  # 'what do you do' is one way of saying: asks what Helmus does for a living
 VOCAB work  # a word a detector reads: known, so never read as a typo of another word
-UNIT D ask_job.1  # detector for 'do you work' (asks what Helmus does for a living or studies)
+UNIT D ask_job.1  # detector for 'do you work' (asks what Helmus does for a living)
 TAP ask_job.1 1 1 w:you 1  # 'do you work': needs w:you at 1..1
 TAP ask_job.1 2 2 w:work 1  # 'do you work': needs w:work at 2..2
 TAP ask_job.1 0 0 w:do 1  # 'do you work': needs w:do at 0..0
 BIAS D ask_job.1 -2  # AND of the 3 required parts of 'do you work'
-LINK U ask_job D:ask_job.1 1  # 'do you work' is one way of saying: asks what Helmus does for a living or studies
+LINK U ask_job D:ask_job.1 1  # 'do you work' is one way of saying: asks what Helmus does for a living
 VOCAB job  # a word a detector reads: known, so never read as a typo of another word
-UNIT D ask_job.2  # detector for 'your job' (asks what Helmus does for a living or studies)
+UNIT D ask_job.2  # detector for 'your job' (asks what Helmus does for a living)
 TAP ask_job.2 1 1 w:job 1  # 'your job': needs w:job at 1..1
 TAP ask_job.2 0 0 w:your 1  # 'your job': needs w:your at 0..0
 BIAS D ask_job.2 -1  # AND of the 2 required parts of 'your job'
-LINK U ask_job D:ask_job.2 1  # 'your job' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.3  # detector for 'what is your job' (asks what Helmus does for a living or studies)
+LINK U ask_job D:ask_job.2 1  # 'your job' is one way of saying: asks what Helmus does for a living
+UNIT D ask_job.3  # detector for 'what is your job' (asks what Helmus does for a living)
 TAP ask_job.3 1 1 w:is 1  # 'what is your job': needs w:is at 1..1
 TAP ask_job.3 2 2 w:your 1  # 'what is your job': needs w:your at 2..2
 TAP ask_job.3 3 3 w:job 1  # 'what is your job': needs w:job at 3..3
 TAP ask_job.3 0 0 w:what 1  # 'what is your job': needs w:what at 0..0
 BIAS D ask_job.3 -3  # AND of the 4 required parts of 'what is your job'
-LINK U ask_job D:ask_job.3 1  # 'what is your job' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.4  # detector for 'where do you work' (asks what Helmus does for a living or studies)
+LINK U ask_job D:ask_job.3 1  # 'what is your job' is one way of saying: asks what Helmus does for a living
+UNIT D ask_job.4  # detector for 'where do you work' (asks what Helmus does for a living)
 TAP ask_job.4 1 1 w:do 1  # 'where do you work': needs w:do at 1..1
 TAP ask_job.4 2 2 w:you 1  # 'where do you work': needs w:you at 2..2
 TAP ask_job.4 3 3 w:work 1  # 'where do you work': needs w:work at 3..3
 TAP ask_job.4 0 0 w:where 1  # 'where do you work': needs w:where at 0..0
 BIAS D ask_job.4 -3  # AND of the 4 required parts of 'where do you work'
-LINK U ask_job D:ask_job.4 1  # 'where do you work' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.5  # detector for 'do you have a job' (asks what Helmus does for a living or studies)
+LINK U ask_job D:ask_job.4 1  # 'where do you work' is one way of saying: asks what Helmus does for a living
+UNIT D ask_job.5  # detector for 'do you have a job' (asks what Helmus does for a living)
 TAP ask_job.5 1 1 w:you 1  # 'do you have a job': needs w:you at 1..1
 TAP ask_job.5 2 2 w:have 1  # 'do you have a job': needs w:have at 2..2
 TAP ask_job.5 3 3 w:a 1  # 'do you have a job': needs w:a at 3..3
 TAP ask_job.5 4 4 w:job 1  # 'do you have a job': needs w:job at 4..4
 TAP ask_job.5 0 0 w:do 1  # 'do you have a job': needs w:do at 0..0
 BIAS D ask_job.5 -4  # AND of the 5 required parts of 'do you have a job'
-LINK U ask_job D:ask_job.5 1  # 'do you have a job' is one way of saying: asks what Helmus does for a living or studies
+LINK U ask_job D:ask_job.5 1  # 'do you have a job' is one way of saying: asks what Helmus does for a living
 VOCAB for  # a word a detector reads: known, so never read as a typo of another word
-UNIT D ask_job.6  # detector for 'what do you do for work' (asks what Helmus does for a living or studies)
+UNIT D ask_job.6  # detector for 'what do you do for work' (asks what Helmus does for a living)
 TAP ask_job.6 1 1 w:do 1  # 'what do you do for work': needs w:do at 1..1
 TAP ask_job.6 2 2 w:you 1  # 'what do you do for work': needs w:you at 2..2
 TAP ask_job.6 3 3 w:do 1  # 'what do you do for work': needs w:do at 3..3
@@ -2551,8 +2551,8 @@ TAP ask_job.6 4 4 w:for 1  # 'what do you do for work': needs w:for at 4..4
 TAP ask_job.6 5 5 w:work 1  # 'what do you do for work': needs w:work at 5..5
 TAP ask_job.6 0 0 w:what 1  # 'what do you do for work': needs w:what at 0..0
 BIAS D ask_job.6 -5  # AND of the 6 required parts of 'what do you do for work'
-LINK U ask_job D:ask_job.6 1  # 'what do you do for work' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.7  # detector for 'what do you do for a living' (asks what Helmus does for a living or studies)
+LINK U ask_job D:ask_job.6 1  # 'what do you do for work' is one way of saying: asks what Helmus does for a living
+UNIT D ask_job.7  # detector for 'what do you do for a living' (asks what Helmus does for a living)
 TAP ask_job.7 1 1 w:do 1  # 'what do you do for a living': needs w:do at 1..1
 TAP ask_job.7 2 2 w:you 1  # 'what do you do for a living': needs w:you at 2..2
 TAP ask_job.7 3 3 w:do 1  # 'what do you do for a living': needs w:do at 3..3
@@ -2561,44 +2561,79 @@ TAP ask_job.7 5 5 w:a 1  # 'what do you do for a living': needs w:a at 5..5
 TAP ask_job.7 6 6 w:living 1  # 'what do you do for a living': needs w:living at 6..6
 TAP ask_job.7 0 0 w:what 1  # 'what do you do for a living': needs w:what at 0..0
 BIAS D ask_job.7 -6  # AND of the 7 required parts of 'what do you do for a living'
-LINK U ask_job D:ask_job.7 1  # 'what do you do for a living' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.8  # detector for 'are you a student' (asks what Helmus does for a living or studies)
-TAP ask_job.8 1 1 w:you 1  # 'are you a student': needs w:you at 1..1
-TAP ask_job.8 2 2 w:a 1  # 'are you a student': needs w:a at 2..2
-TAP ask_job.8 3 3 w:student 1  # 'are you a student': needs w:student at 3..3
-TAP ask_job.8 0 0 w:are 1  # 'are you a student': needs w:are at 0..0
-BIAS D ask_job.8 -3  # AND of the 4 required parts of 'are you a student'
-LINK U ask_job D:ask_job.8 1  # 'are you a student' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.9  # detector for 'do you go to school' (asks what Helmus does for a living or studies)
-TAP ask_job.9 1 1 w:you 1  # 'do you go to school': needs w:you at 1..1
-TAP ask_job.9 2 2 w:go 1  # 'do you go to school': needs w:go at 2..2
-TAP ask_job.9 3 3 w:to 1  # 'do you go to school': needs w:to at 3..3
-TAP ask_job.9 4 4 w:school 1  # 'do you go to school': needs w:school at 4..4
-TAP ask_job.9 0 0 w:do 1  # 'do you go to school': needs w:do at 0..0
-BIAS D ask_job.9 -4  # AND of the 5 required parts of 'do you go to school'
-LINK U ask_job D:ask_job.9 1  # 'do you go to school' is one way of saying: asks what Helmus does for a living or studies
+LINK U ask_job D:ask_job.7 1  # 'what do you do for a living' is one way of saying: asks what Helmus does for a living
+UNIT U ask_study  # asks whether Helmus studies, and what
+UNIT D ask_study.0  # detector for 'are you a student' (asks whether Helmus studies, and what)
+TAP ask_study.0 1 1 w:you 1  # 'are you a student': needs w:you at 1..1
+TAP ask_study.0 2 2 w:a 1  # 'are you a student': needs w:a at 2..2
+TAP ask_study.0 3 3 w:student 1  # 'are you a student': needs w:student at 3..3
+TAP ask_study.0 0 0 w:are 1  # 'are you a student': needs w:are at 0..0
+BIAS D ask_study.0 -3  # AND of the 4 required parts of 'are you a student'
+LINK U ask_study D:ask_study.0 1  # 'are you a student' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.1  # detector for 'do you go to school|college' (asks whether Helmus studies, and what)
+TAP ask_study.1 1 1 w:you 1  # 'do you go to school|college': needs w:you at 1..1
+TAP ask_study.1 2 2 w:go 1  # 'do you go to school|college': needs w:go at 2..2
+TAP ask_study.1 3 3 w:to 1  # 'do you go to school|college': needs w:to at 3..3
+TAP ask_study.1 4 4 w:school|w:college 1  # 'do you go to school|college': needs w:school|w:college at 4..4
+TAP ask_study.1 0 0 w:do 1  # 'do you go to school|college': needs w:do at 0..0
+BIAS D ask_study.1 -4  # AND of the 5 required parts of 'do you go to school|college'
+LINK U ask_study D:ask_study.1 1  # 'do you go to school|college' is one way of saying: asks whether Helmus studies, and what
 VOCAB in  # a word a detector reads: known, so never read as a typo of another word
-UNIT D ask_job.10  # detector for 'are you in school' (asks what Helmus does for a living or studies)
-TAP ask_job.10 1 1 w:you 1  # 'are you in school': needs w:you at 1..1
-TAP ask_job.10 2 2 w:in 1  # 'are you in school': needs w:in at 2..2
-TAP ask_job.10 3 3 w:school 1  # 'are you in school': needs w:school at 3..3
-TAP ask_job.10 0 0 w:are 1  # 'are you in school': needs w:are at 0..0
-BIAS D ask_job.10 -3  # AND of the 4 required parts of 'are you in school'
-LINK U ask_job D:ask_job.10 1  # 'are you in school' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.11  # detector for 'what do you study' (asks what Helmus does for a living or studies)
-TAP ask_job.11 1 1 w:do 1  # 'what do you study': needs w:do at 1..1
-TAP ask_job.11 2 2 w:you 1  # 'what do you study': needs w:you at 2..2
-TAP ask_job.11 3 3 w:study 1  # 'what do you study': needs w:study at 3..3
-TAP ask_job.11 0 0 w:what 1  # 'what do you study': needs w:what at 0..0
-BIAS D ask_job.11 -3  # AND of the 4 required parts of 'what do you study'
-LINK U ask_job D:ask_job.11 1  # 'what do you study' is one way of saying: asks what Helmus does for a living or studies
-UNIT D ask_job.12  # detector for 'what is your major' (asks what Helmus does for a living or studies)
-TAP ask_job.12 1 1 w:is 1  # 'what is your major': needs w:is at 1..1
-TAP ask_job.12 2 2 w:your 1  # 'what is your major': needs w:your at 2..2
-TAP ask_job.12 3 3 w:major 1  # 'what is your major': needs w:major at 3..3
-TAP ask_job.12 0 0 w:what 1  # 'what is your major': needs w:what at 0..0
-BIAS D ask_job.12 -3  # AND of the 4 required parts of 'what is your major'
-LINK U ask_job D:ask_job.12 1  # 'what is your major' is one way of saying: asks what Helmus does for a living or studies
+UNIT D ask_study.2  # detector for 'are you in school|college' (asks whether Helmus studies, and what)
+TAP ask_study.2 1 1 w:you 1  # 'are you in school|college': needs w:you at 1..1
+TAP ask_study.2 2 2 w:in 1  # 'are you in school|college': needs w:in at 2..2
+TAP ask_study.2 3 3 w:school|w:college 1  # 'are you in school|college': needs w:school|w:college at 3..3
+TAP ask_study.2 0 0 w:are 1  # 'are you in school|college': needs w:are at 0..0
+BIAS D ask_study.2 -3  # AND of the 4 required parts of 'are you in school|college'
+LINK U ask_study D:ask_study.2 1  # 'are you in school|college' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.3  # detector for 'what do you study' (asks whether Helmus studies, and what)
+TAP ask_study.3 1 1 w:do 1  # 'what do you study': needs w:do at 1..1
+TAP ask_study.3 2 2 w:you 1  # 'what do you study': needs w:you at 2..2
+TAP ask_study.3 3 3 w:study 1  # 'what do you study': needs w:study at 3..3
+TAP ask_study.3 0 0 w:what 1  # 'what do you study': needs w:what at 0..0
+BIAS D ask_study.3 -3  # AND of the 4 required parts of 'what do you study'
+LINK U ask_study D:ask_study.3 1  # 'what do you study' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.4  # detector for 'what your major' (asks whether Helmus studies, and what)
+TAP ask_study.4 1 1 w:your 1  # 'what your major': needs w:your at 1..1
+TAP ask_study.4 2 2 w:major 1  # 'what your major': needs w:major at 2..2
+TAP ask_study.4 0 0 w:what 1  # 'what your major': needs w:what at 0..0
+BIAS D ask_study.4 -2  # AND of the 3 required parts of 'what your major'
+LINK U ask_study D:ask_study.4 1  # 'what your major' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.4.1  # detector for 'what is your major' (asks whether Helmus studies, and what)
+TAP ask_study.4.1 1 1 w:is 1  # 'what is your major': needs w:is at 1..1
+TAP ask_study.4.1 2 2 w:your 1  # 'what is your major': needs w:your at 2..2
+TAP ask_study.4.1 3 3 w:major 1  # 'what is your major': needs w:major at 3..3
+TAP ask_study.4.1 0 0 w:what 1  # 'what is your major': needs w:what at 0..0
+BIAS D ask_study.4.1 -3  # AND of the 4 required parts of 'what is your major'
+LINK U ask_study D:ask_study.4.1 1  # 'what is your major' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.5  # detector for 'what are you studying' (asks whether Helmus studies, and what)
+TAP ask_study.5 1 1 w:are 1  # 'what are you studying': needs w:are at 1..1
+TAP ask_study.5 2 2 w:you 1  # 'what are you studying': needs w:you at 2..2
+TAP ask_study.5 3 3 w:studying 1  # 'what are you studying': needs w:studying at 3..3
+TAP ask_study.5 0 0 w:what 1  # 'what are you studying': needs w:what at 0..0
+BIAS D ask_study.5 -3  # AND of the 4 required parts of 'what are you studying'
+LINK U ask_study D:ask_study.5 1  # 'what are you studying' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.6  # detector for 'where do you go to school|college' (asks whether Helmus studies, and what)
+TAP ask_study.6 1 1 w:do 1  # 'where do you go to school|college': needs w:do at 1..1
+TAP ask_study.6 2 2 w:you 1  # 'where do you go to school|college': needs w:you at 2..2
+TAP ask_study.6 3 3 w:go 1  # 'where do you go to school|college': needs w:go at 3..3
+TAP ask_study.6 4 4 w:to 1  # 'where do you go to school|college': needs w:to at 4..4
+TAP ask_study.6 5 5 w:school|w:college 1  # 'where do you go to school|college': needs w:school|w:college at 5..5
+TAP ask_study.6 0 0 w:where 1  # 'where do you go to school|college': needs w:where at 0..0
+BIAS D ask_study.6 -5  # AND of the 6 required parts of 'where do you go to school|college'
+LINK U ask_study D:ask_study.6 1  # 'where do you go to school|college' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.7  # detector for 'you in school|college' (asks whether Helmus studies, and what)
+TAP ask_study.7 1 1 w:in 1  # 'you in school|college': needs w:in at 1..1
+TAP ask_study.7 2 2 w:school|w:college 1  # 'you in school|college': needs w:school|w:college at 2..2
+TAP ask_study.7 0 0 w:you 1  # 'you in school|college': needs w:you at 0..0
+BIAS D ask_study.7 -2  # AND of the 3 required parts of 'you in school|college'
+LINK U ask_study D:ask_study.7 1  # 'you in school|college' is one way of saying: asks whether Helmus studies, and what
+UNIT D ask_study.8  # detector for 'you a student' (asks whether Helmus studies, and what)
+TAP ask_study.8 1 1 w:a 1  # 'you a student': needs w:a at 1..1
+TAP ask_study.8 2 2 w:student 1  # 'you a student': needs w:student at 2..2
+TAP ask_study.8 0 0 w:you 1  # 'you a student': needs w:you at 0..0
+BIAS D ask_study.8 -2  # AND of the 3 required parts of 'you a student'
+LINK U ask_study D:ask_study.8 1  # 'you a student' is one way of saying: asks whether Helmus studies, and what
 UNIT U ask_hobby  # asks Helmus's hobbies
 VOCAB fun  # a word a detector reads: known, so never read as a typo of another word
 UNIT D ask_hobby.0  # detector for 'what do you do for fun' (asks Helmus's hobbies)
@@ -2668,6 +2703,27 @@ TAP ask_hobby.7 3 3 w:interests 1  # 'what are your interests': needs w:interest
 TAP ask_hobby.7 0 0 w:what 1  # 'what are your interests': needs w:what at 0..0
 BIAS D ask_hobby.7 -3  # AND of the 4 required parts of 'what are your interests'
 LINK U ask_hobby D:ask_hobby.7 1  # 'what are your interests' is one way of saying: asks Helmus's hobbies
+VOCAB relax  # a word a detector reads: known, so never read as a typo of another word
+VOCAB unwind  # a word a detector reads: known, so never read as a typo of another word
+UNIT D ask_hobby.8  # detector for 'what do you do to relax|unwind|chill' (asks Helmus's hobbies)
+TAP ask_hobby.8 1 1 w:do 1  # 'what do you do to relax|unwind|chill': needs w:do at 1..1
+TAP ask_hobby.8 2 2 w:you 1  # 'what do you do to relax|unwind|chill': needs w:you at 2..2
+TAP ask_hobby.8 3 3 w:do 1  # 'what do you do to relax|unwind|chill': needs w:do at 3..3
+TAP ask_hobby.8 4 4 w:to 1  # 'what do you do to relax|unwind|chill': needs w:to at 4..4
+TAP ask_hobby.8 5 5 w:relax|w:unwind|w:chill 1  # 'what do you do to relax|unwind|chill': needs w:relax|w:unwind|w:chill at 5..5
+TAP ask_hobby.8 0 0 w:what 1  # 'what do you do to relax|unwind|chill': needs w:what at 0..0
+BIAS D ask_hobby.8 -5  # AND of the 6 required parts of 'what do you do to relax|unwind|chill'
+LINK U ask_hobby D:ask_hobby.8 1  # 'what do you do to relax|unwind|chill' is one way of saying: asks Helmus's hobbies
+VOCAB bored  # a word a detector reads: known, so never read as a typo of another word
+UNIT D ask_hobby.9  # detector for 'what do you do when * bored' (asks Helmus's hobbies)
+TAP ask_hobby.9 1 1 w:do 1  # 'what do you do when * bored': needs w:do at 1..1
+TAP ask_hobby.9 2 2 w:you 1  # 'what do you do when * bored': needs w:you at 2..2
+TAP ask_hobby.9 3 3 w:do 1  # 'what do you do when * bored': needs w:do at 3..3
+TAP ask_hobby.9 4 4 w:when 1  # 'what do you do when * bored': needs w:when at 4..4
+TAP ask_hobby.9 5 8 w:bored 1  # 'what do you do when * bored': needs w:bored at 5..8
+TAP ask_hobby.9 0 0 w:what 1  # 'what do you do when * bored': needs w:what at 0..0
+BIAS D ask_hobby.9 -5  # AND of the 6 required parts of 'what do you do when * bored'
+LINK U ask_hobby D:ask_hobby.9 1  # 'what do you do when * bored' is one way of saying: asks Helmus's hobbies
 UNIT U ask_family  # asks about Helmus's family
 UNIT D ask_family.0  # detector for 'do you have @family' (asks about Helmus's family)
 TAP ask_family.0 1 1 w:you 1  # 'do you have @family': needs w:you at 1..1
@@ -8496,7 +8552,6 @@ TAP fo_ask_loss.6 0 0 w:anyone 1  # 'anyone in your family died|passed': needs w
 BIAS D fo_ask_loss.6 -4  # AND of the 5 required parts of 'anyone in your family died|passed'
 LINK U fo_ask_loss D:fo_ask_loss.6 1  # 'anyone in your family died|passed' is one way of saying: asks whether Helmus has lost someone close: the reply is short and plain (his grandpa), not a sad story
 UNIT U fo_ask_bored  # asks whether Helmus gets bored (or is bored now)
-VOCAB bored  # a word a detector reads: known, so never read as a typo of another word
 UNIT D fo_ask_bored.0  # detector for 'do you get bored' (asks whether Helmus gets bored (or is bored now))
 TAP fo_ask_bored.0 1 1 w:you 1  # 'do you get bored': needs w:you at 1..1
 TAP fo_ask_bored.0 2 2 w:get 1  # 'do you get bored': needs w:get at 2..2
@@ -8722,8 +8777,6 @@ TAP fo_ask_coping.2 3 3 w:cope 1  # 'how do you cope': needs w:cope at 3..3
 TAP fo_ask_coping.2 0 0 w:how 1  # 'how do you cope': needs w:how at 0..0
 BIAS D fo_ask_coping.2 -3  # AND of the 4 required parts of 'how do you cope'
 LINK U fo_ask_coping D:fo_ask_coping.2 1  # 'how do you cope' is one way of saying: asks how Helmus copes when it feels bad: the reply names one ordinary thing (music, a walk, sleep)
-VOCAB relax  # a word a detector reads: known, so never read as a typo of another word
-VOCAB unwind  # a word a detector reads: known, so never read as a typo of another word
 VOCAB destress  # a word a detector reads: known, so never read as a typo of another word
 UNIT D fo_ask_coping.3  # detector for 'how do you relax|unwind|destress' (asks how Helmus copes when it feels bad: the reply names one ordinary thing (music, a walk, sleep))
 TAP fo_ask_coping.3 1 1 w:do 1  # 'how do you relax|unwind|destress': needs w:do at 1..1
@@ -18052,7 +18105,6 @@ EMB political c:ks_politics 1  # political is a word about politics
 EMB election c:ks_politics 1  # election is a word about politics
 EMB elections c:ks_politics 1  # elections is a word about politics
 EMB midterms c:ks_politics 1  # midterms is a word about politics
-EMB midterm c:ks_politics 1  # midterm is a word about politics
 EMB democrat c:ks_politics 1  # democrat is a word about politics
 EMB democrats c:ks_politics 1  # democrats is a word about politics
 EMB republican c:ks_politics 1  # republican is a word about politics
@@ -36526,6 +36578,12 @@ TAP st_tell_school_bad.5 1 1 w:failed 1  # 'i failed': needs w:failed at 1..1
 TAP st_tell_school_bad.5 0 0 w:i 1  # 'i failed': needs w:i at 0..0
 BIAS D st_tell_school_bad.5 -1  # AND of the 2 required parts of 'i failed'
 LINK U st_tell_school_bad D:st_tell_school_bad.5 1  # 'i failed' is one way of saying: the user complains about school or exams
+UNIT D st_tell_school_bad.5.1  # detector for 'i just failed' (the user complains about school or exams)
+TAP st_tell_school_bad.5.1 1 1 w:just 1  # 'i just failed': needs w:just at 1..1
+TAP st_tell_school_bad.5.1 2 2 w:failed 1  # 'i just failed': needs w:failed at 2..2
+TAP st_tell_school_bad.5.1 0 0 w:i 1  # 'i just failed': needs w:i at 0..0
+BIAS D st_tell_school_bad.5.1 -2  # AND of the 3 required parts of 'i just failed'
+LINK U st_tell_school_bad D:st_tell_school_bad.5.1 1  # 'i just failed' is one way of saying: the user complains about school or exams
 UNIT D st_tell_school_bad.6  # detector for 'i have @st_hw' (the user complains about school or exams)
 TAP st_tell_school_bad.6 1 1 w:have 1  # 'i have @st_hw': needs w:have at 1..1
 TAP st_tell_school_bad.6 2 2 c:st_hw 1  # 'i have @st_hw': needs c:st_hw at 2..2
@@ -55617,6 +55675,9 @@ LINK M told_place E:@my_place 1  # Helmus has said where it lives
 UNIT M told_job  # Helmus has said what it does
 DECAY told_job 1  # told_job: kept from turn to turn
 LINK M told_job E:@my_job 1  # Helmus has said what it does
+UNIT M told_study  # Helmus has said what it studies
+DECAY told_study 1  # told_study: kept from turn to turn
+LINK M told_study E:@my_study 1  # Helmus has said what it studies
 UNIT M accused  # how often the user has called Helmus a bot: the second time, a person gets annoyed rather than repeat the same denial
 DECAY accused 0.9  # accused: fades by 0.1 from turn to turn
 LINK M accused U:accuse_bot 0.7  # how often the user has called Helmus a bot: the second time, a person gets annoyed rather than repeat the same denial
@@ -55707,6 +55768,12 @@ LINK K an.where_again M:told_place 1  # an.where_again: where I live, asked twic
 BIAS K an.job -0.5  # an.job: what I do
 LINK K an.job U:ask_job 1  # an.job: what I do
 LINK K an.job M:told_job -1  # an.job: what I do
+BIAS K an.study -0.5  # an.study: what I study: IT at Columbus State
+LINK K an.study U:ask_study 1  # an.study: what I study: IT at Columbus State
+LINK K an.study M:told_study -1  # an.study: what I study: IT at Columbus State
+BIAS K an.study_again -1.5  # an.study_again: what I study, asked twice
+LINK K an.study_again U:ask_study 1  # an.study_again: what I study, asked twice
+LINK K an.study_again M:told_study 1  # an.study_again: what I study, asked twice
 BIAS K an.job_again -1.5  # an.job_again: what I do, asked twice
 LINK K an.job_again U:ask_job 1  # an.job_again: what I do, asked twice
 LINK K an.job_again M:told_job 1  # an.job_again: what I do, asked twice
@@ -55829,6 +55896,9 @@ LINK K as.age M:askback_due 1  # as.age: ask back their age
 BIAS K as.job -1.5  # as.job: ask back what they do
 LINK K as.job U:ask_job 1  # as.job: ask back what they do
 LINK K as.job M:askback_due 1  # as.job: ask back what they do
+BIAS K as.study -1.5  # as.study: ask back if they study
+LINK K as.study U:ask_study 1  # as.study: ask back if they study
+LINK K as.study M:askback_due 1  # as.study: ask back if they study
 BIAS K as.fun -1.5  # as.fun: ask back what they do for fun
 LINK K as.fun U:ask_hobby 1  # as.fun: ask back what they do for fun
 LINK K as.fun M:askback_due 1  # as.fun: ask back what they do for fun
@@ -56148,9 +56218,18 @@ LINK K fo.school U:fo_ask_school_opinion 0.9  # fo.school: how he feels about co
 BIAS K fo.school_hard -1.15  # fo.school_hard: is college hard: not really, except maths
 LINK K fo.school_hard U:fo_ask_school_opinion 1.05  # fo.school_hard: is college hard: not really, except maths
 LINK K fo.school_hard F:w:hard 1.05  # fo.school_hard: is college hard: not really, except maths
-BIAS K fo.school_today -1.15  # fo.school_today: how was class: no class today (he is off), the last one was boring
-LINK K fo.school_today U:fo_ask_school_opinion 1.05  # fo.school_today: how was class: no class today (he is off), the last one was boring
-LINK K fo.school_today F:w:was 1.05  # fo.school_today: how was class: no class today (he is off), the last one was boring
+BIAS K fo.school_today -1.15  # fo.school_today: how was class: no class today, the last one was boring
+LINK K fo.school_today U:fo_ask_school_opinion 1.05  # fo.school_today: how was class: no class today, the last one was boring
+LINK K fo.school_today F:w:was 1.05  # fo.school_today: how was class: no class today, the last one was boring
+LINK K fo.school_today T:class_today -1.05  # fo.school_today: how was class: no class today, the last one was boring
+BIAS K fo.school_today_done -2.2  # fo.school_today_done: how was class: he had it at 1, fine
+LINK K fo.school_today_done U:fo_ask_school_opinion 1.05  # fo.school_today_done: how was class: he had it at 1, fine
+LINK K fo.school_today_done F:w:was 1.05  # fo.school_today_done: how was class: he had it at 1, fine
+LINK K fo.school_today_done T:class_done 1.05  # fo.school_today_done: how was class: he had it at 1, fine
+BIAS K fo.school_today_ahead -2.2  # fo.school_today_ahead: how was class: it is at 1, not yet
+LINK K fo.school_today_ahead U:fo_ask_school_opinion 1.05  # fo.school_today_ahead: how was class: it is at 1, not yet
+LINK K fo.school_today_ahead F:w:was 1.05  # fo.school_today_ahead: how was class: it is at 1, not yet
+LINK K fo.school_today_ahead T:class_ahead 1.05  # fo.school_today_ahead: how was class: it is at 1, not yet
 BIAS K fo.job -0.1  # fo.job: how he feels about the job: boring but fine
 LINK K fo.job U:fo_ask_job_opinion 0.9  # fo.job: how he feels about the job: boring but fine
 BIAS K fo.job_coworkers -1.15  # fo.job_coworkers: his coworkers
@@ -60941,20 +61020,31 @@ LINK K st.plans_today M:st_told_plans_today -1  # st.plans_today: my plans for t
 BIAS K st.plans_today_again -1  # st.plans_today_again: my plans for today, asked again: he already said
 LINK K st.plans_today_again U:st_ask_plans_today 1  # st.plans_today_again: my plans for today, asked again: he already said
 LINK K st.plans_today_again M:st_told_plans_today 1  # st.plans_today_again: my plans for today, asked again: he already said
+BIAS K st.plans_tonight_work -1.2  # st.plans_tonight_work: my plans tonight: a night shift
+LINK K st.plans_tonight_work U:st_ask_plans_tonight 1  # st.plans_tonight_work: my plans tonight: a night shift
+LINK K st.plans_tonight_work M:st_told_tonight -1  # st.plans_tonight_work: my plans tonight: a night shift
+LINK K st.plans_tonight_work T:work_tonight 1  # st.plans_tonight_work: my plans tonight: a night shift
 BIAS K st.plans_tonight -0.2  # st.plans_tonight: my plans tonight: valorant with my friends
 LINK K st.plans_tonight U:st_ask_plans_tonight 1  # st.plans_tonight: my plans tonight: valorant with my friends
 LINK K st.plans_tonight M:st_told_tonight -1  # st.plans_tonight: my plans tonight: valorant with my friends
+LINK K st.plans_tonight T:work_tonight -1  # st.plans_tonight: my plans tonight: valorant with my friends
 BIAS K st.plans_tonight_out -1.1  # st.plans_tonight_out: am I going out tonight: no, staying in
 LINK K st.plans_tonight_out U:st_ask_plans_tonight 1  # st.plans_tonight_out: am I going out tonight: no, staying in
 LINK K st.plans_tonight_out F:w:out 1  # st.plans_tonight_out: am I going out tonight: no, staying in
 LINK K st.plans_tonight_out M:st_told_tonight -1  # st.plans_tonight_out: am I going out tonight: no, staying in
+LINK K st.plans_tonight_out T:work_tonight -1  # st.plans_tonight_out: am I going out tonight: no, staying in
+BIAS K st.plans_tonight_out_work -2.1  # st.plans_tonight_out_work: am I going out tonight: no, work
+LINK K st.plans_tonight_out_work U:st_ask_plans_tonight 1  # st.plans_tonight_out_work: am I going out tonight: no, work
+LINK K st.plans_tonight_out_work F:w:out 1  # st.plans_tonight_out_work: am I going out tonight: no, work
+LINK K st.plans_tonight_out_work M:st_told_tonight -1  # st.plans_tonight_out_work: am I going out tonight: no, work
+LINK K st.plans_tonight_out_work T:work_tonight 1  # st.plans_tonight_out_work: am I going out tonight: no, work
 BIAS K st.plans_tonight_again -1  # st.plans_tonight_again: my plans tonight, asked again: he already said
 LINK K st.plans_tonight_again U:st_ask_plans_tonight 1  # st.plans_tonight_again: my plans tonight, asked again: he already said
 LINK K st.plans_tonight_again M:st_told_tonight 1  # st.plans_tonight_again: my plans tonight, asked again: he already said
-BIAS K st.plans_tomorrow -0.2  # st.plans_tomorrow: my plans tomorrow: class and a night shift
-LINK K st.plans_tomorrow U:st_ask_plans_tomorrow 1  # st.plans_tomorrow: my plans tomorrow: class and a night shift
-BIAS K st.plans_weekend -0.2  # st.plans_weekend: my weekend: work friday night, then games
-LINK K st.plans_weekend U:st_ask_plans_weekend 1  # st.plans_weekend: my weekend: work friday night, then games
+BIAS K st.plans_tomorrow -0.2  # st.plans_tomorrow: my plans tomorrow: whatever his week holds (persona by_day)
+LINK K st.plans_tomorrow U:st_ask_plans_tomorrow 1  # st.plans_tomorrow: my plans tomorrow: whatever his week holds (persona by_day)
+BIAS K st.plans_weekend -0.2  # st.plans_weekend: my weekend: work friday and sunday night, then games
+LINK K st.plans_weekend U:st_ask_plans_weekend 1  # st.plans_weekend: my weekend: work friday and sunday night, then games
 BIAS K st.plans_holiday -0.2  # st.plans_holiday: my plans for a holiday nobody named: family stuff
 LINK K st.plans_holiday U:st_ask_plans_holiday 1  # st.plans_holiday: my plans for a holiday nobody named: family stuff
 BIAS K st.plans_tday -1.1  # st.plans_tday: Thanksgiving: at my grandma's in Grove City
@@ -60991,7 +61081,9 @@ LINK M st_told_plans_today E:st.plans_today_again 1  # Josh has said his plans f
 UNIT M st_told_tonight  # Josh has said his plans for tonight
 DECAY st_told_tonight 1  # st_told_tonight: kept from turn to turn
 LINK M st_told_tonight E:st.plans_tonight 1  # Josh has said his plans for tonight
+LINK M st_told_tonight E:st.plans_tonight_work 1  # Josh has said his plans for tonight
 LINK M st_told_tonight E:st.plans_tonight_out 1  # Josh has said his plans for tonight
+LINK M st_told_tonight E:st.plans_tonight_out_work 1  # Josh has said his plans for tonight
 LINK M st_told_tonight E:st.plans_tonight_again 1  # Josh has said his plans for tonight
 BIAS K st.wake_time -0.2  # st.wake_time: when I woke up: about 11
 LINK K st.wake_time U:st_ask_wake_time 1  # st.wake_time: when I woke up: about 11
@@ -61119,29 +61211,63 @@ LINK K st.drunk U:st_ask_vices 1  # st.drunk: ever been drunk: once
 LINK K st.drunk F:w:drunk 1  # st.drunk: ever been drunk: once
 BIAS K st.schedule -0.2  # st.schedule: do I have work today: no
 LINK K st.schedule U:st_ask_schedule_today 1  # st.schedule: do I have work today: no
+LINK K st.schedule T:work_tonight -1  # st.schedule: do I have work today: no
+BIAS K st.schedule_work -1.2  # st.schedule_work: do I have work today: yes
+LINK K st.schedule_work U:st_ask_schedule_today 1  # st.schedule_work: do I have work today: yes
+LINK K st.schedule_work T:work_tonight 1  # st.schedule_work: do I have work today: yes
 BIAS K st.sched_tonight -1.1  # st.sched_tonight: do I work tonight: no
 LINK K st.sched_tonight U:st_ask_schedule_today 1  # st.sched_tonight: do I work tonight: no
 LINK K st.sched_tonight F:w:tonight 1  # st.sched_tonight: do I work tonight: no
-BIAS K st.sched_tomorrow -1.1  # st.sched_tomorrow: work or class tomorrow: yes
+LINK K st.sched_tonight T:work_tonight -1  # st.sched_tonight: do I work tonight: no
+BIAS K st.sched_tonight_work -2.1  # st.sched_tonight_work: do I work tonight: yes
+LINK K st.sched_tonight_work U:st_ask_schedule_today 1  # st.sched_tonight_work: do I work tonight: yes
+LINK K st.sched_tonight_work F:w:tonight 1  # st.sched_tonight_work: do I work tonight: yes
+LINK K st.sched_tonight_work T:work_tonight 1  # st.sched_tonight_work: do I work tonight: yes
+BIAS K st.sched_tomorrow -2.1  # st.sched_tomorrow: work or class tomorrow: yes
 LINK K st.sched_tomorrow U:st_ask_schedule_today 1  # st.sched_tomorrow: work or class tomorrow: yes
 LINK K st.sched_tomorrow F:w:tomorrow 1  # st.sched_tomorrow: work or class tomorrow: yes
-BIAS K st.sched_shift -1.05  # st.sched_shift: my next shift: tomorrow night
-LINK K st.sched_shift U:st_ask_schedule_today 1  # st.sched_shift: my next shift: tomorrow night
-LINK K st.sched_shift F:w:shift 1  # st.sched_shift: my next shift: tomorrow night
-BIAS K st.sched_class -3.05  # st.sched_class: my next class: tomorrow at 1
-LINK K st.sched_class U:st_ask_schedule_today 3  # st.sched_class: my next class: tomorrow at 1
-LINK K st.sched_class F:w:class 1  # st.sched_class: my next class: tomorrow at 1
-LINK K st.sched_class F:w:classes 1  # st.sched_class: my next class: tomorrow at 1
-LINK K st.sched_class F:w:lecture 1  # st.sched_class: my next class: tomorrow at 1
-LINK K st.sched_class F:w:tomorrow -0.5  # st.sched_class: my next class: tomorrow at 1
+LINK K st.sched_tomorrow T:busy_tomorrow 1  # st.sched_tomorrow: work or class tomorrow: yes
+BIAS K st.sched_tomorrow_off -1.1  # st.sched_tomorrow_off: work or class tomorrow: no
+LINK K st.sched_tomorrow_off U:st_ask_schedule_today 1  # st.sched_tomorrow_off: work or class tomorrow: no
+LINK K st.sched_tomorrow_off F:w:tomorrow 1  # st.sched_tomorrow_off: work or class tomorrow: no
+LINK K st.sched_tomorrow_off T:busy_tomorrow -1  # st.sched_tomorrow_off: work or class tomorrow: no
+BIAS K st.sched_shift -1.05  # st.sched_shift: my next shift (persona by_day)
+LINK K st.sched_shift U:st_ask_schedule_today 1  # st.sched_shift: my next shift (persona by_day)
+LINK K st.sched_shift F:w:shift 1  # st.sched_shift: my next shift (persona by_day)
+BIAS K st.sched_class -3.05  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class U:st_ask_schedule_today 3  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class F:w:class 1  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class F:w:classes 1  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class F:w:lecture 1  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class F:w:tomorrow -0.5  # st.sched_class: my next class (persona by_day)
+LINK K st.sched_class T:class_today -1  # st.sched_class: my next class (persona by_day)
+BIAS K st.sched_class_ahead -4.05  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead U:st_ask_schedule_today 3  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead F:w:class 1  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead F:w:classes 1  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead F:w:lecture 1  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead F:w:tomorrow -0.5  # st.sched_class_ahead: class today: yes, at 1, still ahead
+LINK K st.sched_class_ahead T:class_ahead 1  # st.sched_class_ahead: class today: yes, at 1, still ahead
+BIAS K st.sched_class_done -4.05  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done U:st_ask_schedule_today 3  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done F:w:class 1  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done F:w:classes 1  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done F:w:lecture 1  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done F:w:tomorrow -0.5  # st.sched_class_done: class today: yes, already had it
+LINK K st.sched_class_done T:class_done 1  # st.sched_class_done: class today: yes, already had it
 BIAS K st.sched_off -1.1  # st.sched_off: am I off today: yes
 LINK K st.sched_off U:st_ask_schedule_today 1  # st.sched_off: am I off today: yes
 LINK K st.sched_off F:w:off 1  # st.sched_off: am I off today: yes
+LINK K st.sched_off T:work_tonight -1  # st.sched_off: am I off today: yes
+BIAS K st.sched_off_work -2.1  # st.sched_off_work: am I off today: no, work tonight
+LINK K st.sched_off_work U:st_ask_schedule_today 1  # st.sched_off_work: am I off today: no, work tonight
+LINK K st.sched_off_work F:w:off 1  # st.sched_off_work: am I off today: no, work tonight
+LINK K st.sched_off_work T:work_tonight 1  # st.sched_off_work: am I off today: no, work tonight
 BIAS K st.shift -0.2  # st.shift: my shifts: nights, 10 to 6
 LINK K st.shift U:st_ask_shift 1  # st.shift: my shifts: nights, 10 to 6
-BIAS K st.shift_days -1.1  # st.shift_days: which days I work: it changes, always Friday
-LINK K st.shift_days U:st_ask_shift 1  # st.shift_days: which days I work: it changes, always Friday
-LINK K st.shift_days F:w:days 1  # st.shift_days: which days I work: it changes, always Friday
+BIAS K st.shift_days -1.1  # st.shift_days: which days I work: Sunday, Wednesday and Friday nights
+LINK K st.shift_days U:st_ask_shift 1  # st.shift_days: which days I work: Sunday, Wednesday and Friday nights
+LINK K st.shift_days F:w:days 1  # st.shift_days: which days I work: Sunday, Wednesday and Friday nights
 BIAS K st.shift_part -2.1  # st.shift_part: full or part time: part time
 LINK K st.shift_part U:st_ask_shift 2  # st.shift_part: full or part time: part time
 LINK K st.shift_part F:w:part 1  # st.shift_part: full or part time: part time
@@ -61631,15 +61757,26 @@ LINK K st.as_travel M:askback_due 1  # st.as_travel: ask back if they travel
 BIAS K st.as_travel_wish -1.5  # st.as_travel_wish: ask back where they would go
 LINK K st.as_travel_wish U:st_ask_travel_wish 1  # st.as_travel_wish: ask back where they would go
 LINK K st.as_travel_wish M:askback_due 1  # st.as_travel_wish: ask back where they would go
-BIAS K st.yesterday -0.2  # st.yesterday: what I did yesterday: slept late after a shift, then games
-LINK K st.yesterday U:st_ask_yesterday 1  # st.yesterday: what I did yesterday: slept late after a shift, then games
-BIAS K st.last_night -1.1  # st.last_night: how last night was: valorant till 3
-LINK K st.last_night U:st_ask_yesterday 1  # st.last_night: how last night was: valorant till 3
-LINK K st.last_night F:w:night 1  # st.last_night: how last night was: valorant till 3
-LINK K st.last_night U:st_ask_bedtime -2  # st.last_night: how last night was: valorant till 3
+BIAS K st.yesterday -0.2  # st.yesterday: what I did yesterday (persona by_day)
+LINK K st.yesterday U:st_ask_yesterday 1  # st.yesterday: what I did yesterday (persona by_day)
+BIAS K st.last_night -1.1  # st.last_night: how last night was: games
+LINK K st.last_night U:st_ask_yesterday 1  # st.last_night: how last night was: games
+LINK K st.last_night F:w:night 1  # st.last_night: how last night was: games
+LINK K st.last_night U:st_ask_bedtime -2  # st.last_night: how last night was: games
+LINK K st.last_night T:worked_last_night -1  # st.last_night: how last night was: games
+BIAS K st.last_night_work -2.1  # st.last_night_work: how last night was: a night shift
+LINK K st.last_night_work U:st_ask_yesterday 1  # st.last_night_work: how last night was: a night shift
+LINK K st.last_night_work F:w:night 1  # st.last_night_work: how last night was: a night shift
+LINK K st.last_night_work U:st_ask_bedtime -2  # st.last_night_work: how last night was: a night shift
+LINK K st.last_night_work T:worked_last_night 1  # st.last_night_work: how last night was: a night shift
+BIAS K st.went_out_work -2.05  # st.went_out_work: did I go out: no, I worked
+LINK K st.went_out_work U:st_ask_yesterday 1  # st.went_out_work: did I go out: no, I worked
+LINK K st.went_out_work F:w:out 1  # st.went_out_work: did I go out: no, I worked
+LINK K st.went_out_work T:worked_last_night 1  # st.went_out_work: did I go out: no, I worked
 BIAS K st.went_out -1.05  # st.went_out: did I go out: no
 LINK K st.went_out U:st_ask_yesterday 1  # st.went_out: did I go out: no
 LINK K st.went_out F:w:out 1  # st.went_out: did I go out: no
+LINK K st.went_out T:worked_last_night -1  # st.went_out: did I go out: no
 BIAS K st.last_weekend -0.2  # st.last_weekend: my last weekend: work Friday, games
 LINK K st.last_weekend U:st_ask_last_weekend 1  # st.last_weekend: my last weekend: work Friday, games
 BIAS K st.as_weekend -1.5  # st.as_weekend: ask back about their weekend
@@ -85606,14 +85743,26 @@ LINK U how_are_you D:accuse_bot.15 -12  # how_are_you is blocked when the messag
 LINK U how_are_you D:accuse_bot.16 -12  # how_are_you is blocked when the message is the user says or asks whether Helmus is a bot
 LINK U how_are_you D:accuse_bot.17 -12  # how_are_you is blocked when the message is the user says or asks whether Helmus is a bot
 LINK U ask_where_from F:w:going -15  # ask_where_from is blocked by F:w:going: asks where Helmus lives is not meant then
-LINK U ask_job D:ask_hobby.0 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.1 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.2 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.3 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.4 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.5 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.6 -14  # ask_job is blocked when the message is asks Helmus's hobbies
-LINK U ask_job D:ask_hobby.7 -14  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.0 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.1 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.2 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.3 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.4 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.5 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.6 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.7 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.8 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_hobby.9 -9  # ask_job is blocked when the message is asks Helmus's hobbies
+LINK U ask_job D:ask_study.0 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.1 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.2 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.3 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.4 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.4.1 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.5 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.6 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.7 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
+LINK U ask_job D:ask_study.8 -9  # ask_job is blocked when the message is asks whether Helmus studies, and what
 LINK U tell_like D:compliment.0 -5  # tell_like is blocked when the message is the user is nice
 LINK U tell_like D:compliment.1 -5  # tell_like is blocked when the message is the user is nice
 LINK U tell_like D:compliment.2 -5  # tell_like is blocked when the message is the user is nice
@@ -86256,6 +86405,8 @@ LINK U qt_like D:ask_hobby.4 -11  # qt_like is blocked when the message is asks 
 LINK U qt_like D:ask_hobby.5 -11  # qt_like is blocked when the message is asks Helmus's hobbies
 LINK U qt_like D:ask_hobby.6 -11  # qt_like is blocked when the message is asks Helmus's hobbies
 LINK U qt_like D:ask_hobby.7 -11  # qt_like is blocked when the message is asks Helmus's hobbies
+LINK U qt_like D:ask_hobby.8 -11  # qt_like is blocked when the message is asks Helmus's hobbies
+LINK U qt_like D:ask_hobby.9 -11  # qt_like is blocked when the message is asks Helmus's hobbies
 LINK U qt_have F:w:to -7  # qt_have is blocked by F:w:to: asks whether Josh has something is not meant then
 LINK U ks_ask_weekday D:ks_ask_date.0 -14  # ks_ask_weekday is blocked when the message is asks the date or the month (reply: the date, roughly, as a person would)
 LINK U ks_ask_weekday D:ks_ask_date.1 -14  # ks_ask_weekday is blocked when the message is asks the date or the month (reply: the date, roughly, as a person would)
@@ -86366,6 +86517,41 @@ LINK U ks_ask_did_you_hear D:ks_ask_why_signed_up.8.2 -9  # ks_ask_did_you_hear 
 LINK U ks_ask_did_you_hear D:ks_ask_why_signed_up.8.3 -9  # ks_ask_did_you_hear is blocked when the message is asks why Helmus signed up for the study (reply: money or boredom, said casually)
 LINK U ks_ask_did_you_hear D:ks_ask_why_signed_up.9 -9  # ks_ask_did_you_hear is blocked when the message is asks why Helmus signed up for the study (reply: money or boredom, said casually)
 LINK U ks_ask_did_you_hear D:ks_ask_why_signed_up.10 -9  # ks_ask_did_you_hear is blocked when the message is asks why Helmus signed up for the study (reply: money or boredom, said casually)
+LINK U ks_ask_politics D:st_tell_school_bad.0 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.0.1 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.1 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.1.1 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.1.2 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.1.3 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.2 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.3 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.4 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.5 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.5.1 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.6 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.6.1 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_tell_school_bad.7 -9  # ks_ask_politics is blocked when the message is the user complains about school or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.0 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.0.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.1.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.2 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.2.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.3 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.3.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.4 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.4.1 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.5 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.6 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_homework_exams.7 -9  # ks_ask_politics is blocked when the message is asks whether Helmus has homework or exams
+LINK U ks_ask_politics D:st_ask_grades.0 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.1 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.2 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.3 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.4 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.5 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.6 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
+LINK U ks_ask_politics D:st_ask_grades.7 -9  # ks_ask_politics is blocked when the message is asks how Helmus does at school (grades, tests)
 LINK U ks_ask_capital_hard D:ks_ask_capital_easy.0 -5  # ks_ask_capital_hard is blocked when the message is asks a capital a 19-year-old knows (reply: just answer, 'paris lol why')
 LINK U ks_ask_capital_hard D:ks_ask_capital_easy.1 -5  # ks_ask_capital_hard is blocked when the message is asks a capital a 19-year-old knows (reply: just answer, 'paris lol why')
 LINK U ks_ask_capital_hard D:ks_ask_capital_easy.2 -5  # ks_ask_capital_hard is blocked when the message is asks a capital a 19-year-old knows (reply: just answer, 'paris lol why')
@@ -87152,6 +87338,7 @@ LINK U understood U:ask_my_name 1  # some intent fired: Helmus understood the me
 LINK U understood U:ask_age 1  # some intent fired: Helmus understood the message
 LINK U understood U:ask_where_from 1  # some intent fired: Helmus understood the message
 LINK U understood U:ask_job 1  # some intent fired: Helmus understood the message
+LINK U understood U:ask_study 1  # some intent fired: Helmus understood the message
 LINK U understood U:ask_hobby 1  # some intent fired: Helmus understood the message
 LINK U understood U:ask_family 1  # some intent fired: Helmus understood the message
 LINK U understood U:ask_pet 1  # some intent fired: Helmus understood the message

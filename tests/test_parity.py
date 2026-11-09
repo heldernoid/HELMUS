@@ -5,7 +5,7 @@ import os
 import shutil
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -21,14 +21,24 @@ CHATS = [
     ["sup", "wyd", "asdfghjkl", "whats the weather like there", "what time is it", "you're kinda boring ngl", "lol jk",
      "what's the capital of australia", "HELLO??", "sooo bored", "4 + 5", "😂😂", "ur a bot", "ur a bot", "who am i"],
 ]
+# his week: the same questions at times that change the answer (the clock, the day's facts, summer time)
+WEEK = ["what time is it there", "do you work tonight", "what are you doing tomorrow", "do you have class today",
+        "when is your next shift", "what did you do yesterday", "how was class", "what day is it"]
+TIMES = [datetime(2026, 11, 8, 21, 30, tzinfo=timezone.utc),    # Sunday 4:30pm, standard time
+         datetime(2026, 11, 9, 15, 0, tzinfo=timezone.utc),     # Monday 10am, class ahead
+         datetime(2026, 11, 11, 20, 0, tzinfo=timezone.utc),    # Wednesday 3pm, class done, work tonight
+         datetime(2026, 11, 12, 6, 30, tzinfo=timezone.utc),    # Thursday 1:30am, still Wednesday night
+         datetime(2026, 7, 3, 17, 0, tzinfo=timezone.utc),      # Friday 1pm, summer time
+         datetime(2026, 11, 1, 5, 59, tzinfo=timezone.utc)]     # the minute before the clocks go back
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
 def test_parity(tmp_path):
     out = os.environ.get("HELMUS_OUT", ROOT)
     net = Net.load(out)
-    now = datetime(2026, 11, 8, 21, 30, tzinfo=timezone.utc)
+    now = TIMES[0]
     cases = [{"seed": i + 1, "now": int(now.timestamp() * 1000), "messages": c} for i, c in enumerate(CHATS)]
+    cases += [{"seed": 10 + i, "now": int(t.timestamp() * 1000), "messages": WEEK} for i, t in enumerate(TIMES)]
     path = tmp_path / "cases.json"
     path.write_text(json.dumps(cases))
     js = json.loads(subprocess.run(["node", os.path.join(ROOT, "tests", "parity.mjs"), str(path), os.path.join(out, "weights")],
@@ -36,8 +46,8 @@ def test_parity(tmp_path):
     for c, jchat in zip(cases, js):
         st = {"seed": c["seed"]}
         for i, (m, jt) in enumerate(zip(c["messages"], jchat)):
-            from datetime import timedelta
-            r, st, tr = net.turn(st, m, now + timedelta(minutes=i))
+            start = datetime.fromtimestamp(c["now"] / 1000, timezone.utc)
+            r, st, tr = net.turn(st, m, start + timedelta(minutes=i))
             assert r == jt["reply"], (m, r, jt["reply"])
             assert tr["chosen"] == jt["chosen"], (m, tr["chosen"], jt["chosen"])
             assert set(tr["units"]) == set(jt["units"]), (m, set(tr["units"]) ^ set(jt["units"]))

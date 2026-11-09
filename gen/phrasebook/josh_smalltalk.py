@@ -22,7 +22,7 @@ facts({
     "st_store": "kroger",
     "st_job_tenure": "like a year and a half, since summer last year",
     "st_job_duties": "unload the truck, stock shelves, face everything before we open",
-    "st_work_days": "it changes every week, always friday though",
+    "st_work_days": "sunday wednesday and friday usually",
     "st_boss": "the night manager is chill, he mostly leaves us alone",
     "st_coworkers": "like 5 other people on nights, mostly older guys",
     "st_commute": "i drive, its like 10 min",
@@ -30,7 +30,7 @@ facts({
     "st_school_commute": "i drive, like 20 min to campus downtown",
     "st_classes": "networking, a math one, and english comp",
     "st_fav_class": "the networking one, its cisco stuff",
-    "st_class_time": "one in person class at 1, the rest are online",
+    "st_class_time": "one in person class at 1, mondays and wednesdays, the rest are online",
     "st_grades": "mostly bs, math is a c lol",
     "st_gpa": "like a 3.1",
     "st_grad": "should finish my associates next spring",
@@ -68,7 +68,6 @@ facts({
     "st_eating_now": "nothing, just a mountain dew",
     "st_before": "watching youtube in bed",
     "st_after": "probably eat something then valorant",
-    "st_tomorrow": "class, then work at 10 probably",
     "st_sleep_last": "ok, like 7 hours",
     "st_drunk": "once at a grad party, never again",
     # holidays and recent days
@@ -79,7 +78,7 @@ facts({
     "st_kayla_costume": "she was a vampire",
     "st_xmas_gift": "a new headset last year",
     "st_bday_did": "dinner with my mom and kayla, nothing big",
-    "st_last_weekend": "worked friday night, then valorant basically the whole time",
+    "st_last_weekend": "worked friday and sunday night, valorant in between",
     "st_lately": "not much, work school sleep repeat",
     "st_last_trip": "cedar point with tyler and marcus in august",
     "st_florida": "florida once with my mom when i was 14",
@@ -138,7 +137,18 @@ def W(intent_name, words, extra=None):
 
 
 def need_of(key):
-    return max(w for s, w in key.items() if s.startswith("U:")) + 1
+    """the intent and one word; a clock source (T:, his week: engine clock()) is required as well"""
+    return max(w for s, w in key.items() if s.startswith("U:")) + 1 + sum(
+        w for s, w in key.items() if s.startswith("T:") and w > 0)
+
+
+# his week, read from the clock: an entry with ON(x) fits only when x is true today, OFF(x) only when it is not
+def ON(name):
+    return {"T:" + name: 1}
+
+
+def OFF(name):
+    return {"T:" + name: -1}
 
 
 def C(eid, intent_name, words, texts, why, group=None, score=CTX, head="answer", extra=None):
@@ -223,23 +233,29 @@ A("st.plans_today", {"U:st_ask_plans_today": 1, "M:st_told_plans_today": -1},
 AGAIN_PAIR("st.plans_today", "st_ask_plans_today", "st_told_plans_today",
            ["still nothing lol", "i said nothing lol", "same as before, nothing", "still just valorant later"],
            "my plans for today", group=G("plans"))
-A("st.plans_tonight", {"U:st_ask_plans_tonight": 1, "M:st_told_tonight": -1},
+A("st.plans_tonight_work", {"U:st_ask_plans_tonight": 1, "M:st_told_tonight": -1, **ON("work_tonight")},
+  ["{p:tonight}", "work lol", "work, 10 to 6", "work unfortunately", "valorant for a bit, then work at 10"],
+  "my plans tonight: a night shift", group=G("plans"))
+A("st.plans_tonight", {"U:st_ask_plans_tonight": 1, "M:st_told_tonight": -1, **OFF("work_tonight")},
   ["{p:tonight}", "valorant probably", "probably just gaming with {p:friend_names}", "nothing, maybe valorant",
    "staying in, its cold out", "probably valorant then sleep at like 3"],
   "my plans tonight: valorant with my friends", group=G("plans"))
 C("st.plans_tonight_out", "st_ask_plans_tonight", "out",
   ["nah staying in lol", "nah its too cold", "nah im not really a going out guy", "nope, {p:tonight}"],
-  "am I going out tonight: no, staying in", group=G("plans"), extra={"M:st_told_tonight": -1})
+  "am I going out tonight: no, staying in", group=G("plans"), extra={"M:st_told_tonight": -1, **OFF("work_tonight")})
+C("st.plans_tonight_out_work", "st_ask_plans_tonight", "out",
+  ["nah i got work at 10", "nope, {p:tonight}", "cant, work tonight"],
+  "am I going out tonight: no, work", group=G("plans"), extra={"M:st_told_tonight": -1, **ON("work_tonight")})
 AGAIN_PAIR("st.plans_tonight", "st_ask_plans_tonight", "st_told_tonight",
-           ["still valorant lol", "i said valorant lol", "same plan, valorant", "nothing new, valorant"],
+           ["still {p:tonight} lol", "i said, {p:tonight}", "same plan lol", "nothing new lol"],
            "my plans tonight", group=G("plans"))
 A("st.plans_tomorrow", "st_ask_plans_tomorrow",
-  ["{p:st_tomorrow}", "probably work", "work at 10 i think", "class, then work probably", "sleep and work lol"],
-  "my plans tomorrow: class and a night shift", group=G("plans"))
+  ["{p:tomorrow}", "uh {p:tomorrow}", "idk, {p:tomorrow}", "{p:tomorrow} lol"],
+  "my plans tomorrow: whatever his week holds (persona by_day)", group=G("plans"))
 A("st.plans_weekend", "st_ask_plans_weekend",
-  ["{p:weekend}", "work friday, then nothing", "working friday night, then valorant probably",
-   "nothing much, work friday", "probably just sleep and game lol"],
-  "my weekend: work friday night, then games", group=G("plans"))
+  ["{p:weekend}", "work friday and sunday, thats it", "working friday night, then valorant probably",
+   "nothing much, work friday and sunday", "probably just sleep and game lol"],
+  "my weekend: work friday and sunday night, then games", group=G("plans"))
 A("st.plans_holiday", "st_ask_plans_holiday",
   ["idk yet", "probably just family stuff", "nothing crazy, family stuff", "idk, probably work lol"],
   "my plans for a holiday nobody named: family stuff")
@@ -269,7 +285,8 @@ ASK("st.as_plans", "st_ask_plans_tonight", ["wbu", "u?", "what about u"], "ask b
 ASK("st.as_plans_weekend", "st_ask_plans_weekend", ["what about u", "u doing anything?", "wbu", "u got plans?"], "ask back their weekend plans")
 ASK("st.as_plans_holiday", "st_ask_plans_holiday", ["u?", "what are u doing", "wbu", "what about u"], "ask back their holiday plans")
 told("st_told_plans_today", ["st.plans_today", "st.plans_today_again"], "Josh has said his plans for today")
-told("st_told_tonight", ["st.plans_tonight", "st.plans_tonight_out", "st.plans_tonight_again"],
+told("st_told_tonight", ["st.plans_tonight", "st.plans_tonight_work", "st.plans_tonight_out",
+                         "st.plans_tonight_out_work", "st.plans_tonight_again"],
      "Josh has said his plans for tonight")
 
 # ==== routine: sleep ===================================================================================================
@@ -351,7 +368,7 @@ A("st.daily_routine", "st_ask_daily_routine",
    "wake up late, game, work at night", "honestly just school work and valorant", "work nights, sleep days lol"],
   "my ordinary day: sleep late, class, games, night shifts", group=G("sleep"))
 C("st.weekends", "st_ask_daily_routine", "weekend weekends",
-  ["work friday night, game the rest", "sleep and valorant mostly", "nothing much, work and game",
+  ["work friday and sunday night, game the rest", "sleep and valorant mostly", "nothing much, work and game",
    "same as weekdays honestly lol"], "my weekends: work Friday, games", group=G("games"))
 A("st.day_recap", {"U:st_ask_day_recap": 1, "M:st_told_day": -1},
   ["pretty chill", "{p:today}", "boring, slept in", "not bad, kinda boring", "it was ok, nothing happened",
@@ -378,29 +395,49 @@ C("st.drunk", "st_ask_vices", "drunk",
   ["{p:st_drunk}", "like once lol", "once, never again"], "ever been drunk: once", group=G("vices"))
 
 # ==== work =============================================================================================================
-A("st.schedule", "st_ask_schedule_today",
-  ["not today", "nah not today", "nope, day off", "not today, tomorrow i think"], "do I have work today: no",
+A("st.schedule", {"U:st_ask_schedule_today": 1, **OFF("work_tonight")},
+  ["not today", "nah not today", "nope, not tonight", "nah, im off tonight"], "do I have work today: no",
+  group=G("work"))
+A("st.schedule_work", {"U:st_ask_schedule_today": 1, **ON("work_tonight")},
+  ["yeah tonight, 10 to 6", "ya at 10", "yeah, night shift tonight", "yep, 10 to 6 ugh"], "do I have work today: yes",
   group=G("work"))
 C("st.sched_tonight", "st_ask_schedule_today", "tonight",
   ["nah not tonight", "nope, off tonight", "nah, thank god", "not tonight, valorant night lol"],
-  "do I work tonight: no", group=G("plans"))
+  "do I work tonight: no", group=G("plans"), extra=OFF("work_tonight"))
+C("st.sched_tonight_work", "st_ask_schedule_today", "tonight",
+  ["yeah unfortunately, at 10", "ya 10 to 6", "yep, night shift", "yeah, 10 to 6 ugh"],
+  "do I work tonight: yes", group=G("plans"), extra=ON("work_tonight"))
 C("st.sched_tomorrow", "st_ask_schedule_today", "tomorrow",
-  ["yeah", "yeah unfortunately", "i think so", "yeah, i gotta check the schedule though"],
-  "work or class tomorrow: yes", group=G("work"))
+  ["yeah, {p:tomorrow}", "ya, {p:tomorrow}", "yeah unfortunately, {p:tomorrow}"],
+  "work or class tomorrow: yes", group=G("work"), extra=ON("busy_tomorrow"))
+C("st.sched_tomorrow_off", "st_ask_schedule_today", "tomorrow",
+  ["nope, day off", "nah, nothing tomorrow", "nope, free day"],
+  "work or class tomorrow: no", group=G("work"), extra=OFF("busy_tomorrow"))
 C("st.sched_shift", "st_ask_schedule_today", "shift",
-  ["tomorrow night", "tomorrow, 10 to 6", "tomorrow i think, 10 to 6"], "my next shift: tomorrow night",
+  ["{p:next_shift}", "{p:next_shift} i think", "next one is {p:next_shift}"], "my next shift (persona by_day)",
   group=G("work"), score=0.85)
 C("st.sched_class", "st_ask_schedule_today", "class classes lecture",
-  ["not today, tomorrow at 1", "tomorrow, the rest are online", "my in person one is tomorrow at 1"],
-  "my next class: tomorrow at 1", group=G("school"), score=0.85, extra={"F:w:tomorrow": -0.5})
+  ["not today, {p:next_class}", "nah, next one is {p:next_class}", "not today, the in person one is {p:next_class}"],
+  "my next class (persona by_day)", group=G("school"), score=0.85,
+  extra={"F:w:tomorrow": -0.5, **OFF("class_today")})
+C("st.sched_class_ahead", "st_ask_schedule_today", "class classes lecture",
+  ["yeah at 1", "yeah, at 1 today", "ya, networking at 1"], "class today: yes, at 1, still ahead", group=G("school"),
+  score=0.85, extra={"F:w:tomorrow": -0.5, **ON("class_ahead")})
+C("st.sched_class_done", "st_ask_schedule_today", "class classes lecture",
+  ["had it at 1, its done", "already had it today", "yeah earlier, at 1"], "class today: yes, already had it",
+  group=G("school"), score=0.85, extra={"F:w:tomorrow": -0.5, **ON("class_done")})
 C("st.sched_off", "st_ask_schedule_today", "off",
-  ["yeah off today", "yep, day off", "yeah, no work today"], "am I off today: yes", group=G("work"))
+  ["yeah off tonight", "yep, no work today", "yeah, no work today"], "am I off today: yes", group=G("work"),
+  extra=OFF("work_tonight"))
+C("st.sched_off_work", "st_ask_schedule_today", "off",
+  ["nah i work tonight", "not tonight, work at 10", "nope, 10 to 6 tonight"], "am I off today: no, work tonight",
+  group=G("work"), extra=ON("work_tonight"))
 A("st.shift", "st_ask_shift",
   ["{p:job_detail}", "nights, 10 to 6", "night shift, 10pm to 6am", "part time, like 3 or 4 nights a week",
    "{p:shift}, 10 to 6"], "my shifts: nights, 10 to 6", group=G("work"))
 C("st.shift_days", "st_ask_shift", "days",
-  ["{p:st_work_days}", "it changes, always friday though", "depends on the week, friday for sure"],
-  "which days I work: it changes, always Friday", group=G("work"))
+  ["{p:st_work_days}", "sunday wednesday friday mostly", "friday for sure, usually sunday and wednesday too"],
+  "which days I work: Sunday, Wednesday and Friday nights", group=G("work"))
 C("st.shift_part", "st_ask_shift", "part full",
   ["part time", "part time, like 25 hours", "part time, i have school"], "full or part time: part time",
   group=G("work"))
@@ -537,7 +574,7 @@ C("st.in_bed", "st_ask_location_now", "bed",
 C("st.sitting", "st_ask_location_now", "sitting",
   ["on my bed", "my bed lol", "on my bed with my laptop"], "where I'm sitting: my bed", group=G("home"), score=0.85)
 C("st.not_at_work", "st_ask_location_now", "work school class",
-  ["nah im home", "no lol im off tonight", "nah, home in my room"], "am I at work: no, home", group=G("home"),
+  ["nah im home", "no lol im home rn", "nah, home in my room"], "am I at work: no, home", group=G("home"),
   score=0.85, extra={"U:ask_job": -2})
 AGAIN_PAIR("st.location_now", "st_ask_location_now", "st_told_where_now",
            ["still in my room lol", "same place, my room", "havent moved lol"], "where I am", group=G("home"))
@@ -791,14 +828,20 @@ ASK("st.as_travel_wish", "st_ask_travel_wish", ["what about u", "wbu", "u?"], "a
 
 # ==== recent days ======================================================================================================
 A("st.yesterday", "st_ask_yesterday",
-  ["{p:yesterday}", "slept till 2 then valorant", "slept most of the day lol", "nothing much, slept and gamed"],
-  "what I did yesterday: slept late after a shift, then games", group=G("sleep"))
+  ["{p:yesterday}", "uh {p:yesterday}", "{p:yesterday} lol", "not much, {p:yesterday}"],
+  "what I did yesterday (persona by_day)", group=G("sleep"))
 C("st.last_night", "st_ask_yesterday", "night",
-  ["chill, just valorant", "valorant till like 3", "chill, valorant with {p:friend_names}"],
-  "how last night was: valorant till 3", group=G("games"), extra={"U:st_ask_bedtime": -2})
+  ["{p:last_night}", "chill, just valorant", "chill, valorant with {p:friend_names}"],
+  "how last night was: games", group=G("games"), extra={"U:st_ask_bedtime": -2, **OFF("worked_last_night")})
+C("st.last_night_work", "st_ask_yesterday", "night",
+  ["{p:last_night}", "i worked lol", "work, 10 to 6", "just work"],
+  "how last night was: a night shift", group=G("work"), extra={"U:st_ask_bedtime": -2, **ON("worked_last_night")})
+C("st.went_out_work", "st_ask_yesterday", "out",
+  ["nah i was at work", "no lol, work", "nah, work"], "did I go out: no, I worked", group=G("work"),
+  score=0.85, extra=ON("worked_last_night"))
 C("st.went_out", "st_ask_yesterday", "out",
   ["nah stayed home", "nah, valorant lol", "no, i never go out lol"], "did I go out: no", group=G("games"),
-  score=0.85)
+  score=0.85, extra=OFF("worked_last_night"))
 A("st.last_weekend", "st_ask_last_weekend",
   ["{p:st_last_weekend}", "worked friday, then valorant", "chill, worked one night", "pretty chill, mostly gaming",
    "fine, nothing crazy"], "my last weekend: work Friday, games", group=G("games"))

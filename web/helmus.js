@@ -3,6 +3,7 @@
 // (model/phrasebook.json) and the persona table (model/persona.json). Nothing is trained.
 
 const HEADS = ["react", "answer", "ask"];
+const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const WORD = /[a-z0-9]+(?:'[a-z]+)?|[?!.,]+|[^\sa-z0-9]/giu;
 const clip = v => (v < 0 ? 0 : v > 1 ? 1 : v);
 
@@ -183,12 +184,13 @@ export class Net {
   }
 
   turn(state, text, now = new Date()) {
+    const clock = this.clock(now);
     const [words, S] = this.read(text);
     const calc = S._calc ?? null; delete S._calc;
     const norm = words.join(" ");
     if (norm && (state.history || []).some(m => this.read(m)[0].join(" ") === norm)) S["S:repeat"] = 1;
     const X = this.features(words);
-    const A = { ...S };
+    const A = { ...S, ...clock.T };
     const feats = new Set(X.flatMap(x => Object.keys(x)));
     for (const f of feats) A["F:" + f] = Math.max(...X.map(x => x[f] || 0));
     const [D, where] = this.detect(X);
@@ -226,7 +228,7 @@ export class Net {
       scores[eid] = s - pen * (used[eid] || 0);
     }
     const turnNo = (state.turn || 0) + 1;
-    const ctx = { calc, regs, now, words, history: state.history || [] };
+    const ctx = { calc, regs, clock, words, history: state.history || [] };
     const said = new Set(state.said || []);
     // the best candidate whose lines are not all said already; if every one is spent, the best (as pick() in Python)
     const pick = (cands, key) => {
@@ -263,7 +265,34 @@ export class Net {
   }
 
   // ---- the table: templates and style ----
-  local(now) { return new Date(now.getTime() + this.persona.utc_offset * 3600 * 1000); }
+  // the persona's offset from UTC: standard time, plus an hour in summer by the US rule (as utc_offset() in Python)
+  utcOffset(now) {
+    let off = this.persona.utc_offset || 0;
+    if (this.persona.dst === "us") {
+      const y = now.getUTCFullYear();
+      const sunday = (month, n) => (7 - new Date(Date.UTC(y, month - 1, 1)).getUTCDay()) % 7 + 1 + 7 * (n - 1);
+      const start = Date.UTC(y, 2, sunday(3, 2), 2 - off), end = Date.UTC(y, 10, sunday(11, 1), 1 - off);
+      if (now.getTime() >= start && now.getTime() < end) off += 1;
+    }
+    return off;
+  }
+
+  // local time (as a Date read with getUTC*), the T: features of the week, and the days whose facts apply
+  clock(now) {
+    const P = this.persona, L = new Date(now.getTime() + this.utcOffset(now) * 3600 * 1000);
+    const cut = P.day_starts || 0, at = P.class_at ?? 13, week = P.week || {}, hr = L.getUTCHours();
+    const d = (new Date(L.getTime() - cut * 3600 * 1000).getUTCDay() + 6) % 7;
+    const on = k => new Set(week[DAYS[(d + k + 7) % 7]] || []);
+    const today = on(0), tomorrow = on(1), yesterday = on(-1);
+    const ahead = cut <= hr && hr < at, T = {};
+    for (const [name, v] of [["work_tonight", today.has("work")], ["work_tomorrow", tomorrow.has("work")],
+      ["worked_last_night", yesterday.has("work")], ["class_today", today.has("class")],
+      ["class_ahead", today.has("class") && ahead], ["class_done", today.has("class") && !ahead],
+      ["class_tomorrow", tomorrow.has("class")], ["busy_tomorrow", tomorrow.size > 0], ["day_off", today.size === 0]])
+      if (v) T["T:" + name] = 1;
+    const days = (cut <= hr && hr < 13 ? [DAYS[d] + "_am"] : []).concat([DAYS[d]]);
+    return { local: L, T, days };
+  }
 
   render(eid, state, turnNo, ctx) {
     const texts = this.book[eid].texts, n = (state.used || {})[eid] || 0;
@@ -278,10 +307,16 @@ export class Net {
   fill(text, ctx) {
     const P = this.persona;
     return text.replace(/\{([a-z0-9_:]+)\}/g, (_, key) => {
-      if (key.startsWith("p:")) return String(P.facts[key.slice(2)] ?? "");
+      if (key.startsWith("p:")) {
+        for (const day of ctx.clock.days) {        // a fact of this day of the week, else the fact
+          const bd = (P.by_day || {})[day];
+          if (bd && key.slice(2) in bd) return bd[key.slice(2)];
+        }
+        return String(P.facts[key.slice(2)] ?? "");
+      }
       if (key === "calc") return ctx.calc || "";
       if (key in ctx.regs) return ctx.regs[key];
-      const L = this.local(ctx.now);
+      const L = ctx.clock.local;
       if (key === "time") return `${L.getUTCHours() % 12 || 12}:${String(L.getUTCMinutes()).padStart(2, "0")}`;
       if (key === "first_msg" || key === "last_msg") {
         const hist = ctx.history;

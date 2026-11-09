@@ -44,7 +44,7 @@ cls("ks_place_now", "room bedroom bed dorm house car kitchen office bathroom lib
     "a place a person could be sitting right now")
 cls("ks_role", "interrogator interrogators witness witnesses judge participant examiner tester interviewer",
     "a role in the Turing-test game")
-cls("ks_politics", "politics political election elections midterms midterm democrat democrats republican "
+cls("ks_politics", "politics political election elections midterms democrat democrats republican "
                    "republicans liberal liberals conservative conservatives congress senate maga",
     "a word about politics")
 cls("ks_politician", "trump biden obama harris", "a politician interrogators ask opinions about")
@@ -671,7 +671,9 @@ intent("ks_ask_politics",
        "politics or the election comes up (reply: deflect, 'not really into politics')",
        yes=["what do you think about the election", "thoughts on trump", "are you a democrat or republican",
             "do you follow politics", "midterms were crazy", "are you liberal", "what are your political views"],
-       no=["who is the president", "i hate drama", "left or right hand", "did you vote", "the party was fun"])
+       no=["who is the president", "i hate drama", "left or right hand", "did you vote", "the party was fun",
+           "i failed my midterm", "i have midterms next week", "how did you do on your midterms"],
+       unless=["st_tell_school_bad", "st_ask_homework_exams", "st_ask_grades"])
 intent("ks_ask_voted",
        ["did you vote", "are you voting", "are you going to vote", "who did you vote for", "who are you voting for",
         "who would you vote for", "registered to vote", "can you vote", "old enough to vote", "do you vote",

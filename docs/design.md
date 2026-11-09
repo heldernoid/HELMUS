@@ -126,7 +126,8 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
   - the tokenizer and the one-typo lookup;
   - pooling, clipping and argmax;
   - template filling;
-  - the clock;
+  - the clock: the persona's local time, US summer time by rule, and its week turned into `T:` inputs
+    (`T:work_tonight`, `T:class_ahead`...) that keys read like any other unit;
   - arithmetic on numbers the user typed: a "calculator" layer. Helmus decides through weights whether a person
     would bother to answer.
   - the delay formula.
@@ -137,7 +138,7 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
   - every memory rule;
   - every phrasebook key and bias;
   - the style rates.
-- **Table:** the phrasebook texts and the persona facts.
+- **Table:** the phrasebook texts and the persona facts, with the persona's week and its lines for each day.
 
 ## How Helmus is judged
 

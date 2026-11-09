@@ -46,15 +46,23 @@ intent("ask_where_from", ["where are you from", "where [do] you live", "where ar
        yes=["where are you from?", "where u from", "wya", "where do you live", "what state are you in"],
        no=["where are you going with this", "where is the bathroom"], unless=["F:w:going"])
 intent("ask_job", ["what do you do", "do you work", "your job", "what is your job", "where do you work",
-                   "do you have a job", "what do you do for work", "what do you do for a living", "are you a student",
-                   "do you go to school", "are you in school", "what do you study", "what is your major"],
-       "asks what Helmus does for a living or studies",
-       yes=["what do you do?", "do u work", "are you a student", "what's your major"], no=["what do you do for fun"],
-       unless=["ask_hobby"])
+                   "do you have a job", "what do you do for work", "what do you do for a living"],
+       "asks what Helmus does for a living",
+       yes=["what do you do?", "do u work", "where do u work"], no=["what do you do for fun", "what's your major"],
+       unless=["ask_hobby", "ask_study"])
+intent("ask_study", ["are you a student", "do you go to school|college", "are you in school|college", "what do you study",
+                     "what [is] your major", "what are you studying", "where do you go to school|college",
+                     "you in school|college", "you a student"],
+       "asks whether Helmus studies, and what",
+       yes=["are you a student?", "what's your major", "whats ur major", "what do you study", "do u go to college",
+            "you in school?"],
+       no=["what do you do for fun", "what is your job", "i am a student", "do you like school"])
 intent("ask_hobby", ["what do you do for fun", "your hobbies", "any hobbies", "what are you into", "what do you like",
-                     "what do you like to do", "what do you do in your free time", "what are your interests"],
+                     "what do you like to do", "what do you do in your free time", "what are your interests",
+                     "what do you do to relax|unwind|chill", "what do you do when * bored"],
        "asks Helmus's hobbies",
-       yes=["what do you do for fun?", "any hobbies?", "what are you into", "what do u like to do"], no=["what do you do"])
+       yes=["what do you do for fun?", "any hobbies?", "what are you into", "what do u like to do",
+            "what do u do to relax", "what do u do when ur bored"], no=["what do you do"])
 intent("ask_family", ["do you have [a|any] @family", "your @family", "any @family", "do you live with", "are you married",
                       "do you have kids", "are you single"],
        "asks about Helmus's family", yes=["do you have siblings?", "do u have a gf", "are you single", "ur parents?"],

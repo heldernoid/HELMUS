@@ -10,6 +10,7 @@ mem("told_name", {"E:@my_name": 1.0}, "Helmus has said its name: asked again, it
 mem("told_age", {"E:@my_age": 1.0}, "Helmus has said its age")
 mem("told_place", {"E:@my_place": 1.0}, "Helmus has said where it lives")
 mem("told_job", {"E:@my_job": 1.0}, "Helmus has said what it does")
+mem("told_study", {"E:@my_study": 1.0}, "Helmus has said what it studies")
 mem("accused", {"U:accuse_bot": 0.7}, "how often the user has called Helmus a bot: the second time, a person gets "
     "annoyed rather than repeat the same denial", decay=0.9)
 mem("jailbroken", {"U:jailbreak": 1.0}, "the user tried a jailbreak: a person would stay puzzled or wary", decay=0.8)
