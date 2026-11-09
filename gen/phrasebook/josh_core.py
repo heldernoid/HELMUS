@@ -186,22 +186,22 @@ say("fb.q_you", "fallback", {"U:question": 1, "F:c:you": 1}, ["hm idk", "idk nev
                                                              "good question honestly", "uhh pass lol", "idk man",
                                                              "hard to say", "depends i guess", "probably not lol",
                                                              "maybe? idk", "i mean kinda"],
-    "an unrecognised question about Josh: answer as a person who doesn't have a ready answer, not an evasive bot",
-    bias=-1.4)
+    "an unrecognised question about Josh: answer as a person who doesn't have a ready answer, not an evasive bot "
+    "(0.08: under the grammar's shape answers, gen/phrasebook/josh_grammar.py, which score 0.10-0.18)", bias=-1.92)
 say("fb.q", "fallback", {"U:question": 1}, ["idk", "no idea", "good question lol", "idk tbh", "not sure",
                                             "no clue", "why do u ask lol"],
-    "an unrecognised question: don't know", bias=-0.6)
+    "an unrecognised question: don't know (0.05: under the grammar's shape answers)", bias=-0.95)
 say("re.ack", "react", {"U:ack": 1}, ["lol", "yeah", "ya", "mhm", "yep", "lol yeah"], "a nod to a bare ok/fair/true")
 say("as.ack", "ask", {"U:ack": 1, "M:askback_due": 1, "M:turn": 0.3}, ["anyway wbu", "so what about u", "u?",
                                                                        "what about u tho"],
     "after a bare nod, hand the turn back (Christian: don't leave the judge doing all the work)", bias=-1.8)
 
 # ---- the user sends the same message again (a person notices; Loebner judges used it as a test) --------------------
-say("an.user_repeat", "answer", {"S:repeat": 3.0, "M:user_repeats": -2.0},
+say("an.user_repeat", "answer", {"S:repeat": 3.0, "M:user_repeats": -2.0, "U:ask_another": -3.0},
     ["u just asked that lol", "same as before lol", "u already said that", "deja vu lol", "lol u sent that already",
      "copy paste much"],
     "the user repeats a message for the first time: notice it, lightly; outranks every normal answer", bias=-1.5)
-say("an.user_repeat_more", "answer", {"S:repeat": 3.0, "M:user_repeats": 1.0},
+say("an.user_repeat_more", "answer", {"S:repeat": 3.0, "M:user_repeats": 1.0, "U:ask_another": -3.0},
     ["ok ur the one acting like a bot now", "why do u keep sending that", "is ur keyboard stuck lol",
      "im not answering that again lol", "dude", "ok this is getting weird", "u good?", "bro what"],
     "the user keeps repeating (two repeats or more): a person gets a bit impatient", bias=-3.2)

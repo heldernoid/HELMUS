@@ -234,10 +234,24 @@ def topic(name, classes, why):
     unit("topic_" + name, {"F:c:" + c: 1.0 for c in classes.split()}, why)
 
 
-def register(name, intent_name, slot, why):
-    """copy the word at `slot` of `intent_name`'s patterns into register `name` when the intent fires"""
+def register(name, intent_name, slot, why, phrase=False):
+    """copy the word at `slot` of `intent_name`'s patterns into register `name` when the intent fires. A phrase
+    register copies the phrase the grammar finds there instead ("doing laundry", not "doing"), seen from the other
+    side ("my job" -> "your job"), and its main word as {name.head}"""
     for d in INTENTS[intent_name]["slots"].get(slot, []):
-        _e(f"REG {name} {d} U:{intent_name}", why)
+        _e(f"REG {name} {d} U:{intent_name}" + (" phrase" if phrase else ""), why)
+
+
+def check(name, reg, facts, why):
+    """a claim about the persona, checked against its life: when `reg` is copied this turn, C:<name> is on if the
+    copied phrase agrees with the persona facts `facts` (a word of it is in them), C:<name>_no if it does not
+    ("you said you were from texas": no, ohio)"""
+    _e(f"CHECK {name} {reg} {','.join(facts.split())}", why)
+
+
+def check_stop(words, why):
+    """words that say nothing in a claim ("a", "the", "around here"): left out when a claim is checked"""
+    _e("CHECKSTOP " + " ".join(words.split()), why)
 
 
 # ---- memory ---------------------------------------------------------------------------------------------------------
@@ -272,6 +286,14 @@ def say(eid, head, when, texts, why, bias=None, group=None):
     DECL["book"].append({"id": eid, "head": head, "texts": texts, "group": group})
 
 
+def more_of(eid, why, score=0.95):
+    """asked for another one ("anything else?") right after `eid`: the same entry again, its next unsaid line (the
+    entry is a list of separate things, as "say something only a human would know" is)"""
+    src = next(e for e in DECL["book"] if e["id"] == eid)
+    say(eid + ".more", src["head"], {"U:ask_another": 1, "E:" + eid: 1, "E:" + eid + ".more": 1}, src["texts"],
+        f"another one, after {eid}: {why}", bias=round(score - 2, 3), group=src.get("group"))
+
+
 def rate(name, value, why):
     _e(f"RATE {name} {value:g}", why)
 
@@ -294,3 +316,102 @@ def facts(table, why):
 
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
+
+
+# ---- grammar ----------------------------------------------------------------------------------------------------------
+# A weighted context-free grammar over word tags (gen/grammar/). Costs are in thousandths, never above zero: the
+# parser keeps the cheapest analysis (the highest total), so a cost says how much less likely a reading is.
+GRAMMAR = {"tags": {}, "rules": [], "cats": {}, "lhs": set(), "rhs": set(), "literals": set(), "lemmas": {}}
+
+
+def _milli(cost):
+    c = int(round(cost * 1000))
+    if c > 0:
+        raise ValueError(f"a cost is never above zero: {cost}")
+    return c
+
+
+def tag(name, words, why, cost=0.0):
+    """every word in `words` can be a `name` (a word tag: N, V, Det...), at `cost`. Special words: <unk> (a word
+    with no tag), <num> (a number in figures), <sym> (an emoji or other sign), <any> (every word)"""
+    ws = words.split() if isinstance(words, str) else list(words)
+    c = _milli(cost)
+    new = []
+    for w in ws:
+        k = (w, name)
+        if k in GRAMMAR["tags"]:
+            continue
+        GRAMMAR["tags"][k] = c
+        new.append(w)
+    for i in range(0, len(new), 400):
+        _e(f"TAG {name} {c} " + " ".join(new[i:i + 400]), why)
+
+
+def lemma(base, forms, why):
+    """the forms of a verb read as its base: G:verb_<base>"""
+    fs = [f for f in sorted(set(forms)) if f != base and f not in GRAMMAR["lemmas"]]
+    for f in fs:
+        GRAMMAR["lemmas"][f] = base
+    if fs:
+        _e(f"LEMMA {base} " + " ".join(fs), why)
+
+
+def _variants(tokens):
+    """optional parts "(X)" as the variants with and without them"""
+    out = [[]]
+    for t in tokens:
+        if t.startswith("(") and t.endswith(")"):
+            out = [v + x for v in out for x in ([], [t[1:-1]])]
+        else:
+            out = [v + [t] for v in out]
+    return [v for v in out if v]
+
+
+def rule(spec, why, cost=0.0):
+    """a grammar rule "A -> B C^ D:role": `^` marks the head (the child that gives the phrase its main word, the
+    first child if none is marked), `:role` names a child's role (subj, obj, neg, past...), 'word' is that word
+    itself, (X) is optional. Rules with more than two children are binarised into hidden parts (_A.n)."""
+    lhs, _, rhs = spec.partition("->")
+    lhs = lhs.strip()
+    if not rhs.strip():
+        raise ValueError(f"rule needs children: {spec}")
+    for alt in rhs.split(" | "):
+        for toks in _variants(alt.split()):
+            kids = []
+            for t in toks:
+                head = t.endswith("^") or "^:" in t
+                t = t.replace("^", "")
+                sym, _, role = t.partition(":")
+                if sym.startswith("'"):
+                    GRAMMAR["literals"].add(sym)
+                kids.append((sym, role or "-", head))
+            h = next((i for i, k in enumerate(kids) if k[2]), 0)
+            _binarise(lhs, kids, h, _milli(cost), why)
+
+
+def _binarise(lhs, kids, h, cost, why):
+    GRAMMAR["lhs"].add(lhs)
+    if len(kids) <= 2:
+        GRAMMAR["rhs"].update(k[0] for k in kids)
+        n = len(GRAMMAR["rules"])
+        GRAMMAR["rules"].append((lhs, kids, h, cost))
+        _e(f"RULE {lhs} {' '.join(k[0] for k in kids)} {cost} {h} {' '.join(k[1] for k in kids)}", why)
+        return n
+    rest = f"_{lhs}.{len(GRAMMAR['rules'])}"
+    first, others = kids[0], kids[1:]
+    _binarise(rest, others, max(h - 1, 0), 0, why + " (a part of the rule)")
+    return _binarise(lhs, [first, (rest, "-", False)], 0 if h == 0 else 1, cost, why)
+
+
+def gcat(kind, cats, why):
+    """what a category is for the network: phrase (a register may copy it; g:<cat> at its first word), clause (its
+    roles give the G: features of the message), hidden (spliced out of the tree shown on the page)"""
+    for c in cats.split():
+        GRAMMAR["cats"][c] = kind
+        _e(f"GCAT {c} {kind}", why)
+
+
+def reflect(table, why):
+    """how a copied phrase reads from the other side: "my" -> "your". `you` reads "i" as a subject and "me" after it"""
+    for a, b in table.items():
+        _e(f"REFLECT {a} {b}", why)

@@ -48,7 +48,7 @@ say live in a separate hand-written table, the **phrasebook**, which the network
 the weights decide, the table speaks.
 
 ```
-message ──read──▶ tokens ──E──▶ features ──D──▶ phrase detectors ──U──▶ intents, topics, slots
+message ──read──▶ tokens ──E──▶ features ──G──▶ parse ──D──▶ phrase detectors ──U──▶ intents, topics, slots
                                                                           │
                                          memory M (from earlier turns) ◀──┤
                                                                           ▼
@@ -65,21 +65,42 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
 
    An unknown word gets shape features, and a word one typo away from a known word of four letters or more reads as
    that word (a fixed rule, stated).
-3. **D: phrase detectors** (weights), a convolution over word positions. A detector fires at a position when its
+3. **G: grammar** (weights; `gen/grammar/`, shared by every persona). A weighted context-free grammar of chat
+   English finds the best analysis of the whole message by CKY:
+   - **Tags.** Every word's possible tags come from the vocabulary: the spelling rules that make "walked" also say
+     it is a past or a participle. The closed classes and the costs of rarer readings ("like" as a filler) are
+     written by hand.
+   - **Rules.** About 1,300 rules, with costs in thousandths, never above zero; the parser keeps the highest total.
+     They cover noun phrases, the five verb forms and their complements, the verb group (auxiliaries, negation,
+     tense, modals), statements and questions, the same phrases with a gap for wh-questions ("what do you like _"),
+     subordinate, relative and wh-clauses, commands, polite and formal English, and chat's fragments, dropped
+     subjects and fillers.
+   - **Roles.** A rule marks each part's role: subj, obj, neg, past, fut, wh...
+   - **What the network gets.** From the best parse:
+     - for each word, its tag (`t:V`), the phrases starting there (`g:NP`) and the role of the phrase it heads
+       (`r:obj`);
+     - for the message, its main clauses' features: `G:S`, `G:Sq`, `G:Sw`, `G:Simp`, `G:neg`, `G:past`,
+       `G:subj_2`, `G:verb_<base>`, `G:wh_<word>`;
+     - for registers, phrases rather than words: "doing laundry" (main word "laundry"), said from the other side
+       ("my job" → "your job").
+
+   Scores are whole numbers, so Python and the browser find the same parse, tie for tie. Messages are short, so a
+   parse takes a few milliseconds.
+4. **D: phrase detectors** (weights), a convolution over word positions. A detector fires at a position when its
    words stand at the right offsets. A tap can look over a small window of offsets ("where *(are)* *(you)* from"),
    so optional words and small gaps are allowed. An inhibitory tap blocks it (no "not" before "sad"). Firing uses
    the AND of the earlier projects: `clip(Σ − (k − 1))`.
-4. **U: utterance units** (weights), pooled over the message:
+5. **U: utterance units** (weights), pooled over the message:
    - **intents:** asks where you're from, tells their name, accuses you of being a bot, a jailbreak, a greeting…;
    - **topics:** food, games, music, school, work, weather…;
    - **acts:** question, statement, laugh, insult, compliment;
    - **slot pointers:** detectors whose strongest position marks a word to copy, such as the name after "my name is".
-5. **M: memory** (weights), units that carry over from turn to turn:
+6. **M: memory** (weights), units that carry over from turn to turn:
    - `m(t) = clip(a·m(t−1) + Σ links)`: the user's name known, where they are from, their mood, how often they have
      accused Helmus, whether Helmus already asked them something, the turn number;
    - registers that hold copied words (the user's name, a thing they said they like);
    - a record of which phrasebook entries and which persona facts Helmus has already used.
-6. **K: phrasebook keys** (weights). Every phrasebook entry has a key: weights over intents, topics, acts and memory,
+7. **K: phrasebook keys** (weights). Every phrasebook entry has a key: weights over intents, topics, acts and memory,
    and a bias. The entry's score is its key times the current units, minus a penalty if it has been used. Three
    heads each pick their best entry above a threshold:
    - **react:** "lol", "oh nice", "damn";
@@ -87,7 +108,7 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
    - **ask back:** "wbu", "u?", gated so it does not happen every time.
 
    The reply is their joined text. Composing a reply from parts is what gives a hand-written phrasebook its variety.
-7. **Templates.** Entry texts have slots:
+8. **Templates.** Entry texts have slots:
    - `{name}`, the user's name;
    - `{echo}`, a copied word;
    - `{reflect}`, the user's phrase with pronouns swapped, as ELIZA does;
@@ -95,11 +116,11 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
    - `{time}`, the local time in the persona's time zone.
 
    An entry has several variants, picked by a seeded hash so that a chat is reproducible.
-8. **Style** (weights and a fixed pass):
+9. **Style** (weights and a fixed pass):
    - lowercase, no final full stop;
    - occasional typos, at a rate set by a weight and placed by a seeded hash;
    - laughter mirrored when the user laughs.
-9. **Delay.** The paper's typing delay formula, so a reply never arrives too fast.
+10. **Delay.** The paper's typing delay formula, so a reply never arrives too fast.
 
 ## Why this design
 
@@ -130,7 +151,8 @@ message ──read──▶ tokens ──E──▶ features ──D──▶ ph
     (`T:work_tonight`, `T:class_ahead`...) that keys read like any other unit;
   - arithmetic on numbers the user typed: a "calculator" layer. Helmus decides through weights whether a person
     would bother to answer.
-  - the delay formula.
+  - the delay formula;
+  - the claim check: a copied phrase agrees with the persona when one of its words is in the named facts.
 - **Weights (the edit list):**
   - the lexicon;
   - every detector tap;

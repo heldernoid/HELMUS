@@ -53,6 +53,16 @@ and WP-Ductus, same method.
     `{time}`, `{weekday}`, `{daypart}`, `{first_msg}`, `{last_msg}`.
 - **`rate(name, value, why)`:** a style rate (typos, the repeat penalty).
 
+## The grammar (gen/grammar/)
+
+English, not a persona: every persona shares it. `words.py` tags the vocabulary (closed classes by hand),
+`phrases.py`, `verbs.py`, `clauses.py`, `more.py` and `chat.py` hold the rules. A rule is `rule("A -> B C^ D:role",
+why, cost)`: `^` marks the head, `:role` a role (subj, obj, neg, past...), `'word'` a word itself, `(X)` an optional
+part; costs are never above zero. Change the grammar by kinds of sentence, never for one sentence, and check it with
+`python3 tests/test_grammar.py` (`-v` lists the misses of the dev split). Never read the test split of
+`tests/treebank.json` (the entries whose hash puts them in it); only its scores. Keep `engine/helmus.py` and
+`web/helmus.js` the same: the parity test compares parse trees.
+
 ## How a reply is made
 
 Each head takes its best entry whose key scores above zero; a used entry ranks lower (repeat penalty) but is not
@@ -63,7 +73,8 @@ lowercased with no final full stop, with a typo now and then.
 
 ```bash
 python3 gen/generate.py [persona]             # weights/ and web/model/ (persona default: josh)
-python3 -m pytest -q tests                     # intent tests and conversation checks
+python3 -m pytest -q tests                     # intent tests, coverage, parity, the grammar treebank
+python3 tests/test_grammar.py [-v]             # the grammar's scores (dev and test), and the dev misses
 python3 engine/helmus.py [seed]                # chat in the terminal (TRACE=1 shows the chosen entries)
 ```
 

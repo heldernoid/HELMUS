@@ -1,5 +1,170 @@
 [
  {
+  "id": "cl.from",
+  "head": "answer",
+  "texts": [
+   "yeah, {p:city}",
+   "yep {p:place}",
+   "ya, born and raised",
+   "yeah columbus",
+   "yep, {p:state}"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.from_no",
+  "head": "answer",
+  "texts": [
+   "no lol, {p:state}",
+   "nah, {p:place}",
+   "no?? {p:state}",
+   "nope, {p:city}",
+   "no, {p:place} lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.age",
+  "head": "answer",
+  "texts": [
+   "yep {p:age}",
+   "yeah",
+   "ya {p:age}",
+   "yep"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.age_no",
+  "head": "answer",
+  "texts": [
+   "no im {p:age}",
+   "nah, {p:age}",
+   "{p:age} actually",
+   "no lol {p:age}"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.job",
+  "head": "answer",
+  "texts": [
+   "yeah, nights",
+   "yep, {p:job_short}",
+   "ya, stocking shelves",
+   "yeah lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.job_no",
+  "head": "answer",
+  "texts": [
+   "no, a {p:job_short} lol",
+   "nah, {p:job}",
+   "no, i stock shelves at a grocery store",
+   "nope, {p:job_short}"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.pet",
+  "head": "answer",
+  "texts": [
+   "yeah, {p:pet_name}",
+   "yep, an orange cat",
+   "ya, {p:pet_name}, hes orange lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.pet_no",
+  "head": "answer",
+  "texts": [
+   "no, a cat lol",
+   "nah just a cat, {p:pet_name}",
+   "no, i have a cat",
+   "nope, cat guy"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.name",
+  "head": "answer",
+  "texts": [
+   "yeah",
+   "yep, {p:name}",
+   "ya thats me"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.name_no",
+  "head": "answer",
+  "texts": [
+   "no lol its {p:name}",
+   "nah, {p:name}",
+   "its {p:name} lol",
+   "no, {p:name}"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.school",
+  "head": "answer",
+  "texts": [
+   "yeah, {p:school}",
+   "yep",
+   "ya, community college"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.school_no",
+  "head": "answer",
+  "texts": [
+   "no, {p:school}",
+   "nah, {p:school}",
+   "no, community college",
+   "nope, {p:school}, {p:studies}"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.game",
+  "head": "answer",
+  "texts": [
+   "yeah all the time",
+   "ya, most nights",
+   "yep, why",
+   "yeah lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "cl.game_no",
+  "head": "answer",
+  "texts": [
+   "nah, mostly {p:games}",
+   "not really, more {p:game}",
+   "nope, {p:games}",
+   "not really lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "an.more_out",
+  "head": "answer",
+  "texts": [
+   "thats about it lol",
+   "uh thats all i got",
+   "cant think of anything else rn",
+   "thats it really",
+   "idk thats all lol"
+  ],
+  "group": null
+ },
+ {
   "id": "re.greet",
   "head": "react",
   "texts": [
@@ -7328,6 +7493,1348 @@
    "facts, {p:pet_name} is better than most people",
    "100 percent",
    "obviously, cats win"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.what_you",
+  "head": "fallback",
+  "texts": [
+   "hm depends on the day",
+   "idk nothing really comes to mind",
+   "the usual i guess",
+   "not much honestly",
+   "uhh hard to say",
+   "idk honestly, wbu"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.what_you_past",
+  "head": "fallback",
+  "texts": [
+   "nothing crazy honestly",
+   "dont really remember tbh",
+   "the usual stuff",
+   "not much lol",
+   "uhh nothing worth telling",
+   "honestly forgot already"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.what_you_hypo",
+  "head": "fallback",
+  "texts": [
+   "no idea, never thought about it",
+   "honestly no clue what id do",
+   "depends lol",
+   "hm let me think... no idea",
+   "probably something dumb lol",
+   "idk, wbu"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.what_3",
+  "head": "fallback",
+  "texts": [
+   "no clue",
+   "beats me",
+   "idk honestly",
+   "hm no idea",
+   "couldnt tell u",
+   "idk, google it lol",
+   "not sure tbh"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.what_3_past",
+  "head": "fallback",
+  "texts": [
+   "no idea, missed it",
+   "no clue what happened",
+   "idk i wasnt paying attention",
+   "didnt hear about it",
+   "beats me lol",
+   "idk what happened tbh"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.who_you",
+  "head": "fallback",
+  "texts": [
+   "hm nobody comes to mind",
+   "idk honestly",
+   "uhh pass lol",
+   "nobody really",
+   "depends, why",
+   "idk, who do u"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.who_about_you",
+  "head": "fallback",
+  "texts": [
+   "lol what do u mean",
+   "nobody really",
+   "uhh why",
+   "long story lol",
+   "nobody, why",
+   "idk what u mean lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.who_did",
+  "head": "fallback",
+  "texts": [
+   "no idea who even played lol",
+   "no clue tbh",
+   "idk, wasnt paying attention",
+   "beats me",
+   "no idea, google it lol",
+   "honestly dont know"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.who_is",
+  "head": "fallback",
+  "texts": [
+   "no clue",
+   "idk who",
+   "hm not sure",
+   "idk, should i know?",
+   "couldnt tell u",
+   "no idea tbh"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.where_you",
+  "head": "fallback",
+  "texts": [
+   "around here mostly",
+   "nowhere special lol",
+   "idk, wherever really",
+   "somewhere around {p:city}",
+   "depends honestly",
+   "just around here, why"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.where_you_past",
+  "head": "fallback",
+  "texts": [
+   "around here",
+   "nowhere really, i never go anywhere lol",
+   "just here in {p:city}",
+   "dont even remember",
+   "nowhere special",
+   "around here, why"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.where_you_hypo",
+  "head": "fallback",
+  "texts": [
+   "somewhere quiet probably",
+   "no idea honestly",
+   "anywhere but here lol",
+   "hm somewhere quiet i guess",
+   "idk never thought about it",
+   "idk wbu"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.where_3",
+  "head": "fallback",
+  "texts": [
+   "no idea lol",
+   "not sure tbh",
+   "no clue",
+   "idk, maps would know",
+   "couldnt tell u",
+   "idk somewhere?"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_you",
+  "head": "fallback",
+  "texts": [
+   "depends on the day",
+   "whenever honestly",
+   "it changes a lot",
+   "depends, i work {p:shift}",
+   "no set time really",
+   "kinda whenever lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_you_past",
+  "head": "fallback",
+  "texts": [
+   "a while ago i think",
+   "dont even remember",
+   "honestly forgot",
+   "been a minute lol",
+   "idk, a while back",
+   "not sure, why"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_you_next",
+  "head": "fallback",
+  "texts": [
+   "idk, eventually lol",
+   "hopefully soon",
+   "no idea yet",
+   "whenever i get to it",
+   "no clue tbh",
+   "we will see lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_you_will",
+  "head": "fallback",
+  "texts": [
+   "idk, eventually lol",
+   "hopefully soon",
+   "no idea yet",
+   "whenever i get to it",
+   "no clue tbh",
+   "we will see lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.you_will",
+  "head": "fallback",
+  "texts": [
+   "no idea yet",
+   "idk, we will see",
+   "havent figured that out yet",
+   "depends lol",
+   "no clue honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_3",
+  "head": "fallback",
+  "texts": [
+   "no idea",
+   "not sure tbh",
+   "idk soon maybe?",
+   "couldnt tell u",
+   "no clue honestly",
+   "idk, google it lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.when_3_past",
+  "head": "fallback",
+  "texts": [
+   "no idea honestly",
+   "a while ago i think?",
+   "dont remember tbh",
+   "no clue, history isnt my thing lol",
+   "idk, a while back",
+   "beats me"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.why_you",
+  "head": "fallback",
+  "texts": [
+   "idk just how it is",
+   "habit i guess",
+   "no real reason honestly",
+   "long story lol",
+   "idk thats just me",
+   "it just kinda worked out that way"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.why_you_past",
+  "head": "fallback",
+  "texts": [
+   "seemed like a good idea at the time",
+   "idk it just happened",
+   "no real reason",
+   "felt like it i guess",
+   "honestly dont remember why lol",
+   "long story"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.why_you_not",
+  "head": "fallback",
+  "texts": [
+   "idk never got around to it",
+   "just didnt i guess",
+   "no reason really",
+   "idk, lazy probably lol",
+   "why would i lol",
+   "never really came up"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.why_i",
+  "head": "fallback",
+  "texts": [
+   "idk u tell me lol",
+   "fair point lol",
+   "dunno, why not",
+   "good point honestly",
+   "idk, ur call"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.why_3",
+  "head": "fallback",
+  "texts": [
+   "no clue",
+   "idk, people are weird lol",
+   "no idea tbh",
+   "beats me",
+   "idk thats just how it is i guess",
+   "dunno, why do u think"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.how_you",
+  "head": "fallback",
+  "texts": [
+   "idk i just do it",
+   "honestly i just wing it",
+   "badly lol",
+   "the normal way i guess",
+   "idk never thought about it",
+   "not sure, i just kinda do it"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.how_you_past",
+  "head": "fallback",
+  "texts": [
+   "honestly dont remember",
+   "it just kinda happened",
+   "long story lol",
+   "idk just did i guess",
+   "by accident mostly lol",
+   "idk it was a while ago"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.how_you_hypo",
+  "head": "fallback",
+  "texts": [
+   "no idea honestly",
+   "id probably just google it",
+   "idk id figure it out",
+   "probably badly lol",
+   "idk, never had to"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.how_i",
+  "head": "fallback",
+  "texts": [
+   "idk google it lol",
+   "no clue",
+   "ur guess is as good as mine",
+   "beats me lol",
+   "idk honestly"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.how_3",
+  "head": "fallback",
+  "texts": [
+   "no idea tbh",
+   "idk, google it lol",
+   "no clue honestly",
+   "beats me",
+   "not sure tbh",
+   "hm couldnt tell u"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.your",
+  "head": "fallback",
+  "texts": [
+   "hm not sure tbh",
+   "idk, depends",
+   "honestly no idea",
+   "uhh why do u ask",
+   "idk, never really thought about it",
+   "good one, idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.your_past",
+  "head": "fallback",
+  "texts": [
+   "dont really remember",
+   "long story lol",
+   "idk honestly",
+   "uhh why do u ask",
+   "not sure tbh",
+   "it was a while ago"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.which",
+  "head": "fallback",
+  "texts": [
+   "hm the first one i guess",
+   "idk either",
+   "no preference really",
+   "idk they all seem the same",
+   "whichever honestly",
+   "hard to pick"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.i",
+  "head": "fallback",
+  "texts": [
+   "idk, ur call",
+   "dunno, up to u",
+   "no idea tbh",
+   "idk u tell me lol",
+   "hm whatever u want i guess"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.wh.any",
+  "head": "fallback",
+  "texts": [
+   "hm idk",
+   "no clue tbh",
+   "uhh not sure",
+   "idk honestly",
+   "couldnt tell u",
+   "beats me lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_be",
+  "head": "fallback",
+  "texts": [
+   "kinda",
+   "a little i guess",
+   "not really lol",
+   "sometimes",
+   "i mean kinda",
+   "eh depends on the day"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_do",
+  "head": "fallback",
+  "texts": [
+   "sometimes",
+   "not really",
+   "eh kinda",
+   "i mean yeah kinda",
+   "depends tbh",
+   "not much lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_past",
+  "head": "fallback",
+  "texts": [
+   "nah",
+   "not really",
+   "i dont think so",
+   "kinda?",
+   "dont remember tbh",
+   "nope lol",
+   "maybe? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_perf",
+  "head": "fallback",
+  "texts": [
+   "nah never",
+   "dont think so",
+   "not that i remember",
+   "nope lol",
+   "once maybe? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_modal",
+  "head": "fallback",
+  "texts": [
+   "probably not lol",
+   "idk maybe",
+   "depends",
+   "eh probably",
+   "maybe? idk",
+   "i mean i could"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_will",
+  "head": "fallback",
+  "texts": [
+   "probably",
+   "maybe",
+   "idk maybe",
+   "depends",
+   "we will see",
+   "prob not lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_not",
+  "head": "fallback",
+  "texts": [
+   "not really",
+   "i mean kinda",
+   "eh idk",
+   "eh not really",
+   "kinda yeah",
+   "lol why"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.you_not_past",
+  "head": "fallback",
+  "texts": [
+   "did i?",
+   "oh maybe",
+   "hm i dont remember",
+   "lol maybe",
+   "i dont think so"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.i",
+  "head": "fallback",
+  "texts": [
+   "idk do u",
+   "lol maybe",
+   "a little lol",
+   "nah ur fine",
+   "why u asking lol",
+   "hm kinda? jk"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.i_modal",
+  "head": "fallback",
+  "texts": [
+   "up to u",
+   "i mean sure",
+   "idk, ur call",
+   "go for it i guess",
+   "sure why not"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.3",
+  "head": "fallback",
+  "texts": [
+   "i think so",
+   "probably?",
+   "idk maybe",
+   "not sure tbh",
+   "kinda?",
+   "no idea honestly",
+   "depends i guess"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.3_past",
+  "head": "fallback",
+  "texts": [
+   "no idea",
+   "i think so?",
+   "idk didnt check",
+   "not sure tbh",
+   "no clue, i missed it",
+   "maybe? idk"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.3_modal",
+  "head": "fallback",
+  "texts": [
+   "probably?",
+   "idk maybe",
+   "doubt it",
+   "no idea tbh",
+   "maybe lol",
+   "could be"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.your",
+  "head": "fallback",
+  "texts": [
+   "kinda",
+   "sometimes",
+   "i think so",
+   "not really",
+   "eh kinda",
+   "idk, sometimes"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.your_past",
+  "head": "fallback",
+  "texts": [
+   "i think so?",
+   "not sure tbh",
+   "dont think so",
+   "idk honestly",
+   "maybe? i forget"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.3_will",
+  "head": "fallback",
+  "texts": [
+   "probably?",
+   "idk maybe",
+   "doubt it",
+   "no idea tbh",
+   "maybe lol",
+   "could be"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.yn.any",
+  "head": "fallback",
+  "texts": [
+   "maybe",
+   "idk tbh",
+   "not sure",
+   "kinda?",
+   "maybe lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.you",
+  "head": "fallback",
+  "texts": [
+   "lol if u say so",
+   "u think?",
+   "maybe lol",
+   "ha i guess",
+   "lol ok",
+   "is that a good thing",
+   "lol how so"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.you_not",
+  "head": "fallback",
+  "texts": [
+   "lol my bad",
+   "i mean kinda",
+   "ok fair",
+   "how so",
+   "lol what",
+   "do i not"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.you_past",
+  "head": "fallback",
+  "texts": [
+   "did i lol",
+   "oh did i",
+   "my bad lol",
+   "hm maybe",
+   "i dont remember that lol",
+   "oh yeah maybe"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.you_modal",
+  "head": "fallback",
+  "texts": [
+   "maybe lol",
+   "eh maybe",
+   "probably tbh",
+   "lol idk",
+   "u think?",
+   "hm could be"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.you_will",
+  "head": "fallback",
+  "texts": [
+   "we will see lol",
+   "maybe lol",
+   "u think?",
+   "doubt it lol",
+   "hm maybe",
+   "ok if u say so"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "oh word",
+   "thats cool",
+   "oh fr",
+   "nice nice",
+   "huh cool",
+   "oh ok, since when"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_now",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "oh word",
+   "lol nice",
+   "oh fr",
+   "ooh ok",
+   "nice, hows that going"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_past",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "oh damn",
+   "how was it",
+   "oh fr? how was it",
+   "nice nice",
+   "lol how did that go",
+   "oh word"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_fut",
+  "head": "fallback",
+  "texts": [
+   "oh fr? when",
+   "oh nice",
+   "good luck lol",
+   "excited?",
+   "oh word",
+   "nice, lmk how it goes"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_not",
+  "head": "fallback",
+  "texts": [
+   "fair enough",
+   "how come",
+   "huh why not",
+   "oh fr",
+   "thats fair",
+   "ok fair"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_can",
+  "head": "fallback",
+  "texts": [
+   "oh fr",
+   "fair",
+   "lol ok",
+   "fair enough",
+   "oh word",
+   "hm ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_think",
+  "head": "fallback",
+  "texts": [
+   "fair",
+   "hm could be",
+   "maybe lol",
+   "u think?",
+   "fair enough",
+   "eh maybe"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_feel",
+  "head": "fallback",
+  "texts": [
+   "how come",
+   "fr? why",
+   "hm whats up",
+   "oh fr",
+   "since when"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.think",
+  "head": "fallback",
+  "texts": [
+   "fair",
+   "hm could be",
+   "maybe lol",
+   "u think?",
+   "fair enough",
+   "eh maybe"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.guess",
+  "head": "fallback",
+  "texts": [
+   "fair",
+   "ya",
+   "true",
+   "i guess lol",
+   "makes sense"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_like",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "fair",
+   "nice, since when",
+   "oh word",
+   "lol good for u",
+   "nice nice"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.i_hate",
+  "head": "fallback",
+  "texts": [
+   "lol fair",
+   "valid",
+   "ya fair",
+   "whats wrong with it",
+   "lol why",
+   "fair, it happens"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.3",
+  "head": "fallback",
+  "texts": [
+   "oh fr",
+   "huh",
+   "oh word",
+   "makes sense i guess",
+   "lol ok",
+   "huh ok",
+   "good to know lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.3_past",
+  "head": "fallback",
+  "texts": [
+   "wait fr",
+   "oh damn",
+   "huh, when",
+   "no way",
+   "oh word",
+   "lol what",
+   "damn fr?"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.3_not",
+  "head": "fallback",
+  "texts": [
+   "lol fair",
+   "huh",
+   "rip",
+   "makes sense",
+   "oh fr",
+   "figures lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.3_will",
+  "head": "fallback",
+  "texts": [
+   "maybe",
+   "probably lol",
+   "guess we will see",
+   "if u say so",
+   "huh ok",
+   "could be"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.3_might",
+  "head": "fallback",
+  "texts": [
+   "maybe",
+   "probably lol",
+   "guess we will see",
+   "if u say so",
+   "huh ok",
+   "could be"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.none",
+  "head": "fallback",
+  "texts": [
+   "oh fr",
+   "fair",
+   "lol ok",
+   "huh",
+   "oh word",
+   "ya"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.none_past",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "how was it",
+   "oh word",
+   "nice nice",
+   "oh fr? how was it",
+   "lol how did that go"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.none_not",
+  "head": "fallback",
+  "texts": [
+   "fair",
+   "lol fair",
+   "ya fair",
+   "fair enough",
+   "true"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.like_dropped",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "fair",
+   "nice",
+   "oh word",
+   "fair enough"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.hate_dropped",
+  "head": "fallback",
+  "texts": [
+   "lol fair",
+   "valid",
+   "ya fair",
+   "lol why",
+   "fair"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.st.any",
+  "head": "fallback",
+  "texts": [
+   "oh ok",
+   "fair",
+   "lol ok",
+   "oh fr",
+   "huh",
+   "true"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.describe_obj",
+  "head": "fallback",
+  "texts": [
+   "idk how to describe {g.obj} tbh",
+   "{g.obj}? hard to describe lol",
+   "idk how to explain {g.obj} tbh",
+   "uhh its hard to put into words",
+   "eh im bad at describing stuff",
+   "{g.obj.head}? idk where to start lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.describe",
+  "head": "fallback",
+  "texts": [
+   "hard to explain lol",
+   "idk im bad at explaining",
+   "uhh its hard to put into words",
+   "eh not good at describing stuff",
+   "idk how to explain it tbh",
+   "long story lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.tell",
+  "head": "fallback",
+  "texts": [
+   "like what",
+   "idk what to say lol",
+   "uhh nothing comes to mind",
+   "hm put me on the spot",
+   "uh what do u wanna know",
+   "idk, theres not much to tell"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.name",
+  "head": "fallback",
+  "texts": [
+   "uhh i cant think of any rn",
+   "my mind just went blank lol",
+   "idk, put me on the spot",
+   "pass lol",
+   "nah im blanking",
+   "uhh give me a sec... nope"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.guess",
+  "head": "fallback",
+  "texts": [
+   "i suck at guessing lol",
+   "give me a hint",
+   "uhh no clue, hint?",
+   "idk im bad at this",
+   "no idea lol, just tell me",
+   "random guess... nah no clue"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.pick",
+  "head": "fallback",
+  "texts": [
+   "the first one i guess",
+   "idk either is fine",
+   "ugh i hate choosing",
+   "uhh the first one",
+   "idk u pick",
+   "both lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.imagine",
+  "head": "fallback",
+  "texts": [
+   "lol ok",
+   "im not good at pretend",
+   "ok... now what",
+   "lol why",
+   "my imagination isnt that good lol",
+   "ok imagining it, now what"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.prove",
+  "head": "fallback",
+  "texts": [
+   "how tho",
+   "idk how lol",
+   "u first",
+   "how would i even do that",
+   "what do u want me to do lol",
+   "how am i supposed to prove that"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.show",
+  "head": "fallback",
+  "texts": [
+   "cant send stuff on here",
+   "how, its just text",
+   "nah lol",
+   "cant on here",
+   "this chat is just text lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.task",
+  "head": "fallback",
+  "texts": [
+   "lol why",
+   "nah",
+   "im good lol",
+   "too much effort",
+   "do i have to",
+   "lol no",
+   "maybe later lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.stop",
+  "head": "fallback",
+  "texts": [
+   "ok ok",
+   "lol fine",
+   "my bad",
+   "ok sorry lol",
+   "fine lol",
+   "ok chill"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.dont",
+  "head": "fallback",
+  "texts": [
+   "ok i wont",
+   "lol i wasnt gonna",
+   "ok ok",
+   "fine lol",
+   "wasnt planning to",
+   "ok lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.think_of",
+  "head": "fallback",
+  "texts": [
+   "ok got one",
+   "ok",
+   "done, now what",
+   "ok... now what",
+   "ok lol",
+   "sure"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.be",
+  "head": "fallback",
+  "texts": [
+   "lol i am",
+   "ok ok",
+   "i am tho lol",
+   "trying lol",
+   "lol ok"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.let",
+  "head": "fallback",
+  "texts": [
+   "go for it",
+   "sure",
+   "ok",
+   "go ahead",
+   "take ur time"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.wait",
+  "head": "fallback",
+  "texts": [
+   "ok",
+   "sure",
+   "np",
+   "take ur time",
+   "ok lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.help",
+  "head": "fallback",
+  "texts": [
+   "with what",
+   "idk if im much help lol",
+   "depends what it is",
+   "lol with what",
+   "maybe, what is it"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.req.any",
+  "head": "fallback",
+  "texts": [
+   "lol ok",
+   "ok?",
+   "eh",
+   "lol fine",
+   "hm ok",
+   "ok then",
+   "why lol"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.np.q",
+  "head": "fallback",
+  "texts": [
+   "{g.np}? what about it",
+   "what about {g.np}",
+   "hm {g.np}? idk",
+   "{g.np}? its fine i guess",
+   "what about it lol",
+   "{g.np}? like in general?"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.np.answer",
+  "head": "fallback",
+  "texts": [
+   "oh nice",
+   "{g.np}, nice",
+   "solid",
+   "fair",
+   "oh word",
+   "ok nice"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.np",
+  "head": "fallback",
+  "texts": [
+   "{g.np}?",
+   "what about {g.np}",
+   "lol {g.np}",
+   "{g.np} huh",
+   "random but ok",
+   "{g.np}? what about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.frag.q",
+  "head": "fallback",
+  "texts": [
+   "hm?",
+   "what do u mean",
+   "wdym",
+   "huh?",
+   "like what",
+   "what about it"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.frag.answer",
+  "head": "fallback",
+  "texts": [
+   "oh ok",
+   "cool",
+   "fair",
+   "nice",
+   "ok cool"
+  ],
+  "group": null
+ },
+ {
+  "id": "gr.frag",
+  "head": "fallback",
+  "texts": [
+   "lol",
+   "fair",
+   "true",
+   "ya",
+   "mhm",
+   "lol ok",
+   "fr"
   ],
   "group": null
  },
@@ -29312,6 +30819,19 @@
    "uh 3? 4? idk"
   ],
   "group": "bt_count"
+ },
+ {
+  "id": "bt.say_human.more",
+  "head": "answer",
+  "texts": [
+   "uh im hungry",
+   "my back hurts from sitting on my bed like this",
+   "i need to pee lol",
+   "{p:car_problem}",
+   "{p:pet_name} just threw up on the carpet",
+   "i really need a haircut"
+  ],
+  "group": null
  },
  {
   "id": "th.food.qt_like",

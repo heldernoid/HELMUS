@@ -6,6 +6,8 @@ starts with every weight at zero and applies the edits.
 
 Layers (see docs/design.md):
   read   fixed: words, numbers and punctuation; the message's shape (S: features)
+  G      grammar: word tags and a weighted context-free grammar (TAG, RULE); the best parse gives each word its tag
+         (t:), each phrase its start (g:) and role (r:), and the message its clause features (G:)
   T      fixed: the persona's clock (T: features): its local time and week, read from the persona table
   E      lexicon: word -> named features (EMB), informal spellings -> words (ALIAS)
   D      phrase detectors: a convolution over word positions with windowed taps, clipped to [0, 1]
@@ -48,6 +50,11 @@ class Net:
         self.rates = {}
         self.vocab = set()
         self.why = {}
+        self.tags, self.lemmas, self.cats, self.reflects = {}, {}, {}, {}
+        self.rules, self.unary, self.binary = [], {}, {}       # grammar: rules, by child (unary), by left child (binary)
+        self.literals = set()
+        self.phrase_regs = set()
+        self.checks, self.check_stop = [], set()             # claims checked against the persona's facts
         for n, raw in enumerate(edits_text.splitlines(), 1):
             line, _, reason = raw.partition("#")
             p = line.split()
@@ -79,6 +86,35 @@ class Net:
                 self.units["M"][p[1]]["decay"] = float(p[2]); key = f"DECAY {p[1]}"
             elif op == "REG":
                 self.regs.setdefault(p[1], []).append((p[2], p[3])); key = f"REG {p[1]} {p[2]}"
+                if len(p) > 4 and p[4] == "phrase":
+                    self.phrase_regs.add(p[1])
+            elif op == "TAG":
+                for w in p[3:]:
+                    self.tags.setdefault(w, []).append((p[1], int(p[2])))
+                key = f"TAG {p[1]}"
+            elif op == "LEMMA":
+                for f in p[2:]:
+                    self.lemmas[f] = p[1]
+                key = "LEMMA " + p[1]
+            elif op == "RULE":
+                k = (len(p) - 4) // 2                          # RULE lhs kids... cost head roles...
+                kids, cost, head, roles = p[2:2 + k], int(p[2 + k]), int(p[3 + k]), p[4 + k:4 + 2 * k]
+                rid = len(self.rules)
+                self.rules.append((p[1], kids, cost, head, roles))
+                if k == 1:
+                    self.unary.setdefault(kids[0], []).append(rid)
+                else:
+                    self.binary.setdefault(kids[0], {}).setdefault(kids[1], []).append(rid)
+                self.literals.update(c for c in kids if c.startswith("'"))
+                key = f"RULE {rid}"
+            elif op == "CHECK":
+                self.checks.append((p[1], p[2], p[3].split(","))); key = "CHECK " + p[1]
+            elif op == "CHECKSTOP":
+                self.check_stop.update(p[1:]); key = "CHECKSTOP"
+            elif op == "GCAT":
+                self.cats[p[1]] = p[2]; key = "GCAT " + p[1]
+            elif op == "REFLECT":
+                self.reflects[p[1]] = p[2]; key = "REFLECT " + p[1]
             elif op == "VOCAB":
                 self.vocab.add(p[1]); key = "VOCAB " + p[1]
             elif op == "RATE":
@@ -195,11 +231,264 @@ class Net:
         return out
 
     # ---- the network ----------------------------------------------------------------------------------------------
-    def features(self, words):
+    # ---- the grammar ----------------------------------------------------------------------------------------------
+    BEAM = 200         # the best analyses kept per span: a guard for long messages; chat rarely reaches it
+
+    def word_tags(self, w):
+        if w in self.tags:
+            out = list(self.tags[w])
+        elif w.isdigit():
+            out = list(self.tags.get("<num>", []))
+        elif not re.fullmatch(r"[a-z0-9']+", w):
+            out = list(self.tags.get("<sym>", []))
+        else:
+            out = list(self.tags.get("<unk>", []))
+            for suffix in ("ing", "ed", "ly", "s"):            # a guess by the ending (fixed rule; the costs are weights)
+                if w.endswith(suffix) and len(w) > len(suffix) + 2:
+                    out += self.tags.get("<unk-" + suffix + ">", [])
+                    break
+            if w.endswith("'s") and w[:-2] in self.tags:       # brother's: a possessive of a known word
+                out = list(self.tags.get("<poss>", [])) + out
+        out += self.tags.get("<any>", [])
+        if "'" + w + "'" in self.literals:
+            out.append(("'" + w + "'", 0))
+        return out
+
+    def _close(self, cell, bp):
+        """unary rules, until nothing improves (costs are never above zero, so this ends)"""
+        changed = True
+        while changed:
+            changed = False
+            for b in list(cell):
+                for rid in self.unary.get(b, ()):
+                    a, _, cost, _, _ = self.rules[rid]
+                    v = cell[b] + cost
+                    if a not in cell or v > cell[a]:
+                        cell[a], bp[a] = v, (rid,)
+                        changed = True
+
+    def _prune(self, cell, bp):
+        if len(cell) <= self.BEAM:
+            return cell, bp
+        keep = sorted(cell, key=lambda c: -cell[c])[:self.BEAM]   # a stable sort: ties keep their order
+        keep = set(keep)
+        return {c: v for c, v in cell.items() if c in keep}, {c: v for c, v in bp.items() if c in keep}
+
+    def parse(self, words):
+        """the best analysis of the message (CKY over word tags, scores added in thousandths): a tree of
+        [category, start, end, children, role, head index] with hidden parts spliced out, or None"""
+        n = len(words)
+        if not n or not self.rules:
+            return None
+        V, B = {}, {}                                          # (i, j) -> {category: score}, {category: backpointer}
+        for i, w in enumerate(words):
+            cell, bp = {}, {}
+            for t, c in self.word_tags(w):
+                if t not in cell or c > cell[t]:
+                    cell[t], bp[t] = c, None
+            self._close(cell, bp)
+            V[i, i + 1], B[i, i + 1] = self._prune(cell, bp)
+        for span in range(2, n + 1):
+            for i in range(0, n - span + 1):
+                j = i + span
+                cell, bp = {}, {}
+                for k in range(i + 1, j):
+                    L, R = V[i, k], V[k, j]
+                    for b, vb in L.items():
+                        right = self.binary.get(b)
+                        if not right:
+                            continue
+                        for c, vc in R.items():
+                            for rid in right.get(c, ()):
+                                a = self.rules[rid][0]
+                                v = vb + vc + self.rules[rid][2]
+                                if a not in cell or v > cell[a]:
+                                    cell[a], bp[a] = v, (rid, k)
+                self._close(cell, bp)
+                V[i, j], B[i, j] = self._prune(cell, bp)
+        top = "Msg" if "Msg" in V[0, n] else None
+        if top is None:
+            return None
+
+        def build(cat, i, j, role):
+            b = B[i, j][cat]
+            if b is None:                                      # a word: its tag
+                return [cat, i, j, [], role, i]
+            _, kids, _, head, roles = self.rules[b[0]]
+            spans = [(i, j)] if len(kids) == 1 else [(i, b[1]), (b[1], j)]
+            raw = [build(kc, x, y, r if r != "-" else None) for (x, y), kc, r in zip(spans, kids, roles)]
+            ch = []
+            for node in raw:
+                ch += node[3] if node[0].startswith("_") else [node]   # a hidden part's children are ours
+            return [cat, i, j, ch, role, raw[head][5]]
+
+        return build("Msg", 0, n, None), V[0, n]["Msg"]
+
+    PERSON = {"i": "1", "we": "1", "me": "1", "us": "1", "you": "2"}
+    VERBISH = ("Hv", "Hz", "Hd", "Do", "Dz", "Dd", "Let")      # have, do and let as main verbs read as verbs too
+    AUX = ("BeP", "BeD", "Md", "Been")
+    WH = ("what", "who", "whom", "which", "whose", "where", "when", "why", "how")                          # an auxiliary alone ("i am", "i can"): its base
+
+    def analyse(self, words):
+        """the parse, and what the network reads from it: per word T (t:<tag>, g:<phrase> at a phrase's first word,
+        r:<role> at the main word of a phrase with a role), for the message G (the features of its main clauses:
+        G:S, G:Sq, G:Sw, G:Simp, G:neg, G:past, G:subj_2, G:verb_<base>...), and the phrases a register may copy"""
+        n = len(words)
+        out = {"tree": None, "score": 0, "T": [{} for _ in words], "G": {}, "phrases": [], "tag": [None] * n,
+               "clauses": []}
+        res = self.parse(words)
+        if not res:
+            return out
+        tree, score = res
+        out["tree"], out["score"] = tree, score
+        T, tags, recs = out["T"], out["tag"], []
+
+        def walk(node, rec, deep=False):
+            """deep: inside a verb phrase that is itself an object or complement ("i want [to get a dog]"): its
+            roles are not the main clause's"""
+            cat, i, j, ch, role, hd = node
+            kind = self.cats.get(cat)
+            if not ch:
+                tags[i] = cat
+                T[i]["t:" + cat] = 1.0
+            if kind in ("copy", "phrase", "clause", "subclause"):
+                T[i]["g:" + cat] = 1.0
+            if kind == "copy" and j - i <= 6:
+                out["phrases"].append(node)
+            if role:
+                T[hd]["r:" + role] = 1.0
+            if role and rec is not None and not deep:
+                rec["roles"].append((role, node))             # a role belongs to the clause the phrase is part of
+            if kind == "clause" and rec is not None and rec["main"] and role not in ("comp", "conj"):
+                if not ((cat == "Sq" and "Sw" in rec["cats"]) or (cat == "S" and {"Sq", "Sw"} & set(rec["cats"]))):
+                    rec["cats"].append(cat)                   # a clause inside a main clause of the same message;
+                    #                                           where [are you from] is a wh-question, not yes/no
+            elif kind in ("clause", "subclause"):
+                main = kind == "clause" and role != "comp" and (rec is None or rec["main"])
+                rec = {"cats": [cat], "roles": [], "head": hd, "main": main}
+                recs.append(rec)
+                deep = False
+            for c in ch:
+                walk(c, rec, deep or (cat.startswith("VP") and role in ("comp", "obj")))
+
+        walk(tree, None)
+        G = out["G"]
+        main = [r for r in recs if r["main"]]
+        for r in recs:
+            if not r["main"]:
+                for c in r["cats"]:
+                    G["G:sub_" + c] = 1.0
+        if not main:
+            G["G:frag"] = 1.0
+        for r in main:
+            for c in r["cats"]:
+                G["G:" + c] = 1.0
+            subj = False
+            info = {"cats": r["cats"], "subj": None, "obj": None, "obj_head": None, "verb": None, "wh": None,
+                    "obj_span": None, "obj_main": None}
+            for role, node in r["roles"]:
+                w = words[node[5]]
+                if role in ("wh", "whsubj"):                  # the phrase's question word (in what way -> what)
+                    q = next((x for x in words[node[1]:node[2]] if x in self.WH), words[node[1]])
+                    G["G:wh_" + q] = G["G:wh"] = 1.0
+                    info["wh"] = info["wh"] or q
+                if role in ("subj", "whsubj"):
+                    subj = True
+                    info["subj"] = info["subj"] or w
+                    G["G:subj_" + w] = 1.0
+                    G["G:subj_" + self.PERSON.get(w, "3")] = 1.0
+                elif role == "obj":
+                    G["G:obj"] = 1.0
+                    if info["obj"] is None:
+                        info["obj"] = " ".join(words[node[1]:node[2]])
+                        info["obj_head"] = words[self.main_word(node)]
+                        info["obj_span"], info["obj_main"] = (node[1], node[2]), self.main_word(node)
+                    if w in self.PERSON:
+                        G["G:obj_" + self.PERSON[w]] = 1.0
+                elif role not in ("comp", "conj", "voc", "pred", "obj2"):
+                    G["G:" + role] = 1.0
+            if not subj and any(c in ("S", "Sq") for c in r["cats"]):
+                G["G:subj_none"] = 1.0
+            t = tags[r["head"]] or ""
+            hw = words[r["head"]]
+            if any(role == "pred" for role, _ in r["roles"]):
+                info["verb"] = "be"                           # be and a describing word, a noun, a place, a clause
+            elif t.startswith("V") or t in self.VERBISH or t in self.AUX:
+                info["verb"] = self.lemmas.get(hw, hw)
+            elif any(role == "q" and self.lemmas.get(words[nd[5]]) == "be" for role, nd in r["roles"]):
+                info["verb"] = "be"
+            if info["verb"]:
+                G["G:verb_" + info["verb"]] = 1.0
+            info.update({k: any(role == k for role, _ in r["roles"]) for k in ("neg", "past", "fut")})
+            out["clauses"].append(info)
+        out["frags"] = []                                        # the message's fragments, in order
+
+        def fragments(nd):
+            if nd[0] == "Msg":
+                for c in nd[3]:
+                    fragments(c)
+            elif nd[0] == "Frag":
+                out["frags"].append(nd[3][0][0] if nd[3] else "Frag")
+        fragments(tree)
+        frags, node = 0, tree
+        while node[3] and node[0] == "Msg":
+            frags += 1
+            node = node[3][0]
+        out["frag_np"] = None                                   # the message's first fragment, when it is a noun phrase
+        first = node[3][0] if node[0] == "Frag" and node[3] else None
+        if first and first[0] == "NP" and first[2] - first[1] <= 6:
+            out["frag_np"] = (first[1], first[2])
+            if frags == 1:
+                out["G"]["G:np"] = 1.0                          # the whole message is one noun phrase
+        if frags == 1 and main:
+            G["G:whole"] = 1.0                                # one clause covers the message
+        return out
+
+    def reflect(self, words, an, i, j):
+        """words i..j as the other side would say them: my -> your, i am -> you are; "you" as a subject -> "i",
+        otherwise "me" """
+        out = []
+        for k in range(i, j):
+            w = words[k]
+            if w == "you" and "r:subj" not in an["T"][k]:
+                out.append(self.reflects.get("you:obj", self.reflects.get(w, w)))
+            else:
+                out.append(self.reflects.get(w, w))
+        return " ".join(out)
+
+    @staticmethod
+    def main_word(node):
+        """the word a phrase is about: a noun phrase's head; for a verb phrase, its object's (doing laundry ->
+        laundry), else its verb"""
+        if not node[0].startswith("VP"):
+            return node[5]
+        todo = list(node[3])
+        while todo:
+            c = todo.pop(0)
+            if c[4] == "obj":
+                return c[5]
+            if not c[0].startswith(("S", "Rel", "WhCl")):
+                todo += c[3]
+        return node[5]
+
+    def phrase_at(self, an, p):
+        """the phrase a register copies at word p: the longest phrase starting there, else the shortest noun phrase
+        around it (at most 6 words), else the word"""
+        start = [nd for nd in an["phrases"] if nd[1] == p]
+        if start:
+            return max(start, key=lambda nd: nd[2] - nd[1])
+        around = [nd for nd in an["phrases"] if nd[0] == "NP" and nd[1] <= p < nd[2]]
+        if around:
+            return min(around, key=lambda nd: nd[2] - nd[1])
+        return None
+
+    def features(self, words, an=None):
         X = []
         n = len(words)
         for i, w in enumerate(words):
             f = dict(self.emb.get(w, {}))
+            if an:
+                f.update(an["T"][i])
             f.setdefault("w:" + w, 1.0)
             if w not in self.known and not w.isdigit():
                 f["shape:unknown"] = 1.0
@@ -248,9 +537,11 @@ class Net:
         norm = " ".join(words)
         if norm and any(" ".join(self.read(m)[0]) == norm for m in state.get("history", [])):
             S["S:repeat"] = 1.0                              # the user sent this same message before
-        X = self.features(words)
+        an = self.analyse(words)
+        X = self.features(words, an)
         A = dict(S)
         A.update(clock["T"])
+        A.update(an["G"])
         for f in {k for x in X for k in x}:                  # F: a feature anywhere in the message
             A["F:" + f] = max(x.get(f, 0.0) for x in X)
         D, where = self.detect(X)
@@ -274,11 +565,24 @@ class Net:
         for k, v in prevE.items():                          # what Helmus said last turn, readable by keys too
             A["E:" + k] = v
         regs = dict(state.get("R", {}))
+        fresh = set()                                        # registers copied from this message
         for reg, slots in self.regs.items():                # the strongest of the register's slot detectors
             best = max(slots, key=lambda sg: A.get("D:" + sg[0], 0.0))
             slot, gate = best
             if A.get(gate, 0.0) > 0.5 and A.get("D:" + slot, 0.0) > 0.5 and where.get(slot, -1) >= 0:
-                regs[reg] = words[where[slot]]
+                at = where[slot]
+                fresh.add(reg)
+                nd = self.phrase_at(an, at) if reg in self.phrase_regs else None
+                if nd:
+                    regs[reg] = self.reflect(words, an, nd[1], nd[2])
+                    hd = self.main_word(nd)
+                    regs[reg + ".head"] = self.reflect(words, an, hd, hd + 1)
+                else:
+                    regs[reg] = words[at]
+                    regs.pop(reg + ".head", None)
+        for name, reg, facts in self.checks:                 # a claim about the persona: true or not
+            if reg in fresh:
+                A["C:" + name + ("" if self.agrees(regs[reg], facts) else "_no")] = 1.0
         used = state.get("used", {})
         # K: score every entry; each head takes its best above zero
         # an entry fits when its key alone scores above zero; among those that fit, a used entry ranks lower
@@ -288,7 +592,7 @@ class Net:
             raw[eid] = k["bias"] + sum(w * A.get(src, 0.0) for src, w in k["links"])
             scores[eid] = raw[eid] - self.rates.get("repeat_penalty", 0.6) * used.get(eid, 0)
         turn_no = state.get("turn", 0) + 1
-        ctx = {"calc": calc, "regs": regs, "clock": clock, "words": words, "history": state.get("history", [])}
+        ctx = {"calc": calc, "regs": regs, "clock": clock, "words": words, "history": state.get("history", []), "an": an}
         said = set(state.get("said", []))
         seed = state.get("seed", 0)
 
@@ -324,6 +628,7 @@ class Net:
                      "history": hist, "said": state.get("said", []) + [p for p in parts if p]}
         r3 = lambda v: math.floor(v * 1000 + 0.5) / 1000      # noqa: E731 (rounds halves up, as Math.round in the page)
         trace = {"words": words, "units": {k: r3(v) for k, v in A.items() if v > 0.001 and not k.startswith("F:")},
+                 "tree": an["tree"], "tags": an["tag"],
                  "chosen": chosen, "top": sorted(((r3(v), e) for e, v in scores.items()), reverse=True)[:8]}
         return reply, new_state, trace
 
@@ -357,6 +662,8 @@ class Net:
                 return ctx["calc"] or ""
             if key in ctx["regs"]:
                 return ctx["regs"][key]
+            if key.startswith("g."):                          # from the parse: the main clause's object, a noun phrase
+                return self._gslot(key, ctx)
             if key == "time":
                 hr = local.hour % 12 or 12
                 return f"{hr}:{local.minute:02d}"
@@ -372,7 +679,7 @@ class Net:
                 hr = local.hour
                 return "morning" if 5 <= hr < 12 else "afternoon" if 12 <= hr < 17 else "evening" if 17 <= hr < 22 else "night"
             return ""
-        return re.sub(r"\{([a-z0-9_:]+)\}", fill, text).strip()
+        return re.sub(r"\{([a-z0-9_:.]+)\}", fill, text).strip()
 
     def utc_offset(self, now):
         """the persona's offset from UTC at `now`: standard time, plus an hour in summer by the US rule (from 2am on
@@ -410,6 +717,28 @@ class Net:
                 T["T:" + name] = 1.0
         days = ([DAYS[d] + "_am"] if cut <= hr < 13 else []) + [DAYS[d]]
         return {"local": local, "T": T, "days": days}
+
+    def agrees(self, phrase, facts):
+        """a claimed phrase agrees with the persona when one of its words (left out: the CHECKSTOP words; a final s
+        does not count) is a word of the named facts; a phrase of stop words only says nothing against them"""
+        norm = lambda w: w[:-1] if len(w) > 3 and w.endswith("s") else w   # noqa: E731
+        said = {norm(w) for w in re.findall(r"[a-z0-9]+", phrase.lower()) if w not in self.check_stop}
+        known = {norm(w) for f in facts for w in re.findall(r"[a-z0-9]+", str(self.persona["facts"].get(f, "")).lower())}
+        return not said or bool(said & known)
+
+    def _gslot(self, key, ctx):
+        """{g.obj}: the main clause's object, said from the other side (at most 6 words, else its main word);
+        {g.obj.head}: its main word; {g.np}: the message's noun phrase when it is only one ("pineapple pizza?")"""
+        an, words = ctx["an"], ctx["words"]
+        c = an["clauses"][0] if an["clauses"] else None
+        if key in ("g.obj", "g.obj.head") and c and c["obj_span"]:
+            i, j = c["obj_span"]
+            if key == "g.obj" and j - i <= 6:
+                return self.reflect(words, an, i, j)
+            return self.reflect(words, an, c["obj_main"], c["obj_main"] + 1)
+        if key == "g.np" and an.get("frag_np"):
+            return self.reflect(words, an, *an["frag_np"])
+        return ""
 
     def style(self, text, seed, turn_no):
         """the fixed pass of the voice: lowercase, no final full stop; a typo now and then at the rate the weights set"""

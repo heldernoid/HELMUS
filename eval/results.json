@@ -4,15 +4,17 @@
   "games": 60,
   "helmus": {
    "replies": 260,
-   "fallback %": 0.4,
+   "fallback %": 0.0,
+   "grammar %": 0.4,
    "repeat %": 0.0,
    "assistant %": 0.0,
    "words/reply": 5.7,
-   "\u22645 words %": 53.8
+   "\u22645 words %": 55.0
   },
   "eliza": {
    "replies": 260,
    "fallback %": 0.0,
+   "grammar %": 0.0,
    "repeat %": 1.2,
    "assistant %": 0.0,
    "words/reply": 6.6,
@@ -23,15 +25,17 @@
   "games": 100,
   "helmus": {
    "replies": 444,
-   "fallback %": 25.9,
+   "fallback %": 0.2,
+   "grammar %": 26.1,
    "repeat %": 0.0,
    "assistant %": 0.0,
-   "words/reply": 3.7,
-   "\u22645 words %": 79.5
+   "words/reply": 3.9,
+   "\u22645 words %": 78.8
   },
   "eliza": {
    "replies": 444,
    "fallback %": 0.0,
+   "grammar %": 0.0,
    "repeat %": 2.3,
    "assistant %": 0.0,
    "words/reply": 6.5,

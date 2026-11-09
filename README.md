@@ -27,16 +27,21 @@ line of a plain-text edit list (`weights/helmus.edits`) with the reason for it.
    - Misspellings fixed to the nearest real word of a hand-written vocabulary of about 30,000 word forms; real words
      are never "corrected".
 2. **Lexicon.** Words get named features: their identity and their classes.
-3. **Phrase detectors.** About 7,000 of them, a convolution over word positions. They are written as short patterns
+3. **Grammar.** A hand-written weighted grammar of chat English (about 1,300 rules, `gen/grammar/`, shared by every
+   persona) finds the best parse of the whole message:
+   - which words form a phrase, and which phrase is the subject or the object;
+   - whether it is a statement, a question or a request, and whether it is negated or past;
+   - so "i hate doing laundry" is about doing laundry, and "i dont hate it" is not hating.
+4. **Phrase detectors.** About 7,000 of them, a convolution over word positions. They are written as short patterns
    ("where [are] you from") and compiled into weights.
-4. **Intents and topics.** About 600 units that pool the detectors into what the message means.
-5. **Memory.** About 200 units carried from turn to turn: your name, what you said, how often you have called Josh a
+5. **Intents and topics.** About 600 units that pool the detectors into what the message means.
+6. **Memory.** About 200 units carried from turn to turn: your name, what you said, how often you have called Josh a
    bot, what he already said.
-6. **Phrasebook.**
+7. **Phrasebook.**
    - About 2,800 hand-written entries (about 9,500 lines), each with a key of weights saying when it fits.
    - Three heads pick a reaction, an answer and, now and then, a question back. An entry fits only when the question
      it answers was asked.
-7. **Reply.**
+8. **Reply.**
    - Slots are filled from Josh's life table and from memory.
    - Then his voice is applied: lowercase, no full stop, the odd typo.
    - The reply never repeats a line already said, and it arrives after a human typing delay.
@@ -48,8 +53,22 @@ of Jones & Bergen, Human or Not, the Loebner Prize, Mitsuku, Cleverbot, ELIZA).
 
 Measured on 100 interrogations written in advance by a separate writer, before Josh's phrasebook existed, and never
 read while writing HELMUS. The same messages were sent to ELIZA, the baseline of the 2025 study, where it was judged
-human 23% of the time. The numbers are in `eval/results.json` and on the page's *Results* view. Judging by people is
-the next step.
+human 23% of the time. The numbers are in `eval/results.json` and on the page's *Results* view.
+
+| On the 100 held-out games | HELMUS | ELIZA |
+|---|---|---|
+| understood (an intent fitted) | 74% | n/a |
+| answered by the message's shape alone (the grammar) | 26% | n/a |
+| stock replies ("hm idk") | 0.2% | n/a |
+| word-for-word repeats | 0% | 2.3% |
+| words per reply | 3.9 | 6.5 |
+
+The grammar is measured on its own against 607 chat messages analysed by hand by a writer who never saw it
+(`tests/treebank.json`, split 60/40 like the games). On the unread 40%, it gets the clause type right 97% of the time,
+the subject 95%, the main verb 91% and the object 95%.
+
+Blind AI judges, shown each held-out game from HELMUS and from ELIZA side by side, picked HELMUS as the human in 100 of
+100. AI judges are a cheap stand-in for people, and no real human was in the comparison.
 
 ## Run it
 
@@ -66,11 +85,12 @@ cd web && python3 -m http.server                 # the page
 
 | Path | What |
 |---|---|
-| `gen/` | the hand-written spec: lexicon, intents (`gen/intents/`), memory, Josh's life (`gen/persona/`), his phrasebook (`gen/phrasebook/`), the vocabulary (`gen/vocabulary/`), and the authoring language (`gen/dsl.py`) |
+| `gen/` | the hand-written spec: lexicon, the grammar (`gen/grammar/`, shared by every persona), intents (`gen/intents/`), memory, Josh's life (`gen/persona/`), his phrasebook (`gen/phrasebook/`), the vocabulary (`gen/vocabulary/`), and the authoring language (`gen/dsl.py`) |
 | `weights/` | the generated network (`helmus.edits`), the phrasebook, the persona table and the vocabulary |
 | `engine/helmus.py`, `web/helmus.js` | the engine in Python and the same engine in the browser |
 | `web/` | the page |
 | `eval/` | the held-out interrogations, the runner and the blind judging tools |
+| `tests/` | intent tests, coverage, browser/Python parity, and the grammar's blind treebank (`treebank.json`, `test_grammar.py`) |
 | `baselines/eliza/` | ELIZA with the DOCTOR script (Wade Brainerd's MIT-licensed Python version), used only as a baseline |
 | `docs/` | design, personas, research |
 | `LOG.md`, `AGENTS.md` | how it was written, and how to work on it |

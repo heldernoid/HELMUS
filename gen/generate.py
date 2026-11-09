@@ -42,6 +42,11 @@ def check(D):
             bad.append(line)
     if bad:
         raise SystemExit("unknown sources:\n  " + "\n  ".join(bad[:20]))
+    G = dsl.GRAMMAR                                       # every symbol a rule reads is a tag, a word or a category
+    tags = {t for _, t in G["tags"]}
+    missing = sorted(s for s in G["rhs"] if not s.startswith("'") and s not in tags and s not in G["lhs"])
+    if missing:
+        raise SystemExit("grammar symbols with no rule or tag: " + " ".join(missing))
 
 
 def main():
@@ -56,6 +61,11 @@ def main():
     for m in modules("vocabulary"):
         importlib.import_module(m)
     topics.build()
+    from gen import grammar                               # the grammar: tags for the vocabulary, then the rules
+    from gen.grammar import words as grammar_words
+    grammar_words.build()
+    for m in grammar.RULES:
+        importlib.import_module(m)
     dsl.meta_units()
     from gen import vocab
     D = dsl.DECL

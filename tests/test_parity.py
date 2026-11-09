@@ -21,6 +21,16 @@ CHATS = [
     ["sup", "wyd", "asdfghjkl", "whats the weather like there", "what time is it", "you're kinda boring ngl", "lol jk",
      "what's the capital of australia", "HELLO??", "sooo bored", "4 + 5", "😂😂", "ur a bot", "ur a bot", "who am i"],
 ]
+# the grammar: messages whose analysis matters (phrases copied into registers, negation, questions, long ones)
+CHATS.append(["i hate doing laundry", "i love my new job", "my brothers dog is named max", "i dont hate it",
+              "what kind of music do you like", "who are you talking to", "the game i play is valorant",
+              "ngl i kinda miss my ex", "i'm scared of spiders", "my favorite thing is sleeping in on sundays",
+              "i have been so busy with work lately that i forgot to eat lunch and now i am starving honestly lol "
+              "what about you", "brother's car got towed lmao", "🤖🤖 r u a bot??", "if you were human you would know"])
+# follow-ups and claims checked against his life ("anything else?", "you said you were from texas")
+CHATS.append(["tell me something only a human would know", "that's right; anything else?", "anything else?",
+              "you said you are from ohio right?", "you said you were from texas", "you are 25 right",
+              "wait you work at walmart?", "you have a dog right", "your name is mike right", "anything else"])
 # his week: the same questions at times that change the answer (the clock, the day's facts, summer time)
 WEEK = ["what time is it there", "do you work tonight", "what are you doing tomorrow", "do you have class today",
         "when is your next shift", "what did you do yesterday", "how was class", "what day is it"]
@@ -51,5 +61,8 @@ def test_parity(tmp_path):
             assert r == jt["reply"], (m, r, jt["reply"])
             assert tr["chosen"] == jt["chosen"], (m, tr["chosen"], jt["chosen"])
             assert set(tr["units"]) == set(jt["units"]), (m, set(tr["units"]) ^ set(jt["units"]))
+            assert json.loads(json.dumps(tr["tree"])) == jt["tree"], (m, "parse trees differ")
+            assert tr["tags"] == jt["tags"], (m, tr["tags"], jt["tags"])
+            assert st.get("R", {}) == jt["regs"], (m, st.get("R"), jt["regs"])
             for k, v in tr["units"].items():
                 assert abs(v - jt["units"][k]) < 1e-9, (m, k, v, jt["units"][k])

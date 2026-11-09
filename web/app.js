@@ -82,13 +82,29 @@ function rows(entries, max = 1) {
 function showWhy(i) {
   for (const el of document.querySelectorAll(".msg.bot")) el.classList.toggle("sel", +el.dataset.i === i);
   const has = i != null && turns[i];
-  for (const id of ["sec-read", "sec-units", "sec-mem", "sec-entries"]) $(id).hidden = !has;
+  for (const id of ["sec-read", "sec-parse", "sec-units", "sec-mem", "sec-entries"]) $(id).hidden = !has;
   $("why-hint").hidden = !!has;
   if (!has) return;
   const t = turns[i].trace;
   $("read").innerHTML = t.words.length
     ? t.words.map(w => `<span class="tok${net.known.has(w) || /^\d+$/.test(w) ? "" : " unknown"}" title="${net.known.has(w) ? "a word HELMUS knows" : "an unknown word"}">${esc(w)}</span>`).join("")
     : `<span class="hint">no words</span>`;
+  $("sec-parse").hidden = !t.tree;
+  if (t.tree) {
+    // the tree without its message and fragment wrappers: each phrase with its role, each word with its tag
+    const node = n => {
+      const [cat, i, , ch, role] = n;
+      const r = role ? ` <span class="role">${esc(role)}</span>` : "";
+      if (!ch.length) return `<li><span class="t">${esc(cat)}</span>${r} <span class="w">${esc(t.words[i])}</span></li>`;
+      return `<li><span class="cat">${esc(cat)}</span>${r}<ul>${ch.map(node).join("")}</ul></li>`;
+    };
+    const tops = [];
+    const unwrap = n => (n[0] === "Msg" || n[0] === "Frag") ? n[3].forEach(unwrap) : tops.push(n);
+    unwrap(t.tree);
+    $("parse").innerHTML = `<ul>${tops.map(node).join("")}</ul>`;
+    const G = Object.keys(t.units).filter(k => k.startsWith("G:")).map(k => k.slice(2)).sort();
+    $("gfeats").innerHTML = G.map(g => `<span>${esc(g)}</span>`).join("");
+  }
   const U = Object.entries(t.units).filter(([k]) => k.startsWith("U:") && k !== "U:understood").map(([k, v]) => [k.slice(2), v]).sort((a, b) => b[1] - a[1]);
   $("units").innerHTML = U.length ? rows(U.slice(0, 10)) : `<span class="hint">Nothing it recognised fired: it fell back on a stock reply.</span>`;
   const M = Object.entries(t.units).filter(([k]) => k.startsWith("M:") && k !== "M:turn").map(([k, v]) => [k.slice(2), v]).sort((a, b) => b[1] - a[1]);
@@ -114,7 +130,8 @@ route();
 
 // ---- results ----
 const MEASURES = [
-  ["fallback %", "Messages not understood", "%", "Nothing it was written for fitted, so it gave a stock reply (\"hm idk\"). ELIZA has no such signal: it answers everything from a stock pattern."],
+  ["fallback %", "Stock replies", "%", "Nothing fitted, not even the shape of the message, so it gave a stock reply (\"hm idk\"). ELIZA has no such signal: it answers everything from a stock pattern."],
+  ["grammar %", "Answered by its shape alone", "%", "No intent fitted, but the grammar said what kind of message it was (a who-question, a request to describe something, a negated statement) and Josh answered that kind. Not counted as understood."],
   ["repeat %", "Word-for-word repeats", "%", "A line already said in the same chat: the single biggest giveaway of a chatbot (Loebner Prize judges)."],
   ["assistant %", "Sounds like an assistant", "%", "\"As an AI\", \"great question\", \"how can I help\": the phrasing that gets bots caught."],
   ["words/reply", "Words per reply", "", "The persona that won 73% in the 2025 study wrote mostly under five words."],
@@ -124,7 +141,7 @@ fetch("model/results.json").then(r => r.ok ? r.json() : null).then(R => {
   if (!R || !R.test) return;
   const H = R.test.helmus, E = R.test.eliza;
   $("bigstats").innerHTML = [
-    [`${(100 - H["fallback %"]).toFixed(0)}%`, `of messages understood (${R.test.games} held-out games)`],
+    [`${(100 - H["fallback %"] - (H["grammar %"] || 0)).toFixed(0)}%`, `of messages understood (${R.test.games} held-out games); ${(H["grammar %"] || 0).toFixed(0)}% more answered by their shape`],
     [`${H["repeat %"]}%`, `word-for-word repeats (ELIZA ${E["repeat %"]}%)`],
     [`${H["assistant %"]}%`, "replies that sound like an assistant"],
     [`${H["words/reply"]}`, `words per reply (ELIZA ${E["words/reply"]})`],
@@ -135,7 +152,8 @@ fetch("model/results.json").then(r => r.ok ? r.json() : null).then(R => {
     $("judged-text").textContent = `AI judges read each of the ${J.games} held-out games blind, HELMUS and ELIZA side by side in random order as "Witness A" and "Witness B", told that exactly one was a human. They picked HELMUS as the human in ${J.wins.helmus} of ${J.games} games (mean confidence ${J.confidence}%). AI judges are a cheap stand-in for people, and they recognised ELIZA easily.`;
   }
   $("restable").querySelector("tbody").innerHTML = MEASURES.map(([k, name, u, what]) =>
-    `<tr><td>${name}</td><td class="num">${H[k]}${u}</td><td class="num">${k === "fallback %" ? "n/a" : E[k] + u}</td><td>${what}</td></tr>`).join("");
+    H[k] === undefined ? "" :
+    `<tr><td>${name}</td><td class="num">${H[k]}${u}</td><td class="num">${k === "fallback %" || k === "grammar %" ? "n/a" : E[k] + u}</td><td>${what}</td></tr>`).join("");
 }).catch(() => {});
 
 $("form").addEventListener("submit", e => { e.preventDefault(); send($("msg").value); });

@@ -48,9 +48,18 @@ const isAlpha = w => /^\p{L}+$/u.test(w);
 const isDigit = w => /^\p{Nd}+$/u.test(w);
 
 export class Net {
+  static BEAM = 200;                                   // the best analyses kept per span (as in Python)
+  static PERSON = { i: "1", we: "1", me: "1", us: "1", you: "2" };
+  static VERBISH = ["Hv", "Hz", "Hd", "Do", "Dz", "Dd", "Let"];
+  static AUX = ["BeP", "BeD", "Md", "Been"];
+  static WH = ["what", "who", "whom", "which", "whose", "where", "when", "why", "how"];
+
   constructor(editsText, book, persona, vocabText = "") {
     this.alias = {}; this.emb = {}; this.units = { D: {}, U: {}, M: {} };
     this.regs = {}; this.keys = {}; this.rates = {}; this.vocab = new Set(); this.why = {};
+    this.tags = {}; this.lemmas = {}; this.cats = {}; this.reflects = {};
+    this.rules = []; this.unary = {}; this.binary = {}; this.literals = new Set(); this.phraseRegs = new Set();
+    this.checks = []; this.checkStop = new Set();      // claims checked against the persona's facts
     for (const raw of editsText.split("\n")) {
       const cut = raw.indexOf("#"), line = cut >= 0 ? raw.slice(0, cut) : raw, reason = cut >= 0 ? raw.slice(cut + 1).trim() : "";
       const p = line.split(/\s+/).filter(Boolean);
@@ -66,7 +75,24 @@ export class Net {
       else if (op === "BIAS") { if (p[1] === "K") K(p[2]).bias = +p[3]; else this.units[p[1]][p[2]].bias = +p[3]; key = `BIAS ${p[1]} ${p[2]}`; }
       else if (op === "LINK") { if (p[1] === "K") K(p[2]).links.push([p[3], +p[4]]); else this.units[p[1]][p[2]].links.push([p[3], +p[4]]); key = `LINK ${p[1]} ${p[2]} ${p[3]}`; }
       else if (op === "DECAY") { this.units.M[p[1]].decay = +p[2]; key = `DECAY ${p[1]}`; }
-      else if (op === "REG") { (this.regs[p[1]] ??= []).push([p[2], p[3]]); key = `REG ${p[1]} ${p[2]}`; }
+      else if (op === "REG") {
+        (this.regs[p[1]] ??= []).push([p[2], p[3]]); key = `REG ${p[1]} ${p[2]}`;
+        if (p[4] === "phrase") this.phraseRegs.add(p[1]);
+      }
+      else if (op === "TAG") { for (const w of p.slice(3)) (this.tags[w] ??= []).push([p[1], +p[2]]); key = "TAG " + p[1]; }
+      else if (op === "LEMMA") { for (const f of p.slice(2)) this.lemmas[f] = p[1]; key = "LEMMA " + p[1]; }
+      else if (op === "RULE") {
+        const k = (p.length - 4) / 2, kids = p.slice(2, 2 + k), rid = this.rules.length;
+        this.rules.push([p[1], kids, +p[2 + k], +p[3 + k], p.slice(4 + k, 4 + 2 * k)]);
+        if (k === 1) (this.unary[kids[0]] ??= []).push(rid);
+        else ((this.binary[kids[0]] ??= {})[kids[1]] ??= []).push(rid);
+        for (const c of kids) if (c.startsWith("'")) this.literals.add(c);
+        key = "RULE " + rid;
+      }
+      else if (op === "CHECK") { this.checks.push([p[1], p[2], p[3].split(",")]); key = "CHECK " + p[1]; }
+      else if (op === "CHECKSTOP") { for (const w of p.slice(1)) this.checkStop.add(w); key = "CHECKSTOP"; }
+      else if (op === "GCAT") { this.cats[p[1]] = p[2]; key = "GCAT " + p[1]; }
+      else if (op === "REFLECT") { this.reflects[p[1]] = p[2]; key = "REFLECT " + p[1]; }
       else if (op === "VOCAB") { this.vocab.add(p[1]); key = "VOCAB " + p[1]; }
       else if (op === "RATE") { this.rates[p[1]] = +p[2]; key = `RATE ${p[1]}`; }
       else throw new Error("unknown op " + op);
@@ -143,11 +169,205 @@ export class Net {
     return { "S:math": 1, [easy ? "S:math_easy" : "S:math_hard"]: 1, _calc: v === Math.trunc(v) ? String(v) : v.toFixed(2) };
   }
 
+  // ---- the grammar (as in engine/helmus.py) ----
+  wordTags(w) {
+    let out;
+    if (w in this.tags) out = [...this.tags[w]];
+    else if (isDigit(w)) out = [...(this.tags["<num>"] || [])];
+    else if (!/^[a-z0-9']+$/.test(w)) out = [...(this.tags["<sym>"] || [])];
+    else {
+      out = [...(this.tags["<unk>"] || [])];
+      for (const suffix of ["ing", "ed", "ly", "s"]) {
+        if (w.endsWith(suffix) && w.length > suffix.length + 2) { out.push(...(this.tags["<unk-" + suffix + ">"] || [])); break; }
+      }
+      if (w.endsWith("'s") && w.slice(0, -2) in this.tags) out = [...(this.tags["<poss>"] || []), ...out];
+    }
+    out.push(...(this.tags["<any>"] || []));
+    if (this.literals.has("'" + w + "'")) out.push(["'" + w + "'", 0]);
+    return out;
+  }
+
+  close(cell, bp) {
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const b of [...cell.keys()]) {
+        for (const rid of this.unary[b] || []) {
+          const r = this.rules[rid], v = cell.get(b) + r[2];
+          if (!cell.has(r[0]) || v > cell.get(r[0])) { cell.set(r[0], v); bp.set(r[0], [rid]); changed = true; }
+        }
+      }
+    }
+  }
+
+  prune(cell, bp) {
+    if (cell.size <= Net.BEAM) return [cell, bp];
+    const keep = new Set([...cell.keys()].sort((a, b) => cell.get(b) - cell.get(a)).slice(0, Net.BEAM));
+    const c2 = new Map(), b2 = new Map();
+    for (const [k, v] of cell) if (keep.has(k)) c2.set(k, v);
+    for (const [k, v] of bp) if (keep.has(k)) b2.set(k, v);
+    return [c2, b2];
+  }
+
+  parse(words) {
+    const n = words.length;
+    if (!n || !this.rules.length) return null;
+    const V = {}, B = {}, key = (i, j) => i + "," + j;
+    words.forEach((w, i) => {
+      const cell = new Map(), bp = new Map();
+      for (const [t, c] of this.wordTags(w)) if (!cell.has(t) || c > cell.get(t)) { cell.set(t, c); bp.set(t, null); }
+      this.close(cell, bp);
+      [V[key(i, i + 1)], B[key(i, i + 1)]] = this.prune(cell, bp);
+    });
+    for (let span = 2; span <= n; span++) {
+      for (let i = 0; i + span <= n; i++) {
+        const j = i + span, cell = new Map(), bp = new Map();
+        for (let k = i + 1; k < j; k++) {
+          const L = V[key(i, k)], R = V[key(k, j)];
+          for (const [b, vb] of L) {
+            const right = this.binary[b];
+            if (!right) continue;
+            for (const [c, vc] of R) {
+              for (const rid of right[c] || []) {
+                const r = this.rules[rid], v = vb + vc + r[2];
+                if (!cell.has(r[0]) || v > cell.get(r[0])) { cell.set(r[0], v); bp.set(r[0], [rid, k]); }
+              }
+            }
+          }
+        }
+        this.close(cell, bp);
+        [V[key(i, j)], B[key(i, j)]] = this.prune(cell, bp);
+      }
+    }
+    if (!V[key(0, n)].has("Msg")) return null;
+    const build = (cat, i, j, role) => {
+      const b = B[key(i, j)].get(cat);
+      if (b === null) return [cat, i, j, [], role, i];
+      const [, kids, , head, roles] = this.rules[b[0]];
+      const spans = kids.length === 1 ? [[i, j]] : [[i, b[1]], [b[1], j]];
+      const raw = kids.map((kc, x) => build(kc, spans[x][0], spans[x][1], roles[x] !== "-" ? roles[x] : null));
+      const ch = [];
+      for (const node of raw) { if (node[0].startsWith("_")) ch.push(...node[3]); else ch.push(node); }
+      return [cat, i, j, ch, role, raw[head][5]];
+    };
+    return [build("Msg", 0, n, null), V[key(0, n)].get("Msg")];
+  }
+
+  analyse(words) {
+    const n = words.length;
+    const out = { tree: null, score: 0, T: words.map(() => ({})), G: {}, phrases: [], tag: words.map(() => null), clauses: [] };
+    const res = this.parse(words);
+    if (!res) return out;
+    const [tree, score] = res;
+    out.tree = tree; out.score = score;
+    const T = out.T, tags = out.tag, recs = [];
+    const walk = (node, rec, deep = false) => {      // deep: inside a verb phrase that is an object or complement
+      const [cat, i, j, ch, role, hd] = node, kind = this.cats[cat];
+      if (!ch.length) { tags[i] = cat; T[i]["t:" + cat] = 1; }
+      if (["copy", "phrase", "clause", "subclause"].includes(kind)) T[i]["g:" + cat] = 1;
+      if (kind === "copy" && j - i <= 6) out.phrases.push(node);
+      if (role) T[hd]["r:" + role] = 1;
+      if (role && rec && !deep) rec.roles.push([role, node]);   // a role belongs to the clause the phrase is part of
+      if (kind === "clause" && rec && rec.main && role !== "comp" && role !== "conj") {
+        if (!((cat === "Sq" && rec.cats.includes("Sw")) || (cat === "S" && (rec.cats.includes("Sq") || rec.cats.includes("Sw")))))
+          rec.cats.push(cat);
+      } else if (kind === "clause" || kind === "subclause") {
+        const main = kind === "clause" && role !== "comp" && (!rec || rec.main);
+        rec = { cats: [cat], roles: [], head: hd, main };
+        recs.push(rec);
+        deep = false;
+      }
+      for (const c of ch) walk(c, rec, deep || (cat.startsWith("VP") && (role === "comp" || role === "obj")));
+    };
+    walk(tree, null);
+    const G = out.G, main = recs.filter(r => r.main);
+    for (const r of recs) if (!r.main) for (const c of r.cats) G["G:sub_" + c] = 1;
+    if (!main.length) G["G:frag"] = 1;
+    for (const r of main) {
+      for (const c of r.cats) G["G:" + c] = 1;
+      let subj = false;
+      const info = { cats: r.cats, subj: null, obj: null, obj_head: null, verb: null, wh: null, obj_span: null, obj_main: null };
+      for (const [role, node] of r.roles) {
+        const w = words[node[5]];
+        if (role === "wh" || role === "whsubj") {        // the phrase's question word (in what way -> what)
+          const q = words.slice(node[1], node[2]).find(x => Net.WH.includes(x)) ?? words[node[1]];
+          G["G:wh_" + q] = 1; G["G:wh"] = 1; info.wh = info.wh || q;
+        }
+        if (role === "subj" || role === "whsubj") {
+          subj = true; info.subj = info.subj || w;
+          G["G:subj_" + w] = 1; G["G:subj_" + (Net.PERSON[w] || "3")] = 1;
+        } else if (role === "obj") {
+          G["G:obj"] = 1;
+          if (info.obj === null) {
+            info.obj = words.slice(node[1], node[2]).join(" "); info.obj_head = words[Net.mainWord(node)];
+            info.obj_span = [node[1], node[2]]; info.obj_main = Net.mainWord(node);
+          }
+          if (w in Net.PERSON) G["G:obj_" + Net.PERSON[w]] = 1;
+        } else if (role === "wh") { /* above */ }
+        else if (!["comp", "conj", "voc", "pred", "obj2"].includes(role)) G["G:" + role] = 1;
+      }
+      if (!subj && r.cats.some(c => c === "S" || c === "Sq")) G["G:subj_none"] = 1;
+      const t = tags[r.head] || "", hw = words[r.head];
+      if (r.roles.some(([role]) => role === "pred")) info.verb = "be";
+      else if (t.startsWith("V") || Net.VERBISH.includes(t) || Net.AUX.includes(t)) info.verb = this.lemmas[hw] || hw;
+      else if (r.roles.some(([role, nd]) => role === "q" && this.lemmas[words[nd[5]]] === "be")) info.verb = "be";
+      if (info.verb) G["G:verb_" + info.verb] = 1;
+      for (const k of ["neg", "past", "fut"]) info[k] = r.roles.some(([role]) => role === k);
+      out.clauses.push(info);
+    }
+    out.frags = [];                                      // the message's fragments, in order
+    const fragments = nd => {
+      if (nd[0] === "Msg") nd[3].forEach(fragments);
+      else if (nd[0] === "Frag") out.frags.push(nd[3].length ? nd[3][0][0] : "Frag");
+    };
+    fragments(tree);
+    let frags = 0, node = tree;
+    while (node[3].length && node[0] === "Msg") { frags++; node = node[3][0]; }
+    out.frag_np = null;                                  // the message's first fragment, when it is a noun phrase
+    const first = node[0] === "Frag" && node[3].length ? node[3][0] : null;
+    if (first && first[0] === "NP" && first[2] - first[1] <= 6) {
+      out.frag_np = [first[1], first[2]];
+      if (frags === 1) out.G["G:np"] = 1;                 // the whole message is one noun phrase
+    }
+    if (frags === 1 && main.length) G["G:whole"] = 1;
+    return out;
+  }
+
+  reflect(words, an, i, j) {
+    const out = [];
+    for (let k = i; k < j; k++) {
+      const w = words[k];
+      if (w === "you" && !("r:subj" in an.T[k])) out.push(this.reflects["you:obj"] ?? this.reflects[w] ?? w);
+      else out.push(this.reflects[w] ?? w);
+    }
+    return out.join(" ");
+  }
+
+  // the word a phrase is about (as main_word in Python)
+  static mainWord(node) {
+    if (!node[0].startsWith("VP")) return node[5];
+    const todo = [...node[3]];
+    while (todo.length) {
+      const c = todo.shift();
+      if (c[4] === "obj") return c[5];
+      if (!["S", "Rel", "WhCl"].some(p => c[0].startsWith(p))) todo.push(...c[3]);
+    }
+    return node[5];
+  }
+
+  phraseAt(an, p) {
+    const start = an.phrases.filter(nd => nd[1] === p);
+    if (start.length) return start.reduce((a, b) => (b[2] - b[1] > a[2] - a[1] ? b : a));
+    const around = an.phrases.filter(nd => nd[0] === "NP" && nd[1] <= p && p < nd[2]);
+    if (around.length) return around.reduce((a, b) => (b[2] - b[1] < a[2] - a[1] ? b : a));
+    return null;
+  }
+
   // ---- the network ----
-  features(words) {
+  features(words, an = null) {
     const n = words.length;
     return words.map((w, i) => {
-      const f = { ...(this.emb[w] || {}) };
+      const f = { ...(this.emb[w] || {}), ...(an ? an.T[i] : {}) };
       if (!("w:" + w in f)) f["w:" + w] = 1;
       if (!this.known.has(w) && !isDigit(w)) f["shape:unknown"] = 1;
       if (isDigit(w)) f["shape:number"] = 1;
@@ -189,8 +409,9 @@ export class Net {
     const calc = S._calc ?? null; delete S._calc;
     const norm = words.join(" ");
     if (norm && (state.history || []).some(m => this.read(m)[0].join(" ") === norm)) S["S:repeat"] = 1;
-    const X = this.features(words);
-    const A = { ...S, ...clock.T };
+    const an = this.analyse(words);
+    const X = this.features(words, an);
+    const A = { ...S, ...clock.T, ...an.G };
     const feats = new Set(X.flatMap(x => Object.keys(x)));
     for (const f of feats) A["F:" + f] = Math.max(...X.map(x => x[f] || 0));
     const [D, where] = this.detect(X);
@@ -212,13 +433,23 @@ export class Net {
     }
     for (const [k, v] of Object.entries(M)) A["M:" + k] = v;
     for (const [k, v] of Object.entries(prevE)) A["E:" + k] = v;
-    const regs = { ...(state.R || {}) };
+    const regs = { ...(state.R || {}) }, fresh = new Set();   // fresh: registers copied from this message
     for (const [reg, slots] of Object.entries(this.regs)) {
       let best = slots[0];
       for (const sg of slots) if ((A["D:" + sg[0]] || 0) > (A["D:" + best[0]] || 0)) best = sg;
       const [slot, gate] = best;
-      if ((A[gate] || 0) > 0.5 && (A["D:" + slot] || 0) > 0.5 && (where[slot] ?? -1) >= 0) regs[reg] = words[where[slot]];
+      if ((A[gate] || 0) > 0.5 && (A["D:" + slot] || 0) > 0.5 && (where[slot] ?? -1) >= 0) {
+        const at = where[slot], nd = this.phraseRegs.has(reg) ? this.phraseAt(an, at) : null;
+        fresh.add(reg);
+        if (nd) {
+          const hd = Net.mainWord(nd);
+          regs[reg] = this.reflect(words, an, nd[1], nd[2]); regs[reg + ".head"] = this.reflect(words, an, hd, hd + 1);
+        }
+        else { regs[reg] = words[at]; delete regs[reg + ".head"]; }
+      }
     }
+    for (const [name, reg, facts] of this.checks)        // a claim about the persona: true or not
+      if (fresh.has(reg)) A["C:" + name + (this.agrees(regs[reg], facts) ? "" : "_no")] = 1;
     const used = state.used || {}, seed = state.seed || 0, pen = this.rates.repeat_penalty ?? 0.6;
     const raw = {}, scores = {};
     for (const [eid, k] of Object.entries(this.keys)) {
@@ -228,7 +459,7 @@ export class Net {
       scores[eid] = s - pen * (used[eid] || 0);
     }
     const turnNo = (state.turn || 0) + 1;
-    const ctx = { calc, regs, clock, words, history: state.history || [] };
+    const ctx = { calc, regs, clock, words, history: state.history || [], an };
     const said = new Set(state.said || []);
     // the best candidate whose lines are not all said already; if every one is spent, the best (as pick() in Python)
     const pick = (cands, key) => {
@@ -261,7 +492,7 @@ export class Net {
     for (const [k, v] of Object.entries(A)) if (v > 0.001 && !k.startsWith("F:")) units[k] = Math.round(v * 1000) / 1000;
     const top = Object.entries(scores).map(([e, v]) => [Math.round(v * 1000) / 1000, e])
       .sort((a, b) => b[0] - a[0] || (b[1] > a[1] ? 1 : b[1] < a[1] ? -1 : 0)).slice(0, 8);
-    return [reply, newState, { words, units, chosen, top }];
+    return [reply, newState, { words, units, chosen, top, tree: an.tree, tags: an.tag }];
   }
 
   // ---- the table: templates and style ----
@@ -306,7 +537,7 @@ export class Net {
 
   fill(text, ctx) {
     const P = this.persona;
-    return text.replace(/\{([a-z0-9_:]+)\}/g, (_, key) => {
+    return text.replace(/\{([a-z0-9_:.]+)\}/g, (_, key) => {
       if (key.startsWith("p:")) {
         for (const day of ctx.clock.days) {        // a fact of this day of the week, else the fact
           const bd = (P.by_day || {})[day];
@@ -316,6 +547,7 @@ export class Net {
       }
       if (key === "calc") return ctx.calc || "";
       if (key in ctx.regs) return ctx.regs[key];
+      if (key.startsWith("g.")) return this.gslot(key, ctx);
       const L = ctx.clock.local;
       if (key === "time") return `${L.getUTCHours() % 12 || 12}:${String(L.getUTCMinutes()).padStart(2, "0")}`;
       if (key === "first_msg" || key === "last_msg") {
@@ -328,6 +560,26 @@ export class Net {
       if (key === "daypart") { const hr = L.getUTCHours(); return hr >= 5 && hr < 12 ? "morning" : hr >= 12 && hr < 17 ? "afternoon" : hr >= 17 && hr < 22 ? "evening" : "night"; }
       return "";
     }).trim();
+  }
+
+  // a claimed phrase agrees with the persona's facts (as agrees() in Python)
+  agrees(phrase, facts) {
+    const norm = w => (w.length > 3 && w.endsWith("s") ? w.slice(0, -1) : w);
+    const said = new Set((phrase.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => !this.checkStop.has(w)).map(norm));
+    const known = new Set(facts.flatMap(f => String(this.persona.facts[f] ?? "").toLowerCase().match(/[a-z0-9]+/g) || []).map(norm));
+    return !said.size || [...said].some(w => known.has(w));
+  }
+
+  // {g.obj}, {g.obj.head}, {g.np}: from the parse (as _gslot in Python)
+  gslot(key, ctx) {
+    const an = ctx.an, words = ctx.words, c = an.clauses.length ? an.clauses[0] : null;
+    if ((key === "g.obj" || key === "g.obj.head") && c && c.obj_span) {
+      const [i, j] = c.obj_span;
+      if (key === "g.obj" && j - i <= 6) return this.reflect(words, an, i, j);
+      return this.reflect(words, an, c.obj_main, c.obj_main + 1);
+    }
+    if (key === "g.np" && an.frag_np) return this.reflect(words, an, an.frag_np[0], an.frag_np[1]);
+    return "";
   }
 
   style(text, seed, turnNo) {

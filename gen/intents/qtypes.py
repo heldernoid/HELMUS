@@ -26,5 +26,6 @@ intent("qt_do_you", ["^ [and|so|but] do|did|can|could|would|will|are|were you", 
        "a yes/no question about what Josh does",
        yes=["do you cook", "can you swim", "you play any instruments", "would you go skydiving", "did you go out last night"],
        no=["you are funny", "do it", "i can swim"])
-unit("user_tells", {"S:any": 1.0, "F:c:me": 1.0, "U:question": -1.0}, "the user tells something about themselves (not a question)",
-     bias=-1.0)
+unit("user_tells", {"S:any": 1.0, "F:c:me": 1.0, "U:question": -1.0, "G:neg": -1.0},
+     "the user tells something about themselves (not a question, and not negated: the theme replies to a telling "
+     "assume it is true of them; a negated one, 'i dont play games', is left to the grammar's replies)", bias=-1.0)

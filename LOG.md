@@ -152,6 +152,41 @@ The parity test now runs the schedule questions on several days and across the c
 - "what's your major" and "what do you study" got his job: study questions are a separate intent with their own
   answer and memory. "what do u do to relax" and "when ur bored" also got his job; they are hobby questions now.
 
+**19. A grammar.** A hand-written weighted context-free grammar of chat English (`gen/grammar/`, about 1,300
+rules), shared by every persona:
+- **Tags.** Word tags come from the vocabulary, read block by block: the rules that make "walked" also say it is a
+  past or a participle.
+- **Parsing.** A CKY parser in both engines keeps the best analysis. Scores are whole numbers, so Python and the
+  browser agree tie for tie; the parity test compares trees.
+- **What the network gets.** Tags, phrase starts and roles per word; clause features (`G:S`, `G:Sw`, `G:neg`,
+  `G:past`, `G:subj_2`, `G:verb_<base>`) per message.
+- **Phrase registers.** Registers now copy phrases ("ugh doing laundry", not "ugh doing"), said from the other side
+  ("my job" → "your job").
+- **Negation.** It is now read: "i dont play games" no longer gets "oh nice, is it fun".
+- **Jailbreak.** The jailbreak intent no longer fires on "ignore me".
+
+The grammar is measured against a treebank of 607 chat messages, written blind, split by hash. On the unread test
+split, the whole analysis went from 72% to 84% right while I fixed dev misses by kind, never sentence by sentence.
+
+**20. Answering the shape.** By aggregate counts, most messages HELMUS did not understand were well formed:
+wh-questions, statements, requests. A writer gave Josh about 100 entries keyed on the parse alone (a who-question
+about a third party, a request to describe, a negated statement about the user, a bare noun phrase). They sit in the
+fallback head, so they answer only when no reaction or answer fits, and they are counted apart from understanding.
+On the held-out games, stock fallbacks went from 26% to 0.2%; understanding by intents is unchanged at 74%.
+
+**21. Follow-ups and claims.** A user's chat showed two failures:
+- "anything else?" after "tell me something only a human would know" got "huh";
+- "you said you are from ohio right?" got "idk not really", and "you said you were from texas" got "my bad lol": a
+  bot agreeing with anything.
+
+The fixes:
+- **Claims** (`gen/intents/claims.py`, shared): where the persona is from, its age, job, pet, name, school, games.
+  The claimed phrase is copied into a register and checked against the persona's facts by a fixed rule (`CHECK`:
+  one of its words is in the named facts, stop words aside), giving `C:<claim>` or `C:<claim>_no`. Josh confirms or
+  corrects from his life: "nah, columbus ohio", "19 actually", "no, a cat lol".
+- **Another one** (`ask_another`): a list-like entry continues with its next unsaid item (`more_of`); after anything
+  else, "thats about it lol". Asking "anything else?" twice is not taken for a repeated message.
+
 ## What did not work
 
 - A repeat penalty that ruled entries out (decision 5).
@@ -164,17 +199,18 @@ The parity test now runs the schedule questions on several days and across the c
 
 Held-out test games (100, never read), against ELIZA (`eval/results.json`):
 
-| | First version | After phrasebook | After round 2 | After themes and question types |
-|---|---|---|---|---|
-| not understood (fallback) | 58% | 41% | 40% | 26% |
-| word-for-word repeats | 20% | 0% | 0% | 0% |
-| sounds like an assistant | 0% | 0% | 0% | 0% |
+| | First version | After phrasebook | After round 2 | After themes and question types | With the grammar |
+|---|---|---|---|---|---|
+| not understood (fallback) | 58% | 41% | 40% | 26% | 26%, answered by shape |
+| stock replies | 58% | 41% | 40% | 26% | 0.2% |
+| word-for-word repeats | 20% | 0% | 0% | 0% | 0% |
+| sounds like an assistant | 0% | 0% | 0% | 0% | 0% |
 
 ELIZA: 2.3% repeats, 6.5 words a reply. HELMUS: 3.6 words a reply, 80% of replies 5 words or fewer.
 
 Size:
-- 87,943 edit lines;
+- 95,101 edit lines (the grammar: about 1,300 rules, word tags for 30,000 forms, the base form of 2,863 verbs);
 - 8,063 units (7,169 detectors, 693 utterance units, 201 memory units);
-- 3,052 phrasebook entries (10,895 lines);
-- 6,634 intent tests;
+- 3,156 phrasebook entries (11,509 lines);
+- 6,642 intent tests, and a treebank of 607 analysed messages;
 - a hand-written vocabulary of 29,990 forms.

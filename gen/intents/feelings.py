@@ -995,7 +995,7 @@ intent("fo_user_hates_thing",
             "im not a fan of horror movies", "i despise cilantro", "i hate the rain"],
        no=["i hate you", "i hate my life", "do you hate mondays", "i like mondays", "i do not like you"],
        unless=["fo_user_hates_you", "fo_user_distress"])
-register("fo_user_hate", "fo_user_hates_thing", "thing", "what the user said they hate")
+register("fo_user_hate", "fo_user_hates_thing", "thing", "what the user said they hate", phrase=True)
 intent("fo_user_scared",
        ["i am [@intens] @fofear of the {thing}", "i am [@intens] @fofear of {thing}", "i am [@intens] @fofear $",
         "scare|scares me", "my biggest|worst fear", "i have a phobia", "i have a fear of", "i fear"],
@@ -1003,7 +1003,7 @@ intent("fo_user_scared",
        yes=["i'm scared of spiders", "im afraid of the dark", "i am so scared", "clowns scare me",
             "my biggest fear is heights", "i have a phobia of needles", "i'm terrified of flying"],
        no=["i'm afraid i can't make it", "are you scared", "that is scary", "you scared me", "what are you scared of"])
-register("fo_user_fear", "fo_user_scared", "thing", "what the user said they are afraid of")
+register("fo_user_fear", "fo_user_scared", "thing", "what the user said they are afraid of", phrase=True)
 intent("fo_user_feels_down",
        ["i am * !not sad|depressed|upset|miserable|unhappy", "i feel * !not sad|down|depressed|upset",
         "feeling * down|blue|low", "in a bad mood", "not in a good mood", "i feel like a failure", "i am a failure",
@@ -1175,7 +1175,7 @@ intent("fo_user_tells_favorite",
             "my favorite movie is the matrix", "my all time favorite food is sushi", "pizza is my favorite"],
        no=["what is your favorite color", "what's your favorite", "is it your favorite", "fav?"],
        unless=["fo_ask_recall_user_taste"])
-register("fo_user_favorite", "fo_user_tells_favorite", "thing", "the favourite the user named")
+register("fo_user_favorite", "fo_user_tells_favorite", "thing", "the favourite the user named", phrase=True)
 intent("fo_user_day_report",
        ["my day was [@intens] long|busy|weird|boring|chill|okay|alright|meh|normal|hectic|crazy|productive|slow",
         "today was [@intens] long|busy|weird|boring|chill|okay|alright|meh|normal|hectic|crazy|productive|slow",

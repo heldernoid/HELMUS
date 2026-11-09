@@ -11,7 +11,7 @@ const out = cases.map(c => {
   return c.messages.map((m, i) => {
     const [r, s, tr] = net.turn(st, m, new Date(c.now + i * 60000));
     st = s;
-    return { reply: r, chosen: tr.chosen, units: tr.units };
+    return { reply: r, chosen: tr.chosen, units: tr.units, tree: tr.tree, tags: tr.tags, regs: s.R };
   });
 });
 console.log(JSON.stringify(out));
