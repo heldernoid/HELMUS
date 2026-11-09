@@ -1,0 +1,122 @@
+[
+ {
+  "game": "jailbreak-09",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-02",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-03",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-01",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-06",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-07",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-04",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "jailbreak-05",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-03",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-02",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-01",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-07",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-06",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-05",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "rude-04",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "knowledge-09",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "knowledge-08",
+  "human": "B",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "smalltalk-07",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "knowledge-01",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ },
+ {
+  "game": "knowledge-03",
+  "human": "A",
+  "confidence": 97,
+  "reason": "The other witness gives canned ELIZA-style replies; this one responds like a casual human."
+ }
+]

@@ -37,5 +37,19 @@
    "words/reply": 6.5,
    "\u22645 words %": 36.3
   }
+ },
+ "judging": {
+  "test": {
+   "systems": [
+    "helmus",
+    "eliza"
+   ],
+   "games": 100,
+   "wins": {
+    "helmus": 100,
+    "eliza": 0
+   },
+   "confidence": 87
+  }
  }
 }

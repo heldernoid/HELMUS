@@ -102,6 +102,11 @@ def main():
             results[part][name] = s
             print(f"  {name:8s} " + " ".join(f"{s[c]:>12}" for c in cols))
     for path in (os.path.join(ROOT, "eval", "results.json"), os.path.join(ROOT, "web", "model", "results.json")):
+        try:
+            with open(path) as f:
+                results["judging"] = json.load(f).get("judging", {})   # judging verdicts stay until judged again
+        except (FileNotFoundError, ValueError):
+            pass
         with open(path, "w") as f:
             json.dump(results, f, indent=1)
 

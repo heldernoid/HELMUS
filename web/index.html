@@ -294,7 +294,11 @@ footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule)
     <div class="panel">
       <div class="big" id="bigstats"></div>
       <div class="tbl"><table id="restable"><thead><tr><th>Measure</th><th>HELMUS</th><th>ELIZA</th><th>What it means</th></tr></thead><tbody></tbody></table></div>
-      <p class="note">These are measures a machine can check. Whether people take Josh for a human is the real test: a blind comparison by judges, and then a study with people as in the 2025 paper, are the next steps. In that study ELIZA was judged human 23% of the time.</p>
+      <div class="section" id="judged" hidden>
+        <h3>Blind judging against ELIZA</h3>
+        <p id="judged-text"></p>
+      </div>
+      <p class="note">What this does and does not show: HELMUS clearly beats ELIZA. It does not show that HELMUS passes as a person, because the judges never saw a real human beside it. That needs games against human witnesses, and then a study with people as in the 2025 paper, where ELIZA was judged human 23% of the time.</p>
     </div>
     <div class="panel">
       <h2>HELMUS, ELIZA and WPLM</h2>

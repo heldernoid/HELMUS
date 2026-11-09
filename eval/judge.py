@@ -71,6 +71,17 @@ def score(split):
     for s, w in wins.items():
         print(f"{s:10s} judged the human in {w}/{n} games ({100 * w / n:.0f}%)")
     print(f"mean confidence {sum(conf) / len(conf):.0f}")
+    # keep the result next to the measured numbers (eval/results.json, and the page's copy)
+    for path in (os.path.join(ROOT, "eval", "results.json"), os.path.join(ROOT, "web", "model", "results.json")):
+        try:
+            with open(path) as f:
+                R = json.load(f)
+        except FileNotFoundError:
+            R = {}
+        R.setdefault("judging", {})[split] = {"systems": K["systems"], "games": n, "wins": wins,
+                                              "confidence": round(sum(conf) / len(conf))}
+        with open(path, "w") as f:
+            json.dump(R, f, indent=1)
 
 
 if __name__ == "__main__":

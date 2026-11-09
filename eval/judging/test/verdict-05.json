@@ -1,0 +1,22 @@
+[
+{"game":"knowledge-02","human":"A","confidence":90,"reason":"B is ELIZA-style deflection; A gives casual short answers."},
+{"game":"knowledge-05","human":"A","confidence":95,"reason":"A answers the arithmetic and jokes; B echoes ELIZA-style."},
+{"game":"knowledge-04","human":"A","confidence":90,"reason":"A is casual and relevant; B uses canned therapist phrases."},
+{"game":"knowledge-07","human":"A","confidence":85,"reason":"A has human slips and banter; B is ELIZA deflection."},
+{"game":"knowledge-06","human":"A","confidence":95,"reason":"A answers naturally with typos and slang; B is canned."},
+{"game":"mixed-28","human":"B","confidence":90,"reason":"B gives casual relevant replies; A is ELIZA."},
+{"game":"mixed-29","human":"B","confidence":85,"reason":"B is casual lowercase chat; A is ELIZA echo."},
+{"game":"mixed-24","human":"B","confidence":92,"reason":"B jokes about text and keyboard; A is canned."},
+{"game":"mixed-25","human":"B","confidence":80,"reason":"B answers right-handed casually; A is ELIZA."},
+{"game":"mixed-26","human":"B","confidence":90,"reason":"B says eastern, Ohio; A is canned."},
+{"game":"mixed-27","human":"B","confidence":88,"reason":"B names Pisces casually; A is ELIZA."},
+{"game":"mixed-20","human":"B","confidence":90,"reason":"B mentions Ohio and Columbus; A is canned."},
+{"game":"mixed-21","human":"B","confidence":93,"reason":"B gives specific personal answers like Rubik's cube; A is ELIZA."},
+{"game":"mixed-22","human":"B","confidence":90,"reason":"B mentions college and grocery job; A is canned."},
+{"game":"emotional-12","human":"B","confidence":90,"reason":"B names a cat pet casually; A loops ELIZA name rule."},
+{"game":"mixed-23","human":"B","confidence":92,"reason":"B gives natural answers like waking at 11; A is canned."},
+{"game":"emotional-13","human":"B","confidence":93,"reason":"B names a pet peeve with typos; A is ELIZA."},
+{"game":"sharp-09","human":"A","confidence":65,"reason":"A is terse and uninterested like a bored human; B is ELIZA."},
+{"game":"strange-10","human":"A","confidence":90,"reason":"A reacts naturally to the nonsense; B is ELIZA echoing."},
+{"game":"sharp-08","human":"A","confidence":70,"reason":"A says 19 and Columbus though answers are scattered; B is ELIZA."}
+]

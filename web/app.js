@@ -129,6 +129,11 @@ fetch("model/results.json").then(r => r.ok ? r.json() : null).then(R => {
     [`${H["assistant %"]}%`, "replies that sound like an assistant"],
     [`${H["words/reply"]}`, `words per reply (ELIZA ${E["words/reply"]})`],
   ].map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("");
+  const J = R.judging && R.judging.test;
+  if (J) {
+    $("judged").hidden = false;
+    $("judged-text").textContent = `AI judges read each of the ${J.games} held-out games blind, HELMUS and ELIZA side by side in random order as "Witness A" and "Witness B", told that exactly one was a human. They picked HELMUS as the human in ${J.wins.helmus} of ${J.games} games (mean confidence ${J.confidence}%). AI judges are a cheap stand-in for people, and they recognised ELIZA easily.`;
+  }
   $("restable").querySelector("tbody").innerHTML = MEASURES.map(([k, name, u, what]) =>
     `<tr><td>${name}</td><td class="num">${H[k]}${u}</td><td class="num">${k === "fallback %" ? "n/a" : E[k] + u}</td><td>${what}</td></tr>`).join("");
 }).catch(() => {});
